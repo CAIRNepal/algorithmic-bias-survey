@@ -1,0 +1,1438 @@
+[
+    {
+        "Paper Title": "Diagnosing bias in data-driven algorithms for healthcare",
+        "Authors": [
+            "Jenna Wiens",
+            "W. Nicholson Price",
+            "Michael W. Sjoding"
+        ],
+        "Affiliations": [
+            [],
+            [],
+            []
+        ],
+        "DOI": "10.1038/s41591-019-0726-6",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": [
+                2020,
+                1,
+                13
+            ]
+        },
+        "Publisher name": "Springer Science and Business Media LLC",
+        "License Information": "http://www.springer.com/tdm"
+    },
+    {
+        "Paper Title": "Artificial intelligence and algorithmic bias: implications for health systems",
+        "Authors": [
+            "Trishan Panch",
+            "Heather Mattie",
+            "Rifat Atun"
+        ],
+        "Affiliations": [
+            [],
+            [],
+            []
+        ],
+        "DOI": "10.7189/jogh.09.020318",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": "N/A"
+        },
+        "Publisher name": "International Global Health Society",
+        "License Information": "N/A"
+    },
+    {
+        "Paper Title": "Artificial Intelligence in Clinical Decision Support: Challenges for Evaluating AI and Practical Implications",
+        "Authors": [
+            "Farah Magrabi",
+            "Elske Ammenwerth",
+            "Jytte Brender McNair",
+            "Nicolet F. De Keizer",
+            "Hannele Hypp\u00f6nen",
+            "Pirkko Nyk\u00e4nen",
+            "Michael Rigby",
+            "Philip J. Scott",
+            "Tuulikki Vehko",
+            "Zoie Shui-Yee Wong",
+            "Andrew Georgiou"
+        ],
+        "Affiliations": [
+            [
+                "Macquarie University, Australian Institute of Health Innovation, Sydney, Australia"
+            ],
+            [
+                "UMIT, University for Health Sciences, Medical Informatics and Technology, Institute of Medical Informatics, Hall in Tyrol, Austria"
+            ],
+            [
+                "Department of Health Science and Technology, Aalborg University, Aalborg, Denmark"
+            ],
+            [
+                "Amsterdam UMC, University of Amsterdam, Department of Medical Informatics, Amsterdam Public Health research institute, The Netherlands"
+            ],
+            [
+                "National Institute for Health and Welfare, Information Department, Helsinki, Finland"
+            ],
+            [
+                "Tampere University, Faculty for Information Technology and Communication Sciences, Tampere, Finland"
+            ],
+            [
+                "Keele University, School of Social Science and Public Policy, Keele, United Kingdom"
+            ],
+            [
+                "University of Portsmouth, Centre for Healthcare Modelling and Informatics, Portsmouth, United Kingdom"
+            ],
+            [
+                "National Institute for Health and Welfare, Information Department, Helsinki, Finland"
+            ],
+            [
+                "St. Luke\u2019s International University, Tokyo, Japan"
+            ],
+            [
+                "Macquarie University, Australian Institute of Health Innovation, Sydney, Australia"
+            ]
+        ],
+        "DOI": "10.1055/s-0039-1677903",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": [
+                2019,
+                4,
+                25
+            ]
+        },
+        "Publisher name": "Georg Thieme Verlag KG",
+        "License Information": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+    },
+    {
+        "Paper Title": "Artificial intelligence bias in medical system designs: a systematic review",
+        "Authors": [
+            "Ashish Kumar",
+            "Vivekanand Aelgani",
+            "Rubeena Vohra",
+            "Suneet K. Gupta",
+            "Mrinalini Bhagawati",
+            "Sudip Paul",
+            "Luca Saba",
+            "Neha Suri",
+            "Narendra N. Khanna",
+            "John R. Laird",
+            "Amer M. Johri",
+            "Manudeep Kalra",
+            "Mostafa M. Fouda",
+            "Mostafa Fatemi",
+            "Subbaram Naidu",
+            "Jasjit S. Suri"
+        ],
+        "Affiliations": [
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+        ],
+        "DOI": "10.1007/s11042-023-16029-x",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": [
+                2023,
+                7,
+                22
+            ]
+        },
+        "Publisher name": "Springer Science and Business Media LLC",
+        "License Information": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+    },
+    {
+        "Paper Title": "Inherent Bias in Artificial Intelligence-Based Decision Support Systems for Healthcare",
+        "Authors": [
+            "Varadraj Gurupur",
+            "Thomas T. H. Wan"
+        ],
+        "Affiliations": [
+            [
+                "Department of Health Management and Informatics, University of Central Florida, Orlando, FL 32816, USA"
+            ],
+            [
+                "Department of Health Management and Informatics, University of Central Florida, Orlando, FL 32816, USA"
+            ]
+        ],
+        "DOI": "10.3390/medicina56030141",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": [
+                2020,
+                3,
+                20
+            ]
+        },
+        "Publisher name": "MDPI AG",
+        "License Information": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+        "Paper Title": "Algorithmic bias in data-driven innovation in the age of AI",
+        "Authors": [
+            "Shahriar Akter",
+            "Grace McCarthy",
+            "Shahriar Sajib",
+            "Katina Michael",
+            "Yogesh K. Dwivedi",
+            "John D\u2019Ambra",
+            "K.N. Shen"
+        ],
+        "Affiliations": [
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+        ],
+        "DOI": "10.1016/j.ijinfomgt.2021.102387",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": "N/A"
+        },
+        "Publisher name": "Elsevier BV",
+        "License Information": "https://www.elsevier.com/tdm/userlicense/1.0/"
+    },
+    {
+        "Paper Title": "Fairness and Bias in Artificial Intelligence: A Brief Survey of Sources, Impacts, and Mitigation Strategies",
+        "Authors": [
+            "Emilio Ferrara"
+        ],
+        "Affiliations": [
+            [
+                "Thomas Lord Department of Computer Science, USC Viterbi School of Engineering, University of Southern California, Los Angeles, CA 90007, USA"
+            ]
+        ],
+        "DOI": "10.3390/sci6010003",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": [
+                2023,
+                12,
+                26
+            ]
+        },
+        "Publisher name": "MDPI AG",
+        "License Information": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+        "Paper Title": "Semantic Web technologies and bias in artificial intelligence: A systematic literature\u00a0review",
+        "Authors": [
+            "Paula Reyero Lobo",
+            "Enrico Daga",
+            "Harith Alani",
+            "Miriam Fernandez"
+        ],
+        "Affiliations": [
+            [
+                "Knowledge Media Institute, The Open University, United Kingdom"
+            ],
+            [
+                "Knowledge Media Institute, The Open University, United Kingdom"
+            ],
+            [
+                "Knowledge Media Institute, The Open University, United Kingdom"
+            ],
+            [
+                "Knowledge Media Institute, The Open University, United Kingdom"
+            ]
+        ],
+        "DOI": "10.3233/sw-223041",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": "N/A"
+        },
+        "Publisher name": "SAGE Publications",
+        "License Information": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+        "Paper Title": "Are AI systems biased against the poor? A machine learning analysis using Word2Vec and GloVe embeddings",
+        "Authors": [
+            "Georgina Curto",
+            "Mario Fernando Jojoa Acosta",
+            "Flavio Comim",
+            "Bego\u00f1a Garcia-Zapirain"
+        ],
+        "Affiliations": [
+            [],
+            [],
+            [],
+            []
+        ],
+        "DOI": "10.1007/s00146-022-01494-z",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": [
+                2022,
+                6,
+                28
+            ]
+        },
+        "Publisher name": "Springer Science and Business Media LLC",
+        "License Information": "https://creativecommons.org/licenses/by/4.0"
+    },
+    {
+        "Paper Title": "Sources of bias in artificial intelligence that perpetuate healthcare disparities\u2014A global review",
+        "Authors": [
+            "Leo Anthony Celi",
+            "Jacqueline Cellini",
+            "Marie-Laure Charpignon",
+            "Edward Christopher Dee",
+            "Franck Dernoncourt",
+            "Rene Eber",
+            "William Greig Mitchell",
+            "Lama Moukheiber",
+            "Julian Schirmer",
+            "Julia Situ",
+            "Joseph Paguio",
+            "Joel Park",
+            "Judy Gichoya Wawira",
+            "Seth Yao",
+            " "
+        ],
+        "Affiliations": [
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+        ],
+        "DOI": "10.1371/journal.pdig.0000022",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": [
+                2022,
+                3,
+                31
+            ]
+        },
+        "Publisher name": "Public Library of Science (PLoS)",
+        "License Information": "http://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+        "Paper Title": "Analysis of Countries in Terms of Artificial Intelligence Technologies: PROMETHEE and GAIA Method Approach",
+        "Authors": [
+            "Gokhan Ozkaya",
+            "Ayse Demirhan"
+        ],
+        "Affiliations": [
+            [
+                "Department of Business Administration, Yildiz Technical University, 34220 Istanbul, Turkey"
+            ],
+            [
+                "Department of Business Administration, Yildiz Technical University, 34220 Istanbul, Turkey"
+            ]
+        ],
+        "DOI": "10.3390/su15054604",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": [
+                2023,
+                3,
+                4
+            ]
+        },
+        "Publisher name": "MDPI AG",
+        "License Information": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+        "Paper Title": "Evaluation and Mitigation of Racial Bias in Clinical Machine Learning Models: Scoping Review",
+        "Authors": [
+            "Jonathan Huang",
+            "Galal Galal",
+            "Mozziyar Etemadi",
+            "Mahesh Vaidyanathan"
+        ],
+        "Affiliations": [
+            [],
+            [],
+            [],
+            []
+        ],
+        "DOI": "10.2196/36388",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": [
+                2022,
+                5,
+                31
+            ]
+        },
+        "Publisher name": "JMIR Publications Inc.",
+        "License Information": "N/A"
+    },
+    {
+        "Paper Title": "Algorithmic Bias in Autonomous Systems",
+        "Authors": [
+            "David Danks",
+            "Alex John London"
+        ],
+        "Affiliations": [
+            [
+                "Carnegie Mellon University",
+                "Departments of Philosophy & Psychology"
+            ],
+            [
+                "Carnegie Mellon University",
+                "Department of Philosophy & Center for Ethics & Policy"
+            ]
+        ],
+        "DOI": "10.24963/ijcai.2017/654",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": "N/A"
+        },
+        "Publisher name": "International Joint Conferences on Artificial Intelligence Organization",
+        "License Information": "N/A"
+    },
+    {
+        "Paper Title": "Meritocratic Fairness for Infinite and Contextual Bandits",
+        "Authors": [
+            "Matthew Joseph",
+            "Michael Kearns",
+            "Jamie Morgenstern",
+            "Seth Neel",
+            "Aaron Roth"
+        ],
+        "Affiliations": [
+            [
+                "University of Pennsylvania, Philadelphia, PA, USA"
+            ],
+            [
+                "University of Pennsylvania, Philadelphia, PA, USA"
+            ],
+            [
+                "University of Pennsylvania, Philadelphia, PA, USA"
+            ],
+            [
+                "University of Pennsylvania, Philadelphia, PA, USA"
+            ],
+            [
+                "University of Pennsylvania, Philadelphia, PA, USA"
+            ]
+        ],
+        "DOI": "10.1145/3278721.3278764",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": [
+                2018,
+                12,
+                27
+            ]
+        },
+        "Publisher name": "ACM",
+        "License Information": "http://www.acm.org/publications/policies/copyright_policy#Background"
+    },
+    {
+        "Paper Title": "Fairness in Machine Learning: A Survey",
+        "Authors": [
+            "Simon Caton",
+            "Christian Haas"
+        ],
+        "Affiliations": [
+            [
+                "University College Dublin, Dublin, Ireland"
+            ],
+            [
+                "University of Nebraska at Omaha, Omaha, USA and Vienna University of Economics and Business (WU), Wien, Austria"
+            ]
+        ],
+        "DOI": "10.1145/3616865",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": [
+                2024,
+                4,
+                9
+            ]
+        },
+        "Publisher name": "Association for Computing Machinery (ACM)",
+        "License Information": "N/A"
+    },
+    {
+        "Paper Title": "\"Ignorance and Prejudice\" in Software Fairness",
+        "Authors": [
+            "Jie M. Zhang",
+            "Mark Harman"
+        ],
+        "Affiliations": [
+            [],
+            []
+        ],
+        "DOI": "10.1109/icse43902.2021.00129",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": "N/A"
+        },
+        "Publisher name": "IEEE",
+        "License Information": "https://ieeexplore.ieee.org/Xplorehelp/downloads/license-information/IEEE.html"
+    },
+    {
+        "Paper Title": "Bias Mitigation for Machine Learning Classifiers: A Comprehensive Survey",
+        "Authors": [
+            "Max Hort",
+            "Zhenpeng Chen",
+            "Jie M. Zhang",
+            "Mark Harman",
+            "Federica Sarro"
+        ],
+        "Affiliations": [
+            [
+                "Simula Research Laboratory, London, Norway"
+            ],
+            [
+                "University College London, London, United Kingdom"
+            ],
+            [
+                "King\u2019s College London, London, United Kingdom"
+            ],
+            [
+                "University College London, London, United Kingdom"
+            ],
+            [
+                "University College London, London, United Kingdom"
+            ]
+        ],
+        "DOI": "10.1145/3631326",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": [
+                2024,
+                6,
+                20
+            ]
+        },
+        "Publisher name": "Association for Computing Machinery (ACM)",
+        "License Information": "N/A"
+    },
+    {
+        "Paper Title": "Black box fairness testing of machine learning models",
+        "Authors": [
+            "Aniya Aggarwal",
+            "Pranay Lohia",
+            "Seema Nagar",
+            "Kuntal Dey",
+            "Diptikalyan Saha"
+        ],
+        "Affiliations": [
+            [
+                "IBM Research, India"
+            ],
+            [
+                "IBM Research, India"
+            ],
+            [
+                "IBM Research, India"
+            ],
+            [
+                "IBM Research, India"
+            ],
+            [
+                "IBM Research, India"
+            ]
+        ],
+        "DOI": "10.1145/3338906.3338937",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": [
+                2019,
+                8,
+                12
+            ]
+        },
+        "Publisher name": "ACM",
+        "License Information": "http://www.acm.org/publications/policies/copyright_policy#Background"
+    },
+    {
+        "Paper Title": "MAAT: a novel ensemble approach to addressing fairness and performance bugs for machine learning software",
+        "Authors": [
+            "Zhenpeng Chen",
+            "Jie M. Zhang",
+            "Federica Sarro",
+            "Mark Harman"
+        ],
+        "Affiliations": [
+            [
+                "University College London, UK"
+            ],
+            [
+                "King\u2019s College London, UK"
+            ],
+            [
+                "University College London, UK"
+            ],
+            [
+                "University College London, UK"
+            ]
+        ],
+        "DOI": "10.1145/3540250.3549093",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": [
+                2022,
+                11,
+                9
+            ]
+        },
+        "Publisher name": "ACM",
+        "License Information": "N/A"
+    },
+    {
+        "Paper Title": "Fairea: a model behaviour mutation approach to benchmarking bias mitigation methods",
+        "Authors": [
+            "Max Hort",
+            "Jie M. Zhang",
+            "Federica Sarro",
+            "Mark Harman"
+        ],
+        "Affiliations": [
+            [
+                "University College London, UK"
+            ],
+            [
+                "University College London, UK"
+            ],
+            [
+                "University College London, UK"
+            ],
+            [
+                "University College London, UK"
+            ]
+        ],
+        "DOI": "10.1145/3468264.3468565",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": [
+                2021,
+                8,
+                18
+            ]
+        },
+        "Publisher name": "ACM",
+        "License Information": "N/A"
+    },
+    {
+        "Paper Title": "Machine learning fairness notions: Bridging the gap with real-world applications",
+        "Authors": [
+            "Karima Makhlouf",
+            "Sami Zhioua",
+            "Catuscia Palamidessi"
+        ],
+        "Affiliations": [
+            [],
+            [],
+            []
+        ],
+        "DOI": "10.1016/j.ipm.2021.102642",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": "N/A"
+        },
+        "Publisher name": "Elsevier BV",
+        "License Information": "https://www.elsevier.com/tdm/userlicense/1.0/"
+    },
+    {
+        "Paper Title": "Algorithmic Fairness: Choices, Assumptions, and Definitions",
+        "Authors": [
+            "Shira Mitchell",
+            "Eric Potash",
+            "Solon Barocas",
+            "Alexander D'Amour",
+            "Kristian Lum"
+        ],
+        "Affiliations": [
+            [
+                "Port Jefferson, New York 11777, USA"
+            ],
+            [
+                "Harris School of Public Policy, University of Chicago, Chicago, Illinois 60637, USA;"
+            ],
+            [
+                "Microsoft Research, New York, NY 10012, USA",
+                "Department of Information Science, Cornell University, Ithaca, New York 14853, USA;"
+            ],
+            [
+                "Google Research, Cambridge, Massachusetts 02124, USA;"
+            ],
+            [
+                "Department of Computer and Information Science, University of Pennsylvania, Philadelphia, Pennsylvania 19104, USA;"
+            ]
+        ],
+        "DOI": "10.1146/annurev-statistics-042720-125902",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": "N/A"
+        },
+        "Publisher name": "Annual Reviews",
+        "License Information": "http://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+        "Paper Title": "On the Applicability of Machine Learning Fairness Notions",
+        "Authors": [
+            "Karima Makhlouf",
+            "Sami Zhioua",
+            "Catuscia Palamidessi"
+        ],
+        "Affiliations": [
+            [
+                "Universit\u00e9 du Qu\u00e9bec \u00e0 Montr\u00b4\u00e9al, Montr\u00b4\u00e9al, PQ, Canada"
+            ],
+            [
+                "Higher Colleges of Technology, Dubai, UAE"
+            ],
+            [
+                "INRIA, \u00c9cole Polytechnique, IPP, Paris, France"
+            ]
+        ],
+        "DOI": "10.1145/3468507.3468511",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": [
+                2021,
+                5,
+                29
+            ]
+        },
+        "Publisher name": "Association for Computing Machinery (ACM)",
+        "License Information": "N/A"
+    },
+    {
+        "Paper Title": "Approval of artificial intelligence and machine learning-based medical devices in the USA and Europe (2015\u201320): a comparative analysis",
+        "Authors": [
+            "Urs J Muehlematter",
+            "Paola Daniore",
+            "Kerstin N Vokinger"
+        ],
+        "Affiliations": [
+            [],
+            [],
+            []
+        ],
+        "DOI": "10.1016/s2589-7500(20)30292-2",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": "N/A"
+        },
+        "Publisher name": "Elsevier BV",
+        "License Information": "https://www.elsevier.com/tdm/userlicense/1.0/"
+    },
+    {
+        "Paper Title": "Artificial intelligence in medicine: Overcoming or recapitulating structural challenges to improving patient care?",
+        "Authors": [
+            "Alex John London"
+        ],
+        "Affiliations": [
+            []
+        ],
+        "DOI": "10.1016/j.xcrm.2022.100622",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": "N/A"
+        },
+        "Publisher name": "Elsevier BV",
+        "License Information": "https://www.elsevier.com/tdm/userlicense/1.0/"
+    },
+    {
+        "Paper Title": "FDA-approved machine learning algorithms in neuroradiology: A systematic review of the current evidence for approval",
+        "Authors": [
+            "Alexander G. Yearley",
+            "Caroline M.W. Goedmakers",
+            "Armon Panahi",
+            "Joanne Doucette",
+            "Aakanksha Rana",
+            "Kavitha Ranganathan",
+            "Timothy R. Smith"
+        ],
+        "Affiliations": [
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+        ],
+        "DOI": "10.1016/j.artmed.2023.102607",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": "N/A"
+        },
+        "Publisher name": "Elsevier BV",
+        "License Information": "https://www.elsevier.com/tdm/userlicense/1.0/"
+    },
+    {
+        "Paper Title": "Data drift in medical machine learning: implications and potential remedies",
+        "Authors": [
+            "Berkman Sahiner",
+            "Weijie Chen",
+            "Ravi K Samala",
+            "Nicholas Petrick"
+        ],
+        "Affiliations": [
+            [
+                "Center for Devices and Radiological Health, U.S. Food and Drug Administration 10903 New Hampshire Avenue , Silver Spring, MD 20993-0002"
+            ],
+            [
+                "Center for Devices and Radiological Health, U.S. Food and Drug Administration 10903 New Hampshire Avenue , Silver Spring, MD 20993-0002"
+            ],
+            [
+                "Center for Devices and Radiological Health, U.S. Food and Drug Administration 10903 New Hampshire Avenue , Silver Spring, MD 20993-0002"
+            ],
+            [
+                "Center for Devices and Radiological Health, U.S. Food and Drug Administration 10903 New Hampshire Avenue , Silver Spring, MD 20993-0002"
+            ]
+        ],
+        "DOI": "10.1259/bjr.20220878",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": [
+                2023,
+                3,
+                27
+            ]
+        },
+        "Publisher name": "Oxford University Press (OUP)",
+        "License Information": "https://academic.oup.com/journals/pages/open_access/funder_policies/chorus/standard_publication_model"
+    },
+    {
+        "Paper Title": "Publisher Correction to: Recommendations on compiling test datasets for evaluating artificial intelligence solutions in pathology",
+        "Authors": [
+            "Andr\u00e9 Homeyer",
+            "Christian Gei\u00dfler",
+            "Lars Ole Schwen",
+            "Falk Zakrzewski",
+            "Theodore Evans",
+            "Klaus Strohmenger",
+            "Max Westphal",
+            "Roman David B\u00fclow",
+            "Michaela Kargl",
+            "Aray Karjauv",
+            "Isidre Munn\u00e9-Bertran",
+            "Carl Orge Retzlaff",
+            "Adri\u00e0 Romero-L\u00f3pez",
+            "Tomasz So\u0142tysi\u0144ski",
+            "Markus Plass",
+            "Rita Carvalho",
+            "Peter Steinbach",
+            "Yu-Chia Lan",
+            "Nassim Bouteldja",
+            "David Haber",
+            "Mateo Rojas-Carulla",
+            "Alireza Vafaei Sadr",
+            "Matthias Kraft",
+            "Daniel Kr\u00fcger",
+            "Rutger Fick",
+            "Tobias Lang",
+            "Peter Boor",
+            "Heimo M\u00fcller",
+            "Peter Hufnagl",
+            "Norman Zerbe"
+        ],
+        "Affiliations": [
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+        ],
+        "DOI": "10.1038/s41379-022-01163-y",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": "N/A"
+        },
+        "Publisher name": "Elsevier BV",
+        "License Information": "https://www.elsevier.com/tdm/userlicense/1.0/"
+    },
+    {
+        "Paper Title": "Shifting machine learning for healthcare from development to deployment and from models to data",
+        "Authors": [
+            "Angela Zhang",
+            "Lei Xing",
+            "James Zou",
+            "Joseph C. Wu"
+        ],
+        "Affiliations": [
+            [],
+            [],
+            [],
+            []
+        ],
+        "DOI": "10.1038/s41551-022-00898-y",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": [
+                2022,
+                7,
+                4
+            ]
+        },
+        "Publisher name": "Springer Science and Business Media LLC",
+        "License Information": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+    },
+    {
+        "Paper Title": "Towards a Fair Marketplace",
+        "Authors": [
+            "Rishabh Mehrotra",
+            "James McInerney",
+            "Hugues Bouchard",
+            "Mounia Lalmas",
+            "Fernando Diaz"
+        ],
+        "Affiliations": [
+            [
+                "Spotify Research, London, United Kingdom"
+            ],
+            [
+                "Spotify Research, New York City, NY, USA"
+            ],
+            [
+                "Spotify Research, New York City, NY, USA"
+            ],
+            [
+                "Spotify Research, London, United Kingdom"
+            ],
+            [
+                "Microsoft Research, Montreal, Canada"
+            ]
+        ],
+        "DOI": "10.1145/3269206.3272027",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": [
+                2018,
+                10,
+                17
+            ]
+        },
+        "Publisher name": "ACM",
+        "License Information": "http://www.acm.org/publications/policies/copyright_policy#Background"
+    },
+    {
+        "Paper Title": "A Review on Fairness in Machine Learning",
+        "Authors": [
+            "Dana Pessach",
+            "Erez Shmueli"
+        ],
+        "Affiliations": [
+            [
+                "Department of Industrial Engineering, Tel-Aviv University, Tel-Aviv, Israel"
+            ],
+            [
+                "Department of Industrial Engineering, Tel-Aviv University, Tel-Aviv, Israel"
+            ]
+        ],
+        "DOI": "10.1145/3494672",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": [
+                2022,
+                2,
+                3
+            ]
+        },
+        "Publisher name": "Association for Computing Machinery (ACM)",
+        "License Information": "N/A"
+    },
+    {
+        "Paper Title": "Fairness in Machine Learning: A Survey",
+        "Authors": [
+            "Simon Caton",
+            "Christian Haas"
+        ],
+        "Affiliations": [
+            [
+                "University College Dublin, Dublin, Ireland"
+            ],
+            [
+                "University of Nebraska at Omaha, Omaha, USA and Vienna University of Economics and Business (WU), Wien, Austria"
+            ]
+        ],
+        "DOI": "10.1145/3616865",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": [
+                2024,
+                4,
+                9
+            ]
+        },
+        "Publisher name": "Association for Computing Machinery (ACM)",
+        "License Information": "N/A"
+    },
+    {
+        "Paper Title": "Fairness-Aware Explainable Recommendation over Knowledge Graphs",
+        "Authors": [
+            "Zuohui Fu",
+            "Yikun Xian",
+            "Ruoyuan Gao",
+            "Jieyu Zhao",
+            "Qiaoying Huang",
+            "Yingqiang Ge",
+            "Shuyuan Xu",
+            "Shijie Geng",
+            "Chirag Shah",
+            "Yongfeng Zhang",
+            "Gerard de Melo"
+        ],
+        "Affiliations": [
+            [
+                "Rutgers University, New Brunswick, NJ, USA"
+            ],
+            [
+                "Rutgers University, New Brunswick, NJ, USA"
+            ],
+            [
+                "Rutgers University, New Brunswick, NJ, USA"
+            ],
+            [
+                "University of California, Los Angeles, Los Angeles, CA, USA"
+            ],
+            [
+                "Rutgers University, New Brunswick, NJ, USA"
+            ],
+            [
+                "Rutgers University, New Brunswick, NJ, USA"
+            ],
+            [
+                "Rutgers University, New Brunswick, NJ, USA"
+            ],
+            [
+                "Rutgers University, New Brunswick, NJ, USA"
+            ],
+            [
+                "University of Washington, Seattle, WA, USA"
+            ],
+            [
+                "Rutgers University, New Brunswick, NJ, USA"
+            ],
+            [
+                "Rutgers University, New Brunswick, NJ, USA"
+            ]
+        ],
+        "DOI": "10.1145/3397271.3401051",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": [
+                2020,
+                7,
+                25
+            ]
+        },
+        "Publisher name": "ACM",
+        "License Information": "N/A"
+    },
+    {
+        "Paper Title": "Big Data's Disparate Impact",
+        "Authors": [
+            "Solon Barocas",
+            "Andrew D. Selbst"
+        ],
+        "Affiliations": [
+            [],
+            []
+        ],
+        "DOI": "10.2139/ssrn.2477899",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": "N/A"
+        },
+        "Publisher name": "Elsevier BV",
+        "License Information": "N/A"
+    },
+    {
+        "Paper Title": "Integrating Behavioral, Economic, and Technical Insights to Address Algorithmic Bias: Challenges and Opportunities for IS Research",
+        "Authors": [
+            "Gediminas Adomavicius",
+            "Mochen Yang"
+        ],
+        "Affiliations": [
+            [],
+            []
+        ],
+        "DOI": "10.2139/ssrn.3446944",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": "N/A"
+        },
+        "Publisher name": "Elsevier BV",
+        "License Information": "N/A"
+    },
+    {
+        "Paper Title": "A Survey on Trustworthy Recommender Systems",
+        "Authors": [
+            "Yingqiang Ge",
+            "Shuchang Liu",
+            "Zuohui Fu",
+            "Juntao Tan",
+            "Zelong Li",
+            "Shuyuan Xu",
+            "Yunqi Li",
+            "Yikun Xian",
+            "Yongfeng Zhang"
+        ],
+        "Affiliations": [
+            [
+                "Rutgers University, New Brunswick, United States"
+            ],
+            [
+                "Rutgers University, New Brunswick, United States"
+            ],
+            [
+                "Rutgers University, New Brunswick, United States"
+            ],
+            [
+                "Computer Science, Rutgers University, New Brunswick, United States"
+            ],
+            [
+                "Rutgers University, New Brunswick, United States"
+            ],
+            [
+                "Computer Science, Rutgers University, New Brunswick, United States"
+            ],
+            [
+                "Rutgers University, New Brunswick, United States"
+            ],
+            [
+                "Rutgers University, New Brunswick, United States"
+            ],
+            [
+                "Computer Science, Rutgers University, New Brunswick, United States"
+            ]
+        ],
+        "DOI": "10.1145/3652891",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": [
+                2024,
+                11,
+                27
+            ]
+        },
+        "Publisher name": "Association for Computing Machinery (ACM)",
+        "License Information": "N/A"
+    },
+    {
+        "Paper Title": "Towards Personalized Fairness based on Causal Notion",
+        "Authors": [
+            "Yunqi Li",
+            "Hanxiong Chen",
+            "Shuyuan Xu",
+            "Yingqiang Ge",
+            "Yongfeng Zhang"
+        ],
+        "Affiliations": [
+            [
+                "Rutgers University, New Brunswick, NJ, USA"
+            ],
+            [
+                "Rutgers University, New Brunswick, NJ, USA"
+            ],
+            [
+                "Rutgers University, New Brunswick, NJ, USA"
+            ],
+            [
+                "Rutgers University, New Brunswick, NJ, USA"
+            ],
+            [
+                "Rutgers University, New Brunswick, NJ, USA"
+            ]
+        ],
+        "DOI": "10.1145/3404835.3462966",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": [
+                2021,
+                7,
+                11
+            ]
+        },
+        "Publisher name": "ACM",
+        "License Information": "http://www.acm.org/publications/policies/copyright_policy#Background"
+    },
+    {
+        "Paper Title": "Explainable Recommender Systems with\u00a0Knowledge Graphs and\u00a0Language Models",
+        "Authors": [
+            "Giacomo Balloccu",
+            "Ludovico Boratto",
+            "Gianni Fenu",
+            "Francesca Maridina Malloci",
+            "Mirko Marras"
+        ],
+        "Affiliations": [
+            [],
+            [],
+            [],
+            [],
+            []
+        ],
+        "DOI": "10.1007/978-3-031-56069-9_46",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": [
+                2024,
+                3,
+                23
+            ]
+        },
+        "Publisher name": "Springer Nature Switzerland",
+        "License Information": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+    },
+    {
+        "Paper Title": "Knowledge Graphs and Explainable AI in Healthcare",
+        "Authors": [
+            "Enayat Rajabi",
+            "Somayeh Kafaie"
+        ],
+        "Affiliations": [
+            [
+                "Department of Financial and Information Management, Cape Breton University, Sydney, NS B1P 6L2, Canada"
+            ],
+            [
+                "Mathematics and Computing Science Department, Saint Mary\u2019s University, 912 Robie Street, Halifax, NS B3H 3C3, Canada"
+            ]
+        ],
+        "DOI": "10.3390/info13100459",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": [
+                2022,
+                9,
+                28
+            ]
+        },
+        "Publisher name": "MDPI AG",
+        "License Information": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+        "Paper Title": "Constructing knowledge graphs and their biomedical applications",
+        "Authors": [
+            "David N. Nicholson",
+            "Casey S. Greene"
+        ],
+        "Affiliations": [
+            [],
+            []
+        ],
+        "DOI": "10.1016/j.csbj.2020.05.017",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": "N/A"
+        },
+        "Publisher name": "Elsevier BV",
+        "License Information": "https://www.elsevier.com/tdm/userlicense/1.0/"
+    },
+    {
+        "Paper Title": "Did You Do Your Homework? Raising Awareness on Software Fairness and Discrimination",
+        "Authors": [
+            "Max Hort",
+            "Federica Sarro"
+        ],
+        "Affiliations": [
+            [],
+            []
+        ],
+        "DOI": "10.1109/ase51524.2021.9678568",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": "N/A"
+        },
+        "Publisher name": "IEEE",
+        "License Information": "https://ieeexplore.ieee.org/Xplorehelp/downloads/license-information/IEEE.html"
+    },
+    {
+        "Paper Title": "\"Ignorance and Prejudice\" in Software Fairness",
+        "Authors": [
+            "Jie M. Zhang",
+            "Mark Harman"
+        ],
+        "Affiliations": [
+            [],
+            []
+        ],
+        "DOI": "10.1109/icse43902.2021.00129",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": "N/A"
+        },
+        "Publisher name": "IEEE",
+        "License Information": "https://ieeexplore.ieee.org/Xplorehelp/downloads/license-information/IEEE.html"
+    },
+    {
+        "Paper Title": "Privileged and unprivileged groups",
+        "Authors": [
+            "Max Hort",
+            "Federica Sarro"
+        ],
+        "Affiliations": [
+            [
+                "University College London, London, United Kingdom"
+            ],
+            [
+                "University College London, London, United Kingdom"
+            ]
+        ],
+        "DOI": "10.1145/3524491.3527308",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": [
+                2022,
+                12,
+                8
+            ]
+        },
+        "Publisher name": "ACM",
+        "License Information": "N/A"
+    },
+    {
+        "Paper Title": "Fairness-Aware Machine Learning",
+        "Authors": [
+            "Sarah Bird",
+            "Ben Hutchinson",
+            "Krishnaram Kenthapadi",
+            "Emre Kiciman",
+            "Margaret Mitchell"
+        ],
+        "Affiliations": [
+            [
+                "Microsoft, New York, NY, USA"
+            ],
+            [
+                "Google, San Francisco, CA, USA"
+            ],
+            [
+                "LinkedIn, Sunnyvale, CA, USA"
+            ],
+            [
+                "Microsoft, Redmond, WA, USA"
+            ],
+            [
+                "Google, Kirkland, WA, USA"
+            ]
+        ],
+        "DOI": "10.1145/3292500.3332280",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": [
+                2019,
+                7,
+                25
+            ]
+        },
+        "Publisher name": "ACM",
+        "License Information": "http://www.acm.org/publications/policies/copyright_policy#Background"
+    },
+    {
+        "Paper Title": "An information theoretic approach to reducing algorithmic bias for machine learning",
+        "Authors": [
+            "Jin-Young Kim",
+            "Sung-Bae Cho"
+        ],
+        "Affiliations": [
+            [],
+            []
+        ],
+        "DOI": "10.1016/j.neucom.2021.09.081",
+        "Editors": "N/A",
+        "Reviewers": "N/A",
+        "Key Dates": {
+            "Date Published": "N/A"
+        },
+        "Publisher name": "Elsevier BV",
+        "License Information": "https://www.elsevier.com/tdm/userlicense/1.0/"
+    }
+]
