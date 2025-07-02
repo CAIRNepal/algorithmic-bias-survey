@@ -29,7 +29,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <header className="w-full bg-white shadow flex items-center px-6 py-4 mb-4">
-          <Image src="/logo-slogan.png" alt="CAIR Nepal Logo" width={120} height={40} className="h-10 mr-4 object-contain" priority />
+          <Image src="logo-slogan.png" alt="CAIR Nepal Logo" width={120} height={40} className="h-10 mr-4 object-contain" priority />
           <div>
             <span className="text-2xl font-bold text-blue-700">Bias Research Dashboard</span>
             <span className="block text-sm text-gray-500">Empowering Fairness & Transparency in AI Research</span>
