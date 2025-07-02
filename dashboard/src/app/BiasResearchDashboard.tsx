@@ -179,18 +179,23 @@ const BiasResearchDashboard = () => {
     // Add more as needed
   };
 
+  // Add useEffect to reset pagination when filters change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchQuery, filterYear, filterRegion, filterDomain]);
+
   const filteredPapers = papers.filter(paper => {
-    const title = (paper['Paper Title'] || '').toLowerCase();
-    const author = (paper['Authors'] || '').toLowerCase();
-    const domain = (paper['Domain'] || '').toLowerCase();
-    const region = (paper['Pub Year & Author Region'] || '').split(' ').slice(1).join(' ').toLowerCase();
-    const year = (paper['Pub Year & Author Region'] || '').split(' ')[0];
-    const q = searchQuery.toLowerCase();
+    const title = (paper['Paper Title'] || '').toLowerCase().trim();
+    const author = (paper['Authors'] || '').toLowerCase().trim();
+    const domain = (paper['Domain'] || '').toLowerCase().trim();
+    const region = (paper['Pub Year & Author Region'] || '').split(' ').slice(1).join(' ').toLowerCase().trim();
+    const year = (paper['Pub Year & Author Region'] || '').split(' ')[0].trim();
+    const q = searchQuery.toLowerCase().trim();
     return (
       (!searchQuery || title.includes(q) || author.includes(q) || domain.includes(q) || region.includes(q)) &&
       (!filterYear || year === filterYear) &&
-      (!filterRegion || region === filterRegion.toLowerCase()) &&
-      (!filterDomain || domain === filterDomain.toLowerCase())
+      (!filterRegion || region === filterRegion.toLowerCase().trim()) &&
+      (!filterDomain || domain === filterDomain.toLowerCase().trim())
     );
   });
 
