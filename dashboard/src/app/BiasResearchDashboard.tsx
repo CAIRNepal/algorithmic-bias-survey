@@ -34,7 +34,7 @@ const BiasResearchDashboard = () => {
   const pageSize = 10;
 
   useEffect(() => {
-    fetch('/papers.csv')
+    fetch('papers.csv')
       .then(res => res.text())
       .then(csvText => {
         Papa.parse(csvText, {
