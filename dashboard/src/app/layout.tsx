@@ -14,11 +14,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Bias Research Dashboard | CAIR Nepal",
+  title: "Bias Research Dashboard | CAIR-Nepal",
   description: "Explore regional trends and knowledge graph-based bias mitigation in AI research. Empowering fairness and transparency in AI.",
   keywords: "AI bias, fairness, transparency, CAIR Nepal, knowledge graph, regional trends, research dashboard",
   openGraph: {
-    title: "Bias Research Dashboard | CAIR Nepal",
+    title: "Bias Research Dashboard | CAIR-Nepal | Towards FAIR AI | AI Bias | CAIR-Nepal",
     description: "Explore regional trends and knowledge graph-based bias mitigation in AI research.",
     url: "https://cairnepal.github.io/algorithmic-bias-survey/",
     siteName: "Bias Research Dashboard",
