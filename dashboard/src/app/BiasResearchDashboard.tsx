@@ -1,6 +1,6 @@
 'use client';
 
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line, ScatterChart, Scatter, LabelList } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line } from 'recharts';
 import { useEffect, useState } from 'react';
 import Papa from 'papaparse';
 import { ComposableMap, Geographies, Geography, ZoomableGroup } from 'react-simple-maps';
@@ -8,8 +8,19 @@ import { saveAs } from 'file-saver';
 
 const DOMAIN_COLORS = ['#2563eb', '#dc2626', '#16a34a', '#ca8a04', '#9333ea', '#eab308', '#f59e42', '#10b981'];
 
+// Define a Paper type for better type safety
+type Paper = {
+  SN?: string;
+  'Paper Title'?: string;
+  Authors?: string;
+  'Pub Year & Author Region'?: string;
+  Domain?: string;
+  Abstract?: string;
+  [key: string]: unknown;
+};
+
 const BiasResearchDashboard = () => {
-  const [papers, setPapers] = useState<any[]>([]);
+  const [papers, setPapers] = useState<Paper[]>([]);
   const [loading, setLoading] = useState(true);
   const [tooltip, setTooltip] = useState<{ content: string; x: number; y: number } | null>(null);
   const [selectedDomain, setSelectedDomain] = useState<string | null>(null);
@@ -19,7 +30,7 @@ const BiasResearchDashboard = () => {
   const [filterDomain, setFilterDomain] = useState('');
   const [sortConfig, setSortConfig] = useState<{ key: string; direction: 'asc' | 'desc' } | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const [modalPaper, setModalPaper] = useState<any | null>(null);
+  const [modalPaper, setModalPaper] = useState<Paper | null>(null);
   const pageSize = 10;
 
   useEffect(() => {
@@ -30,7 +41,7 @@ const BiasResearchDashboard = () => {
           header: true,
           skipEmptyLines: true,
           complete: (results) => {
-            setPapers(results.data);
+            setPapers(results.data as Paper[]);
             setLoading(false);
           }
         });
@@ -71,7 +82,7 @@ const BiasResearchDashboard = () => {
   // Research Domains (domainData)
   const domainMap: Record<string, number> = {};
   validPapers.forEach(paper => {
-    let domain = (paper['Domain'] || '').trim().toLowerCase();
+    const domain = (paper['Domain'] || '').trim().toLowerCase();
     if (domain) domainMap[domain] = (domainMap[domain] || 0) + 1;
   });
   const domainTotal = Object.values(domainMap).reduce((sum, c) => sum + c, 0);
@@ -161,7 +172,7 @@ const BiasResearchDashboard = () => {
     'Laos': "Lao People's Democratic Republic",
     'North Korea': "Democratic People's Republic of Korea",
     'Czech Republic': 'Czechia',
-    'Ivory Coast': 'Côte d\'Ivoire',
+    'Ivory Coast': 'Côte d&#39;Ivoire',
     'Swaziland': 'Eswatini',
     'Cape Verde': 'Cabo Verde',
     'Palestine': 'Palestine, State of',
@@ -186,8 +197,8 @@ const BiasResearchDashboard = () => {
   // Sorting logic
   const sortedPapers = [...filteredPapers].sort((a, b) => {
     if (!sortConfig) return 0;
-    const aVal = (a[sortConfig.key] || '').toLowerCase();
-    const bVal = (b[sortConfig.key] || '').toLowerCase();
+    const aVal = String(a[sortConfig.key] || '').toLowerCase();
+    const bVal = String(b[sortConfig.key] || '').toLowerCase();
     if (aVal < bVal) return sortConfig.direction === 'asc' ? -1 : 1;
     if (aVal > bVal) return sortConfig.direction === 'asc' ? 1 : -1;
     return 0;
@@ -198,9 +209,9 @@ const BiasResearchDashboard = () => {
   const pagedPapers = sortedPapers.slice((currentPage - 1) * pageSize, currentPage * pageSize);
 
   // CSV Export logic
-  function exportCSV(papersToExport: any[], filename: string) {
+  function exportCSV(papersToExport: Paper[], filename: string) {
     const headers = ['SN', 'Paper Title', 'Authors', 'Pub Year & Author Region', 'Domain', 'Abstract'];
-    const rows = papersToExport.map(p => headers.map(h => (p[h] || '').replace(/\n/g, ' ')));
+    const rows = papersToExport.map(p => headers.map(h => String(p[h] || '').replace(/\n/g, ' ')));
     const csv = [headers.join(','), ...rows.map(r => r.map(f => `"${f.replace(/"/g, '""')}"`).join(','))].join('\n');
     const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
     saveAs(blob, filename);
@@ -275,7 +286,7 @@ const BiasResearchDashboard = () => {
               </PieChart>
             </ResponsiveContainer>
             <div className="flex flex-wrap justify-center mt-4">
-              {domainData.map((entry, index) => (
+              {domainData.map((entry) => (
                 <div key={entry.domain} className="flex items-center mr-6 mb-2">
                   <span style={{ backgroundColor: entry.color, width: 16, height: 16, display: 'inline-block', marginRight: 8, borderRadius: 3 }}></span>
                   <span className="text-sm text-gray-700">{entry.domain}</span>
@@ -289,7 +300,7 @@ const BiasResearchDashboard = () => {
         <div className="bg-white p-6 rounded-lg shadow-lg mb-6">
           <h2 className="text-xl font-semibold mb-4 text-gray-700">Author Regions Distribution</h2>
           {regionData.length === 0 ? (
-            <div className="text-gray-500">No data loaded. Check that papers.csv is in the public folder and the header is exactly 'Pub Year & Author Region'.</div>
+            <div className="text-gray-500">No data loaded. Check that papers.csv is in the public folder and the header is exactly &apos;Pub Year & Author Region&apos;.</div>
           ) : (
             <div style={{ width: '100%', overflowX: 'auto' }}>
               <div style={{ minWidth: 900 }}>
@@ -346,7 +357,7 @@ const BiasResearchDashboard = () => {
           <div className="mb-4">
             <p className="text-sm text-gray-600 mb-2">Countries are colored by their dominant research domain. Hover over countries to see details or click on the domain legend to filter the map.</p>
             <div className="flex flex-wrap gap-2">
-              {domainData.map((entry, index) => (
+              {domainData.map((entry) => (
                 <button
                   key={entry.domain}
                   className={`flex items-center text-xs px-2 py-1 rounded ${selectedDomain === entry.domain ? 'ring-2 ring-blue-500' : ''}`}
@@ -557,7 +568,7 @@ const BiasResearchDashboard = () => {
             <table className="min-w-full border text-sm">
               <thead>
                 <tr className="bg-gray-100">
-                  {['SN', 'Paper Title', 'Authors', 'Year', 'Region', 'Domain', 'Abstract', ''].map((col, idx) => (
+                  {['SN', 'Paper Title', 'Authors', 'Year', 'Region', 'Domain', 'Abstract', ''].map((col) => (
                     <th
                       key={col}
                       className="p-2 border cursor-pointer select-none"
@@ -576,15 +587,15 @@ const BiasResearchDashboard = () => {
                 </tr>
               </thead>
               <tbody>
-                {pagedPapers.map((paper, idx) => (
-                  <tr key={paper['SN'] || idx} className="hover:bg-gray-50">
+                {pagedPapers.map((paper) => (
+                  <tr key={paper['SN']} className="hover:bg-gray-50">
                     <td className="p-2 border">{paper['SN']}</td>
                     <td className="p-2 border text-left">{paper['Paper Title']}</td>
                     <td className="p-2 border text-left">{paper['Authors']}</td>
                     <td className="p-2 border">{(paper['Pub Year & Author Region'] || '').split(' ')[0]}</td>
                     <td className="p-2 border">{(paper['Pub Year & Author Region'] || '').split(' ').slice(1).join(' ')}</td>
                     <td className="p-2 border">{paper['Domain']}</td>
-                    <td className="p-2 border text-left">{(paper['Abstract'] || '').slice(0, 60)}{(paper['Abstract'] || '').length > 60 ? '...' : ''}</td>
+                    <td className="p-2 border text-left">{(paper['Abstract'] || '').slice(0, 60)}{(paper['Abstract'] || '').length > 60 ? '…' : ''}</td>
                     <td className="p-2 border">
                       <button className="text-blue-600 underline cursor-pointer" onClick={() => setModalPaper(paper)}>View</button>
                     </td>
