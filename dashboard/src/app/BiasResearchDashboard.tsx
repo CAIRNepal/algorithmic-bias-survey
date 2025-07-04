@@ -12,10 +12,12 @@ const DOMAIN_COLORS = ['#2563eb', '#dc2626', '#16a34a', '#ca8a04', '#9333ea', '#
 type Paper = {
   SN?: string;
   'Paper Title'?: string;
-  Authors?: string;
+  'First Author Name'?: string;  // Changed from 'Authors'
+  DOI?: string;                  // Added DOI
   'Pub Year & Author Region'?: string;
+  'Focus Region'?: string;       // Added Focus Region
   Domain?: string;
-  Abstract?: string;
+  Abstract?: string;            
   [key: string]: unknown;
 };
 
@@ -186,13 +188,16 @@ const BiasResearchDashboard = () => {
 
   const filteredPapers = papers.filter(paper => {
     const title = (paper['Paper Title'] || '').toLowerCase().trim();
-    const author = (paper['Authors'] || '').toLowerCase().trim();
+    // const author = (paper['Authors'] || '').toLowerCase().trim();
+    const author = (paper['First Author Name'] || '').toLowerCase().trim();
+    const doi = (paper['DOI'] || '').toLowerCase().trim();
     const domain = (paper['Domain'] || '').toLowerCase().trim();
     const region = (paper['Pub Year & Author Region'] || '').split(' ').slice(1).join(' ').toLowerCase().trim();
     const year = (paper['Pub Year & Author Region'] || '').split(' ')[0].trim();
     const q = searchQuery.toLowerCase().trim();
     return (
-      (!searchQuery || title.includes(q) || author.includes(q) || domain.includes(q) || region.includes(q)) &&
+      // (!searchQuery || title.includes(q) || author.includes(q) || domain.includes(q) || region.includes(q)) &&
+      (!searchQuery || title.includes(q) || author.includes(q) || domain.includes(q) || region.includes(q) || doi.includes(q)) &&
       (!filterYear || year === filterYear) &&
       (!filterRegion || region === filterRegion.toLowerCase().trim()) &&
       (!filterDomain || domain === filterDomain.toLowerCase().trim())
@@ -215,7 +220,7 @@ const BiasResearchDashboard = () => {
 
   // CSV Export logic
   function exportCSV(papersToExport: Paper[], filename: string) {
-    const headers = ['SN', 'Paper Title', 'Authors', 'Pub Year & Author Region', 'Domain', 'Abstract'];
+    const headers = ['SN', 'Paper Title', 'First Author', 'DOI', 'Year', 'First Author Region', 'Focus Region', 'Domain', '']
     const rows = papersToExport.map(p => headers.map(h => String(p[h] || '').replace(/\n/g, ' ')));
     const csv = [headers.join(','), ...rows.map(r => r.map(f => `"${f.replace(/"/g, '""')}"`).join(','))].join('\n');
     const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
@@ -504,7 +509,7 @@ const BiasResearchDashboard = () => {
           <h2 className="text-xl font-semibold mb-4 text-gray-700">Key Insights</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <h3 className="font-semibold text-lg mb-2">Research Trends</h3>
+              <h3 className="font-semibold text-lg mb-4 text-gray-700">Research Trends</h3>
               <ul className="space-y-2 text-gray-600">
                 <li>• Peak research activity in {peakYear.year} ({peakYear.count} papers)</li>
                 <li>• Significant growth from {growthPeriod}</li>
@@ -513,7 +518,7 @@ const BiasResearchDashboard = () => {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold text-lg mb-2">Geographic Distribution</h3>
+              <h3 className="font-semibold text-lg mb-4 text-gray-700">Geographic Distribution</h3>
               <ul className="space-y-2 text-gray-600">
                 {topRegion && <li>• {topRegion.region} leads with {Math.round((topRegion.count / totalPapers) * 100)}% of publications</li>}
                 {hasEurope && <li>• Strong European presence (UK, Germany, etc.)</li>}
@@ -530,12 +535,12 @@ const BiasResearchDashboard = () => {
             <input
               type="text"
               placeholder="Search by title, author, or keyword..."
-              className="border rounded px-3 py-2 w-full md:w-64"
+              className="border rounded px-3 py-2 bg-white text-black w-full md:w-64"
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
             />
             <select
-              className="border rounded px-3 py-2"
+              className="border rounded px-3 py-2 bg-white text-black"
               value={filterYear}
               onChange={e => setFilterYear(e.target.value)}
             >
@@ -545,7 +550,7 @@ const BiasResearchDashboard = () => {
               ))}
             </select>
             <select
-              className="border rounded px-3 py-2"
+              className="border rounded px-3 py-2 bg-white text-black"
               value={filterRegion}
               onChange={e => setFilterRegion(e.target.value)}
             >
@@ -555,7 +560,7 @@ const BiasResearchDashboard = () => {
               ))}
             </select>
             <select
-              className="border rounded px-3 py-2"
+              className="border rounded px-3 py-2 bg-white text-black"
               value={filterDomain}
               onChange={e => setFilterDomain(e.target.value)}
             >
@@ -572,11 +577,12 @@ const BiasResearchDashboard = () => {
           <div className="overflow-x-auto">
             <table className="min-w-full border text-sm">
               <thead>
-                <tr className="bg-gray-100">
-                  {['SN', 'Paper Title', 'Authors', 'Year', 'Region', 'Domain', 'Abstract', ''].map((col) => (
+                <tr className="bg-gray-200">
+                  {/* {['SN', 'Paper Title', 'Authors', 'Year', 'Region', 'Domain', 'Abstract', ''].map((col) => ( */}
+                  {['SN', 'Paper Title', 'First Author', 'DOI', 'Year', 'First Author Region', 'Focus Region', 'Domain', 'Abstract', 'Details'].map((col) => (
                     <th
                       key={col}
-                      className="p-2 border cursor-pointer select-none"
+                      className="p-2 border cursor-pointer select-none text-gray-900 font-semibold"
                       onClick={() => {
                         if (col === '') return;
                         const key = col === 'Year' ? 'Pub Year & Author Region' : col;
@@ -594,14 +600,29 @@ const BiasResearchDashboard = () => {
               <tbody>
                 {pagedPapers.map((paper) => (
                   <tr key={paper['SN']} className="hover:bg-gray-50">
-                    <td className="p-2 border">{paper['SN']}</td>
-                    <td className="p-2 border text-left">{paper['Paper Title']}</td>
-                    <td className="p-2 border text-left">{paper['Authors']}</td>
-                    <td className="p-2 border">{(paper['Pub Year & Author Region'] || '').split(' ')[0]}</td>
-                    <td className="p-2 border">{(paper['Pub Year & Author Region'] || '').split(' ').slice(1).join(' ')}</td>
-                    <td className="p-2 border">{paper['Domain']}</td>
-                    <td className="p-2 border text-left">{(paper['Abstract'] || '').slice(0, 60)}{(paper['Abstract'] || '').length > 60 ? '…' : ''}</td>
-                    <td className="p-2 border">
+                    <td className="p-2 border" style={{color: 'black'}} >{paper['SN']}</td>
+                    {/* <td className="p-2 border text-left">{paper['Paper Title']}</td> */}
+                    <td className="p-2 border text-left" style={{color: 'black'}}>{paper['Paper Title']}</td>
+                    {/* <td className="p-2 border text-left">{paper['Authors']}</td> */}
+                    <td className="p-2 border text-left" style={{color: 'black'}} >{paper['First Author Name']}</td>
+                    <td className="p-2 border text-left" style={{borderColor: '#000', borderWidth: '1px'}}>
+                    {paper['DOI'] ? (
+                       <a 
+                         href={paper['DOI'].startsWith('http') ? paper['DOI'] : `https://${paper['DOI']}`}
+                         target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:underline"
+                      >
+                        {paper['DOI']}
+                      </a>
+                      ) : ''}
+                    </td>
+                    <td className="p-2 border" style={{color: 'black'}} >{(paper['Pub Year & Author Region'] || '').split(' ')[0]}</td>
+                    <td className="p-2 border" style={{color: 'black'}} >{(paper['Pub Year & Author Region'] || '').split(' ').slice(1).join(' ')}</td>
+                    <td className="p-2 border" style={{color: 'black'}}>{paper['Focus Region']}</td>
+                    <td className="p-2 border" style={{color: 'black'}} >{paper['Domain']}</td>
+                    <td className="p-2 border text-left" style={{color: 'black'}} >{(paper['Abstract'] || '').slice(0, 60)}{(paper['Abstract'] || '').length > 60 ? '…' : ''}</td>
+                    <td className="p-2 border" style={{color: 'black'}}>
                       <button className="text-blue-600 underline cursor-pointer" onClick={() => setModalPaper(paper)}>View</button>
                     </td>
                   </tr>
@@ -615,18 +636,18 @@ const BiasResearchDashboard = () => {
             </table>
           </div>
           <div className="flex justify-between items-center mt-4">
-            <button
-              className="px-3 py-1 rounded border mr-2 cursor-pointer"
-              disabled={currentPage === 1}
-              onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
-            >Prev</button>
-            <span>Page {currentPage} of {totalPages}</span>
-            <button
-              className="px-3 py-1 rounded border ml-2 cursor-pointer"
-              disabled={currentPage === totalPages}
-              onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
-            >Next</button>
-          </div>
+  <button
+    className="px-3 py-1 rounded border mr-2 cursor-pointer bg-white text-gray-900 hover:bg-gray-50 disabled:bg-gray-200 disabled:text-gray-500"
+    disabled={currentPage === 1}
+    onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+  >Prev</button>
+  <span className="text-gray-900 font-medium">Page {currentPage} of {totalPages}</span>
+  <button
+    className="px-3 py-1 rounded border ml-2 cursor-pointer bg-white text-gray-900 hover:bg-gray-50 disabled:bg-gray-200 disabled:text-gray-500"
+    disabled={currentPage === totalPages}
+    onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+  >Next</button>
+</div>
           {modalPaper && (
             <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
               <div className="bg-white rounded-lg shadow-lg p-6 max-w-lg w-full relative">
@@ -636,9 +657,9 @@ const BiasResearchDashboard = () => {
                 >&times;</button>
                 <h3 className="text-lg font-bold mb-2">{modalPaper['Paper Title']}</h3>
                 <div className="mb-2 text-sm text-gray-600">SN: {modalPaper['SN']}</div>
-                <div className="mb-2 text-sm text-gray-600">Authors: {modalPaper['Authors']}</div>
+                <div className="mb-2 text-sm text-gray-600">First Author: {modalPaper['First Author Name']}</div>
                 <div className="mb-2 text-sm text-gray-600">Year: {(modalPaper['Pub Year & Author Region'] || '').split(' ')[0]}</div>
-                <div className="mb-2 text-sm text-gray-600">Region: {(modalPaper['Pub Year & Author Region'] || '').split(' ').slice(1).join(' ')}</div>
+                <div className="mb-2 text-sm text-gray-600">First Author Region: {(modalPaper['Pub Year & Author Region'] || '').split(' ').slice(1).join(' ')}</div>
                 <div className="mb-2 text-sm text-gray-600">Domain: {modalPaper['Domain']}</div>
                 <div className="mb-2 text-sm text-gray-600">Abstract: {modalPaper['Abstract']}</div>
                 <button
