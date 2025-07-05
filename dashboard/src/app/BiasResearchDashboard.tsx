@@ -40,6 +40,7 @@ const BiasResearchDashboard = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [modalPaper, setModalPaper] = useState<Paper | null>(null);
   const pageSize = 10;
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     fetch(`${BASE_PATH}/papers.csv`)
@@ -48,22 +49,27 @@ const BiasResearchDashboard = () => {
         return res.text();
       })
       .then(csvText => {
+        if (!csvText.trim()) throw new Error('CSV is empty');
         Papa.parse(csvText, {
           header: true,
           skipEmptyLines: true,
           complete: (results) => {
             setPapers(results.data as Paper[]);
             setLoading(false);
+          },
+          error: (err) => {
+            setLoading(false);
+            setPapers([]);
+            setError('Failed to parse papers.csv. Please check the file format.');
+            console.error('PapaParse error:', err);
           }
         });
       })
       .catch(err => {
         setLoading(false);
-        setPapers([]); // Ensure papers is empty if error
-        // Optionally, set an error state and show a user-friendly message
-        // setError('Failed to load papers.csv');
-        // For now, just log
-        console.error(err);
+        setPapers([]);
+        setError(err.message || 'Failed to load papers.csv');
+        console.error('Error loading CSV:', err);
       });
   }, []);
 
@@ -277,6 +283,8 @@ const BiasResearchDashboard = () => {
       <div className="max-w-7xl mx-auto pt-8">
         {loading ? (
           <div className="text-center text-gray-500">Loading data...</div>
+        ) : error ? (
+          <div className="text-center text-red-600 font-semibold">{error}</div>
         ) : papers.length === 0 ? (
           <div className="text-center text-red-600 font-semibold">No data found. Please ensure papers.csv is present in the public directory and accessible at /papers.csv.</div>
         ) : (
