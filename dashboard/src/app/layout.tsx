@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     siteName: "Bias Research Dashboard",
     images: [
       {
-        url: "/logo-slogan.png",
+        url: "/algorithmic-bias-survey/logo-slogan.png",
         width: 120,
         height: 40,
         alt: "CAIR Nepal Logo",
@@ -43,7 +43,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/logo-slogan.png" type="image/png" />
+        <link rel="icon" href="/algorithmic-bias-survey/logo-slogan.png" type="image/png" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
@@ -51,7 +51,7 @@ export default function RootLayout({
         <header className="w-full bg-white shadow flex items-center justify-between px-8 py-4 mb-4 z-50 relative">
           <div className="flex items-center gap-4">
             <a href="https://cair-nepal.org/" target="_blank" rel="noopener noreferrer">
-              <Image src="logo-slogan.png" alt="CAIR Nepal Logo" width={120} height={40} className="h-10 mr-4 object-contain" priority unoptimized />
+              <Image src="/algorithmic-bias-survey/logo-slogan.png" alt="CAIR Nepal Logo" width={120} height={40} className="h-10 mr-4 object-contain" priority unoptimized />
             </a>
             <div>
               <span className="text-2xl font-bold text-blue-700">Bias Research Dashboard</span>

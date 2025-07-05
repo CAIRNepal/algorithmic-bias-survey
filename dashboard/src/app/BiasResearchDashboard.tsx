@@ -24,6 +24,8 @@ type Paper = {
   [key: string]: unknown;
 };
 
+const BASE_PATH = '/algorithmic-bias-survey';
+
 const BiasResearchDashboard = () => {
   const [papers, setPapers] = useState<Paper[]>([]);
   const [loading, setLoading] = useState(true);
@@ -40,7 +42,7 @@ const BiasResearchDashboard = () => {
   const pageSize = 10;
 
   useEffect(() => {
-    fetch('/papers.csv')
+    fetch(`${BASE_PATH}/papers.csv`)
       .then(res => {
         if (!res.ok) throw new Error('CSV not found');
         return res.text();

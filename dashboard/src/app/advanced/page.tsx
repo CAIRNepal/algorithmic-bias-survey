@@ -17,12 +17,14 @@ type Paper = {
   [key: string]: unknown;
 };
 
+const BASE_PATH = '/algorithmic-bias-survey';
+
 export default function AdvancedPage() {
   const [papers, setPapers] = useState<Paper[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/papers.csv')
+    fetch(`${BASE_PATH}/papers.csv`)
       .then(res => res.text())
       .then(csvText => {
         Papa.parse(csvText, {
