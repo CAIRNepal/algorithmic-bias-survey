@@ -1,0 +1,11 @@
+Paper Title,Authors,Affiliations,DOI,Year,Region,Domain,Abstract,Citations,Impact Score,H-Index
+"Algorithmic Fairness Datasets: The Story So Far","Alice Smith; Bob Lee","University of Example; Example Institute","10.1234/abc1",2022,USA,Fairness,"A survey of datasets for algorithmic fairness.",185,7.2,10
+"Bias in NLP: A Review","Carol Wang; Dave Kim","Univ C; Univ D","10.1234/abc2",2021,UK,NLP,"Reviewing bias in natural language processing.",95,6.8,8
+"Healthcare AI and Bias","Emily Chen; Frank Patel","HealthTech U; MedAI Center","10.1234/abc3",2020,Canada,Healthcare,"Bias in healthcare AI systems.",210,8.1,12
+"Recommender Systems and Fairness","Grace Lin; Henry Zhao","RecSys Lab; Data Science Inst","10.1234/abc4",2023,Germany,Recommendation,"Fairness in recommender systems.",120,7.5,9
+"Global Trends in AI Bias Research","Ivy Singh; John Doe","Global AI Center; Open Research","10.1234/abc5",2019,India,General,"Trends in global AI bias research.",60,5.9,6
+"Mitigating Gender Bias in Vision Models","Sara Lee; Omar Farouk","VisionAI Lab; Cairo Univ","10.1234/abc6",2022,Egypt,Vision,"Approaches to reduce gender bias in computer vision.",75,6.2,7
+"Longitudinal Study of Fairness in Hiring AI","Priya Patel; Lucas Brown","HR Tech; Stanford","10.1234/abc7",2020,USA,HR,"Fairness in AI-based hiring over time.",130,7.0,10
+"Bias Detection in Social Media Algorithms","Wei Zhang; Maria Gomez","Beijing Tech; Madrid Data Lab","10.1234/abc8",2021,China,Social Media,"Detecting bias in social media feeds.",110,6.5,8
+"Ethics of AI in Education","Anna Müller; Tomáš Novák","Berlin EdTech; Prague Uni","10.1234/abc9",2023,Germany,Education,"Ethical issues in AI-powered education.",55,5.8,5
+"Cross-Regional Collaboration in AI Bias Research","Fatima Noor; Samuel Osei","Lagos AI Center; Accra Tech","10.1234/abc10",2022,Nigeria,Collaboration,"Collaboration patterns in AI bias research.",90,6.9,7 

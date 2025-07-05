@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Image from 'next/image';
+import Link from 'next/link';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
     siteName: "Bias Research Dashboard",
     images: [
       {
-        url: "logo-slogan.png",
+        url: "/logo-slogan.png",
         width: 120,
         height: 40,
         alt: "CAIR Nepal Logo",
@@ -42,19 +43,28 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="logo-slogan.png" type="image/png" />
+        <link rel="icon" href="/logo-slogan.png" type="image/png" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <header className="w-full bg-white shadow flex items-center px-6 py-4 mb-4">
-          <a href="https://cair-nepal.org/" target="_blank" rel="noopener noreferrer">
-            <Image src="logo-slogan.png" alt="CAIR Nepal Logo" width={120} height={40} className="h-10 mr-4 object-contain" priority />
-          </a>
-          <div>
-            <span className="text-2xl font-bold text-blue-700">Bias Research Dashboard</span>
-            <span className="block text-sm text-gray-500">Empowering Fairness & Transparency in AI Research</span>
+        <header className="w-full bg-white shadow flex items-center justify-between px-8 py-4 mb-4 z-50 relative">
+          <div className="flex items-center gap-4">
+            <a href="https://cair-nepal.org/" target="_blank" rel="noopener noreferrer">
+              <Image src="/logo-slogan.png" alt="CAIR Nepal Logo" width={120} height={40} className="h-10 mr-4 object-contain" priority />
+            </a>
+            <div>
+              <span className="text-2xl font-bold text-blue-700">Bias Research Dashboard</span>
+              <span className="block text-sm text-gray-500">Empowering Fairness & Transparency in AI Research</span>
+            </div>
           </div>
+          <nav className="flex items-center gap-2 text-blue-700 font-medium text-lg">
+            <Link href="/" className="px-3 py-2 hover:text-blue-900 transition">Home</Link>
+            <Link href="/advanced" className="px-3 py-2 hover:text-blue-900 transition">Advanced Analytics</Link>
+        
+            
+            <a href="https://cair-nepal.org/giving" target="_blank" className="ml-2 px-5 py-2 rounded bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition">Donate</a>
+          </nav>
         </header>
         <main className="min-h-screen bg-gray-50">
           {children}
