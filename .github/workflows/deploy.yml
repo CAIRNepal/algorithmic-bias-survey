@@ -41,10 +41,6 @@ jobs:
         run: npm run build
         working-directory: dashboard
 
-      - name: Export static site
-        run: npm run export
-        working-directory: dashboard
-        
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
