@@ -77,7 +77,7 @@ export default function RootLayout({
             <span className="text-gray-700">Abhash Shrestha, Tek Raj Chhetri, Sanju Tiwari</span>
           </div>
           <div>
-            &copy; {new Date().getFullYear()} <a href="https://cair-nepal.org" className="underline hover:text-blue-700" target="_blank" rel="noopener noreferrer">cair-nepal.org</a>. <a href="https://creativecommons.org/licenses/by/4.0/" className="underline hover:text-blue-700" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>
+            &copy; {new Date().getFullYear()} <a href="https://cair-nepal.org" className="underline hover:text-blue-700" target="_blank" rel="noopener noreferrer">cair-nepal.org</a>. <a href="https://www.apache.org/licenses/LICENSE-2.0" className="underline hover:text-blue-700" target="_blank" rel="noopener noreferrer">Apache License 2.0</a>
           </div>
         </footer>
       </body>
