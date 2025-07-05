@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "prisma generate && next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "export": "next build && next export",
@@ -16,8 +16,7 @@
     "@mui/material": "^7.2.0",
     "d3-geo": "^3.1.1",
     "file-saver": "^2.0.5",
-    "install": "^0.13.0",
-    "next": "^15.3.4",
+    "next": "15.3.4",
     "papaparse": "^5.5.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
