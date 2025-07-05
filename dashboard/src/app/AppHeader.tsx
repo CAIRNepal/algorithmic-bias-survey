@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 const AppHeader: React.FC = () => {
   const [showResearchDropdown, setShowResearchDropdown] = useState(false);
 
@@ -8,7 +10,7 @@ const AppHeader: React.FC = () => {
     <div className="w-full bg-white border-b shadow-sm flex items-center justify-between px-8 py-3 z-50 relative">
       {/* Left: Logo + Title + Subtitle */}
       <div className="flex items-center gap-4">
-        <Image src="/logo-slogan.png" alt="CAIR-NEPAL Logo" width={48} height={48} className="object-contain" />
+        <Image src={`${basePath}/logo-slogan.png`} alt="CAIR-NEPAL Logo" width={48} height={48} className="object-contain" />
         <div>
           <div className="text-2xl font-bold text-blue-800 leading-tight tracking-wider">Bias Research Dashboard</div>
           <div className="text-xs text-gray-500">Empowering Fairness & Transparency in AI Research</div>

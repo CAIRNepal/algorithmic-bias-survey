@@ -7,6 +7,7 @@ import { ComposableMap, Geographies, Geography, ZoomableGroup } from 'react-simp
 import { saveAs } from 'file-saver';
 
 const DOMAIN_COLORS = ['#2563eb', '#dc2626', '#16a34a', '#ca8a04', '#9333ea', '#eab308', '#f59e42', '#10b981'];
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
 // Define a Paper type for better type safety
 type Paper = {
@@ -40,8 +41,11 @@ const BiasResearchDashboard = () => {
   const pageSize = 10;
 
   useEffect(() => {
-    fetch('papers.csv')
-      .then(res => res.text())
+    fetch(`${basePath}/papers.csv`)
+      .then(res => {
+        if (!res.ok) throw new Error('CSV not found');
+        return res.text();
+      })
       .then(csvText => {
         Papa.parse(csvText, {
           header: true,
@@ -51,6 +55,13 @@ const BiasResearchDashboard = () => {
             setLoading(false);
           }
         });
+      })
+      .catch(err => {
+        setLoading(false);
+        // Optionally, set an error state and show a user-friendly message
+        // setError('Failed to load papers.csv');
+        // For now, just log
+        console.error(err);
       });
   }, []);
 
