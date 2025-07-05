@@ -70,8 +70,12 @@ export default function RootLayout({
           {children}
         </main>
         <footer className="w-full bg-white border-t mt-8 py-4 text-center text-xs text-gray-500">
+          <div className="mb-1">
+            This work is part of <span className="font-semibold text-gray-700">Towards FAIR AI: A Survey of Regional Trends and Knowledge Graph-Enhanced Bias Mitigation</span>.<br />
+            <span className="text-gray-700">Abhash Shrestha, Tek Raj Chhetri, Sanju Tiwari</span>
+          </div>
           <div>
-            &copy; {new Date().getFullYear()} <a href="https://cair-nepal.org" className="underline hover:text-blue-700" target="_blank" rel="noopener noreferrer">cair-nepal.org</a> + authors. <a href="https://creativecommons.org/licenses/by/4.0/" className="underline hover:text-blue-700" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>
+            &copy; {new Date().getFullYear()} <a href="https://cair-nepal.org" className="underline hover:text-blue-700" target="_blank" rel="noopener noreferrer">cair-nepal.org</a>. <a href="https://creativecommons.org/licenses/by/4.0/" className="underline hover:text-blue-700" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>
           </div>
         </footer>
       </body>
