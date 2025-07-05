@@ -1,6 +1,6 @@
 "use client";
 
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line, AreaChart, Area, Text } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line, AreaChart, Area } from 'recharts';
 import { useState, useMemo, useEffect } from 'react';
 import CoAuthorNetworkGraph from './CoAuthorNetworkGraph';
 import Select from 'react-select';
@@ -44,14 +44,6 @@ type AuthorData = {
   regions: Set<string>;
   collaborations: Set<string>;
   primaryRegion: string;
-};
-
-type DomainTickProps = {
-  x: number;
-  y: number;
-  payload: {
-    value: string;
-  };
 };
 
 const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
@@ -160,10 +152,6 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
     return acc;
   }, {});
 
-  const domainDataArray = Object.values(domainAnalysis)
-    .sort((a: any, b: any) => b.count - a.count)
-    .slice(0, 10);
-
   // Prepare data for multi-line domain evolution chart
   const domainYearCounts: Record<string, Record<string, number>> = {};
   filteredPapers.forEach(p => {
@@ -193,14 +181,6 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
     acc[region].domains.add(paper.domain || 'Unknown');
     return acc;
   }, {});
-
-  const regionDataArray = Object.values(regionAnalysis)
-    .map(region => ({
-      ...region,
-      domains: region.domains.size,
-    }))
-    .sort((a: any, b: any) => b.count - a.count)
-    .slice(0, 10);
 
   // Author analysis with regions
   const authorAnalysis = filteredPapers.reduce((acc: Record<string, AuthorData>, paper) => {
@@ -400,42 +380,6 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
     collaborativePapers: processedPapers.filter(p => p.authors.length > 1).length,
     crossRegionPapers: Object.values(crossRegionCollaboration).reduce((sum: number, collab) => sum + collab.papers, 0),
     recentPapers: processedPapers.filter(p => p.year >= 2020).length,
-  };
-
-  // Custom XAxis tick for better domain label readability
-  const renderDomainTick = (props: DomainTickProps) => {
-    const { x, y, payload } = props;
-    const domain = String(payload.value || '');
-    // Split long domain names into multiple lines
-    const words = domain.split(' ');
-    const lines: string[] = [];
-    let currentLine = '';
-    words.forEach(word => {
-      if ((currentLine + ' ' + word).length > 12) {
-        lines.push(currentLine);
-        currentLine = word;
-      } else {
-        currentLine = currentLine ? currentLine + ' ' + word : word;
-      }
-    });
-    if (currentLine) lines.push(currentLine);
-    return (
-      <g transform={`translate(${x},${y + 10})`}>
-        {lines.map((line, i) => (
-          <Text
-            key={i}
-            x={0}
-            y={i * 14}
-            textAnchor="end"
-            verticalAnchor="start"
-            fontSize={12}
-            fill="#555"
-          >
-            {line}
-          </Text>
-        ))}
-      </g>
-    );
   };
 
   // Custom legend for better readability

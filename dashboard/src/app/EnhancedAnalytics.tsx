@@ -330,7 +330,6 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
   // Collaboration patterns
   const collaborationPatterns = processedPapers.reduce((acc: Record<string, CollaborationData>, paper) => {
     const authorCount = paper.authors.length;
-    const regionCount = new Set(paper.authorRegions).size;
     
     let type = '';
     if (authorCount === 1) type = 'Single Author';

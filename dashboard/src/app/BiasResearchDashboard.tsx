@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react';
 import Papa from 'papaparse';
 import { ComposableMap, Geographies, Geography, ZoomableGroup } from 'react-simple-maps';
 import { saveAs } from 'file-saver';
-import AdvancedAnalytics from './AdvancedAnalytics';
 
 const DOMAIN_COLORS = ['#2563eb', '#dc2626', '#16a34a', '#ca8a04', '#9333ea', '#eab308', '#f59e42', '#10b981'];
 
