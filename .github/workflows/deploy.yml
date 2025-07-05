@@ -7,38 +7,39 @@ on:
     types: [closed]
     branches: [ main ]
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # Build job
   build:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-          
+
+      - name: Set NEXT_PUBLIC_BASE_PATH
+        run: echo "NEXT_PUBLIC_BASE_PATH=/algorithmic-bias-survey" >> $GITHUB_ENV
+
       - name: Install dependencies
         run: npm install -f
         working-directory: dashboard
-        
-      - name: Build with Next.js
-        run: npm run build
+
+      - name: Build and Export with Next.js
+        run: |
+          npm run build
+          npm run export
         working-directory: dashboard
 
       - name: Upload artifact
@@ -46,7 +47,6 @@ jobs:
         with:
           path: dashboard/out
 
-  # Deployment job
   deploy:
     environment:
       name: github-pages
@@ -56,4 +56,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4 
+        uses: actions/deploy-pages@v4
