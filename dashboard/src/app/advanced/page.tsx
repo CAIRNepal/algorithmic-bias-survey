@@ -39,18 +39,22 @@ export default function AdvancedPage() {
             setPapers(results.data as Paper[]);
             setLoading(false);
           },
-          error: (err: any) => {
+          error: (err: unknown) => {
             setLoading(false);
             setPapers([]);
             setError('Failed to parse papers.csv. Please check the file format.');
-            console.error('PapaParse error:', err);
+            if (err instanceof Error) {
+              console.error('PapaParse error:', err.message);
+            } else {
+              console.error('PapaParse error:', err);
+            }
           }
         });
       })
-      .catch((err: any) => {
+      .catch((err: unknown) => {
         setLoading(false);
         setPapers([]);
-        setError(err.message || 'Failed to load papers.csv');
+        setError(err instanceof Error ? err.message : 'Failed to load papers.csv');
         console.error('Error loading CSV:', err);
       });
   }, []);
