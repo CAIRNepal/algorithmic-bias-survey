@@ -1,14 +1,9 @@
 import React, { useState } from 'react';
-import HeaderMenu from './HeaderMenu';
 
 interface AppHeaderProps {
-  activeTab: 'basic' | 'enhanced';
-  setActiveTab: (tab: 'basic' | 'enhanced') => void;
-  enhancedView: 'analytics' | 'insights' | 'coauthors';
-  setEnhancedView: (view: 'analytics' | 'insights' | 'coauthors') => void;
 }
 
-const AppHeader: React.FC<AppHeaderProps> = ({ activeTab, setActiveTab, enhancedView, setEnhancedView }) => {
+const AppHeader: React.FC<AppHeaderProps> = () => {
   const [showResearchDropdown, setShowResearchDropdown] = useState(false);
 
   return (
@@ -26,7 +21,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({ activeTab, setActiveTab, enhanced
         <a href="#" className="px-3 py-2 hover:text-blue-900 transition">Home</a>
         <div className="relative">
           <button
-            className={`px-3 py-2 flex items-center gap-1 hover:text-blue-900 transition ${activeTab === 'enhanced' ? 'font-bold underline' : ''}`}
+            className={`px-3 py-2 flex items-center gap-1 hover:text-blue-900 transition`}
             onMouseEnter={() => setShowResearchDropdown(true)}
             onMouseLeave={() => setShowResearchDropdown(false)}
             onFocus={() => setShowResearchDropdown(true)}
@@ -43,12 +38,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({ activeTab, setActiveTab, enhanced
               {/* Analytics submenu here */}
               <div className="px-4 py-2 font-semibold text-blue-800">Bias Research Dashboard</div>
               <div className="pl-4 pb-2">
-                <HeaderMenu
-                  activeTab={activeTab}
-                  setActiveTab={setActiveTab}
-                  enhancedView={enhancedView}
-                  setEnhancedView={setEnhancedView}
-                />
+                {/* Analytics submenu content */}
               </div>
             </div>
           )}

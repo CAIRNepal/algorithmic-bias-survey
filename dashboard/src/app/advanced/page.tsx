@@ -3,8 +3,22 @@ import { useEffect, useState } from 'react';
 import Papa from 'papaparse';
 import AdvancedAnalytics from '../AdvancedAnalytics';
 
+type Paper = {
+  SN?: string;
+  'Paper Title'?: string;
+  DOI?: string;
+  'Authors'?: string;
+  'Author Regions'?: string;
+  'Affiliations'?: string;
+  Year?: string;
+  'Focus Region'?: string;
+  Domain?: string;
+  Abstract?: string;
+  [key: string]: unknown;
+};
+
 export default function AdvancedPage() {
-  const [papers, setPapers] = useState<any[]>([]);
+  const [papers, setPapers] = useState<Paper[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -15,7 +29,7 @@ export default function AdvancedPage() {
           header: true,
           skipEmptyLines: true,
           complete: (results) => {
-            setPapers(results.data as any[]);
+            setPapers(results.data as Paper[]);
             setLoading(false);
           }
         });

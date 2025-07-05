@@ -19,6 +19,41 @@ type Paper = {
   [key: string]: unknown;
 };
 
+type YearData = {
+  year: number;
+  count: number;
+  domains: Set<string>;
+};
+
+type DomainData = {
+  domain: string;
+  count: number;
+  papers: Paper[];
+};
+
+type RegionData = {
+  region: string;
+  count: number;
+  domains: Set<string>;
+};
+
+type AuthorData = {
+  name: string;
+  papers: number;
+  domains: Set<string>;
+  regions: Set<string>;
+  collaborations: Set<string>;
+  primaryRegion: string;
+};
+
+type DomainTickProps = {
+  x: number;
+  y: number;
+  payload: {
+    value: string;
+  };
+};
+
 const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
   // Multi-select filters for collaborations
   const [selectedAuthors, setSelectedAuthors] = useState<string[]>([]);
@@ -97,7 +132,7 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
   }, [processedPapers, selectedAuthors, selectedDomains, selectedRegions, selectedInstitutions]);
 
   // Year analysis
-  const yearData = processedPapers.reduce((acc: Record<number, any>, paper) => {
+  const yearData = processedPapers.reduce((acc: Record<number, YearData>, paper) => {
     const year = paper.year;
     if (year) {
       if (!acc[year]) acc[year] = { year, count: 0, domains: new Set() };
@@ -115,7 +150,7 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
     .sort((a, b) => a.year - b.year);
 
   // Domain analysis
-  const domainAnalysis = processedPapers.reduce((acc: Record<string, any>, paper) => {
+  const domainAnalysis = processedPapers.reduce((acc: Record<string, DomainData>, paper) => {
     const domain = paper.domain || 'Unknown';
     if (!acc[domain]) {
       acc[domain] = { domain, count: 0, papers: [] };
@@ -141,7 +176,7 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
   const allYears = Array.from(new Set(filteredPapers.map(p => String(p.year)))).sort();
   const allLineDomains = Object.keys(domainYearCounts);
   const domainLineData = allYears.map(year => {
-    const row: Record<string, any> = { year };
+    const row: Record<string, number | string> = { year };
     allLineDomains.forEach(domain => {
       row[domain] = domainYearCounts[domain][year] || 0;
     });
@@ -149,7 +184,7 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
   });
 
   // Region analysis
-  const regionAnalysis = processedPapers.reduce((acc: Record<string, any>, paper) => {
+  const regionAnalysis = processedPapers.reduce((acc: Record<string, RegionData>, paper) => {
     const region = paper.focusRegion || 'Unknown';
     if (!acc[region]) {
       acc[region] = { region, count: 0, domains: new Set() };
@@ -168,7 +203,7 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
     .slice(0, 10);
 
   // Author analysis with regions
-  const authorAnalysis = filteredPapers.reduce((acc: Record<string, any>, paper) => {
+  const authorAnalysis = filteredPapers.reduce((acc: Record<string, AuthorData>, paper) => {
     const authors = paper.authors;
     const authorRegions = paper.authorRegions;
     authors.forEach((author: string, idx: number) => {
@@ -205,11 +240,16 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
       collaborationCount: author.collaborations.size,
       primaryRegion: author.primaryRegion,
     }))
-    .sort((a: any, b: any) => b.papers - a.papers)
+    .sort((a: { papers: number }, b: { papers: number }) => b.papers - a.papers)
     .slice(0, 15);
 
   // Author region analysis
-  const authorRegionAnalysis = filteredPapers.reduce((acc: Record<string, any>, paper) => {
+  const authorRegionAnalysis = filteredPapers.reduce((acc: Record<string, {
+    region: string;
+    authors: Set<string>;
+    papers: number;
+    domains: Set<string>;
+  }>, paper) => {
     const authors = paper.authors;
     const authorRegions = paper.authorRegions;
     authors.forEach((author: string, idx: number) => {
@@ -236,11 +276,15 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
       paperCount: region.papers,
       domainCount: region.domains.size,
     }))
-    .sort((a: any, b: any) => b.paperCount - a.paperCount)
+    .sort((a, b) => b.paperCount - a.paperCount)
     .slice(0, 15);
 
   // Robust cross-region collaboration analysis
-  const crossRegionCollaboration = filteredPapers.reduce((acc: Record<string, any>, paper) => {
+  const crossRegionCollaboration = filteredPapers.reduce((acc: Record<string, {
+    regions: string;
+    papers: number;
+    domains: Set<string>;
+  }>, paper) => {
     const authors = paper.authors;
     const authorRegions = paper.authorRegions.map((r: string) => r.trim().toLowerCase()).filter(r => r && r !== 'unknown');
     // Map author index to region, skip if missing
@@ -273,18 +317,23 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
 
   const crossRegionDataArray = Object.values(crossRegionCollaboration)
     .map(collab => ({
-      regions: (collab.regions as string)
+      regions: collab.regions
         .split(' ↔ ')
-        .map((r: string) => (r as string).charAt(0).toUpperCase() + (r as string).slice(1))
+        .map((r: string) => r.charAt(0).toUpperCase() + r.slice(1))
         .join(' ↔ '),
       papers: collab.papers,
       domainCount: collab.domains.size,
     }))
-    .sort((a: any, b: any) => b.papers - a.papers)
+    .sort((a, b) => b.papers - a.papers)
     .slice(0, 10);
 
   // Affiliation analysis
-  const affiliationAnalysis = filteredPapers.reduce((acc: Record<string, any>, paper) => {
+  const affiliationAnalysis = filteredPapers.reduce((acc: Record<string, {
+    name: string;
+    papers: number;
+    domains: Set<string>;
+    collaborators: Set<string>;
+  }>, paper) => {
     paper.affiliations.forEach((affiliation: string) => {
       if (!acc[affiliation]) {
         acc[affiliation] = {
@@ -313,11 +362,15 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
       collaboratorCount: aff.collaborators.size,
       domainCount: aff.domains.size,
     }))
-    .sort((a: any, b: any) => b.papers - a.papers)
+    .sort((a, b) => b.papers - a.papers)
     .slice(0, 15);
 
   // Collaboration patterns
-  const collaborationPatterns = processedPapers.reduce((acc: Record<string, any>, paper) => {
+  const collaborationPatterns = processedPapers.reduce((acc: Record<string, {
+    type: string;
+    count: number;
+    papers: Paper[];
+  }>, paper) => {
     const authorCount = paper.authors.length || 1;
     const collaborationType = authorCount === 1 ? 'Solo' : 
                              authorCount === 2 ? 'Duo' :
@@ -334,7 +387,7 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
   }, {});
 
   const collaborationData = Object.values(collaborationPatterns)
-    .sort((a: any, b: any) => b.count - a.count);
+    .sort((a, b) => b.count - a.count);
 
   // Key metrics
   const metrics = {
@@ -345,17 +398,17 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
     uniqueRegions: Object.keys(regionAnalysis).length,
     uniqueAuthorRegions: Object.keys(authorRegionAnalysis).length,
     collaborativePapers: processedPapers.filter(p => p.authors.length > 1).length,
-    crossRegionPapers: Object.values(crossRegionCollaboration).reduce((sum: number, collab: any) => sum + collab.papers, 0),
+    crossRegionPapers: Object.values(crossRegionCollaboration).reduce((sum: number, collab) => sum + collab.papers, 0),
     recentPapers: processedPapers.filter(p => p.year >= 2020).length,
   };
 
   // Custom XAxis tick for better domain label readability
-  const renderDomainTick = (props: any) => {
+  const renderDomainTick = (props: DomainTickProps) => {
     const { x, y, payload } = props;
     const domain = String(payload.value || '');
     // Split long domain names into multiple lines
     const words = domain.split(' ');
-    let lines = [];
+    const lines: string[] = [];
     let currentLine = '';
     words.forEach(word => {
       if ((currentLine + ' ' + word).length > 12) {
@@ -568,7 +621,7 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
           <div className="bg-white p-6 rounded-lg shadow-lg">
             <h3 className="text-xl font-semibold mb-2 text-gray-700">Top Authors by Publications</h3>
             <div className="text-gray-500 text-sm mb-2">
-              Shows the most prolific authors in the filtered dataset. "Papers" is the number of papers authored; "Collaborations" is the number of unique co-authors. Each author's domains are shown below their name. 
+              Shows the most prolific authors in the filtered dataset. &quot;Papers&quot; is the number of papers authored; &quot;Collaborations&quot; is the number of unique co-authors. Each author&apos;s domains are shown below their name. 
               <br />
               <span className="text-xs">Selecting an author, domain, region, or institution above will update this chart and all others below.</span>
             </div>
@@ -582,8 +635,6 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
                   height={100}
                   tick={props => {
                     const author = props.payload.value;
-                    // Find the author object in authorDataArray
-                    const authorObj = authorDataArray.find(a => a.name === author);
                     // Get all domains for this author from filteredPapers
                     const domains = Array.from(new Set(filteredPapers.filter(p => p.authors.includes(author)).map(p => p.domain))).filter(Boolean);
                     return (
@@ -611,7 +662,7 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
           <div className="bg-white p-6 rounded-lg shadow-lg">
             <h3 className="text-xl font-semibold mb-2 text-gray-700">Top Institutions</h3>
             <div className="text-gray-500 text-sm mb-2">
-              Shows the institutions most represented in the filtered dataset. "Papers" is the number of papers with at least one author from the institution; "Collaborators" is the number of unique collaborating institutions. Domains of collaboration: <span className="font-semibold text-gray-700">{[...new Set(filteredPapers.flatMap(p => p.domain))].join(', ') || 'N/A'}</span>.
+              Shows the institutions most represented in the filtered dataset. &quot;Papers&quot; is the number of papers with at least one author from the institution; &quot;Collaborators&quot; is the number of unique collaborating institutions. Domains of collaboration: <span className="font-semibold text-gray-700">{[...new Set(filteredPapers.flatMap(p => p.domain))].join(', ') || 'N/A'}</span>.
               <br />
               <span className="text-xs">This chart updates with your filter selections above and is related to the co-author network below.</span>
             </div>
@@ -816,7 +867,7 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
                 {filteredPapers
                   .sort((a, b) => b.year - a.year)
                   .slice(0, 10)
-                  .map((paper, index) => (
+                  .map((paper) => (
                     <tr key={paper.SN} className="border-b hover:bg-gray-50">
                       <td className="p-3">{paper['Paper Title']}</td>
                       <td className="p-3">{paper.authors.slice(0, 3).join(', ')}{paper.authors.length > 3 ? '...' : ''}</td>

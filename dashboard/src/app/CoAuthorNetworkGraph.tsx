@@ -11,10 +11,33 @@ import ReactFlow, {
   Position,
 } from 'reactflow';
 import 'reactflow/dist/style.css';
-import Tooltip from '@mui/material/Tooltip';
+
+type Paper = {
+  SN?: string;
+  'Paper Title'?: string;
+  DOI?: string;
+  'Authors'?: string;
+  'Author Regions'?: string;
+  'Affiliations'?: string;
+  Year?: string;
+  'Focus Region'?: string;
+  Domain?: string;
+  Abstract?: string;
+  [key: string]: unknown;
+};
+
+type AuthorNodeData = {
+  label: string;
+  region: string;
+  affiliation: string;
+};
+
+type AuthorNodeProps = {
+  data: AuthorNodeData;
+};
 
 interface CoAuthorNetworkGraphProps {
-  papers: any[];
+  papers: Paper[];
   onAuthorClick?: (author: string) => void;
 }
 
@@ -36,7 +59,7 @@ const getColor = (region: string) => {
 };
 
 // Custom node with visible author name and affiliation
-const AuthorNode = ({ data }: any) => (
+const AuthorNode = ({ data }: AuthorNodeProps) => (
   <div style={{
     background: getColor(data.region),
     color: '#fff',
@@ -139,7 +162,7 @@ const CoAuthorNetworkGraph: React.FC<CoAuthorNetworkGraphProps> = ({ papers, onA
     setRfEdges(edges);
   }, [edges, setRfEdges]);
 
-  const onNodeClick = useCallback((_: any, node: Node) => {
+  const onNodeClick = useCallback((_: React.MouseEvent, node: Node) => {
     if (onAuthorClick) onAuthorClick(node.id as string);
   }, [onAuthorClick]);
 
@@ -156,12 +179,12 @@ const CoAuthorNetworkGraph: React.FC<CoAuthorNetworkGraphProps> = ({ papers, onA
         maxZoom={2}
         nodeTypes={nodeTypes}
       >
-        <MiniMap nodeColor={n => getColor(n.data?.region || 'Global')} />
+        <MiniMap nodeColor={(n: Node) => getColor((n.data as AuthorNodeData)?.region || 'Global')} />
         <Controls />
         <Background gap={18} size={1} color="#e5e7eb" />
       </ReactFlow>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, margin: '24px auto 0', alignItems: 'center', justifyContent: 'center', maxWidth: 700 }}>
-        {Array.from(new Set(nodes.map(n => n.data.region))).map(region => (
+        {Array.from(new Set(nodes.map(n => (n.data as AuthorNodeData).region))).map(region => (
           <div key={region} style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
             <span style={{ background: getColor(region), width: 18, height: 18, display: 'inline-block', borderRadius: 4, border: '1px solid #ccc' }}></span>
             <span style={{ fontSize: 14, color: '#333' }}>{region}</span>
