@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
     unoptimized: true
   },
   basePath: isProd ? '/algorithmic-bias-survey' : '',
-  assetPrefix: isProd ? '/algorithmic-bias-survey/' : '',
+  assetPrefix: isProd ? '/algorithmic-bias-survey' : '',
 };
 
 export default nextConfig; 
