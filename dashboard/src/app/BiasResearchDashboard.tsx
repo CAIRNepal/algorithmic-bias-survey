@@ -57,6 +57,7 @@ const BiasResearchDashboard = () => {
       })
       .catch(err => {
         setLoading(false);
+        setPapers([]); // Ensure papers is empty if error
         // Optionally, set an error state and show a user-friendly message
         // setError('Failed to load papers.csv');
         // For now, just log
@@ -274,6 +275,8 @@ const BiasResearchDashboard = () => {
       <div className="max-w-7xl mx-auto pt-8">
         {loading ? (
           <div className="text-center text-gray-500">Loading data...</div>
+        ) : papers.length === 0 ? (
+          <div className="text-center text-red-600 font-semibold">No data found. Please ensure papers.csv is present in the public directory and accessible at /papers.csv.</div>
         ) : (
           <>
             {/* Original dashboard content */}

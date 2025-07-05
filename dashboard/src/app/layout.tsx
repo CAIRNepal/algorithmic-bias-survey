@@ -51,7 +51,7 @@ export default function RootLayout({
         <header className="w-full bg-white shadow flex items-center justify-between px-8 py-4 mb-4 z-50 relative">
           <div className="flex items-center gap-4">
             <a href="https://cair-nepal.org/" target="_blank" rel="noopener noreferrer">
-              <Image src="/logo-slogan.png" alt="CAIR Nepal Logo" width={120} height={40} className="h-10 mr-4 object-contain" priority />
+              <Image src="/logo-slogan.png" alt="CAIR Nepal Logo" width={120} height={40} className="h-10 mr-4 object-contain" priority unoptimized />
             </a>
             <div>
               <span className="text-2xl font-bold text-blue-700">Bias Research Dashboard</span>
