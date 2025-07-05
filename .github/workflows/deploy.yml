@@ -36,10 +36,8 @@ jobs:
         run: npm install -f
         working-directory: dashboard
 
-      - name: Build and Export with Next.js
-        run: |
-          npm run build
-          npm run export
+      - name: Build static site with Next.js
+        run: npm run build
         working-directory: dashboard
 
       - name: Upload artifact
