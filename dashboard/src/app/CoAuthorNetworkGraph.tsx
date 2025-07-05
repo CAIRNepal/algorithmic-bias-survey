@@ -9,6 +9,7 @@ import ReactFlow, {
   useEdgesState,
   Handle,
   Position,
+  ReactFlowProvider,
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 
@@ -303,7 +304,6 @@ const getColor = (region: string) => {
   return colors[mappedRegion] || '#8884d8'; // Default color for unmapped regions
 };
 
-// Custom node with visible author name and affiliation
 const AuthorNode = ({ data }: AuthorNodeProps) => (
   <div style={{
     background: getColor(data.region),
@@ -324,7 +324,6 @@ const AuthorNode = ({ data }: AuthorNodeProps) => (
   </div>
 );
 
-// Move nodeTypes outside the component
 const nodeTypes = { author: AuthorNode };
 
 const CoAuthorNetworkGraph: React.FC<CoAuthorNetworkGraphProps> = ({ papers, onAuthorClick }) => {
@@ -413,29 +412,23 @@ const CoAuthorNetworkGraph: React.FC<CoAuthorNetworkGraphProps> = ({ papers, onA
 
   return (
     <div style={{ width: '100%', height: 600, background: '#f8fafc', borderRadius: 12 }}>
-      <ReactFlow
-        nodes={rfNodes}
-        edges={rfEdges}
-        onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
-        onNodeClick={onNodeClick}
-        fitView
-        minZoom={0.2}
-        maxZoom={2}
-        nodeTypes={nodeTypes}
-      >
-        <MiniMap nodeColor={(n: Node) => getColor((n.data as AuthorNodeData)?.region || 'Global')} />
-        <Controls />
-        <Background gap={18} size={1} color="#e5e7eb" />
-      </ReactFlow>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, margin: '24px auto 0', alignItems: 'center', justifyContent: 'center', maxWidth: 700 }}>
-        {Array.from(new Set(nodes.map(n => (n.data as AuthorNodeData).region))).map(region => (
-          <div key={region} style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-            <span style={{ background: getColor(region), width: 18, height: 18, display: 'inline-block', borderRadius: 4, border: '1px solid #ccc' }}></span>
-            <span style={{ fontSize: 14, color: '#333' }}>{region}</span>
-          </div>
-        ))}
-      </div>
+      <ReactFlowProvider>
+        <ReactFlow
+          nodes={rfNodes}
+          edges={rfEdges}
+          onNodesChange={onNodesChange}
+          onEdgesChange={onEdgesChange}
+          onNodeClick={onNodeClick}
+          fitView
+          minZoom={0.2}
+          maxZoom={2}
+          nodeTypes={nodeTypes}
+        >
+          <MiniMap nodeColor={(n: Node) => getColor((n.data as AuthorNodeData)?.region || 'Global')} />
+          <Controls />
+          <Background gap={18} size={1} color="#e5e7eb" />
+        </ReactFlow>
+      </ReactFlowProvider>
     </div>
   );
 };
