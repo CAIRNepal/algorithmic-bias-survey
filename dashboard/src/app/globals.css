@@ -24,3 +24,73 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* React Select custom styling - ADD THIS SECTION */
+.react-select__option {
+  color: #000000 !important;
+  background-color: white !important;
+  font-weight: 500 !important;
+}
+
+.react-select__option--is-focused {
+  background-color: #f3f4f6 !important;
+  color: #000000 !important;
+}
+
+.react-select__option--is-selected {
+  background-color: #2563eb !important;
+  color: white !important;
+}
+
+.react-select__menu {
+  background-color: white !important;
+}
+
+.react-select__menu-list {
+  background-color: white !important;
+}
+
+.react-select__single-value {
+  color: #000000 !important;
+}
+
+.react-select__placeholder {
+  color: #6b7280 !important;
+}
+
+
+/* Table styling fixes */
+table th {
+  color: #111827 !important;
+  font-weight: 600 !important;
+}
+
+table td {
+  color: #111827 !important;
+}
+
+/* Pagination styling fixes */
+.flex.justify-between.items-center span {
+  color: #111827 !important;
+}
+
+.flex.justify-between.items-center button {
+  color: #111827 !important;
+}
+
+/* Alternative more specific approach */
+.bg-white table th,
+.bg-white table td {
+  color: #111827 !important;
+}
+
+/* Fix any remaining gray text in the analytics page */
+.bg-white h3,
+.bg-white h4 {
+  color: #111827 !important;
+}
+
+.text-gray-600,
+.text-gray-500 {
+  color: #374151 !important; /* Darker gray instead of light gray */
+}

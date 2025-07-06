@@ -47,6 +47,7 @@ type AuthorData = {
 };
 
 const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
+  
   // Multi-select filters for collaborations
   const [selectedAuthors, setSelectedAuthors] = useState<string[]>([]);
   const [selectedDomains, setSelectedDomains] = useState<string[]>([]);
@@ -57,6 +58,9 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
   const [authorStatsPage, setAuthorStatsPage] = useState(1);
   const [instStatsPage, setInstStatsPage] = useState(1);
   const statsPageSize = 10;
+
+  const [authorStatsExpanded, setAuthorStatsExpanded] = useState(false);
+  const [institutionStatsExpanded, setInstitutionStatsExpanded] = useState(false);
 
   // Process papers - only use CSV fields
   const processedPapers = papers.map(paper => ({
@@ -629,119 +633,135 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
 
         {/* After the Top Authors by Publications chart, add a statistics table for author-domain-paper count */}
         <div className="mt-6">
-          <h4 className="text-lg font-semibold mb-2 text-gray-700">Author Domain Statistics</h4>
-          <div className="overflow-x-auto">
-            {(() => {
-              const rows = authorDataArray
-                .filter(a => selectedAuthors.length === 0 || selectedAuthors.includes(a.name))
-                .flatMap(author => {
-                  const domainCounts: Record<string, number> = {};
-                  filteredPapers.forEach(p => {
-                    const domain = String(p.domain);
-                    // Compare author names case-insensitively and trimmed
-                    const authorName = author.name.trim().toLowerCase();
-                    const paperAuthors = Array.isArray(p.authors) ? p.authors.map((a: string) => a.trim().toLowerCase()) : [];
-                    if (paperAuthors.includes(authorName)) {
-                      if (!domainCounts[domain]) domainCounts[domain] = 0;
-                      domainCounts[domain]!++;
-                    }
-                  });
-                  return Object.entries(domainCounts).map(([domain, count]) => ({
-                    author: author.name,
-                    domain,
-                    count,
-                  })) as {author: string, domain: string, count: number}[];
-                })
-                .sort((a, b) => a.author.localeCompare(b.author) || a.domain.localeCompare(b.domain));
-              const totalPages = Math.ceil(rows.length / statsPageSize);
-              const pagedRows = rows.slice((authorStatsPage - 1) * statsPageSize, authorStatsPage * statsPageSize);
-              return (
-                <>
-                  <table className="min-w-full text-sm">
-                    <thead>
-                      <tr className="bg-gray-100">
-                        <th className="p-2 text-left">Author</th>
-                        <th className="p-2 text-left">Domain</th>
-                        <th className="p-2 text-left"># Papers</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {pagedRows.map((row: {author: string, domain: string, count: number}, idx: number) => (
-                        <tr key={`${row.author}-${row.domain}`} className={idx % 2 === 0 ? '' : 'bg-gray-50'}>
-                          <td className="p-2">{row.author}</td>
-                          <td className="p-2">{row.domain}</td>
-                          <td className="p-2">{row.count}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                  <div className="flex justify-between items-center mt-2">
-                    <button className="px-3 py-1 rounded bg-gray-200" disabled={authorStatsPage === 1} onClick={() => setAuthorStatsPage(p => Math.max(1, p - 1))}>Prev</button>
-                    <span className="text-xs">Page {authorStatsPage} of {totalPages || 1}</span>
-                    <button className="px-3 py-1 rounded bg-gray-200" disabled={authorStatsPage === totalPages || totalPages === 0} onClick={() => setAuthorStatsPage(p => Math.min(totalPages, p + 1))}>Next</button>
-                  </div>
-                </>
-              );
-            })()}
-          </div>
-        </div>
+  <h4 
+    className="text-lg font-semibold mb-2 text-gray-700 cursor-pointer flex items-center hover:text-gray-900"
+    onClick={() => setAuthorStatsExpanded(!authorStatsExpanded)}
+  >
+    <span className={`mr-2 transition-transform ${authorStatsExpanded ? 'rotate-90' : ''}`}>▶</span>
+    Author Domain Statistics
+  </h4>
+  {authorStatsExpanded && (
+    <div className="overflow-x-auto">
+      {(() => {
+        const rows = authorDataArray
+          .filter(a => selectedAuthors.length === 0 || selectedAuthors.includes(a.name))
+          .flatMap(author => {
+            const domainCounts: Record<string, number> = {};
+            filteredPapers.forEach(p => {
+              const domain = String(p.domain);
+              // Compare author names case-insensitively and trimmed
+              const authorName = author.name.trim().toLowerCase();
+              const paperAuthors = Array.isArray(p.authors) ? p.authors.map((a: string) => a.trim().toLowerCase()) : [];
+              if (paperAuthors.includes(authorName)) {
+                if (!domainCounts[domain]) domainCounts[domain] = 0;
+                domainCounts[domain]!++;
+              }
+            });
+            return Object.entries(domainCounts).map(([domain, count]) => ({
+              author: author.name,
+              domain,
+              count,
+            })) as {author: string, domain: string, count: number}[];
+          })
+          .sort((a, b) => a.author.localeCompare(b.author) || a.domain.localeCompare(b.domain));
+        const totalPages = Math.ceil(rows.length / statsPageSize);
+        const pagedRows = rows.slice((authorStatsPage - 1) * statsPageSize, authorStatsPage * statsPageSize);
+        return (
+          <>
+            <table className="min-w-full text-sm">
+              <thead>
+                <tr className="bg-gray-100">
+                  <th className="p-2 text-left">Author</th>
+                  <th className="p-2 text-left">Domain</th>
+                  <th className="p-2 text-left"># Papers</th>
+                </tr>
+              </thead>
+              <tbody>
+                {pagedRows.map((row: {author: string, domain: string, count: number}, idx: number) => (
+                  <tr key={`${row.author}-${row.domain}`} className={idx % 2 === 0 ? '' : 'bg-gray-50'}>
+                    <td className="p-2">{row.author}</td>
+                    <td className="p-2">{row.domain}</td>
+                    <td className="p-2">{row.count}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <div className="flex justify-between items-center mt-2">
+              <button className="px-3 py-1 rounded bg-gray-200" disabled={authorStatsPage === 1} onClick={() => setAuthorStatsPage(p => Math.max(1, p - 1))}>Prev</button>
+              <span className="text-xs">Page {authorStatsPage} of {totalPages || 1}</span>
+              <button className="px-3 py-1 rounded bg-gray-200" disabled={authorStatsPage === totalPages || totalPages === 0} onClick={() => setAuthorStatsPage(p => Math.min(totalPages, p + 1))}>Next</button>
+            </div>
+          </>
+        );
+      })()}
+    </div>
+  )}
+</div>
 
         {/* After the Top Institutions chart, add a statistics table for institution-domain-paper count */}
         <div className="mt-6">
-          <h4 className="text-lg font-semibold mb-2 text-gray-700">Institution Domain Statistics</h4>
-          <div className="overflow-x-auto">
-            {(() => {
-              const rows = affiliationDataArray
-                .filter(i => selectedInstitutions.length === 0 || selectedInstitutions.includes(i.name))
-                .flatMap(inst => {
-                  const domainCounts: Record<string, number> = {};
-                  filteredPapers.forEach(p => {
-                    const affs = Array.isArray(p.affiliations) ? p.affiliations : [];
-                    if (affs.includes(inst.name)) {
-                      const domain = String(p.domain);
-                      if (!domainCounts[domain]) domainCounts[domain] = 0;
-                      domainCounts[domain]!++;
-                    }
-                  });
-                  return Object.entries(domainCounts).map(([domain, count]) => ({
-                    institution: inst.name,
-                    domain,
-                    count,
-                  })) as {institution: string, domain: string, count: number}[];
-                })
-                .sort((a, b) => a.institution.localeCompare(b.institution) || a.domain.localeCompare(b.domain));
-              const totalPages = Math.ceil(rows.length / statsPageSize);
-              const pagedRows = rows.slice((instStatsPage - 1) * statsPageSize, instStatsPage * statsPageSize);
-              return (
-                <>
-                  <table className="min-w-full text-sm">
-                    <thead>
-                      <tr className="bg-gray-100">
-                        <th className="p-2 text-left">Institution</th>
-                        <th className="p-2 text-left">Domain</th>
-                        <th className="p-2 text-left"># Papers</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {pagedRows.map((row: {institution: string, domain: string, count: number}, idx: number) => (
-                        <tr key={`${row.institution}-${row.domain}`} className={idx % 2 === 0 ? '' : 'bg-gray-50'}>
-                          <td className="p-2">{row.institution}</td>
-                          <td className="p-2">{row.domain}</td>
-                          <td className="p-2">{row.count}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                  <div className="flex justify-between items-center mt-2">
-                    <button className="px-3 py-1 rounded bg-gray-200" disabled={instStatsPage === 1} onClick={() => setInstStatsPage(p => Math.max(1, p - 1))}>Prev</button>
-                    <span className="text-xs">Page {instStatsPage} of {totalPages || 1}</span>
-                    <button className="px-3 py-1 rounded bg-gray-200" disabled={instStatsPage === totalPages || totalPages === 0} onClick={() => setInstStatsPage(p => Math.min(totalPages, p + 1))}>Next</button>
-                  </div>
-                </>
-              );
-            })()}
-          </div>
-        </div>
+  <h4 
+    className="text-lg font-semibold mb-2 text-gray-700 cursor-pointer flex items-center hover:text-gray-900"
+    onClick={() => setInstitutionStatsExpanded(!institutionStatsExpanded)}
+  >
+    <span className={`mr-2 transition-transform ${institutionStatsExpanded ? 'rotate-90' : ''}`}>▶</span>
+    Institution Domain Statistics
+  </h4>
+  {institutionStatsExpanded && (
+    <div className="overflow-x-auto">
+      {(() => {
+        const rows = affiliationDataArray
+          .filter(i => selectedInstitutions.length === 0 || selectedInstitutions.includes(i.name))
+          .flatMap(inst => {
+            const domainCounts: Record<string, number> = {};
+            filteredPapers.forEach(p => {
+              const affs = Array.isArray(p.affiliations) ? p.affiliations : [];
+              if (affs.includes(inst.name)) {
+                const domain = String(p.domain);
+                if (!domainCounts[domain]) domainCounts[domain] = 0;
+                domainCounts[domain]!++;
+              }
+            });
+            return Object.entries(domainCounts).map(([domain, count]) => ({
+              institution: inst.name,
+              domain,
+              count,
+            })) as {institution: string, domain: string, count: number}[];
+          })
+          .sort((a, b) => a.institution.localeCompare(b.institution) || a.domain.localeCompare(b.domain));
+        const totalPages = Math.ceil(rows.length / statsPageSize);
+        const pagedRows = rows.slice((instStatsPage - 1) * statsPageSize, instStatsPage * statsPageSize);
+        return (
+          <>
+            <table className="min-w-full text-sm">
+              <thead>
+                <tr className="bg-gray-100">
+                  <th className="p-2 text-left">Institution</th>
+                  <th className="p-2 text-left">Domain</th>
+                  <th className="p-2 text-left"># Papers</th>
+                </tr>
+              </thead>
+              <tbody>
+                {pagedRows.map((row: {institution: string, domain: string, count: number}, idx: number) => (
+                  <tr key={`${row.institution}-${row.domain}`} className={idx % 2 === 0 ? '' : 'bg-gray-50'}>
+                    <td className="p-2">{row.institution}</td>
+                    <td className="p-2">{row.domain}</td>
+                    <td className="p-2">{row.count}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <div className="flex justify-between items-center mt-2">
+              <button className="px-3 py-1 rounded bg-gray-200" disabled={instStatsPage === 1} onClick={() => setInstStatsPage(p => Math.max(1, p - 1))}>Prev</button>
+              <span className="text-xs">Page {instStatsPage} of {totalPages || 1}</span>
+              <button className="px-3 py-1 rounded bg-gray-200" disabled={instStatsPage === totalPages || totalPages === 0} onClick={() => setInstStatsPage(p => Math.min(totalPages, p + 1))}>Next</button>
+            </div>
+          </>
+        );
+      })()}
+    </div>
+  )}
+</div>
 
         {/* Co-Author Network Visualization */}
         <div className="bg-white p-6 rounded-lg shadow-lg mb-8">
