@@ -1156,7 +1156,9 @@ const BiasResearchDashboard = () => {
                             {(String(paper["Year"] || "") || "").trim()}
                           </td>
                           <td className="p-2 border" style={{ color: "black" }}>
-                            {(String(paper["Focus Region"] || "") || "").trim()}
+                            {(
+                              String(paper["Author Regions"] || "") || ""
+                            ).trim()}
                           </td>
                           <td className="p-2 border" style={{ color: "black" }}>
                             {paper["Focus Region"]}
