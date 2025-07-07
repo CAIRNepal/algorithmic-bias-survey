@@ -859,10 +859,10 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
               </button>
             </div>
             <div className="text-gray-500 text-sm mb-2">
-              Shows the most prolific authors in the filtered dataset.
-              &quot;Papers&quot; is the number of papers authored;
-              &quot;Collaborations&quot; is the number of unique co-authors.
-              Each author&apos;s domains are shown below their name.
+              Shows the most prolific authors in the filtered dataset. "Papers"
+              is the number of papers authored; "Collaborations" is the number
+              of unique co-authors. Each author's domains are shown below their
+              name.
               <br />
               <span className="text-xs">
                 Selecting an author, domain, region, or institution above will
@@ -949,10 +949,9 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
             </div>
             <div className="text-gray-500 text-sm mb-2">
               Shows the institutions most represented in the filtered dataset.
-              &quot;Papers&quot; is the number of papers with at least one
-              author from the institution; &quot;Collaborators&quot; is the
-              number of unique collaborating institutions. Domains of
-              collaboration:{" "}
+              "Papers" is the number of papers with at least one author from the
+              institution; "Collaborators" is the number of unique collaborating
+              institutions. Domains of collaboration:{" "}
               <span className="font-semibold text-gray-700">
                 {[...new Set(filteredPapers.flatMap((p) => p.domain))].join(
                   ", "
