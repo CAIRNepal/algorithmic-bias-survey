@@ -152,16 +152,63 @@ const BiasResearchDashboard = () => {
     .sort((a, b) => a.year - b.year);
 
   // Author Regions (regionData)
-  const regionMap: Record<string, number> = {};
+  // Author Regions (regionData) - FIXED CODE:
+  // const regionMap: Record<string, number> = {};
+  // validPapers.forEach((paper) => {
+  //   const authorRegions = (String(paper["Author Regions"] || "") || "").trim();
+  //   if (authorRegions) {
+  //     // Split by semicolon and count each region
+  //     const regions = authorRegions.split(";").map(r => r.trim()).filter(Boolean);
+  //     regions.forEach(region => {
+  //       if (region) regionMap[region] = (regionMap[region] || 0) + 1;
+  //     });
+  //   }
+  // });
+  //   const regionData = Object.entries(regionMap).map(([region, count]) => ({
+  //     region,
+  //     count,
+  //   }));
+  // First Author Regions (regionData)
+  const firstAuthorRegionMap: Record<string, number> = {};
   validPapers.forEach((paper) => {
-    const region = (String(paper["Focus Region"] || "") || "").trim();
-    if (region) regionMap[region] = (regionMap[region] || 0) + 1;
+    const authorRegions = (String(paper["Author Regions"] || "") || "").trim();
+    if (authorRegions) {
+      // Take only the first region (first author)
+      const firstRegion = authorRegions.split(";")[0].trim();
+      if (firstRegion)
+        firstAuthorRegionMap[firstRegion] =
+          (firstAuthorRegionMap[firstRegion] || 0) + 1;
+    }
   });
-  const regionData = Object.entries(regionMap).map(([region, count]) => ({
-    region,
-    count,
-  }));
+  const firstAuthorRegionData = Object.entries(firstAuthorRegionMap).map(
+    ([region, count]) => ({
+      region,
+      count,
+    })
+  );
 
+  // All Authors Regions (allAuthorsRegionData)
+  const allAuthorsRegionMap: Record<string, number> = {};
+  validPapers.forEach((paper) => {
+    const authorRegions = (String(paper["Author Regions"] || "") || "").trim();
+    if (authorRegions) {
+      // Split by semicolon and count each region
+      const regions = authorRegions
+        .split(";")
+        .map((r) => r.trim())
+        .filter(Boolean);
+      regions.forEach((region) => {
+        if (region)
+          allAuthorsRegionMap[region] = (allAuthorsRegionMap[region] || 0) + 1;
+      });
+    }
+  });
+  const allAuthorsRegionData = Object.entries(allAuthorsRegionMap).map(
+    ([region, count]) => ({
+      region,
+      count,
+    })
+  );
   // Research Domains (domainData)
   const domainMap: Record<string, number> = {};
   validPapers.forEach((paper) => {
@@ -189,7 +236,7 @@ const BiasResearchDashboard = () => {
 
   // Summary statistics
   const totalDomains = domainData.length;
-  const totalRegions = regionData.length;
+  const totalRegions = firstAuthorRegionData.length;
 
   // Dynamic Key Insights
   // 1. Peak research activity year
@@ -220,7 +267,9 @@ const BiasResearchDashboard = () => {
       ? "Strong foundation in general fairness research"
       : "";
   // 5. Top region/country
-  const topRegion = regionData.length > 0 ? regionData[0] : null;
+  const topRegion =
+    firstAuthorRegionData.length > 0 ? firstAuthorRegionData[0] : null; //
+
   // 6. European/Asian presence
   const europeanCountries = [
     "UK",
@@ -240,11 +289,12 @@ const BiasResearchDashboard = () => {
     "Turkey",
     "Israel",
   ];
-  const hasEurope = regionData.some((r) =>
+  const hasEurope = firstAuthorRegionData.some((r) =>
     europeanCountries.includes(r.region)
   );
-  const hasAsia = regionData.some((r) => asianCountries.includes(r.region));
-
+  const hasAsia = firstAuthorRegionData.some((r) =>
+    asianCountries.includes(r.region)
+  );
   // Map data processing
   const countryDomainMap: Record<
     string,
@@ -591,51 +641,130 @@ const BiasResearchDashboard = () => {
               </div>
 
               {/* Author Regions Bar Chart */}
-              <div className="bg-white p-6 rounded-lg shadow-lg mb-6">
-                <div className="flex justify-between items-center mb-4">
-                  <h2 className="text-xl font-semibold text-gray-700">
-                    Author Regions Distribution
-                  </h2>
-                  <button
-                    className="bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700 flex items-center gap-2 shadow-md"
-                    onClick={() =>
-                      downloadChartAsImage(
-                        "regions-chart",
-                        "author-regions-distribution"
-                      )
-                    }
-                  >
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
+              {/* Author Regions Charts - First Author vs All Authors */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                {/* First Author Regions */}
+                <div className="bg-white p-6 rounded-lg shadow-lg">
+                  <div className="flex justify-between items-center mb-4">
+                    <h2 className="text-xl font-semibold text-gray-700">
+                      First Author Regions
+                    </h2>
+                    <button
+                      className="bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700 flex items-center gap-2 shadow-md"
+                      onClick={() =>
+                        downloadChartAsImage(
+                          "first-author-regions-chart",
+                          "first-author-regions"
+                        )
+                      }
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                      />
-                    </svg>
-                    Download
-                  </button>
-                </div>
-                {regionData.length === 0 ? (
-                  <div className="text-gray-500">
-                    No data loaded. Check that papers.csv is in the public
-                    folder and the header is exactly &apos;Pub Year & Author
-                    Region&apos;.
+                      <svg
+                        className="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                        />
+                      </svg>
+                      Download
+                    </button>
                   </div>
-                ) : (
-                  <div
-                    id="regions-chart"
-                    style={{ width: "100%", overflowX: "auto" }}
-                  >
-                    <div style={{ minWidth: 900 }}>
+                  <div className="text-sm text-gray-600 mb-2">
+                    Distribution by first author's country/region
+                  </div>
+                  {firstAuthorRegionData.length === 0 ? (
+                    <div className="text-gray-500">
+                      No first author region data available.
+                    </div>
+                  ) : (
+                    <div
+                      id="first-author-regions-chart"
+                      style={{ width: "100%", overflowX: "auto" }}
+                    >
                       <ResponsiveContainer width="100%" height={400}>
                         <BarChart
-                          data={regionData}
+                          data={firstAuthorRegionData}
+                          margin={{ top: 20, right: 30, left: 20, bottom: 80 }}
+                        >
+                          <CartesianGrid strokeDasharray="3 3" />
+                          <XAxis
+                            dataKey="region"
+                            angle={-45}
+                            textAnchor="end"
+                            interval={0}
+                            height={100}
+                            label={{
+                              value: "Country",
+                              position: "insideBottom",
+                              offset: -60,
+                            }}
+                          />
+                          <YAxis
+                            label={{
+                              value: "Count",
+                              angle: -90,
+                              position: "insideLeft",
+                            }}
+                          />
+                          <Tooltip />
+                          <Bar dataKey="count" fill="#2563eb" />
+                        </BarChart>
+                      </ResponsiveContainer>
+                    </div>
+                  )}
+                </div>
+
+                {/* All Authors Regions */}
+                <div className="bg-white p-6 rounded-lg shadow-lg">
+                  <div className="flex justify-between items-center mb-4">
+                    <h2 className="text-xl font-semibold text-gray-700">
+                      All Authors Regions
+                    </h2>
+                    <button
+                      className="bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700 flex items-center gap-2 shadow-md"
+                      onClick={() =>
+                        downloadChartAsImage(
+                          "all-authors-regions-chart",
+                          "all-authors-regions"
+                        )
+                      }
+                    >
+                      <svg
+                        className="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                        />
+                      </svg>
+                      Download
+                    </button>
+                  </div>
+                  <div className="text-sm text-gray-600 mb-2">
+                    Distribution including all co-authors' countries/regions
+                  </div>
+                  {allAuthorsRegionData.length === 0 ? (
+                    <div className="text-gray-500">
+                      No author region data available.
+                    </div>
+                  ) : (
+                    <div
+                      id="all-authors-regions-chart"
+                      style={{ width: "100%", overflowX: "auto" }}
+                    >
+                      <ResponsiveContainer width="100%" height={400}>
+                        <BarChart
+                          data={allAuthorsRegionData}
                           margin={{ top: 20, right: 30, left: 20, bottom: 80 }}
                         >
                           <CartesianGrid strokeDasharray="3 3" />
@@ -663,8 +792,8 @@ const BiasResearchDashboard = () => {
                         </BarChart>
                       </ResponsiveContainer>
                     </div>
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
 
               {/* Summary Statistics Cards */}
