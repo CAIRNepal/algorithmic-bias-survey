@@ -36,7 +36,37 @@ const DOMAIN_COLORS = [
   "#f59e42",
   "#10b981",
 ];
-
+const authorRegionToCountryMap: Record<string, string> = {
+  USA: "United States of America",
+  "United States": "United States of America",
+  UK: "United Kingdom",
+  Australia: "Australia",
+  Germany: "Germany",
+  France: "France",
+  Canada: "Canada",
+  China: "China",
+  India: "India",
+  Japan: "Japan",
+  "South Korea": "Republic of Korea",
+  Italy: "Italy",
+  Spain: "Spain",
+  Netherlands: "Netherlands",
+  Switzerland: "Switzerland",
+  Sweden: "Sweden",
+  Norway: "Norway",
+  Denmark: "Denmark",
+  Finland: "Finland",
+  Austria: "Austria",
+  Belgium: "Belgium",
+  Greece: "Greece",
+  Ireland: "Ireland",
+  Israel: "Israel",
+  Turkey: "Turkey",
+  Taiwan: "Taiwan",
+  "Hong Kong": "Hong Kong",
+  "United Arab Emirates": "United Arab Emirates",
+  // Add more as needed
+};
 // Define a Paper type for better type safety
 type Paper = {
   SN?: string;
@@ -298,34 +328,88 @@ const BiasResearchDashboard = () => {
   // Map data processing
   const countryDomainMap: Record<
     string,
-    { domain: string; count: number; papers: string[] }
+    {
+      domain: string;
+      count: number;
+      papers: string[];
+      domainBreakdown: Record<string, number>;
+    }
   > = {};
 
+  // Process each paper and map author regions to domains
   validPapers.forEach((paper) => {
-    const region = (String(paper["Focus Region"] || "") || "").trim();
+    const authorRegions = (String(paper["Author Regions"] || "") || "").trim();
     const domain = (String(paper["Domain"] || "") || "").trim();
     const title = paper["Paper Title"] || "Unknown";
 
-    if (region && domain) {
-      if (!countryDomainMap[region]) {
-        countryDomainMap[region] = { domain: "", count: 0, papers: [] };
-      }
-      countryDomainMap[region].count++;
-      countryDomainMap[region].papers.push(title);
+    if (authorRegions && domain) {
+      // Split author regions by semicolon and process each
+      const regions = authorRegions
+        .split(";")
+        .map((r) => r.trim())
+        .filter(Boolean);
 
-      // Determine dominant domain for this country
-      const countryPapers = validPapers.filter(
-        (p) => (String(p["Focus Region"] || "") || "").trim() === region
-      );
-      const domainCounts: Record<string, number> = {};
-      countryPapers.forEach((p) => {
-        const d = (String(p["Domain"] || "") || "").trim().toLowerCase();
-        if (d) domainCounts[d] = (domainCounts[d] || 0) + 1;
+      regions.forEach((region: string) => {
+        // Map author region to country name for the map
+        const countryName = authorRegionToCountryMap[region];
+
+        if (countryName) {
+          if (!countryDomainMap[countryName]) {
+            countryDomainMap[countryName] = {
+              domain: "",
+              count: 0,
+              papers: [],
+              domainBreakdown: {},
+            };
+          }
+          countryDomainMap[countryName].count++;
+          countryDomainMap[countryName].papers.push(title);
+
+          if (!countryDomainMap[countryName].domainBreakdown[domain]) {
+            countryDomainMap[countryName].domainBreakdown[domain] = 0;
+          }
+          countryDomainMap[countryName].domainBreakdown[domain]++;
+        } else if (region) {
+          // Log unmapped regions so you can add them to the mapping
+          console.log(`Unmapped author region: "${region}"`);
+        }
       });
+    }
+  });
+
+  // Calculate dominant domain for each country
+  Object.keys(countryDomainMap).forEach((countryName: string) => {
+    // Get all papers where this country appears in author regions
+    const countryPapers = validPapers.filter((paper) => {
+      const authorRegions = (
+        String(paper["Author Regions"] || "") || ""
+      ).trim();
+      if (!authorRegions) return false;
+
+      const regions = authorRegions
+        .split(";")
+        .map((r) => r.trim())
+        .filter(Boolean);
+      return regions.some(
+        (region) => authorRegionToCountryMap[region] === countryName
+      );
+    });
+
+    // Count domains for this country
+    const domainCounts: Record<string, number> = {};
+    countryPapers.forEach((paper) => {
+      const domain = (String(paper["Domain"] || "") || "").trim();
+      if (domain) {
+        domainCounts[domain] = (domainCounts[domain] || 0) + 1;
+      }
+    });
+
+    // Set the dominant domain (most frequent)
+    if (Object.keys(domainCounts).length > 0) {
       const dominantDomain = Object.entries(domainCounts).reduce((a, b) =>
         a[1] > b[1] ? a : b
       )[0];
-      countryDomainMap[region].domain = dominantDomain;
+      countryDomainMap[countryName].domain = dominantDomain;
     }
   });
 
@@ -395,7 +479,7 @@ const BiasResearchDashboard = () => {
     const author = (String(paper["Authors"] || "") || "").toLowerCase().trim();
     const doi = (String(paper["DOI"] || "") || "").toLowerCase().trim();
     const domain = (String(paper["Domain"] || "") || "").toLowerCase().trim();
-    const region = (String(paper["Focus Region"] || "") || "").trim();
+    const focusRegion = (String(paper["Focus Region"] || "") || "").trim();
     const year = (String(paper["Year"] || "") || "").trim();
     const q = searchQuery.toLowerCase().trim();
 
@@ -407,15 +491,23 @@ const BiasResearchDashboard = () => {
       !filterAuthor ||
       paperAuthors.some((a) => a.includes(filterAuthor.toLowerCase()));
 
+    // Fix author regions filtering - check if any author region matches
+    const authorRegions = (String(paper["Author Regions"] || "") || "")
+      .split(";")
+      .map((r) => r.trim());
+    const regionMatches =
+      !filterRegion ||
+      authorRegions.some((r) => r.toLowerCase() === filterRegion.toLowerCase());
+
     return (
       (!searchQuery ||
         title.includes(q) ||
         author.includes(q) ||
         domain.includes(q) ||
-        region.includes(q) ||
+        focusRegion.includes(q) ||
         doi.includes(q)) &&
       (!filterYear || year === filterYear) &&
-      (!filterRegion || region === filterRegion.toLowerCase().trim()) &&
+      regionMatches && // ✅ Use the new region matching logic
       (!filterDomain || domain === filterDomain.toLowerCase().trim()) &&
       authorMatches
     );
@@ -923,7 +1015,12 @@ const BiasResearchDashboard = () => {
                       <Geographies geography="https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json">
                         {({ geographies }) =>
                           geographies.map((geo) => {
-                            const countryName = geo.properties.name;
+                            const countryName: string =
+                              geo.properties.NAME ||
+                              geo.properties.name ||
+                              geo.properties.NAME_EN ||
+                              geo.properties.NAME_LONG ||
+                              "";
                             const altName = Object.keys(countryToGeoName).find(
                               (key) => countryToGeoName[key] === countryName
                             );
@@ -940,11 +1037,21 @@ const BiasResearchDashboard = () => {
                                 selectedDomain.toLowerCase();
                               // Check if selectedDomain is present at all
                               const countryPapers = validPapers.filter((p) => {
-                                const region = (
-                                  String(p["Focus Region"] || "") || ""
+                                const authorRegions = (
+                                  String(p["Author Regions"] || "") || ""
                                 ).trim();
-                                return region === (altName || countryName);
+                                if (!authorRegions) return false;
+                                const regions = authorRegions
+                                  .split(";")
+                                  .map((r) => r.trim())
+                                  .filter(Boolean);
+                                return regions.some(
+                                  (region) =>
+                                    authorRegionToCountryMap[region] ===
+                                    countryName
+                                );
                               });
+
                               isPresent = countryPapers.some(
                                 (p) =>
                                   (String(p["Domain"] || "") || "")
@@ -996,10 +1103,31 @@ const BiasResearchDashboard = () => {
                                 }}
                                 onMouseEnter={() => {
                                   if (countryData) {
+                                    const domainBreakdown = Object.entries(
+                                      countryData.domainBreakdown
+                                    )
+                                      .sort((a, b) => b[1] - a[1])
+                                      .map(
+                                        ([domain, count]) =>
+                                          `${domain}: ${count}`
+                                      )
+                                      .join("\n");
+
+                                    const tooltipContent = `${countryName}\nTotal Papers: ${countryData.count}\n\n${domainBreakdown}`;
+
                                     setTooltip({
-                                      content: `${countryName}: ${countryData.count} papers in ${countryData.domain}`,
+                                      content: tooltipContent,
                                       x: 0,
                                       y: 0,
+                                    });
+                                  }
+                                }}
+                                onMouseMove={(event: any) => {
+                                  if (countryData && tooltip) {
+                                    setTooltip({
+                                      ...tooltip,
+                                      x: event.clientX || 0,
+                                      y: (event.clientY || 0) - 10,
                                     });
                                   }
                                 }}
@@ -1014,7 +1142,7 @@ const BiasResearchDashboard = () => {
                   {tooltip && (
                     <div
                       style={{
-                        position: "absolute",
+                        position: "fixed",
                         left: tooltip.x,
                         top: tooltip.y,
                         backgroundColor: "rgba(0, 0, 0, 0.8)",
@@ -1024,6 +1152,9 @@ const BiasResearchDashboard = () => {
                         fontSize: "12px",
                         pointerEvents: "none",
                         zIndex: 1000,
+                        whiteSpace: "pre-line",
+                        transform: "translate(-50%, -100%)",
+                        maxWidth: "300px",
                       }}
                     >
                       {tooltip.content}
