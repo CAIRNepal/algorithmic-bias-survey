@@ -95,6 +95,7 @@ const BiasResearchDashboard = () => {
   } | null>(null);
   const [selectedDomain, setSelectedDomain] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [useFirstAuthorOnly, setUseFirstAuthorOnly] = useState(false);
   const [filterYear, setFilterYear] = useState("");
   const [filterRegion, setFilterRegion] = useState("");
   const [filterDomain, setFilterDomain] = useState("");
@@ -326,7 +327,10 @@ const BiasResearchDashboard = () => {
     asianCountries.includes(r.region)
   );
   // Map data processing
-  const countryDomainMap: Record<
+  // Map data processing - Dynamic function for all authors vs first author only
+  const createCountryDomainMap = (
+    firstAuthorOnly: boolean
+  ): Record<
     string,
     {
       domain: string;
@@ -334,48 +338,78 @@ const BiasResearchDashboard = () => {
       papers: string[];
       domainBreakdown: Record<string, number>;
     }
-  > = {};
+  > => {
+    const countryDomainMap: {
+      [key: string]: {
+        domain: string;
+        count: number;
+        papers: string[];
+        domainBreakdown: { [domain: string]: number };
+      };
+    } = {};
 
-  // Process each paper and map author regions to domains
-  validPapers.forEach((paper) => {
-    const authorRegions = (String(paper["Author Regions"] || "") || "").trim();
-    const domain = (String(paper["Domain"] || "") || "").trim();
-    const title = paper["Paper Title"] || "Unknown";
+    validPapers.forEach((paper) => {
+      const authorRegions = (
+        String(paper["Author Regions"] || "") || ""
+      ).trim();
+      const domain = (String(paper["Domain"] || "") || "").trim();
+      const title = paper["Paper Title"] || "Unknown";
 
-    if (authorRegions && domain) {
-      // Split author regions by semicolon and process each
-      const regions = authorRegions
-        .split(";")
-        .map((r) => r.trim())
-        .filter(Boolean);
+      if (authorRegions && domain) {
+        let regions: string[];
 
-      regions.forEach((region: string) => {
-        // Map author region to country name for the map
-        const countryName = authorRegionToCountryMap[region];
-
-        if (countryName) {
-          if (!countryDomainMap[countryName]) {
-            countryDomainMap[countryName] = {
-              domain: "",
-              count: 0,
-              papers: [],
-              domainBreakdown: {},
-            };
-          }
-          countryDomainMap[countryName].count++;
-          countryDomainMap[countryName].papers.push(title);
-
-          if (!countryDomainMap[countryName].domainBreakdown[domain]) {
-            countryDomainMap[countryName].domainBreakdown[domain] = 0;
-          }
-          countryDomainMap[countryName].domainBreakdown[domain]++;
-        } else if (region) {
-          // Log unmapped regions so you can add them to the mapping
-          console.log(`Unmapped author region: "${region}"`);
+        if (firstAuthorOnly) {
+          const firstRegion = authorRegions.split(";")[0].trim();
+          regions = firstRegion ? [firstRegion] : [];
+        } else {
+          regions = authorRegions
+            .split(";")
+            .map((r) => r.trim())
+            .filter(Boolean);
         }
-      });
-    }
-  });
+
+        regions.forEach((region: string) => {
+          const countryName = authorRegionToCountryMap[region];
+
+          if (countryName) {
+            if (!countryDomainMap[countryName]) {
+              countryDomainMap[countryName] = {
+                domain: "",
+                count: 0,
+                papers: [],
+                domainBreakdown: {},
+              };
+            }
+
+            countryDomainMap[countryName].count++;
+            countryDomainMap[countryName].papers.push(title);
+
+            if (!countryDomainMap[countryName].domainBreakdown[domain]) {
+              countryDomainMap[countryName].domainBreakdown[domain] = 0;
+            }
+            countryDomainMap[countryName].domainBreakdown[domain]++;
+          } else if (region) {
+            console.log(`Unmapped author region: "${region}"`);
+          }
+        });
+      }
+    });
+
+    Object.keys(countryDomainMap).forEach((countryName: string) => {
+      const domainCounts = countryDomainMap[countryName].domainBreakdown;
+
+      if (Object.keys(domainCounts).length > 0) {
+        const dominantDomain = Object.entries(domainCounts).reduce((a, b) =>
+          a[1] > b[1] ? a : b
+        )[0];
+        countryDomainMap[countryName].domain = dominantDomain;
+      }
+    });
+
+    return countryDomainMap;
+  };
+
+  const countryDomainMap = createCountryDomainMap(useFirstAuthorOnly);
 
   // Calculate dominant domain for each country
   Object.keys(countryDomainMap).forEach((countryName: string) => {
@@ -952,9 +986,9 @@ const BiasResearchDashboard = () => {
                 </div>
                 <div className="mb-4">
                   <p className="text-sm text-gray-600 mb-2">
-                    Countries are colored by their dominant research domain.
-                    Hover over countries to see details or click on the domain
-                    legend to filter the map.
+                    Countries are colored by the research domain their authors
+                    contribute to most. Hover over countries to see domain
+                    breakdown or click on the domain legend to filter the map.
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {domainData.map((entry) => (
@@ -992,6 +1026,39 @@ const BiasResearchDashboard = () => {
                         <span className="text-gray-700">{entry.domain}</span>
                       </button>
                     ))}
+                  </div>
+
+                  <div className="mt-3 pt-3 border-t border-gray-200">
+                    <div className="flex items-center gap-3">
+                      <span className="text-sm font-medium text-gray-700">
+                        Author Mapping:
+                      </span>
+                      <button
+                        className={`px-3 py-1 text-xs rounded transition-colors ${
+                          !useFirstAuthorOnly
+                            ? "bg-blue-500 text-white"
+                            : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                        }`}
+                        onClick={() => setUseFirstAuthorOnly(false)}
+                      >
+                        All Authors
+                      </button>
+                      <button
+                        className={`px-3 py-1 text-xs rounded transition-colors ${
+                          useFirstAuthorOnly
+                            ? "bg-blue-500 text-white"
+                            : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                        }`}
+                        onClick={() => setUseFirstAuthorOnly(true)}
+                      >
+                        First Author Only
+                      </button>
+                    </div>
+                    <p className="text-xs text-gray-500 mt-1">
+                      {useFirstAuthorOnly
+                        ? "Countries colored by first author's research domain"
+                        : "Countries colored by all authors' research domains"}
+                    </p>
                   </div>
                 </div>
                 <div
@@ -1113,7 +1180,7 @@ const BiasResearchDashboard = () => {
                                       )
                                       .join("\n");
 
-                                    const tooltipContent = `${countryName}\nTotal Papers: ${countryData.count}\n\n${domainBreakdown}`;
+                                    const tooltipContent = `${countryName}\nAuthor Contributions: ${countryData.count}\n\n${domainBreakdown}`;
 
                                     setTooltip({
                                       content: tooltipContent,
