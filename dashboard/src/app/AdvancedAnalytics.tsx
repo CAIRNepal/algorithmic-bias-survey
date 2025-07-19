@@ -353,10 +353,12 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
     ) => {
       const authors = paper.authors;
       const authorRegions = paper.authorRegions
-        .map((r: string) => r.trim().toLowerCase())
-        .filter((r) => r && r !== "unknown");
+        .map((r: string) => r.trim()) // Don't convert to lowercase here!
+        .filter((r) => r && r !== "unknown" && r !== "Unknown");
+
       // Map author index to region, skip if missing
       const regionMap = authors.map((_, idx) => authorRegions[idx] || "");
+
       // Unique region pairs in this paper
       const seenPairs = new Set<string>();
       for (let i = 0; i < regionMap.length; i++) {
@@ -364,18 +366,27 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
           const region1 = regionMap[i];
           const region2 = regionMap[j];
           if (region1 && region2 && region1 !== region2) {
-            const pair = [region1, region2].sort().join(" ↔ ");
-            if (!seenPairs.has(pair)) {
-              seenPairs.add(pair);
-              if (!acc[pair]) {
-                acc[pair] = {
-                  regions: pair,
+            // Create a normalized pair for comparison (lowercase for sorting)
+            const normalizedPair = [
+              region1.toLowerCase(),
+              region2.toLowerCase(),
+            ]
+              .sort()
+              .join(" ↔ ");
+            // But store the original casing
+            const originalPair = [region1, region2].sort().join(" ↔ ");
+
+            if (!seenPairs.has(normalizedPair)) {
+              seenPairs.add(normalizedPair);
+              if (!acc[originalPair]) {
+                acc[originalPair] = {
+                  regions: originalPair,
                   papers: 0,
                   domains: new Set(),
                 };
               }
-              acc[pair].papers++;
-              acc[pair].domains.add(paper.domain || "Unknown");
+              acc[originalPair].papers++;
+              acc[originalPair].domains.add(paper.domain || "Unknown");
             }
           }
         }
@@ -387,10 +398,7 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
 
   const crossRegionDataArray = Object.values(crossRegionCollaboration)
     .map((collab) => ({
-      regions: collab.regions
-        .split(" ↔ ")
-        .map((r: string) => r.charAt(0).toUpperCase() + r.slice(1))
-        .join(" ↔ "),
+      regions: collab.regions, // Keep original casing
       papers: collab.papers,
       domainCount: collab.domains.size,
     }))
@@ -1291,14 +1299,19 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
               filtered dataset. Updates with your filter selections above.
             </div>
             <div id="author-regions-chart">
-              <ResponsiveContainer width="100%" height={400}>
-                <BarChart data={authorRegionDataArray}>
+              <ResponsiveContainer width="100%" height={450}>
+                <BarChart
+                  data={authorRegionDataArray}
+                  margin={{ bottom: 120, left: 20, right: 20, top: 20 }}
+                >
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis
                     dataKey="region"
                     angle={-45}
                     textAnchor="end"
-                    height={100}
+                    height={120}
+                    interval={0}
+                    tick={{ fontSize: 11 }}
                   />
                   <YAxis />
                   <Tooltip />
@@ -1310,7 +1323,7 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
             </div>
           </div>
 
-          {/* Cross Regions Collaborationa Analysis */}
+          {/* Cross Regions Collaborations Analysis */}
           <div className="bg-white p-6 rounded-lg shadow-lg">
             <div className="flex justify-between items-center mb-2">
               <h3 className="text-xl font-semibold text-gray-700">
