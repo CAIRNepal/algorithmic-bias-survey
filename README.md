@@ -11,6 +11,11 @@ This work is part of the research initiative **"Towards FAIR AI: A Survey of Reg
 
 This study provides a regional perspective on fairness, accountability, and transparency in AI (FAIR), highlighting geographic disparities and presenting a structured review of methods using **Knowledge Graphs (KGs)** for mitigating bias in AI systems.
 
+## Dashboard
+- Link: [https://cairnepal.github.io/algorithmic-bias-survey/](https://cairnepal.github.io/algorithmic-bias-survey/)
+<img width="2218" height="4270" alt="screencapture-cairnepal-github-io-algorithmic-bias-survey-2025-07-26-08_11_44" src="https://github.com/user-attachments/assets/ba9d93c9-9bbd-4593-a1f4-41d03562c33b" />
+
+
 ## 🧩 Focus Areas
 
 - 📍 Regional analysis of FAIR AI research and policy
