@@ -243,7 +243,7 @@ const BiasResearchDashboard = () => {
   // Research Domains (domainData)
   const domainMap: Record<string, number> = {};
   validPapers.forEach((paper) => {
-    const domain = (String(paper["Domain"] || "") || "").trim().toLowerCase();
+    const domain = (String(paper["Domain"] || "") || "").trim();
     if (domain) domainMap[domain] = (domainMap[domain] || 0) + 1;
   });
   const domainTotal = Object.values(domainMap).reduce((sum, c) => sum + c, 0);
