@@ -26,6 +26,19 @@ import {
 import { saveAs } from "file-saver";
 import html2canvas from "html2canvas";
 
+const formatDomainForDisplay = (domain: string): string => {
+  const specialCases: Record<string, string> = {
+    "health & clinical ai": "Health & Clinical AI",
+    "general fairness & bias mitigation": "General Fairness & Bias Mitigation",
+    "graph-based fairness & bias mitigation":
+      "Graph-Based Fairness & Bias Mitigation",
+    "llm and nlp": "LLM and NLP",
+    "recommender systems": "Recommender Systems",
+  };
+
+  return specialCases[domain.toLowerCase()] || domain;
+};
+
 const DOMAIN_COLORS = [
   "#2563eb",
   "#dc2626",
@@ -692,12 +705,165 @@ const BiasResearchDashboard = () => {
                     </h2>
                     <button
                       className="bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700 flex items-center gap-2 shadow-md"
-                      onClick={() =>
-                        downloadChartAsImage(
-                          "domain-chart",
-                          "domain-distribution"
-                        )
-                      }
+                      onClick={async () => {
+                        const downloadSVGChart = async () => {
+                          try {
+                            // Find the SVG element in the chart
+                            const chartContainer =
+                              document.getElementById("domain-chart");
+                            const svgElement =
+                              chartContainer?.querySelector("svg");
+
+                            if (!svgElement) {
+                              throw new Error("SVG not found");
+                            }
+
+                            // Clone the SVG to avoid modifying the original
+                            const svgClone = svgElement.cloneNode(
+                              true
+                            ) as SVGElement;
+
+                            // Set explicit dimensions
+                            svgClone.setAttribute("width", "800");
+                            svgClone.setAttribute("height", "600");
+                            svgClone.style.backgroundColor = "white";
+
+                            // Create a canvas element
+                            const canvas = document.createElement("canvas");
+                            const ctx = canvas.getContext("2d");
+                            canvas.width = 800;
+                            canvas.height = 600;
+
+                            // Fill with white background
+                            if (ctx) {
+                              ctx.fillStyle = "white";
+                              ctx.fillRect(0, 0, canvas.width, canvas.height);
+                            }
+
+                            // Convert SVG to data URL
+                            const svgData =
+                              new XMLSerializer().serializeToString(svgClone);
+                            const svgBlob = new Blob([svgData], {
+                              type: "image/svg+xml;charset=utf-8",
+                            });
+                            const svgUrl = URL.createObjectURL(svgBlob);
+
+                            // Create image and draw to canvas
+                            const img = new Image();
+                            img.onload = () => {
+                              if (ctx) {
+                                ctx.drawImage(img, 0, 0);
+
+                                // Add legend manually (since it might not be in SVG)
+                                const legendContainer =
+                                  chartContainer?.querySelector(
+                                    ".flex.flex-wrap"
+                                  );
+                                if (legendContainer) {
+                                  ctx.font = "14px Arial";
+                                  ctx.fillStyle = "#374151";
+
+                                  const legendItems = Array.from(
+                                    legendContainer.children
+                                  );
+                                  legendItems.forEach((item, index) => {
+                                    const colorSpan = item.querySelector(
+                                      'span[style*="backgroundColor"]'
+                                    ) as HTMLElement;
+                                    const textSpan = item.querySelector(
+                                      "span.text-sm"
+                                    ) as HTMLElement;
+
+                                    if (colorSpan && textSpan) {
+                                      const color =
+                                        colorSpan.style.backgroundColor;
+                                      const text = textSpan.textContent || "";
+
+                                      const x = 50 + (index % 2) * 300;
+                                      const y =
+                                        500 + Math.floor(index / 2) * 25;
+
+                                      // Draw color box
+                                      ctx.fillStyle = color;
+                                      ctx.fillRect(x, y - 12, 16, 16);
+
+                                      // Draw text
+                                      ctx.fillStyle = "#374151";
+                                      ctx.fillText(text, x + 24, y);
+                                    }
+                                  });
+                                }
+
+                                // Download the canvas as PNG
+                                canvas.toBlob((blob) => {
+                                  if (blob) {
+                                    const url = URL.createObjectURL(blob);
+                                    const link = document.createElement("a");
+                                    link.href = url;
+                                    link.download = "domain-distribution.png";
+                                    link.click();
+                                    URL.revokeObjectURL(url);
+                                  }
+                                });
+                              }
+                              URL.revokeObjectURL(svgUrl);
+                            };
+
+                            img.onerror = () => {
+                              URL.revokeObjectURL(svgUrl);
+                              throw new Error("Failed to load SVG image");
+                            };
+
+                            img.src = svgUrl;
+                          } catch (error) {
+                            console.error("SVG download failed:", error);
+
+                            // Fallback to simple canvas approach
+                            try {
+                              const element =
+                                document.getElementById("domain-chart");
+                              if (element) {
+                                const canvas = await html2canvas(element, {
+                                  backgroundColor: "white",
+                                  scale: 1,
+                                  logging: false,
+                                  useCORS: true,
+                                  foreignObjectRendering: false,
+                                });
+
+                                const link = document.createElement("a");
+                                link.download = "domain-distribution.png";
+                                link.href = canvas.toDataURL("image/png");
+                                link.click();
+                              }
+                            } catch (fallbackError) {
+                              console.error(
+                                "Fallback download also failed:",
+                                fallbackError
+                              );
+
+                              // Final fallback - just copy the chart data to clipboard
+                              const domainText = domainData
+                                .map((d) => `${d.domain}: ${d.count}`)
+                                .join("\n");
+                              navigator.clipboard
+                                .writeText(domainText)
+                                .then(() => {
+                                  alert(
+                                    "Download failed, but chart data has been copied to clipboard."
+                                  );
+                                })
+                                .catch(() => {
+                                  alert(
+                                    "Download failed. Please take a screenshot manually."
+                                  );
+                                });
+                            }
+                          }
+                        };
+
+                        await downloadSVGChart();
+                      }}
                     >
                       <svg
                         className="w-4 h-4"
@@ -757,7 +923,7 @@ const BiasResearchDashboard = () => {
                             }}
                           ></span>
                           <span className="text-sm text-gray-700">
-                            {entry.domain}
+                            {formatDomainForDisplay(entry.domain)}
                           </span>
                         </div>
                       ))}
