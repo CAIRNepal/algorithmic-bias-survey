@@ -125,11 +125,23 @@ const BiasResearchDashboard = () => {
   const downloadChartAsImage = async (elementId: string, filename: string) => {
     const element = document.getElementById(elementId);
     if (element) {
-      const canvas = await html2canvas(element);
+      try {
+        const canvas = await html2canvas(element, {
+          backgroundColor: "#ffffff",
+          scale: 2,
+          logging: false,
+          useCORS: false,
+          allowTaint: false,
+        });
+        
       const link = document.createElement("a");
       link.download = `${filename}.png`;
       link.href = canvas.toDataURL();
       link.click();
+      } catch (error) {
+        console.error("Download error:", error);
+        alert("Chart download failed. Please try again.");
+      }
     }
   };
 
@@ -706,163 +718,144 @@ const BiasResearchDashboard = () => {
                     <button
                       className="bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700 flex items-center gap-2 shadow-md"
                       onClick={async () => {
-                        const downloadSVGChart = async () => {
-                          try {
-                            // Find the SVG element in the chart
-                            const chartContainer =
-                              document.getElementById("domain-chart");
-                            const svgElement =
-                              chartContainer?.querySelector("svg");
-
-                            if (!svgElement) {
-                              throw new Error("SVG not found");
-                            }
-
-                            // Clone the SVG to avoid modifying the original
-                            const svgClone = svgElement.cloneNode(
-                              true
-                            ) as SVGElement;
-
-                            // Set explicit dimensions
-                            svgClone.setAttribute("width", "800");
-                            svgClone.setAttribute("height", "600");
-                            svgClone.style.backgroundColor = "white";
-
-                            // Create a canvas element
-                            const canvas = document.createElement("canvas");
-                            const ctx = canvas.getContext("2d");
-                            canvas.width = 800;
-                            canvas.height = 600;
-
-                            // Fill with white background
-                            if (ctx) {
-                              ctx.fillStyle = "white";
-                              ctx.fillRect(0, 0, canvas.width, canvas.height);
-                            }
-
-                            // Convert SVG to data URL
-                            const svgData =
-                              new XMLSerializer().serializeToString(svgClone);
-                            const svgBlob = new Blob([svgData], {
-                              type: "image/svg+xml;charset=utf-8",
-                            });
-                            const svgUrl = URL.createObjectURL(svgBlob);
-
-                            // Create image and draw to canvas
-                            const img = new Image();
-                            img.onload = () => {
-                              if (ctx) {
-                                ctx.drawImage(img, 0, 0);
-
-                                // Add legend manually (since it might not be in SVG)
-                                const legendContainer =
-                                  chartContainer?.querySelector(
-                                    ".flex.flex-wrap"
-                                  );
-                                if (legendContainer) {
-                                  ctx.font = "14px Arial";
-                                  ctx.fillStyle = "#374151";
-
-                                  const legendItems = Array.from(
-                                    legendContainer.children
-                                  );
-                                  legendItems.forEach((item, index) => {
-                                    const colorSpan = item.querySelector(
-                                      'span[style*="backgroundColor"]'
-                                    ) as HTMLElement;
-                                    const textSpan = item.querySelector(
-                                      "span.text-sm"
-                                    ) as HTMLElement;
-
-                                    if (colorSpan && textSpan) {
-                                      const color =
-                                        colorSpan.style.backgroundColor;
-                                      const text = textSpan.textContent || "";
-
-                                      const x = 50 + (index % 2) * 300;
-                                      const y =
-                                        500 + Math.floor(index / 2) * 25;
-
-                                      // Draw color box
-                                      ctx.fillStyle = color;
-                                      ctx.fillRect(x, y - 12, 16, 16);
-
-                                      // Draw text
-                                      ctx.fillStyle = "#374151";
-                                      ctx.fillText(text, x + 24, y);
-                                    }
-                                  });
-                                }
-
-                                // Download the canvas as PNG
-                                canvas.toBlob((blob) => {
-                                  if (blob) {
-                                    const url = URL.createObjectURL(blob);
-                                    const link = document.createElement("a");
-                                    link.href = url;
-                                    link.download = "domain-distribution.png";
-                                    link.click();
-                                    URL.revokeObjectURL(url);
-                                  }
-                                });
-                              }
-                              URL.revokeObjectURL(svgUrl);
-                            };
-
-                            img.onerror = () => {
-                              URL.revokeObjectURL(svgUrl);
-                              throw new Error("Failed to load SVG image");
-                            };
-
-                            img.src = svgUrl;
-                          } catch (error) {
-                            console.error("SVG download failed:", error);
-
-                            // Fallback to simple canvas approach
-                            try {
-                              const element =
-                                document.getElementById("domain-chart");
-                              if (element) {
-                                const canvas = await html2canvas(element, {
-                                  backgroundColor: "white",
-                                  scale: 1,
-                                  logging: false,
-                                  useCORS: true,
-                                  foreignObjectRendering: false,
-                                });
-
-                                const link = document.createElement("a");
-                                link.download = "domain-distribution.png";
-                                link.href = canvas.toDataURL("image/png");
-                                link.click();
-                              }
-                            } catch (fallbackError) {
-                              console.error(
-                                "Fallback download also failed:",
-                                fallbackError
-                              );
-
-                              // Final fallback - just copy the chart data to clipboard
-                              const domainText = domainData
-                                .map((d) => `${d.domain}: ${d.count}`)
-                                .join("\n");
-                              navigator.clipboard
-                                .writeText(domainText)
-                                .then(() => {
-                                  alert(
-                                    "Download failed, but chart data has been copied to clipboard."
-                                  );
-                                })
-                                .catch(() => {
-                                  alert(
-                                    "Download failed. Please take a screenshot manually."
-                                  );
-                                });
-                            }
+                        // Use reliable canvas download method
+                        const canvas = document.createElement('canvas');
+                        const ctx = canvas.getContext('2d');
+                        if (!ctx) {
+                          alert("Canvas not supported in this browser");
+                            return;
                           }
-                        };
 
-                        await downloadSVGChart();
+                        // Set canvas size to accommodate single-column legend
+                        canvas.width = 900;
+                        canvas.height = 750;
+
+                        // White background with subtle border like the original
+                        ctx.fillStyle = '#ffffff';
+                        ctx.fillRect(0, 0, canvas.width, canvas.height);
+                        
+                        // Add subtle border to match the chart container
+                        ctx.strokeStyle = '#e5e7eb';
+                        ctx.lineWidth = 1;
+                        ctx.strokeRect(0, 0, canvas.width, canvas.height);
+
+                        // Draw title with better styling to match original
+                        ctx.fillStyle = '#374151';
+                        ctx.font = 'bold 20px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+                        ctx.textAlign = 'center';
+                        ctx.fillText('Research Domain Distribution', canvas.width / 2, 50);
+
+                        // Calculate pie chart (adjusted positioning)
+                        const centerX = canvas.width / 2;
+                        const centerY = 280; // Better positioning
+                        const radius = 140; // Slightly smaller to match original proportions
+
+                        let currentAngle = -Math.PI / 2; // Start at top
+
+                        // Draw pie slices with better styling
+                        domainData.forEach((entry, index) => {
+                          const sliceAngle = (entry.count / domainData.reduce((sum, d) => sum + d.count, 0)) * 2 * Math.PI;
+                          
+                          // Draw slice with shadow effect
+                          ctx.save();
+                          ctx.shadowColor = 'rgba(0, 0, 0, 0.1)';
+                          ctx.shadowBlur = 4;
+                          ctx.shadowOffsetX = 2;
+                          ctx.shadowOffsetY = 2;
+                          
+                          ctx.beginPath();
+                          ctx.moveTo(centerX, centerY);
+                          ctx.arc(centerX, centerY, radius, currentAngle, currentAngle + sliceAngle);
+                          ctx.closePath();
+                          ctx.fillStyle = entry.color;
+                          ctx.fill();
+                          
+                          ctx.restore();
+                          
+                          // Add white stroke between slices
+                          ctx.strokeStyle = '#ffffff';
+                          ctx.lineWidth = 2;
+                          ctx.stroke();
+
+                          // Draw percentage labels with better positioning and styling
+                          const labelAngle = currentAngle + sliceAngle / 2;
+                          const labelRadius = parseFloat(entry.percentage) < 5 ? radius * 1.2 : radius * 0.75; // Move small labels outside
+                          const labelX = centerX + Math.cos(labelAngle) * labelRadius;
+                          const labelY = centerY + Math.sin(labelAngle) * labelRadius;
+                          
+                          if (parseFloat(entry.percentage) >= 1) { // Show labels for slices >= 1%
+                            ctx.fillStyle = parseFloat(entry.percentage) < 5 ? '#374151' : '#ffffff';
+                            ctx.font = 'bold 16px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+                            ctx.textAlign = 'center';
+                            ctx.textBaseline = 'middle';
+                            
+                            // Add text outline for better visibility
+                            if (parseFloat(entry.percentage) >= 5) {
+                              ctx.strokeStyle = '#000000';
+                              ctx.lineWidth = 3;
+                              ctx.strokeText(`${entry.percentage}%`, labelX, labelY);
+                            }
+                            
+                            ctx.fillText(`${entry.percentage}%`, labelX, labelY);
+                          }
+
+                          currentAngle += sliceAngle;
+                        });
+
+                        // Draw legend with single column layout for better readability
+                        const legendStartY = centerY + radius + 80;
+                        const legendItemHeight = 32; // Spacing between items
+                        const legendStartX = 60; // Left margin
+                        
+                        // Calculate the longest text to center the legend
+                        let maxTextWidth = 0;
+                        domainData.forEach((entry) => {
+                          const text = `${formatDomainForDisplay(entry.domain)} (${entry.percentage}%)`;
+                          ctx.font = '16px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+                          const textWidth = ctx.measureText(text).width;
+                          maxTextWidth = Math.max(maxTextWidth, textWidth);
+                        });
+                        
+                        // Center the legend based on the longest text
+                        const legendCenterX = (canvas.width - maxTextWidth - 40) / 2;
+
+                        domainData.forEach((entry, index) => {
+                          const y = legendStartY + index * legendItemHeight;
+
+                          // Draw color circle
+                          ctx.beginPath();
+                          ctx.arc(legendCenterX + 12, y, 8, 0, 2 * Math.PI);
+                          ctx.fillStyle = entry.color;
+                          ctx.fill();
+                          
+                          // Add subtle border to the circle
+                          ctx.strokeStyle = '#e5e7eb';
+                          ctx.lineWidth = 1;
+                          ctx.stroke();
+
+                          // Draw text without background clutter
+                          ctx.fillStyle = '#374151';
+                          ctx.font = '16px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+                          ctx.textAlign = 'left';
+                          ctx.textBaseline = 'middle';
+                          
+                          const text = `${formatDomainForDisplay(entry.domain)} (${entry.percentage}%)`;
+                          ctx.fillText(text, legendCenterX + 28, y);
+                        });
+
+                        // Download the canvas
+                          canvas.toBlob((blob) => {
+                            if (blob) {
+                              const url = URL.createObjectURL(blob);
+                              const link = document.createElement("a");
+                              link.href = url;
+                              link.download = "domain-distribution.png";
+                              document.body.appendChild(link);
+                              link.click();
+                              document.body.removeChild(link);
+                              URL.revokeObjectURL(url);
+                            }
+                          }, "image/png");
                       }}
                     >
                       <svg
@@ -878,23 +871,27 @@ const BiasResearchDashboard = () => {
                           d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                         />
                       </svg>
-                      Download
+                      Download Chart
                     </button>
                   </div>
-                  <div id="domain-chart">
-                    <ResponsiveContainer width="100%" height={380}>
+                  <div id="domain-chart" className="bg-white p-4 rounded" style={{ minHeight: '460px' }}>
+                    <ResponsiveContainer width="100%" height={440}>
                       <PieChart>
                         <Pie
-                          data={domainData}
+                          data={domainData.map((entry) => ({
+                            ...entry,
+                            domain: formatDomainForDisplay(entry.domain), // Apply formatting here
+                          }))}
                           cx="50%"
-                          cy="50%"
-                          labelLine={false}
-                          label={({ percent }) =>
-                            percent && percent > 0.04
-                              ? `${(percent * 100).toFixed(1)}%`
-                              : ""
-                          }
-                          outerRadius={110}
+                          cy="40%"
+                          labelLine={true}
+                          label={({ percent, index }) => {
+                            if (!percent || percent < 0.01) return "";
+                            const percentValue = (percent * 100).toFixed(1);
+                            return percent > 0.05 ? `${percentValue}%` : `${percentValue}%`;
+                          }}
+
+                          outerRadius={120}
                           fill="#8884d8"
                           dataKey="count"
                           nameKey="domain"
@@ -903,27 +900,34 @@ const BiasResearchDashboard = () => {
                             <Cell key={`cell-${index}`} fill={entry.color} />
                           ))}
                         </Pie>
-                        <Tooltip />
+
+                        <Tooltip 
+                          formatter={(value, name) => [value, formatDomainForDisplay(name as string)]}
+                        />
                       </PieChart>
                     </ResponsiveContainer>
-                    <div className="flex flex-wrap justify-center mt-4">
+                    
+                    {/* Custom legend with better spacing */}
+                    <div className="flex flex-wrap justify-center mt-4 px-4">
                       {domainData.map((entry) => (
                         <div
                           key={entry.domain}
-                          className="flex items-center mr-6 mb-2"
+                          className="flex items-center mx-3 mb-3"
+                          style={{ minWidth: "200px" }}
                         >
                           <span
                             style={{
                               backgroundColor: entry.color,
-                              width: 16,
-                              height: 16,
+                              width: 14,
+                              height: 14,
                               display: "inline-block",
-                              marginRight: 8,
-                              borderRadius: 3,
+                              marginRight: 10,
+                              borderRadius: "50%",
+                              flexShrink: 0,
                             }}
                           ></span>
-                          <span className="text-sm text-gray-700">
-                            {formatDomainForDisplay(entry.domain)}
+                          <span className="text-sm text-gray-700 font-medium">
+                            {formatDomainForDisplay(entry.domain)} ({entry.percentage}%)
                           </span>
                         </div>
                       ))}

@@ -81,11 +81,23 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
   const downloadChartAsImage = async (elementId: string, filename: string) => {
     const element = document.getElementById(elementId);
     if (element) {
-      const canvas = await html2canvas(element);
-      const link = document.createElement("a");
-      link.download = `${filename}.png`;
-      link.href = canvas.toDataURL();
-      link.click();
+      try {
+        const canvas = await html2canvas(element, {
+          backgroundColor: "#ffffff",
+          scale: 2,
+          logging: false,
+          useCORS: false,
+          allowTaint: false,
+        });
+        
+        const link = document.createElement("a");
+        link.download = `${filename}.png`;
+        link.href = canvas.toDataURL();
+        link.click();
+      } catch (error) {
+        console.error("Download error:", error);
+        alert("Chart download failed. Please try again.");
+      }
     }
   };
 
