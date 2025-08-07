@@ -107,6 +107,7 @@ const BiasResearchDashboard = () => {
     y: number;
   } | null>(null);
   const [selectedDomain, setSelectedDomain] = useState<string | null>(null);
+  const [selectedDomains, setSelectedDomains] = useState<string[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [useFirstAuthorOnly, setUseFirstAuthorOnly] = useState(false);
   const [filterYear, setFilterYear] = useState("");
@@ -1156,31 +1157,44 @@ const BiasResearchDashboard = () => {
                 </div>
                 <div className="mb-4">
                   <p className="text-sm text-gray-600 mb-2">
-                    Countries are colored by the research domain their authors
-                    contribute to most. Hover over countries to see domain
-                    breakdown or click on the domain legend to filter the map.
+                    Countries are colored by the research domain their authors contribute to most. 
+                    Click domains to filter (hold Ctrl/Cmd for multi-select). Hover over countries to see domain breakdown.
                   </p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 mb-2">
                     {domainData.map((entry) => (
                       <button
                         key={entry.domain}
-                        className={`flex items-center text-xs px-2 py-1 rounded ${
-                          selectedDomain === entry.domain
+                        className={`flex items-center text-xs px-2 py-1 rounded transition-all ${
+                          selectedDomains.includes(entry.domain)
+                            ? "ring-2 ring-blue-500 bg-blue-50"
+                            : selectedDomain === entry.domain
                             ? "ring-2 ring-blue-500"
-                            : ""
+                            : "hover:bg-gray-100"
                         }`}
                         style={{
-                          background: "none",
-                          border: "none",
+                          background: selectedDomains.includes(entry.domain) || selectedDomain === entry.domain 
+                            ? "#eff6ff" 
+                            : "none",
+                          border: "1px solid #e5e7eb",
                           cursor: "pointer",
                         }}
-                        onClick={() =>
+                        onClick={(e) => {
+                          if (e.ctrlKey || e.metaKey) {
+                            // Multi-select mode
+                            if (selectedDomains.includes(entry.domain)) {
+                              setSelectedDomains(prev => prev.filter(d => d !== entry.domain));
+                            } else {
+                              setSelectedDomains(prev => [...prev, entry.domain]);
+                            }
+                            setSelectedDomain(null); // Clear single selection
+                          } else {
+                            // Single select mode (existing behavior)
                           setSelectedDomain(
-                            selectedDomain === entry.domain
-                              ? null
-                              : entry.domain
-                          )
-                        }
+                              selectedDomain === entry.domain ? null : entry.domain
+                            );
+                            setSelectedDomains([]); // Clear multi-selection
+                          }
+                        }}
                         type="button"
                       >
                         <span
@@ -1193,10 +1207,16 @@ const BiasResearchDashboard = () => {
                             borderRadius: 2,
                           }}
                         ></span>
-                        <span className="text-gray-700">{entry.domain}</span>
+                        <span className="text-gray-700">{formatDomainForDisplay(entry.domain)}</span>
                       </button>
                     ))}
                   </div>
+                  {selectedDomains.length > 0 && (
+                    <div className="text-xs text-blue-600 bg-blue-50 p-2 rounded">
+                      Multi-select active: {selectedDomains.length} domains selected. 
+                      Countries show dominant domain with borders for secondary domains.
+                    </div>
+                  )}
 
                   <div className="mt-3 pt-3 border-t border-gray-200">
                     <div className="flex items-center gap-3">
@@ -1265,14 +1285,15 @@ const BiasResearchDashboard = () => {
                               countryDomainMap[countryName] ||
                               (altName ? countryDomainMap[altName] : undefined);
                             let fillColor = "#f3f4f6";
+                            let strokeColor = "#ffffff";
+                            let strokeWidth = 0.5;
+                            let strokeDasharray = "";
                             let isDominant = false;
                             let isPresent = false;
-                            if (countryData && selectedDomain) {
-                              // Check if selectedDomain is dominant
-                              isDominant =
-                                countryData.domain.toLowerCase() ===
-                                selectedDomain.toLowerCase();
-                              // Check if selectedDomain is present at all
+                            let hasSecondaryDomains = false;
+
+                            if (countryData) {
+                              // Get country papers for domain analysis
                               const countryPapers = validPapers.filter((p) => {
                                 const authorRegions = (
                                   String(p["Author Regions"] || "") || ""
@@ -1288,6 +1309,54 @@ const BiasResearchDashboard = () => {
                                     countryName
                                 );
                               });
+
+                              if (selectedDomains.length > 0) {
+                                // Multi-select mode
+                                const countryDomainCounts: Record<string, number> = {};
+                                
+                                // Count papers by domain for this country
+                                countryPapers.forEach((p) => {
+                                  const domain = (String(p["Domain"] || "") || "").trim();
+                                  if (selectedDomains.includes(domain)) {
+                                    countryDomainCounts[domain] = (countryDomainCounts[domain] || 0) + 1;
+                                  }
+                                });
+
+                                const presentDomains = Object.keys(countryDomainCounts);
+                                if (presentDomains.length > 0) {
+                                  // Find dominant domain (highest count)
+                                  const dominantDomain = presentDomains.reduce((a, b) => 
+                                    countryDomainCounts[a] > countryDomainCounts[b] ? a : b
+                                  );
+                                  
+                                  // Set primary color
+                                  const domainEntry = domainData.find(d => 
+                                    d.domain.toLowerCase() === dominantDomain.toLowerCase()
+                                  );
+                                  fillColor = domainEntry?.color || "#f3f4f6";
+                                  isDominant = true;
+
+                                  // Check for secondary domains
+                                  const secondaryDomains = presentDomains.filter(d => d !== dominantDomain);
+                                  if (secondaryDomains.length > 0) {
+                                    hasSecondaryDomains = true;
+                                    // Use the color of the most prominent secondary domain for border
+                                    const prominentSecondary = secondaryDomains.reduce((a, b) => 
+                                      countryDomainCounts[a] > countryDomainCounts[b] ? a : b
+                                    );
+                                    const secondaryEntry = domainData.find(d => 
+                                      d.domain.toLowerCase() === prominentSecondary.toLowerCase()
+                                    );
+                                    strokeColor = secondaryEntry?.color || "#1f2937";
+                                    strokeWidth = 3;
+                                    strokeDasharray = "4,2";
+                                  }
+                                }
+                              } else if (selectedDomain) {
+                                // Single select mode (existing behavior)
+                                isDominant =
+                                  countryData.domain.toLowerCase() ===
+                                  selectedDomain.toLowerCase();
 
                               isPresent = countryPapers.some(
                                 (p) =>
@@ -1309,7 +1378,8 @@ const BiasResearchDashboard = () => {
                                 fillColor = domainEntry
                                   ? `${domainEntry.color}80`
                                   : "#e5e7eb"; // lighter color (add alpha)
-                            } else if (countryData) {
+                              } else {
+                                // Default view - show dominant domain
                               const domainIndex = domainData.findIndex(
                                 (d) =>
                                   d.domain.toLowerCase() ===
@@ -1320,6 +1390,7 @@ const BiasResearchDashboard = () => {
                               fillColor =
                                 domainData[domainIndex]?.color || "#f3f4f6";
                               isDominant = true;
+                              }
                             }
 
                             return (
@@ -1327,8 +1398,9 @@ const BiasResearchDashboard = () => {
                                 key={geo.rsmKey}
                                 geography={geo}
                                 fill={fillColor}
-                                stroke="#ffffff"
-                                strokeWidth={0.5}
+                                stroke={strokeColor}
+                                strokeWidth={strokeWidth}
+                                strokeDasharray={strokeDasharray}
                                 style={{
                                   default: { outline: "none" },
                                   hover: {
@@ -1340,17 +1412,63 @@ const BiasResearchDashboard = () => {
                                 }}
                                 onMouseEnter={() => {
                                   if (countryData) {
+                                    let tooltipContent = `${countryName}\nAuthor Contributions: ${countryData.count}\n\n`;
+
+                                    if (selectedDomains.length > 0) {
+                                      // Multi-select mode - show only selected domains
+                                      const countryPapers = validPapers.filter((p) => {
+                                        const authorRegions = (
+                                          String(p["Author Regions"] || "") || ""
+                                        ).trim();
+                                        if (!authorRegions) return false;
+                                        const regions = authorRegions
+                                          .split(";")
+                                          .map((r) => r.trim())
+                                          .filter(Boolean);
+                                        return regions.some(
+                                          (region) =>
+                                            authorRegionToCountryMap[region] ===
+                                            countryName
+                                        );
+                                      });
+
+                                      const selectedDomainCounts: Record<string, number> = {};
+                                      countryPapers.forEach((p) => {
+                                        const domain = (String(p["Domain"] || "") || "").trim();
+                                        if (selectedDomains.includes(domain)) {
+                                          selectedDomainCounts[domain] = (selectedDomainCounts[domain] || 0) + 1;
+                                        }
+                                      });
+
+                                      const sortedSelected = Object.entries(selectedDomainCounts)
+                                        .sort((a, b) => b[1] - a[1])
+                                        .map(([domain, count]) => `${formatDomainForDisplay(domain)}: ${count}`)
+                                        .join("\n");
+
+                                      tooltipContent += selectedDomainCounts && Object.keys(selectedDomainCounts).length > 0 
+                                        ? `Selected Domains:\n${sortedSelected}` 
+                                        : "No papers in selected domains";
+
+                                      if (hasSecondaryDomains) {
+                                        const secondaryDomains = Object.keys(selectedDomainCounts).filter(d => 
+                                          selectedDomainCounts[d] < Math.max(...Object.values(selectedDomainCounts))
+                                        );
+                                        tooltipContent += `\n\n🔸 Colored border shows secondary domains: ${secondaryDomains.map(d => formatDomainForDisplay(d)).join(", ")}`;
+                                      }
+                                    } else {
+                                      // Default mode - show all domains
                                     const domainBreakdown = Object.entries(
                                       countryData.domainBreakdown
                                     )
                                       .sort((a, b) => b[1] - a[1])
                                       .map(
                                         ([domain, count]) =>
-                                          `${domain}: ${count}`
+                                            `${formatDomainForDisplay(domain)}: ${count}`
                                       )
                                       .join("\n");
 
-                                    const tooltipContent = `${countryName}\nAuthor Contributions: ${countryData.count}\n\n${domainBreakdown}`;
+                                      tooltipContent += domainBreakdown;
+                                    }
 
                                     setTooltip({
                                       content: tooltipContent,
