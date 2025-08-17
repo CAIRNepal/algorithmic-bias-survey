@@ -96,7 +96,7 @@ CANONICAL_ORG_MAP = {
     r"\bharvard\b": "Harvard University",
     r"\bstanford\b": "Stanford University",
     r"\buniversity college london\b|\bucl\b": "University College London",
-    r"\brutgers\b(?!\s*business)|rutgers,\s*the\s*state\s*university\s*of\s*new\s*jersey"
+    r"\brutgers\b(?!\s*business)|rutgers,\s*the\s*state\s*university\s*of\s*new\s*jersey": "Rutgers University",
     r"\buniversity of pennsylvania\b|\bupenn\b": "University of Pennsylvania",
     r"\buniversity of michigan\b": "University of Michigan",
     r"\bmichigan state\b": "Michigan State University",
