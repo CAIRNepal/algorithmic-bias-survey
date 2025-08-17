@@ -18,7 +18,10 @@ Outputs:
 - university_domain_canonical.csv
 - unmapped_institutions.csv
 
-Universities × Domain (all authors). Heatmap shows each domain’s column-wise share of author-affiliation rows. A paper with multiple authors from the same university counts multiple times for that university. Cell labels are “% (n)”, where n is the number of author-affiliation assignments. Percentages in each column (domain) sum to ~100% across the displayed universities.
+Universities × Domain (all authors). Heatmap shows each domain’s column-wise share of author-affiliation rows.
+ A paper with multiple authors from the same university counts multiple times for that university. 
+ Cell labels are “% (n)”, where n is the number of author-affiliation assignments. 
+ Percentages in each column (domain) sum to ~100% across the displayed universities.
 
 # -----------------------------------------------------------------------------
 # UNIVERSITIES × DOMAIN HEATMAP — HOW TO READ & CONFIGURE
@@ -178,7 +181,7 @@ CANONICAL_ORG_MAP = {
     r"\bharvard\b": "Harvard University",
     r"\bstanford\b": "Stanford University",
     r"\buniversity college london\b|\bucl\b": "University College London",
-    r"\brutgers(?!\s*business)|rutgers, the state university of new jersey": "Rutgers University",
+    r"\brutgers\b(?!\s*business)|rutgers,\s*the\s*state\s*university\s*of\s*new\s*jersey"
     r"\buniversity of pennsylvania\b|\bupenn\b": "University of Pennsylvania",
     r"\buniversity of michigan\b": "University of Michigan",
     r"\bmichigan state\b": "Michigan State University",
