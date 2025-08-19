@@ -24,6 +24,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from textwrap import wrap
 import seaborn as sns
+from pathlib import Path
+
 plt.style.use('seaborn-v0_8')
 sns.set_palette("husl")
 plt.rcParams.update({
@@ -33,7 +35,9 @@ plt.rcParams.update({
     'savefig.dpi': 300
 })
 # ---------------- Config ----------------
-INPUT_CSV = "papers.csv"
+BASE_DIR = Path(__file__).resolve().parent
+INPUT_CSV = BASE_DIR / "papers.csv"
+# INPUT_CSV = "papers.csv" 
 OUT_DIR   = "figures"
 os.makedirs(OUT_DIR, exist_ok=True)
 

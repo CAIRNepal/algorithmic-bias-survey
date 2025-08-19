@@ -113,6 +113,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+from pathlib import Path
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 
 warnings.filterwarnings('ignore')
@@ -130,7 +131,8 @@ plt.rcParams.update({
 # =========================
 # Config
 # =========================
-INPUT_CSV = "papers.csv"
+BASE_DIR = Path(__file__).resolve().parent
+INPUT_CSV = BASE_DIR / "papers.csv"
 OUT_DIR = "figures"
 os.makedirs(OUT_DIR, exist_ok=True)
 

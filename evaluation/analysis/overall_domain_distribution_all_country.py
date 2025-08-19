@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import warnings
 from datetime import datetime
+from pathlib import Path
 warnings.filterwarnings('ignore')
 
 # Set plotting style for publication quality
@@ -19,7 +20,8 @@ plt.rcParams.update({
 
 
 # --- Load dataset ---
-file_path = "papers.csv"
+BASE_DIR = Path(__file__).resolve().parent
+file_path = BASE_DIR / "papers.csv"
 df = pd.read_csv(file_path)
 
 # --- Count papers per Domain (regardless of country) ---

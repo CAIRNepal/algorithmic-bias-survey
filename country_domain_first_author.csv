@@ -1,0 +1,38 @@
+Country,Domain,Count
+Australia,General Fairness & Bias Mitigation,1
+Australia,Graph-based Fairness & Bias Mitigation,0
+Australia,Health & Clinical AI,1
+Canada,General Fairness & Bias Mitigation,1
+Canada,Health & Clinical AI,1
+Canada,LLM and NLP,1
+China,LLM and NLP,5
+Denmark,LLM and NLP,1
+France,General Fairness & Bias Mitigation,2
+France,Graph-based Fairness & Bias Mitigation,1
+Germany,General Fairness & Bias Mitigation,4
+Germany,Graph-based Fairness & Bias Mitigation,0
+Germany,Health & Clinical AI,1
+Hong Kong,Recommender Systems,1
+India,General Fairness & Bias Mitigation,1
+India,Health & Clinical AI,1
+Ireland,General Fairness & Bias Mitigation,1
+Israel,General Fairness & Bias Mitigation,2
+Israel,LLM and NLP,1
+Italy,General Fairness & Bias Mitigation,2
+Italy,Recommender Systems,1
+Norway,General Fairness & Bias Mitigation,1
+South Korea,General Fairness & Bias Mitigation,2
+Spain,LLM and NLP,1
+Switzerland,General Fairness & Bias Mitigation,1
+Switzerland,Health & Clinical AI,1
+Taiwan,LLM and NLP,1
+Turkey,General Fairness & Bias Mitigation,1
+UK,General Fairness & Bias Mitigation,7
+UK,Graph-based Fairness & Bias Mitigation,1
+UK,LLM and NLP,1
+UK,Recommender Systems,1
+USA,General Fairness & Bias Mitigation,20
+USA,Graph-based Fairness & Bias Mitigation,0
+USA,Health & Clinical AI,10
+USA,LLM and NLP,11
+USA,Recommender Systems,4

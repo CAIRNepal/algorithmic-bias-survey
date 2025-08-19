@@ -125,13 +125,14 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-
+from pathlib import Path
 warnings.filterwarnings("ignore")
 
 # =========================
 # Config
 # =========================
-INPUT_CSV = "papers.csv"
+BASE_DIR = Path(__file__).resolve().parent
+INPUT_CSV = BASE_DIR / "papers.csv"
 OUT_DIR = "figures"; os.makedirs(OUT_DIR, exist_ok=True)
 
 # Choose: 'focus' | 'participation' | 'fractional' | 'authors'

@@ -45,6 +45,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import networkx as nx
 import matplotlib.patheffects as pe
+from pathlib import Path
 from matplotlib.colors import Normalize
 
 # ---------------- Plot style ----------------
@@ -58,7 +59,8 @@ plt.rcParams.update({
 })
 
 # ---------------- Config ----------------
-INPUT_CSV = "papers.csv"
+BASE_DIR = Path(__file__).resolve().parent
+INPUT_CSV = BASE_DIR / "papers.csv"
 OUT_DIR   = "figures"; os.makedirs(OUT_DIR, exist_ok=True)
 OUT_PNG   = os.path.join(OUT_DIR, "country_collaboration_matrix.png")
 OUT_PDF   = os.path.join(OUT_DIR, "country_collaboration_matrix.pdf")
