@@ -189,8 +189,7 @@ const BiasResearchDashboard = () => {
   const allRows = papers; // All parsed rows
   const validPapers = allRows.filter((paper) => {
     const year = (String(paper["Year"] || "") || "").trim();
-    const region = (String(paper["Focus Region"] || "") || "").trim();
-    return year && region;
+    return !!year;
   });
   const skippedPapers = allRows.filter((paper) => !validPapers.includes(paper));
 
