@@ -21,7 +21,7 @@ plt.rcParams.update({
 
 # Load the dataset
 BASE_DIR = Path(__file__).resolve().parent
-file_path = BASE_DIR / "papers.csv"
+file_path = BASE_DIR / "papers_new.csv"
 df = pd.read_csv(file_path)
 
 # Domain evolution over time
@@ -50,8 +50,8 @@ plt.grid(True, alpha=0.3)
 plt.xticks(rotation=0, fontsize=13)
 plt.yticks(fontsize=13)
 plt.tight_layout()
-output_path_pdf = "figures/domain-evolution-over-time.pdf"
-output_path_png = "figures/domain-evolution-over-time.png"
+output_path_pdf = "figures_new/domain-evolution-over-time.pdf"
+output_path_png = "figures_new/domain-evolution-over-time.png"
 plt.savefig(output_path_pdf, bbox_inches="tight", dpi=300) 
 plt.savefig(output_path_png, bbox_inches="tight", dpi=300)  # high-res image
 # plt.show()

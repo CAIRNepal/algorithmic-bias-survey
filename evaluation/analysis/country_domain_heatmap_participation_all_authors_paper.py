@@ -132,8 +132,8 @@ warnings.filterwarnings("ignore")
 # Config
 # =========================
 BASE_DIR = Path(__file__).resolve().parent
-INPUT_CSV = BASE_DIR / "papers.csv"
-OUT_DIR = "figures"; os.makedirs(OUT_DIR, exist_ok=True)
+INPUT_CSV = BASE_DIR / "papers_new.csv"
+OUT_DIR = "figures_new"; os.makedirs(OUT_DIR, exist_ok=True)
 
 # Choose: 'focus' | 'participation' | 'fractional' | 'authors'
 METRIC = "authors"

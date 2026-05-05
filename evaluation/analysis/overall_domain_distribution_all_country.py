@@ -21,7 +21,7 @@ plt.rcParams.update({
 
 # --- Load dataset ---
 BASE_DIR = Path(__file__).resolve().parent
-file_path = BASE_DIR / "papers.csv"
+file_path = BASE_DIR / "papers_new.csv"
 df = pd.read_csv(file_path)
 
 # --- Count papers per Domain (regardless of country) ---
@@ -42,8 +42,8 @@ plt.pie(
     textprops={'fontsize': 13}
 )
 
-output_path_pdf="figures/overall_domain_distribution_all_countries.pdf"
-output_path_png="figures/overall_domain_distribution_all_countries.png" 
+output_path_pdf="figures_new/overall_domain_distribution_all_countries.pdf"
+output_path_png="figures_new/overall_domain_distribution_all_countries.png" 
 plt.savefig(output_path_pdf, bbox_inches="tight", dpi=300) 
 plt.savefig(output_path_png, bbox_inches="tight", dpi=300)  # high-res image
 # plt.show()
