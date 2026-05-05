@@ -36,9 +36,9 @@ plt.rcParams.update({
 })
 # ---------------- Config ----------------
 BASE_DIR = Path(__file__).resolve().parent
-INPUT_CSV = BASE_DIR / "papers.csv"
+INPUT_CSV = BASE_DIR / "papers_new.csv"
 # INPUT_CSV = "papers.csv" 
-OUT_DIR   = "figures"
+OUT_DIR   = "figures_new"
 os.makedirs(OUT_DIR, exist_ok=True)
 
 TOP = None                     # set an int (e.g., 20) or None to plot ALL countries
@@ -129,6 +129,20 @@ def add_value_labels(ax, bars, fs: int):
             ha="center", va="bottom", fontsize=fs
         )
 
+def _needs_broken_axis(S, authors_col, papers_col, threshold=2.5):
+    """Check if the largest value dwarfs the second-largest enough to warrant a broken axis."""
+    all_vals = sorted(
+        list(S[authors_col].to_numpy()) + list(S[papers_col].to_numpy()),
+        reverse=True
+    )
+    if len(all_vals) < 2:
+        return False, 0, 0
+    top, second = all_vals[0], all_vals[1]
+    if second == 0:
+        return False, 0, 0
+    return (top / second) >= threshold, top, second
+
+
 def plot_summary_bar(
     summary: pd.DataFrame,
     out_png: str,
@@ -150,54 +164,122 @@ def plot_summary_bar(
     x = np.arange(len(S))
     width = 0.42
 
+    # Check if we need a broken y-axis
+    do_break, top_val, second_val = _needs_broken_axis(S, authors_col, papers_col)
+
     # Figure size scales with #countries
     fig_w = max(10, 0.42 * len(S))
     fig_h = 7 if (TOP is not None or len(S) <= 25) else max(7, 0.36 * len(S))
-    fig, ax = plt.subplots(figsize=(fig_w, fig_h))
 
-    # Bars
-    b1 = ax.bar(x - width/2, S[authors_col].to_numpy(), width, label="Authors")
-    b2 = ax.bar(x + width/2, S[papers_col].to_numpy(),  width, label="Papers")
+    if do_break:
+        # Broken y-axis: bottom shows 0 to break_low, top shows break_high to top_val
+        break_low = int(second_val * 1.25)
+        break_high = int(top_val * 0.85)
 
-    add_value_labels(ax, b1, fs=sizes["values"])
-    add_value_labels(ax, b2, fs=sizes["values"])
+        fig, (ax_top, ax_bot) = plt.subplots(
+            2, 1, sharex=True, figsize=(fig_w, fig_h + 2),
+            gridspec_kw={'height_ratios': [1, 3], 'hspace': 0.06}
+        )
 
-    # X labels (wrap, rotate if many)
-    wrapped = [wrap_label(lbl, width=14) for lbl in labels]
-    ax.set_xticks(x)
-    rot = 25 if len(S) <= 25 else 45
-    ha  = "center" if rot == 0 else "right"
-    ax.set_xticklabels(wrapped, rotation=rot, ha=ha, fontsize=sizes["ticks"])
+        # Plot bars on both axes
+        for ax in [ax_top, ax_bot]:
+            b1 = ax.bar(x - width/2, S[authors_col].to_numpy(), width, label="Authors")
+            b2 = ax.bar(x + width/2, S[papers_col].to_numpy(),  width, label="Papers")
 
-    ax.set_ylabel("Count", fontsize=sizes["axis"])
-    ax.set_xlabel("Country", fontsize=sizes["axis"])
-#     ax.set_title(title, fontsize=sizes["title"])
-    style_axes(ax)
+        # Set y-limits
+        ax_top.set_ylim(break_high, top_val * 1.12)
+        ax_bot.set_ylim(0, break_low)
 
-    # Secondary axis: Authors per Paper (optional)
-    if SHOW_RATIO_LINE:
-        with np.errstate(divide="ignore", invalid="ignore"):
-            ratio = S[authors_col] / S[papers_col].replace(0, np.nan)
-        ax2 = ax.twinx()
-        ax2.plot(x, ratio, marker="o", linewidth=1.5, label="Authors per Paper")
-        ax2.set_ylabel("Authors per Paper", fontsize=sizes["axis"])
-        ax2.tick_params(axis="y", labelsize=sizes["ticks"])
-        ax2.margins(x=0.01)
-        rmax = np.nanmax(ratio.to_numpy())
-        if np.isfinite(rmax):
-            ax2.set_ylim(0, max(1.5, rmax * 1.25))
-        lines, labels_leg = [], []
-        for a in [ax, ax2]:
-            h, l = a.get_legend_handles_labels()
-            lines += h; labels_leg += l
-        ax.legend(lines, labels_leg, loc="upper right", frameon=False, fontsize=sizes["legend"])
+        # Add value labels on appropriate axis
+        for i, (auth_val, pap_val) in enumerate(zip(S[authors_col], S[papers_col])):
+            for val, offset in [(auth_val, -width/2), (pap_val, width/2)]:
+                target_ax = ax_top if val > break_high else ax_bot
+                target_ax.text(
+                    x[i] + offset, val + max(1, 0.01 * val),
+                    f"{int(val):,}", ha="center", va="bottom", fontsize=sizes["values"]
+                )
+
+        # Draw break marks
+        d = 0.012
+        kwargs = dict(transform=ax_top.transAxes, color='k', clip_on=False, linewidth=1)
+        ax_top.plot((-d, +d), (0 - d, 0 + d), **kwargs)
+        ax_top.plot((1 - d, 1 + d), (0 - d, 0 + d), **kwargs)
+        kwargs.update(transform=ax_bot.transAxes)
+        ax_bot.plot((-d, +d), (1 - d, 1 + d), **kwargs)
+        ax_bot.plot((1 - d, 1 + d), (1 - d, 1 + d), **kwargs)
+
+        # Hide spines at the break
+        ax_top.spines['bottom'].set_visible(False)
+        ax_bot.spines['top'].set_visible(False)
+        ax_top.tick_params(bottom=False)
+
+        # Style both axes
+        for ax in [ax_top, ax_bot]:
+            style_axes(ax)
+            ax.tick_params(axis="y", labelsize=sizes["ticks"])
+            ax.margins(x=0.01)
+
+        # X labels on bottom axis only
+        wrapped = [wrap_label(lbl, width=14) for lbl in labels]
+        ax_bot.set_xticks(x)
+        rot = 25 if len(S) <= 25 else 45
+        ha = "center" if rot == 0 else "right"
+        ax_bot.set_xticklabels(wrapped, rotation=rot, ha=ha, fontsize=sizes["ticks"])
+
+        ax_bot.set_xlabel("Country", fontsize=sizes["axis"])
+        # Shared y-label
+        fig.text(0.01, 0.5, "Count", va='center', rotation='vertical', fontsize=sizes["axis"])
+
+        ax_top.legend(frameon=False, fontsize=sizes["legend"])
+        # Remove duplicate legend on bottom
+        ax_bot.get_legend().remove() if ax_bot.get_legend() else None
+
+        ax = ax_bot  # for tight_layout reference
     else:
-        ax.legend(frameon=False, fontsize=sizes["legend"])
+        fig, ax = plt.subplots(figsize=(fig_w, fig_h))
 
-    ax.tick_params(axis="y", labelsize=sizes["ticks"])
-    ax.margins(x=0.01)
-    ymax = max(S[authors_col].max(), S[papers_col].max())
-    ax.set_ylim(0, ymax * 1.15 + 1)
+        # Bars
+        b1 = ax.bar(x - width/2, S[authors_col].to_numpy(), width, label="Authors")
+        b2 = ax.bar(x + width/2, S[papers_col].to_numpy(),  width, label="Papers")
+
+        add_value_labels(ax, b1, fs=sizes["values"])
+        add_value_labels(ax, b2, fs=sizes["values"])
+
+        # X labels (wrap, rotate if many)
+        wrapped = [wrap_label(lbl, width=14) for lbl in labels]
+        ax.set_xticks(x)
+        rot = 25 if len(S) <= 25 else 45
+        ha  = "center" if rot == 0 else "right"
+        ax.set_xticklabels(wrapped, rotation=rot, ha=ha, fontsize=sizes["ticks"])
+
+        ax.set_ylabel("Count", fontsize=sizes["axis"])
+        ax.set_xlabel("Country", fontsize=sizes["axis"])
+        style_axes(ax)
+
+        # Secondary axis: Authors per Paper (optional)
+        if SHOW_RATIO_LINE:
+            with np.errstate(divide="ignore", invalid="ignore"):
+                ratio = S[authors_col] / S[papers_col].replace(0, np.nan)
+            ax2 = ax.twinx()
+            ax2.plot(x, ratio, marker="o", linewidth=1.5, label="Authors per Paper")
+            ax2.set_ylabel("Authors per Paper", fontsize=sizes["axis"])
+            ax2.tick_params(axis="y", labelsize=sizes["ticks"])
+            ax2.margins(x=0.01)
+            rmax = np.nanmax(ratio.to_numpy())
+            if np.isfinite(rmax):
+                ax2.set_ylim(0, max(1.5, rmax * 1.25))
+            lines, labels_leg = [], []
+            for a in [ax, ax2]:
+                h, l = a.get_legend_handles_labels()
+                lines += h; labels_leg += l
+            ax.legend(lines, labels_leg, loc="upper right", frameon=False, fontsize=sizes["legend"])
+        else:
+            ax.legend(frameon=False, fontsize=sizes["legend"])
+
+        ax.tick_params(axis="y", labelsize=sizes["ticks"])
+        ax.margins(x=0.01)
+        ymax = max(S[authors_col].max(), S[papers_col].max())
+        ax.set_ylim(0, ymax * 1.15 + 1)
 
     fig.tight_layout()
     fig.savefig(out_png, dpi=300, bbox_inches="tight")

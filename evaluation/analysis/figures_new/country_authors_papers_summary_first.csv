@@ -1,0 +1,41 @@
+Country,Authors,Papers,AuthorsPerPaper
+USA,86,94,0.9148936170212766
+China,30,31,0.967741935483871
+UK,14,17,0.8235294117647058
+India,12,12,1.0
+Germany,11,11,1.0
+Italy,8,9,0.8888888888888888
+Australia,8,8,1.0
+Canada,5,5,1.0
+France,5,5,1.0
+Netherlands,5,5,1.0
+Spain,5,5,1.0
+Japan,4,4,1.0
+Israel,3,4,0.75
+Hong Kong,3,3,1.0
+Indonesia,3,3,1.0
+Singapore,3,3,1.0
+South Korea,3,3,1.0
+Switzerland,3,3,1.0
+Denmark,2,3,0.6666666666666666
+Brazil,2,2,1.0
+Greece,2,2,1.0
+Ireland,2,2,1.0
+Malaysia,2,2,1.0
+New Zealand,2,2,1.0
+Taiwan,2,2,1.0
+Thailand,2,2,1.0
+United Arab Emirates,2,2,1.0
+South Africa,1,2,0.5
+Algeria,1,1,1.0
+Bulgaria,1,1,1.0
+Egypt,1,1,1.0
+Finland,1,1,1.0
+Kenya,1,1,1.0
+Luxembourg,1,1,1.0
+Norway,1,1,1.0
+Pakistan,1,1,1.0
+Qatar,1,1,1.0
+Russia,1,1,1.0
+Sweden,1,1,1.0
+Turkey,1,1,1.0
