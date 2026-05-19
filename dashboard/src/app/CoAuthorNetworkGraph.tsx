@@ -10,6 +10,7 @@ import ReactFlow, {
   Handle,
   Position,
   ReactFlowProvider,
+  useReactFlow,
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 
@@ -31,406 +32,402 @@ type AuthorNodeData = {
   label: string;
   region: string;
   affiliation: string;
+  paperCount: number;
 };
 
-type AuthorNodeProps = {
-  data: AuthorNodeData;
-};
+type AuthorNodeProps = { data: AuthorNodeData };
 
 interface CoAuthorNetworkGraphProps {
   papers: Paper[];
   onAuthorClick?: (author: string) => void;
+  maxNodes?: number;
 }
 
-const getColor = (region: string) => {
-  // Comprehensive color mapping for all countries in the world
-  const colors: Record<string, string> = {
-    // Major countries (existing ones with same colors)
-    USA: '#2563eb',
-    UK: '#9333ea',
-    India: '#16a34a',
-    China: '#dc2626',
-    Canada: '#0ea5e9',
-    Australia: '#f59e42',
-    Germany: '#eab308',
-    France: '#f472b6',
-    Spain: '#fbbf24',
-    Global: '#64748b',
-    
-    // Europe
-    Italy: '#ef4444',
-    Netherlands: '#3b82f6',
-    Switzerland: '#10b981',
-    Sweden: '#f59e0b',
-    Norway: '#8b5cf6',
-    Denmark: '#06b6d4',
-    Finland: '#84cc16',
-    Belgium: '#f97316',
-    Austria: '#ec4899',
-    Poland: '#6366f1',
-    Portugal: '#14b8a6',
-    Greece: '#f43f5e',
-    Ireland: '#22c55e',
-    Czech: '#a855f7',
-    Hungary: '#eab308',
-    Romania: '#06b6d4',
-    Bulgaria: '#f97316',
-    Croatia: '#8b5cf6',
-    Slovakia: '#10b981',
-    Slovenia: '#f59e0b',
-    Estonia: '#ef4444',
-    Latvia: '#3b82f6',
-    Lithuania: '#84cc16',
-    Luxembourg: '#ec4899',
-    Malta: '#6366f1',
-    Cyprus: '#14b8a6',
-    Iceland: '#f43f5e',
-    Ukraine: '#22c55e',
-    Belarus: '#a855f7',
-    Moldova: '#eab308',
-    Serbia: '#06b6d4',
-    Montenegro: '#f97316',
-    Bosnia: '#8b5cf6',
-    Macedonia: '#10b981',
-    Albania: '#f59e0b',
-    Kosovo: '#ef4444',
-    
-    // Asia
-    Japan: '#3b82f6',
-    SouthKorea: '#10b981',
-    Singapore: '#f59e0b',
-    Taiwan: '#8b5cf6',
-    HongKong: '#06b6d4',
-    Thailand: '#f97316',
-    Vietnam: '#ec4899',
-    Malaysia: '#6366f1',
-    Indonesia: '#14b8a6',
-    Philippines: '#f43f5e',
-    Pakistan: '#22c55e',
-    Bangladesh: '#a855f7',
-    SriLanka: '#eab308',
-    Nepal: '#06b6d4',
-    Bhutan: '#f97316',
-    Myanmar: '#8b5cf6',
-    Cambodia: '#10b981',
-    Laos: '#f59e0b',
-    Mongolia: '#ef4444',
-    Kazakhstan: '#3b82f6',
-    Uzbekistan: '#84cc16',
-    Kyrgyzstan: '#ec4899',
-    Tajikistan: '#6366f1',
-    Turkmenistan: '#14b8a6',
-    Afghanistan: '#f43f5e',
-    Iran: '#22c55e',
-    Iraq: '#a855f7',
-    Syria: '#eab308',
-    Lebanon: '#06b6d4',
-    Jordan: '#f97316',
-    Israel: '#8b5cf6',
-    Palestine: '#10b981',
-    SaudiArabia: '#f59e0b',
-    UAE: '#ef4444',
-    Qatar: '#3b82f6',
-    Kuwait: '#84cc16',
-    Bahrain: '#ec4899',
-    Oman: '#6366f1',
-    Yemen: '#14b8a6',
-    
-    // Americas
-    Mexico: '#f43f5e',
-    Brazil: '#22c55e',
-    Argentina: '#a855f7',
-    Chile: '#eab308',
-    Colombia: '#06b6d4',
-    Peru: '#f97316',
-    Venezuela: '#8b5cf6',
-    Ecuador: '#10b981',
-    Bolivia: '#f59e0b',
-    Paraguay: '#ef4444',
-    Uruguay: '#3b82f6',
-    Guyana: '#84cc16',
-    Suriname: '#ec4899',
-    FrenchGuiana: '#6366f1',
-    Panama: '#14b8a6',
-    CostaRica: '#f43f5e',
-    Nicaragua: '#22c55e',
-    Honduras: '#a855f7',
-    ElSalvador: '#eab308',
-    Guatemala: '#06b6d4',
-    Belize: '#f97316',
-    Cuba: '#8b5cf6',
-    Jamaica: '#10b981',
-    Haiti: '#f59e0b',
-    DominicanRepublic: '#ef4444',
-    PuertoRico: '#3b82f6',
-    Bahamas: '#84cc16',
-    Barbados: '#ec4899',
-    Trinidad: '#6366f1',
-    Grenada: '#14b8a6',
-    StLucia: '#f43f5e',
-    StVincent: '#22c55e',
-    Antigua: '#a855f7',
-    Dominica: '#eab308',
-    StKitts: '#06b6d4',
-    
-    // Africa
-    SouthAfrica: '#f97316',
-    Egypt: '#8b5cf6',
-    Nigeria: '#10b981',
-    Kenya: '#f59e0b',
-    Ethiopia: '#ef4444',
-    Morocco: '#3b82f6',
-    Algeria: '#84cc16',
-    Tunisia: '#ec4899',
-    Libya: '#6366f1',
-    Sudan: '#14b8a6',
-    SouthSudan: '#f43f5e',
-    Chad: '#22c55e',
-    Niger: '#a855f7',
-    Mali: '#eab308',
-    BurkinaFaso: '#06b6d4',
-    Senegal: '#f97316',
-    Guinea: '#8b5cf6',
-    SierraLeone: '#10b981',
-    Liberia: '#f59e0b',
-    IvoryCoast: '#ef4444',
-    Ghana: '#3b82f6',
-    Togo: '#84cc16',
-    Benin: '#ec4899',
-    Cameroon: '#6366f1',
-    CentralAfricanRepublic: '#14b8a6',
-    EquatorialGuinea: '#f43f5e',
-    Gabon: '#22c55e',
-    Congo: '#a855f7',
-    DR_Congo: '#eab308',
-    Angola: '#06b6d4',
-    Zambia: '#f97316',
-    Zimbabwe: '#8b5cf6',
-    Botswana: '#10b981',
-    Namibia: '#f59e0b',
-    Mozambique: '#ef4444',
-    Malawi: '#3b82f6',
-    Tanzania: '#84cc16',
-    Uganda: '#ec4899',
-    Rwanda: '#6366f1',
-    Burundi: '#14b8a6',
-    Somalia: '#f43f5e',
-    Djibouti: '#22c55e',
-    Eritrea: '#a855f7',
-    Madagascar: '#eab308',
-    Mauritius: '#06b6d4',
-    Seychelles: '#f97316',
-    Comoros: '#8b5cf6',
-    CapeVerde: '#10b981',
-    SaoTome: '#f59e0b',
-    GuineaBissau: '#ef4444',
-    Gambia: '#3b82f6',
-    Mauritania: '#84cc16',
-    WesternSahara: '#ec4899',
-    
-    // Oceania
-    NewZealand: '#6366f1',
-    Fiji: '#14b8a6',
-    PapuaNewGuinea: '#f43f5e',
-    SolomonIslands: '#22c55e',
-    Vanuatu: '#a855f7',
-    NewCaledonia: '#eab308',
-    Samoa: '#06b6d4',
-    Tonga: '#f97316',
-    Kiribati: '#8b5cf6',
-    Micronesia: '#10b981',
-    MarshallIslands: '#f59e0b',
-    Palau: '#ef4444',
-    Nauru: '#3b82f6',
-    Tuvalu: '#84cc16',
-    
-    // Middle East
-    Turkey: '#ec4899',
-    Georgia: '#6366f1',
-    Armenia: '#14b8a6',
-    Azerbaijan: '#f43f5e',
-    
-    // Central Asia
-    Russia: '#22c55e',
-    
-    // Special regions
-    Unknown: '#8884d8',
-    Other: '#64748b',
-    Multiple: '#94a3b8',
-    International: '#cbd5e1',
-  };
-  
-  // Handle common variations and abbreviations
-  const normalizedRegion = region.trim();
-  const regionVariations: Record<string, string> = {
-    'United States': 'USA',
-    'United States of America': 'USA',
-    'US': 'USA',
-    'United Kingdom': 'UK',
-    'Great Britain': 'UK',
-    'England': 'UK',
-    'Scotland': 'UK',
-    'Wales': 'UK',
-    'Northern Ireland': 'UK',
-    'Czech Republic': 'Czech',
-    'Czechia': 'Czech',
-    'South Korea': 'SouthKorea',
-    'Korea': 'SouthKorea',
-    'Democratic Republic of the Congo': 'DR_Congo',
-    'DR Congo': 'DR_Congo',
-    'Congo DR': 'DR_Congo',
-    'Ivory Coast': 'IvoryCoast',
-    'Côte d\'Ivoire': 'IvoryCoast',
-    'United Arab Emirates': 'UAE',
-    'Dominican Rep': 'DominicanRepublic',
-    'St. Lucia': 'StLucia',
-    'St. Vincent': 'StVincent',
-    'St. Kitts': 'StKitts',
-    'Central African Rep': 'CentralAfricanRepublic',
-    'Equatorial Guinea': 'EquatorialGuinea',
-    'Cape Verde': 'CapeVerde',
-    'São Tomé': 'SaoTome',
-    'Guinea-Bissau': 'GuineaBissau',
-    'Western Sahara': 'WesternSahara',
-    'Papua New Guinea': 'PapuaNewGuinea',
-    'Solomon Islands': 'SolomonIslands',
-    'New Caledonia': 'NewCaledonia',
-    'Marshall Islands': 'MarshallIslands',
-    'Micronesia (Federated States of)': 'Micronesia',
-    'Federated States of Micronesia': 'Micronesia',
-  };
-  
-  const mappedRegion = regionVariations[normalizedRegion] || normalizedRegion;
-  return colors[mappedRegion] || '#8884d8'; // Default color for unmapped regions
+const REGION_COLORS: Record<string, string> = {
+  USA: '#2563eb', 'United States': '#2563eb', US: '#2563eb',
+  UK: '#9333ea', 'United Kingdom': '#9333ea', England: '#9333ea',
+  India: '#16a34a', China: '#dc2626', Canada: '#0ea5e9', Australia: '#f59e42',
+  Germany: '#ca8a04', France: '#f472b6', Spain: '#fbbf24', Italy: '#ef4444',
+  Netherlands: '#3b82f6', Switzerland: '#10b981', Sweden: '#8b5cf6',
+  Norway: '#7c3aed', Denmark: '#06b6d4', Belgium: '#f97316', Austria: '#ec4899',
+  Portugal: '#14b8a6', Greece: '#f43f5e', Poland: '#6366f1', Japan: '#0284c7',
+  'South Korea': '#059669', Singapore: '#d97706', Taiwan: '#7c3aed',
+  'Hong Kong': '#0891b2', Israel: '#4f46e5', Turkey: '#db2777', Iran: '#16a34a',
+  'Saudi Arabia': '#b45309', UAE: '#dc2626', 'United Arab Emirates': '#dc2626',
+  Brazil: '#15803d', Mexico: '#be123c', Argentina: '#7e22ce', Chile: '#a16207',
+  Colombia: '#0e7490', 'South Africa': '#c2410c', Egypt: '#7c3aed',
+  Nigeria: '#047857', Global: '#64748b', Unknown: '#94a3b8',
 };
 
-const AuthorNode = ({ data }: AuthorNodeProps) => (
-  <div style={{
-    background: getColor(data.region),
-    color: '#fff',
-    border: '2px solid #fff',
-    borderRadius: 8,
-    padding: 8,
-    fontWeight: 600,
-    minWidth: 120,
-    textAlign: 'center',
-    cursor: 'pointer',
-    lineHeight: 1.3,
-  }}>
-    <div style={{ fontSize: 16, fontWeight: 700 }}>{data.label}</div>
-    <div style={{ fontSize: 13, fontWeight: 400, opacity: 0.92 }}>{data.affiliation}</div>
+const getColor = (region: string) => REGION_COLORS[(region || '').trim()] || '#8884d8';
+
+// ── Node components ───────────────────────────────────────────────────────────
+
+// Full-label node for small/medium graphs
+const AuthorNode = ({ data }: AuthorNodeProps) => {
+  const size = (data as AuthorNodeData & { size?: string }).size || 'md';
+  return (
+    <div
+      style={{
+        background: getColor(data.region),
+        color: '#fff',
+        border: '2px solid rgba(255,255,255,0.5)',
+        borderRadius: 8,
+        padding: size === 'lg' ? '8px 14px' : '5px 10px',
+        minWidth: size === 'lg' ? 140 : 110,
+        maxWidth: size === 'lg' ? 200 : 160,
+        textAlign: 'center',
+        cursor: 'pointer',
+        lineHeight: 1.2,
+        boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
+        fontWeight: 600,
+      }}
+    >
+      <div style={{ fontSize: size === 'lg' ? 13 : 11, fontWeight: 700, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+        {data.label}
+      </div>
+      {data.affiliation && data.affiliation !== 'Unknown' && (
+        <div style={{ fontSize: 9, opacity: 0.85, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+          {data.affiliation}
+        </div>
+      )}
+      <Handle type="source" position={Position.Right} style={{ opacity: 0 }} />
+      <Handle type="target" position={Position.Left} style={{ opacity: 0 }} />
+    </div>
+  );
+};
+
+// Dot node for large graphs — 14px circle, hover tooltip shows name
+const DotNode = ({ data }: AuthorNodeProps) => (
+  <div
+    title={`${data.label}\n${data.region}${data.affiliation && data.affiliation !== 'Unknown' ? '\n' + data.affiliation : ''}`}
+    style={{
+      width: 14,
+      height: 14,
+      borderRadius: '50%',
+      background: getColor(data.region),
+      border: '2px solid rgba(255,255,255,0.75)',
+      cursor: 'pointer',
+      boxShadow: '0 1px 4px rgba(0,0,0,0.3)',
+      transition: 'transform 0.1s',
+    }}
+    onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.transform = 'scale(2)'; }}
+    onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.transform = 'scale(1)'; }}
+  >
     <Handle type="source" position={Position.Right} style={{ opacity: 0 }} />
     <Handle type="target" position={Position.Left} style={{ opacity: 0 }} />
   </div>
 );
 
-const nodeTypes = { author: AuthorNode };
+// Region label badge
+const RegionLabelNode = ({ data }: { data: { label: string; color: string; count: number } }) => (
+  <div
+    style={{
+      background: data.color,
+      color: '#fff',
+      borderRadius: 16,
+      padding: '3px 12px',
+      fontWeight: 700,
+      fontSize: 11,
+      whiteSpace: 'nowrap',
+      boxShadow: '0 2px 6px rgba(0,0,0,0.25)',
+      pointerEvents: 'none',
+      userSelect: 'none',
+    }}
+  >
+    {data.label} <span style={{ opacity: 0.7, fontWeight: 400 }}>({data.count})</span>
+  </div>
+);
 
-const CoAuthorNetworkGraph: React.FC<CoAuthorNetworkGraphProps> = ({ papers, onAuthorClick }) => {
-  // Build nodes and edges from papers
-  const { nodes, edges } = useMemo(() => {
-    const authorMap = new Map<string, { region: string; affiliation: string }>();
-    const edgeMap = new Map<string, { source: string; target: string; count: number }>();
+const nodeTypes = { author: AuthorNode, dotNode: DotNode, regionLabel: RegionLabelNode };
 
-    papers.forEach(paper => {
-      const authors = (paper['Authors'] || '').split(';').map((a: string) => a.trim()).filter(Boolean);
-      const regions = (paper['Author Regions'] || '').split(';').map((r: string) => r.trim()).filter(Boolean);
-      const affiliations = (paper['Affiliations'] || '').split(';').map((a: string) => a.trim()).filter(Boolean);
-      authors.forEach((author: string, idx: number) => {
-        if (!authorMap.has(author)) {
-          authorMap.set(author, {
-            region: regions[idx] || 'Unknown',
-            affiliation: affiliations[idx] || 'Unknown',
-          });
-        }
-      });
-      // Create edges for each pair of co-authors
-      for (let i = 0; i < authors.length; i++) {
-        for (let j = i + 1; j < authors.length; j++) {
-          const key = [authors[i], authors[j]].sort().join('||');
-          if (!edgeMap.has(key)) {
-            edgeMap.set(key, { source: authors[i], target: authors[j], count: 0 });
-          }
-          edgeMap.get(key)!.count++;
-        }
-      }
+const DEFAULT_MAX_NODES = 50;
+
+// ── Layout builders ───────────────────────────────────────────────────────────
+
+type AuthorMeta = { region: string; affiliation: string; paperCount: number };
+
+/** Circular cluster layout — good for ≤ 200 nodes */
+function circularClusterLayout(topAuthors: string[], authorMeta: Map<string, AuthorMeta>): Node[] {
+  const total = topAuthors.length;
+  const size = total > 80 ? 'md' : 'lg';
+  const nodeW = size === 'lg' ? 160 : 120;
+
+  const groups = new Map<string, string[]>();
+  topAuthors.forEach((a) => {
+    const r = authorMeta.get(a)?.region || 'Unknown';
+    if (!groups.has(r)) groups.set(r, []);
+    groups.get(r)!.push(a);
+  });
+  const sorted = Array.from(groups.entries()).sort((a, b) => b[1].length - a[1].length);
+  const numR = sorted.length;
+
+  const maxCluster = Math.max(...sorted.map(([, a]) => a.length));
+  const maxInner = Math.max((maxCluster * nodeW) / (2 * Math.PI), 80);
+  const outerR = Math.max((numR * (maxInner * 2 + 120)) / (2 * Math.PI), 400);
+  const CX = outerR + 200;
+  const CY = outerR + 200;
+
+  const nodes: Node[] = [];
+  sorted.forEach(([region, authors], rIdx) => {
+    const ang = (2 * Math.PI * rIdx) / numR - Math.PI / 2;
+    const cx = CX + outerR * Math.cos(ang);
+    const cy = CY + outerR * Math.sin(ang);
+    const n = authors.length;
+    const innerR = n <= 1 ? 0 : Math.max((n * nodeW) / (2 * Math.PI), 60);
+
+    nodes.push({
+      id: `__label__${region}`,
+      type: 'regionLabel',
+      data: { label: region, color: getColor(region), count: n },
+      position: { x: cx - 55, y: cy - 13 },
+      selectable: false,
+      draggable: false,
     });
-    // Layout nodes in a circle for simplicity
-    const authorList = Array.from(authorMap.keys());
-    const angleStep = (2 * Math.PI) / authorList.length;
-    const nodes: Node[] = authorList.map((author, idx) => {
-      const { region, affiliation } = authorMap.get(author)!;
-      return {
+
+    authors.forEach((author, idx) => {
+      const a = (2 * Math.PI * idx) / Math.max(n, 1) - Math.PI / 2;
+      const meta = authorMeta.get(author)!;
+      nodes.push({
         id: author,
-        data: {
-          label: author,
-          region,
-          affiliation,
-        },
-        position: {
-          x: 300 + 250 * Math.cos(idx * angleStep),
-          y: 300 + 250 * Math.sin(idx * angleStep),
-        },
-        style: {
-          background: getColor(region),
-          color: '#fff',
-          border: '2px solid #fff',
-          borderRadius: 8,
-          padding: 8,
-          fontWeight: 600,
-        },
         type: 'author',
-      };
+        data: { label: author, region: meta.region, affiliation: meta.affiliation, paperCount: meta.paperCount, size },
+        position: { x: cx + (innerR + 30) * Math.cos(a), y: cy + (innerR + 30) * Math.sin(a) },
+      });
     });
-    const edges: Edge[] = Array.from(edgeMap.values()).map(({ source, target, count }) => ({
-      id: `${source}-${target}`,
-      source,
-      target,
-      label: count > 1 ? `${count} papers` : undefined,
-      animated: count > 2,
-      style: { strokeWidth: Math.min(1 + count, 6) },
-      labelStyle: { fill: '#333', fontWeight: 600 },
-      type: 'default',
-    }));
-    return { nodes, edges };
-  }, [papers]);
+  });
+  return nodes;
+}
 
-  const [rfNodes, setRfNodes, onNodesChange] = useNodesState(nodes);
-  const [rfEdges, setRfEdges, onEdgesChange] = useEdgesState(edges);
+/** Grid cluster layout — compact dot grid per region, good for > 200 nodes */
+function gridClusterLayout(topAuthors: string[], authorMeta: Map<string, AuthorMeta>): Node[] {
+  const groups = new Map<string, string[]>();
+  topAuthors.forEach((a) => {
+    const r = authorMeta.get(a)?.region || 'Unknown';
+    if (!groups.has(r)) groups.set(r, []);
+    groups.get(r)!.push(a);
+  });
+  const sorted = Array.from(groups.entries()).sort((a, b) => b[1].length - a[1].length);
 
-  // Update nodes and edges when data changes
+  // Dot grid config — tighter = more compact canvas = higher fit-view zoom
+  const PITCH = 16;    // px per grid cell (dot + gap)
+  const LABEL_H = 28; // px for region label
+  const CLUSTER_PAD = 32; // px gap between clusters
+  const MAX_ROW_W = 2000; // wrap to new row after this width
+
+  const nodes: Node[] = [];
+  let curX = 0, curY = 0, rowMaxH = 0;
+
+  sorted.forEach(([region, authors]) => {
+    const n = authors.length;
+    const cols = Math.max(1, Math.ceil(Math.sqrt(n * 1.5)));
+    const rows = Math.ceil(n / cols);
+    const clusterW = cols * PITCH;
+    const clusterH = LABEL_H + rows * PITCH;
+
+    if (curX > 0 && curX + clusterW > MAX_ROW_W) {
+      curX = 0;
+      curY += rowMaxH + CLUSTER_PAD;
+      rowMaxH = 0;
+    }
+
+    nodes.push({
+      id: `__label__${region}`,
+      type: 'regionLabel',
+      data: { label: region, color: getColor(region), count: n },
+      position: { x: curX, y: curY },
+      selectable: false,
+      draggable: false,
+    });
+
+    authors.forEach((author, idx) => {
+      const col = idx % cols;
+      const row = Math.floor(idx / cols);
+      const meta = authorMeta.get(author)!;
+      nodes.push({
+        id: author,
+        type: 'dotNode',
+        data: { label: author, region: meta.region, affiliation: meta.affiliation, paperCount: meta.paperCount },
+        position: { x: curX + col * PITCH, y: curY + LABEL_H + row * PITCH },
+      });
+    });
+
+    curX += clusterW + CLUSTER_PAD;
+    rowMaxH = Math.max(rowMaxH, clusterH);
+  });
+
+  return nodes;
+}
+
+// ── Inner ReactFlow component ─────────────────────────────────────────────────
+interface NetworkFlowProps {
+  nodes: Node[];
+  edges: Edge[];
+  isLarge: boolean;
+  onAuthorClick?: (author: string) => void;
+}
+
+const NetworkFlow: React.FC<NetworkFlowProps> = ({ nodes, edges, isLarge, onAuthorClick }) => {
+  const { fitView } = useReactFlow();
+  // useNodesState initialises from props on first mount (key-based remount handles updates)
+  const [rfNodes, , onNodesChange] = useNodesState(nodes);
+  const [rfEdges, , onEdgesChange] = useEdgesState(edges);
+
+  // Fire fitView once after mount — delay scales with node count so React has time to paint
   useEffect(() => {
-    setRfNodes(nodes);
-  }, [nodes, setRfNodes]);
-  useEffect(() => {
-    setRfEdges(edges);
-  }, [edges, setRfEdges]);
+    const delay = nodes.length > 500 ? 1200 : nodes.length > 200 ? 700 : 200;
+    const t = setTimeout(() => fitView({ padding: 0.08, duration: 600 }), delay);
+    return () => clearTimeout(t);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const onNodeClick = useCallback((_: React.MouseEvent, node: Node) => {
+    if (node.id.startsWith('__label__')) return;
     if (onAuthorClick) onAuthorClick(node.id as string);
   }, [onAuthorClick]);
 
   return (
-    <div style={{ width: '100%', height: 600, background: '#f8fafc', borderRadius: 12 }}>
-      <ReactFlowProvider>
-        <ReactFlow
-          nodes={rfNodes}
-          edges={rfEdges}
-          onNodesChange={onNodesChange}
-          onEdgesChange={onEdgesChange}
-          onNodeClick={onNodeClick}
-          fitView
-          minZoom={0.2}
-          maxZoom={2}
-          nodeTypes={nodeTypes}
+    <ReactFlow
+      nodes={rfNodes}
+      edges={rfEdges}
+      onNodesChange={onNodesChange}
+      onEdgesChange={onEdgesChange}
+      onNodeClick={onNodeClick}
+      fitView
+      fitViewOptions={{ padding: 0.08 }}
+      minZoom={0.001}
+      maxZoom={4}
+      nodeTypes={nodeTypes}
+      defaultEdgeOptions={{ type: 'default' }}
+    >
+      <MiniMap
+        nodeColor={(n: Node) => {
+          if (n.id.startsWith('__label__')) return (n.data as { color: string }).color;
+          return getColor((n.data as AuthorNodeData)?.region || 'Unknown');
+        }}
+        nodeStrokeWidth={0}
+        style={{ background: '#f1f5f9' }}
+      />
+      <Controls />
+      <Background gap={isLarge ? 30 : 20} size={1} color="#e9eef4" />
+      <div style={{ position: 'absolute', top: 10, right: 10, zIndex: 10, display: 'flex', gap: 6 }}>
+        {isLarge && (
+          <span style={{ background: 'rgba(255,255,255,0.9)', border: '1px solid #e2e8f0', borderRadius: 6, padding: '4px 10px', fontSize: 11, color: '#64748b' }}>
+            Hover dot to see name · click to open detail
+          </span>
+        )}
+        <button
+          onClick={() => fitView({ padding: 0.08, duration: 400 })}
+          style={{ background: '#fff', border: '1px solid #e2e8f0', borderRadius: 6, padding: '4px 10px', fontSize: 12, color: '#475569', cursor: 'pointer', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}
         >
-          <MiniMap nodeColor={(n: Node) => getColor((n.data as AuthorNodeData)?.region || 'Global')} />
-          <Controls />
-          <Background gap={18} size={1} color="#e5e7eb" />
-        </ReactFlow>
-      </ReactFlowProvider>
+          ⊡ Fit all
+        </button>
+      </div>
+    </ReactFlow>
+  );
+};
+
+// ── Outer component ───────────────────────────────────────────────────────────
+const CoAuthorNetworkGraph: React.FC<CoAuthorNetworkGraphProps> = ({
+  papers,
+  onAuthorClick,
+  maxNodes = DEFAULT_MAX_NODES,
+}) => {
+  const { nodes, edges, totalAuthors, isLarge } = useMemo(() => {
+    const authorMeta = new Map<string, AuthorMeta>();
+    const edgeMap = new Map<string, { source: string; target: string; count: number }>();
+    const authorDegree = new Map<string, number>();
+
+    papers.forEach((paper) => {
+      const authors = (paper['Authors'] || '').split(';').map((a: string) => a.trim()).filter(Boolean);
+      const regions = (paper['Author Regions'] || '').split(';').map((r: string) => r.trim());
+      const affiliations = (paper['Affiliations'] || '').split(';').map((a: string) => a.trim());
+
+      authors.forEach((author: string, idx: number) => {
+        if (!authorMeta.has(author)) {
+          authorMeta.set(author, { region: regions[idx] || 'Unknown', affiliation: affiliations[idx] || '', paperCount: 0 });
+        }
+        authorMeta.get(author)!.paperCount++;
+        authorDegree.set(author, (authorDegree.get(author) || 0) + authors.length - 1);
+      });
+
+      for (let i = 0; i < authors.length; i++) {
+        for (let j = i + 1; j < authors.length; j++) {
+          const key = [authors[i], authors[j]].sort().join('|||');
+          if (!edgeMap.has(key)) edgeMap.set(key, { source: authors[i], target: authors[j], count: 0 });
+          edgeMap.get(key)!.count++;
+        }
+      }
+    });
+
+    const totalAuthors = authorMeta.size;
+    const topAuthors = Array.from(authorDegree.entries())
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, maxNodes)
+      .map(([name]) => name);
+
+    const isLarge = topAuthors.length > 200;
+    const nodes = isLarge
+      ? gridClusterLayout(topAuthors, authorMeta)
+      : circularClusterLayout(topAuthors, authorMeta);
+
+    const topSet = new Set(topAuthors);
+    const edgeOpacity = isLarge ? 0.15 : topAuthors.length > 80 ? 0.35 : 0.55;
+
+    const edges: Edge[] = Array.from(edgeMap.values())
+      .filter(({ source, target }) => topSet.has(source) && topSet.has(target))
+      .map(({ source, target, count }) => {
+        const srcRegion = authorMeta.get(source)?.region || 'Unknown';
+        const tgtRegion = authorMeta.get(target)?.region || 'Unknown';
+        const cross = srcRegion !== tgtRegion;
+        return {
+          id: `${source}|||${target}`,
+          source,
+          target,
+          animated: !isLarge && count > 2,
+          style: {
+            strokeWidth: isLarge ? 0.5 : Math.min(1 + count * 0.4, 4),
+            stroke: cross ? '#f59e0b' : getColor(srcRegion),
+            opacity: edgeOpacity,
+          },
+          label: !isLarge && count > 1 ? `${count}` : undefined,
+          labelStyle: { fill: '#374151', fontSize: 10, fontWeight: 700 },
+          labelBgStyle: { fill: 'rgba(255,255,255,0.85)' },
+          type: 'default',
+        };
+      });
+
+    return { nodes, edges, totalAuthors, isLarge };
+  }, [papers, maxNodes]);
+
+  const shownAuthors = nodes.filter((n) => !n.id.startsWith('__label__')).length;
+
+  return (
+    <div>
+      <div className="flex items-center gap-4 mb-2 flex-wrap">
+        <p className="text-xs text-gray-500">
+          {shownAuthors < totalAuthors ? (
+            <>Showing top <strong className="text-gray-700">{shownAuthors}</strong> of <strong className="text-gray-700">{totalAuthors}</strong> authors · grouped by region</>
+          ) : (
+            <>Showing all <strong className="text-gray-700">{shownAuthors}</strong> authors · grouped by region</>
+          )}
+          {isLarge && <span className="ml-2 text-amber-600 font-medium">· dot mode active (zoom in to explore)</span>}
+        </p>
+        {!isLarge && (
+          <div className="flex items-center gap-3 text-xs text-gray-400">
+            <span className="flex items-center gap-1"><span style={{ display:'inline-block', width:10, height:3, background:'#f59e0b', borderRadius:2 }}/>cross-region</span>
+            <span className="flex items-center gap-1"><span style={{ display:'inline-block', width:10, height:3, background:'#2563eb', borderRadius:2 }}/>same region</span>
+          </div>
+        )}
+      </div>
+      <div style={{ width: '100%', height: 680, background: '#f8fafc', borderRadius: 12, border: '1px solid #e5e7eb' }}>
+        {/* key forces full remount when layout changes → fitView fires on clean mount */}
+        <ReactFlowProvider key={`${shownAuthors}-${isLarge}`}>
+          <NetworkFlow nodes={nodes} edges={edges} isLarge={isLarge} onAuthorClick={onAuthorClick} />
+        </ReactFlowProvider>
+      </div>
     </div>
   );
 };
 
-export default CoAuthorNetworkGraph; 
+export default CoAuthorNetworkGraph;

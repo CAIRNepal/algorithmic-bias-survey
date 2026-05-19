@@ -13,6 +13,8 @@ import {
   Line,
   AreaChart,
   Area,
+  ComposedChart,
+  Cell,
 } from "recharts";
 import { useState, useMemo, useEffect } from "react";
 import CoAuthorNetworkGraph from "./CoAuthorNetworkGraph";
@@ -75,8 +77,21 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
   const statsPageSize = 10;
 
   const [authorStatsExpanded, setAuthorStatsExpanded] = useState(false);
-  const [institutionStatsExpanded, setInstitutionStatsExpanded] =
-    useState(false);
+  const [institutionStatsExpanded, setInstitutionStatsExpanded] = useState(false);
+
+  // Network graph controls
+  const [networkMaxNodes, setNetworkMaxNodes] = useState(50);
+
+  // Author search in network section
+  const [networkAuthorSearch, setNetworkAuthorSearch] = useState("");
+  const [networkSearchOpen, setNetworkSearchOpen] = useState(false);
+
+  // Author detail modal (co-author network click)
+  const [selectedNetworkAuthor, setSelectedNetworkAuthor] = useState<string | null>(null);
+
+  // Papers table pagination
+  const [papersPage, setPapersPage] = useState(1);
+  const paperPageSize = 15;
 
   const downloadChartAsImage = async (elementId: string, filename: string) => {
     const element = document.getElementById(elementId);
@@ -293,7 +308,7 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
     {}
   );
 
-  const authorDataArray = Object.values(authorAnalysis)
+  const authorDataArrayFull = Object.values(authorAnalysis)
     .map((author) => ({
       name: author.name,
       papers: author.papers,
@@ -302,8 +317,10 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
       collaborationCount: author.collaborations.size,
       primaryRegion: author.primaryRegion,
     }))
-    .sort((a: { papers: number }, b: { papers: number }) => b.papers - a.papers)
-    .slice(0, 15);
+    .sort((a: { papers: number }, b: { papers: number }) => b.papers - a.papers);
+
+  // Top 15 for charts; full list for the statistics table
+  const authorDataArray = authorDataArrayFull.slice(0, 15);
 
   // Author region analysis
   const authorRegionAnalysis = filteredPapers.reduce(
@@ -507,6 +524,123 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
     (a, b) => b.count - a.count
   );
 
+  // Domain colors for stacked bar chart
+  const DOMAIN_COLORS = [
+    "#2563eb", "#dc2626", "#16a34a", "#ca8a04", "#9333ea",
+    "#f59e42", "#10b981", "#f43f5e", "#06b6d4", "#8b5cf6",
+    "#ec4899", "#14b8a6", "#f97316", "#84cc16",
+  ];
+
+  // Author × domain stacked bar data (top 12 authors)
+  const authorDomainChartData = (() => {
+    const domains = new Set<string>();
+    const perAuthor: Record<string, Record<string, number>> = {};
+    authorDataArray.slice(0, 12).forEach((author) => {
+      perAuthor[author.name] = {};
+      filteredPapers.forEach((p) => {
+        const aName = author.name.trim().toLowerCase();
+        const pAuthors = p.authors.map((a: string) => a.trim().toLowerCase());
+        if (pAuthors.includes(aName)) {
+          const d = p.domain || "Unknown";
+          domains.add(d);
+          perAuthor[author.name][d] = (perAuthor[author.name][d] || 0) + 1;
+        }
+      });
+    });
+    const domainList = Array.from(domains).sort();
+    const rows = authorDataArray.slice(0, 12).map((author) => {
+      const row: Record<string, string | number> = { name: author.name };
+      domainList.forEach((d) => { row[d] = perAuthor[author.name]?.[d] || 0; });
+      return row;
+    });
+    return { rows, domains: domainList };
+  })();
+
+  // Author × domain rows for the full table (all authors)
+  const authorDomainTableRows = authorDataArrayFull.flatMap((author) => {
+    const domainCounts: Record<string, number> = {};
+    filteredPapers.forEach((p) => {
+      const aName = author.name.trim().toLowerCase();
+      const pAuthors = p.authors.map((a: string) => a.trim().toLowerCase());
+      if (pAuthors.includes(aName)) {
+        const d = p.domain || "Unknown";
+        domainCounts[d] = (domainCounts[d] || 0) + 1;
+      }
+    });
+    return Object.entries(domainCounts).map(([domain, count]) => ({
+      author: author.name,
+      domain,
+      count,
+    }));
+  }).sort((a, b) => b.count - a.count || a.author.localeCompare(b.author));
+
+  // Author detail for network click modal
+  const authorDetail = useMemo(() => {
+    if (!selectedNetworkAuthor) return null;
+    const name = selectedNetworkAuthor;
+    const authorPapers = filteredPapers.filter((p) =>
+      p.authors.map((a: string) => a.trim()).includes(name.trim())
+    );
+    const domains = [...new Set(authorPapers.map((p) => p.domain).filter(Boolean))];
+    const regions = [
+      ...new Set(
+        authorPapers.flatMap((p) => {
+          const idx = p.authors.map((a: string) => a.trim()).indexOf(name.trim());
+          return idx >= 0 && p.authorRegions[idx] ? [p.authorRegions[idx]] : [];
+        })
+      ),
+    ];
+    const collaborators = [
+      ...new Set(
+        authorPapers.flatMap((p) =>
+          p.authors.filter((a: string) => a.trim() !== name.trim())
+        )
+      ),
+    ].slice(0, 20);
+    return { name, papers: authorPapers, domains, regions, collaborators };
+  }, [selectedNetworkAuthor, filteredPapers]);
+
+  // Year-over-year growth rate
+  const yearGrowthData = yearDataArray.map((d, idx) => ({
+    year: d.year,
+    count: d.count,
+    growth:
+      idx === 0
+        ? 0
+        : Number(
+            (
+              ((d.count - yearDataArray[idx - 1].count) /
+                yearDataArray[idx - 1].count) *
+              100
+            ).toFixed(1)
+          ),
+  }));
+
+  // Author productivity distribution (buckets by paper count)
+  const authorProductivityData = (() => {
+    const buckets: Record<string, number> = { "1": 0, "2": 0, "3": 0, "4+": 0 };
+    Object.values(authorAnalysis).forEach((a) => {
+      const key = a.papers >= 4 ? "4+" : String(a.papers);
+      buckets[key] = (buckets[key] || 0) + 1;
+    });
+    return [
+      { label: "1 paper", count: buckets["1"] },
+      { label: "2 papers", count: buckets["2"] },
+      { label: "3 papers", count: buckets["3"] },
+      { label: "4+ papers", count: buckets["4+"] },
+    ];
+  })();
+
+  // Solo vs collaborative trend over time
+  const soloVsCollabByYear = yearDataArray.map((yd) => {
+    const yp = processedPapers.filter((p) => p.year === yd.year);
+    return {
+      year: yd.year,
+      solo: yp.filter((p) => p.authors.length === 1).length,
+      collaborative: yp.filter((p) => p.authors.length > 1).length,
+    };
+  });
+
   // Key metrics
   const metrics = {
     totalPapers: processedPapers.length,
@@ -563,6 +697,11 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
   // Reset authorStatsPage when filters change
   useEffect(() => {
     setAuthorStatsPage(1);
+  }, [selectedAuthors, selectedDomains, selectedRegions, selectedInstitutions]);
+
+  // Reset papersPage when filters change
+  useEffect(() => {
+    setPapersPage(1);
   }, [selectedAuthors, selectedDomains, selectedRegions, selectedInstitutions]);
 
   return (
@@ -1010,124 +1149,138 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
           </div>
         </div>
 
-        {/* After the Top Authors by Publications chart, add a statistics table for author-domain-paper count */}
-        <div className="mt-6">
-          <h4
-            className="text-lg font-semibold mb-2 text-gray-700 cursor-pointer flex items-center hover:text-gray-900"
-            onClick={() => setAuthorStatsExpanded(!authorStatsExpanded)}
-          >
-            <span
-              className={`mr-2 transition-transform ${
-                authorStatsExpanded ? "rotate-90" : ""
-              }`}
+        {/* Author Domain Statistics */}
+        <div className="bg-white p-6 rounded-lg shadow-lg mt-6 mb-2">
+          <div className="flex justify-between items-center mb-2">
+            <div>
+              <h3 className="text-xl font-semibold text-gray-700">Author Domain Statistics</h3>
+              <p className="text-sm text-gray-500 mt-0.5">
+                Domain breakdown across all{" "}
+                <span className="font-semibold text-gray-700">{authorDataArrayFull.length}</span>{" "}
+                authors in the filtered dataset
+              </p>
+            </div>
+            <button
+              className="bg-green-600 text-white px-3 py-1 rounded-lg text-xs font-medium hover:bg-green-700 flex items-center gap-1 shadow-md"
+              onClick={() => downloadChartAsImage("author-domain-chart", "author-domain-statistics")}
             >
-              ▶
-            </span>
-            Author Domain Statistics
-          </h4>
-          {authorStatsExpanded && (
-            <div className="overflow-x-auto">
-              {(() => {
-                const rows = authorDataArray
-                  .filter(
-                    (a) =>
-                      selectedAuthors.length === 0 ||
-                      selectedAuthors.includes(a.name)
-                  )
-                  .flatMap((author) => {
-                    const domainCounts: Record<string, number> = {};
-                    filteredPapers.forEach((p) => {
-                      const domain = String(p.domain);
-                      // Compare author names case-insensitively and trimmed
-                      const authorName = author.name.trim().toLowerCase();
-                      const paperAuthors = Array.isArray(p.authors)
-                        ? p.authors.map((a: string) => a.trim().toLowerCase())
-                        : [];
-                      if (paperAuthors.includes(authorName)) {
-                        if (!domainCounts[domain]) domainCounts[domain] = 0;
-                        domainCounts[domain]!++;
-                      }
-                    });
-                    return Object.entries(domainCounts).map(
-                      ([domain, count]) => ({
-                        author: author.name,
-                        domain,
-                        count,
-                      })
-                    ) as { author: string; domain: string; count: number }[];
-                  })
-                  .sort(
-                    (a, b) =>
-                      a.author.localeCompare(b.author) ||
-                      a.domain.localeCompare(b.domain)
-                  );
-                const totalPages = Math.ceil(rows.length / statsPageSize);
-                const pagedRows = rows.slice(
-                  (authorStatsPage - 1) * statsPageSize,
-                  authorStatsPage * statsPageSize
-                );
-                return (
-                  <>
-                    <table className="min-w-full text-sm">
-                      <thead>
-                        <tr className="bg-gray-100">
-                          <th className="p-2 text-left">Author</th>
-                          <th className="p-2 text-left">Domain</th>
-                          <th className="p-2 text-left"># Papers</th>
+              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              Download
+            </button>
+          </div>
+          <p className="text-gray-500 text-sm mb-4">
+            Stacked bar showing the domain mix for the top 12 most prolific authors. Expand the table below for all authors.
+          </p>
+          <div id="author-domain-chart">
+            <ResponsiveContainer width="100%" height={420}>
+              <BarChart
+                layout="vertical"
+                data={authorDomainChartData.rows}
+                margin={{ left: 10, right: 20, top: 10, bottom: 10 }}
+              >
+                <CartesianGrid strokeDasharray="3 3" horizontal={false} />
+                <XAxis type="number" allowDecimals={false} />
+                <YAxis
+                  type="category"
+                  dataKey="name"
+                  width={160}
+                  tick={{ fontSize: 11 }}
+                  tickFormatter={(v: string) =>
+                    v.length > 22 ? v.slice(0, 20) + "…" : v
+                  }
+                />
+                <Tooltip />
+                <Legend wrapperStyle={{ fontSize: 12 }} />
+                {authorDomainChartData.domains.map((domain, idx) => (
+                  <Bar
+                    key={domain}
+                    dataKey={domain}
+                    stackId="a"
+                    fill={DOMAIN_COLORS[idx % DOMAIN_COLORS.length]}
+                    name={domain}
+                  />
+                ))}
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+
+          {/* Collapsible full table */}
+          <div className="mt-6 border-t border-gray-100 pt-4">
+            <h4
+              className="text-base font-semibold mb-2 text-gray-600 cursor-pointer flex items-center hover:text-gray-900 select-none"
+              onClick={() => setAuthorStatsExpanded(!authorStatsExpanded)}
+            >
+              <span className={`mr-2 transition-transform inline-block ${authorStatsExpanded ? "rotate-90" : ""}`}>▶</span>
+              Full breakdown table — all {authorDomainTableRows.length} author × domain rows
+            </h4>
+            {authorStatsExpanded && (() => {
+              const filteredRows =
+                selectedAuthors.length === 0
+                  ? authorDomainTableRows
+                  : authorDomainTableRows.filter((r) => selectedAuthors.includes(r.author));
+              const totalPages = Math.ceil(filteredRows.length / statsPageSize);
+              const pagedRows = filteredRows.slice(
+                (authorStatsPage - 1) * statsPageSize,
+                authorStatsPage * statsPageSize
+              );
+              return (
+                <div className="overflow-x-auto">
+                  <table className="min-w-full text-sm">
+                    <thead>
+                      <tr className="bg-gray-100">
+                        <th className="p-2 text-left font-semibold text-gray-700">Author</th>
+                        <th className="p-2 text-left font-semibold text-gray-700">Domain</th>
+                        <th className="p-2 text-left font-semibold text-gray-700"># Papers</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {pagedRows.map((row, idx) => (
+                        <tr
+                          key={`${row.author}-${row.domain}`}
+                          className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}
+                        >
+                          <td className="p-2 text-gray-800">{row.author}</td>
+                          <td className="p-2">
+                            <span className="px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 text-xs font-medium">
+                              {row.domain}
+                            </span>
+                          </td>
+                          <td className="p-2 text-gray-700 font-medium">{row.count}</td>
                         </tr>
-                      </thead>
-                      <tbody>
-                        {pagedRows.map(
-                          (
-                            row: {
-                              author: string;
-                              domain: string;
-                              count: number;
-                            },
-                            idx: number
-                          ) => (
-                            <tr
-                              key={`${row.author}-${row.domain}`}
-                              className={idx % 2 === 0 ? "" : "bg-gray-50"}
-                            >
-                              <td className="p-2">{row.author}</td>
-                              <td className="p-2">{row.domain}</td>
-                              <td className="p-2">{row.count}</td>
-                            </tr>
-                          )
-                        )}
-                      </tbody>
-                    </table>
-                    <div className="flex justify-between items-center mt-2">
+                      ))}
+                    </tbody>
+                  </table>
+                  <div className="flex items-center justify-between mt-3">
+                    <span className="text-xs text-gray-500">
+                      Showing {Math.min((authorStatsPage - 1) * statsPageSize + 1, filteredRows.length)}–
+                      {Math.min(authorStatsPage * statsPageSize, filteredRows.length)} of {filteredRows.length}
+                    </span>
+                    <div className="flex gap-1 items-center">
                       <button
-                        className="px-3 py-1 rounded bg-gray-200"
+                        className="px-3 py-1 rounded bg-gray-200 text-sm disabled:opacity-40 hover:bg-gray-300"
                         disabled={authorStatsPage === 1}
-                        onClick={() =>
-                          setAuthorStatsPage((p) => Math.max(1, p - 1))
-                        }
+                        onClick={() => setAuthorStatsPage((p) => Math.max(1, p - 1))}
                       >
-                        Prev
+                        ← Prev
                       </button>
-                      <span className="text-xs">
-                        Page {authorStatsPage} of {totalPages || 1}
+                      <span className="px-2 text-sm text-gray-600">
+                        {authorStatsPage} / {totalPages || 1}
                       </span>
                       <button
-                        className="px-3 py-1 rounded bg-gray-200"
-                        disabled={
-                          authorStatsPage === totalPages || totalPages === 0
-                        }
-                        onClick={() =>
-                          setAuthorStatsPage((p) => Math.min(totalPages, p + 1))
-                        }
+                        className="px-3 py-1 rounded bg-gray-200 text-sm disabled:opacity-40 hover:bg-gray-300"
+                        disabled={authorStatsPage >= totalPages}
+                        onClick={() => setAuthorStatsPage((p) => Math.min(totalPages, p + 1))}
                       >
-                        Next
+                        Next →
                       </button>
                     </div>
-                  </>
-                );
-              })()}
-            </div>
-          )}
+                  </div>
+                </div>
+              );
+            })()}
+          </div>
         </div>
 
         {/* After the Top Institutions chart, add a statistics table for institution-domain-paper count */}
@@ -1256,14 +1409,32 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
 
         {/* Co-Author Network Visualization */}
         <div className="bg-white p-6 rounded-lg shadow-lg mb-8">
-          <h3 className="text-xl font-semibold mb-2 text-gray-700">
-            Co-Author Network
-          </h3>
-          <div className="text-gray-500 text-sm mb-2">
+          <div className="flex flex-wrap justify-between items-center mb-2 gap-3">
+            <h3 className="text-xl font-semibold text-gray-700">
+              Co-Author Network
+            </h3>
+            <div className="flex items-center gap-2">
+              <span className="text-sm text-gray-500 font-medium">Show top:</span>
+              {([50, 100, 200, 500, 0] as const).map((n) => (
+                <button
+                  key={n}
+                  className={`px-3 py-1 rounded text-sm font-medium border transition-colors ${
+                    networkMaxNodes === n
+                      ? "bg-blue-600 text-white border-blue-600"
+                      : "bg-white text-gray-600 border-gray-300 hover:bg-gray-50"
+                  }`}
+                  onClick={() => setNetworkMaxNodes(n)}
+                >
+                  {n === 0 ? "All" : n}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div className="text-gray-500 text-sm mb-3">
             Visualizes the collaboration network among authors in the filtered
-            dataset. Each node is an author (hover to see affiliation and
-            region); edges represent co-authorship. The network reflects all
-            filters above. Collaboration domains:{" "}
+            dataset. Each node is an author (color = region); edges represent
+            co-authorship. Click any node to see author details. Collaboration
+            domains:{" "}
             <span className="font-semibold text-gray-700">
               {[...new Set(filteredPapers.flatMap((p) => p.domain))].join(
                 ", "
@@ -1271,8 +1442,186 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
             </span>
             .
           </div>
-          <CoAuthorNetworkGraph papers={filteredPapers} />
+
+          {/* Author search */}
+          {(() => {
+            const networkAuthors = [
+              ...new Set(
+                filteredPapers.flatMap((p) =>
+                  p.authors.map((a: string) => a.trim())
+                )
+              ),
+            ].sort();
+            const query = networkAuthorSearch.trim().toLowerCase();
+            const matches =
+              query.length >= 1
+                ? networkAuthors.filter((a) => a.toLowerCase().includes(query)).slice(0, 12)
+                : [];
+            return (
+              <div className="relative mb-4 max-w-sm">
+                <div className="flex items-center gap-2 border border-gray-300 rounded-lg px-3 py-2 bg-white focus-within:border-blue-500 focus-within:ring-1 focus-within:ring-blue-500 transition-colors">
+                  <svg className="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
+                  </svg>
+                  <input
+                    type="text"
+                    className="flex-1 outline-none text-sm text-gray-800 placeholder-gray-400 bg-transparent"
+                    placeholder={`Search ${networkAuthors.length} authors…`}
+                    value={networkAuthorSearch}
+                    onChange={(e) => {
+                      setNetworkAuthorSearch(e.target.value);
+                      setNetworkSearchOpen(true);
+                    }}
+                    onFocus={() => setNetworkSearchOpen(true)}
+                    onBlur={() => setTimeout(() => setNetworkSearchOpen(false), 150)}
+                  />
+                  {networkAuthorSearch && (
+                    <button
+                      className="text-gray-400 hover:text-gray-600"
+                      onMouseDown={(e) => { e.preventDefault(); setNetworkAuthorSearch(""); setNetworkSearchOpen(false); }}
+                    >
+                      ×
+                    </button>
+                  )}
+                </div>
+                {networkSearchOpen && matches.length > 0 && (
+                  <ul className="absolute z-20 top-full mt-1 left-0 right-0 bg-white border border-gray-200 rounded-lg shadow-lg max-h-56 overflow-y-auto">
+                    {matches.map((author) => (
+                      <li key={author}>
+                        <button
+                          className="w-full text-left px-4 py-2 text-sm text-gray-800 hover:bg-blue-50 hover:text-blue-700 transition-colors"
+                          onMouseDown={(e) => {
+                            e.preventDefault();
+                            setSelectedNetworkAuthor(author);
+                            setNetworkAuthorSearch("");
+                            setNetworkSearchOpen(false);
+                          }}
+                        >
+                          {author}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            );
+          })()}
+
+          <CoAuthorNetworkGraph
+            papers={filteredPapers}
+            maxNodes={networkMaxNodes === 0 ? 99999 : networkMaxNodes}
+            onAuthorClick={(author) => setSelectedNetworkAuthor(author)}
+          />
         </div>
+
+        {/* Author Detail Modal */}
+        {authorDetail && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm"
+            onClick={() => setSelectedNetworkAuthor(null)}
+          >
+            <div
+              className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[85vh] flex flex-col overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Header */}
+              <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-4 flex justify-between items-start">
+                <div>
+                  <h2 className="text-xl font-bold text-white">{authorDetail.name}</h2>
+                  <p className="text-blue-100 text-sm mt-0.5">
+                    {authorDetail.papers.length} paper{authorDetail.papers.length !== 1 ? "s" : ""} in filtered dataset
+                  </p>
+                </div>
+                <button
+                  onClick={() => setSelectedNetworkAuthor(null)}
+                  className="text-white/70 hover:text-white text-2xl leading-none mt-0.5"
+                >
+                  ×
+                </button>
+              </div>
+
+              {/* Body */}
+              <div className="overflow-y-auto p-6 space-y-5">
+                {/* Meta chips */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="bg-gray-50 rounded-xl p-4">
+                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Regions</p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {authorDetail.regions.length > 0
+                        ? authorDetail.regions.map((r) => (
+                            <span key={r} className="px-2 py-0.5 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">
+                              {r}
+                            </span>
+                          ))
+                        : <span className="text-gray-400 text-sm">Unknown</span>}
+                    </div>
+                  </div>
+                  <div className="bg-gray-50 rounded-xl p-4">
+                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Domains</p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {authorDetail.domains.map((d) => (
+                        <span key={d} className="px-2 py-0.5 bg-violet-100 text-violet-800 rounded-full text-xs font-medium">
+                          {d}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Collaborators */}
+                {authorDetail.collaborators.length > 0 && (
+                  <div>
+                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">
+                      Top Collaborators ({authorDetail.collaborators.length}{authorDetail.collaborators.length === 20 ? "+" : ""})
+                    </p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {authorDetail.collaborators.map((c) => (
+                        <button
+                          key={c}
+                          className="px-2 py-0.5 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-full text-xs font-medium hover:bg-emerald-100 transition-colors"
+                          onClick={() => setSelectedNetworkAuthor(c)}
+                        >
+                          {c}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Papers list */}
+                <div>
+                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">
+                    Papers
+                  </p>
+                  <div className="space-y-2">
+                    {authorDetail.papers
+                      .slice()
+                      .sort((a, b) => b.year - a.year)
+                      .map((p, idx) => (
+                        <div key={idx} className="border border-gray-100 rounded-lg p-3 bg-gray-50/60">
+                          <p className="text-sm font-medium text-gray-800 leading-snug">{p["Paper Title"]}</p>
+                          <div className="flex items-center gap-3 mt-1.5 flex-wrap">
+                            <span className="text-xs text-gray-500">{p.year}</span>
+                            <span className="px-1.5 py-0.5 bg-blue-50 text-blue-700 rounded text-xs">{p.domain}</span>
+                            {p["DOI"] && (
+                              <a
+                                href={`https://doi.org/${p["DOI"]}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-xs text-blue-600 hover:underline"
+                              >
+                                DOI ↗
+                              </a>
+                            )}
+                          </div>
+                        </div>
+                      ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Author Regions Analysis */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
@@ -1390,50 +1739,300 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
           </div>
         </div>
 
-        {/* Recent Papers Table */}
+        {/* Collaboration Patterns + Growth Rate */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          {/* Collaboration Pattern Distribution */}
+          <div className="bg-white p-6 rounded-lg shadow-lg">
+            <div className="flex justify-between items-center mb-2">
+              <h3 className="text-xl font-semibold text-gray-700">
+                Collaboration Patterns
+              </h3>
+              <button
+                className="bg-green-600 text-white px-3 py-1 rounded-lg text-xs font-medium hover:bg-green-700 flex items-center gap-1 shadow-md"
+                onClick={() =>
+                  downloadChartAsImage("collab-pattern-chart", "collaboration-patterns")
+                }
+              >
+                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Download
+              </button>
+            </div>
+            <div className="text-gray-500 text-sm mb-3">
+              Breakdown by team size: Solo (1 author), Duo (2), Small Team (3–5), Large Team (6+).
+            </div>
+            <div id="collab-pattern-chart">
+              <ResponsiveContainer width="100%" height={320}>
+                <BarChart data={collaborationData} margin={{ bottom: 20 }}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="type" />
+                  <YAxis />
+                  <Tooltip formatter={(v) => [`${v} papers`]} />
+                  <Bar dataKey="count" name="Papers" radius={[6, 6, 0, 0]}>
+                    {collaborationData.map((_, idx) => (
+                      <Cell
+                        key={idx}
+                        fill={["#2563eb", "#16a34a", "#9333ea", "#f59e42"][idx % 4]}
+                      />
+                    ))}
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+              <div className="mt-3 grid grid-cols-2 gap-2">
+                {collaborationData.map((d, idx) => (
+                  <div key={d.type} className="flex items-center gap-2 text-sm text-gray-600">
+                    <span
+                      className="w-3 h-3 rounded-sm flex-shrink-0"
+                      style={{ background: ["#2563eb", "#16a34a", "#9333ea", "#f59e42"][idx % 4] }}
+                    />
+                    <span className="font-medium">{d.type}:</span>
+                    <span>{d.count} papers ({processedPapers.length > 0 ? ((d.count / processedPapers.length) * 100).toFixed(1) : 0}%)</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Year-over-Year Growth Rate */}
+          <div className="bg-white p-6 rounded-lg shadow-lg">
+            <div className="flex justify-between items-center mb-2">
+              <h3 className="text-xl font-semibold text-gray-700">
+                Year-over-Year Growth
+              </h3>
+              <button
+                className="bg-green-600 text-white px-3 py-1 rounded-lg text-xs font-medium hover:bg-green-700 flex items-center gap-1 shadow-md"
+                onClick={() =>
+                  downloadChartAsImage("yoy-growth-chart", "yoy-growth-rate")
+                }
+              >
+                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Download
+              </button>
+            </div>
+            <div className="text-gray-500 text-sm mb-3">
+              Annual publication count and percentage growth rate vs. prior year.
+            </div>
+            <div id="yoy-growth-chart">
+              <ResponsiveContainer width="100%" height={320}>
+                <ComposedChart data={yearGrowthData} margin={{ bottom: 20 }}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="year" />
+                  <YAxis yAxisId="left" orientation="left" />
+                  <YAxis yAxisId="right" orientation="right" tickFormatter={(v) => `${v}%`} />
+                  <Tooltip
+                    formatter={(value, name) =>
+                      name === "Growth %" ? [`${value}%`, name] : [value, name]
+                    }
+                  />
+                  <Legend />
+                  <Bar yAxisId="left" dataKey="count" fill="#2563eb" name="Publications" radius={[4, 4, 0, 0]} />
+                  <Line yAxisId="right" type="monotone" dataKey="growth" stroke="#dc2626" strokeWidth={2} dot={{ r: 3 }} name="Growth %" />
+                </ComposedChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+        </div>
+
+        {/* Author Productivity + Solo vs Collaborative Trend */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          {/* Author Productivity Distribution */}
+          <div className="bg-white p-6 rounded-lg shadow-lg">
+            <div className="flex justify-between items-center mb-2">
+              <h3 className="text-xl font-semibold text-gray-700">
+                Author Productivity
+              </h3>
+              <button
+                className="bg-green-600 text-white px-3 py-1 rounded-lg text-xs font-medium hover:bg-green-700 flex items-center gap-1 shadow-md"
+                onClick={() =>
+                  downloadChartAsImage("productivity-chart", "author-productivity")
+                }
+              >
+                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Download
+              </button>
+            </div>
+            <div className="text-gray-500 text-sm mb-3">
+              How many authors published 1, 2, 3, or 4+ papers in the corpus. Most research corpora follow a power-law distribution.
+            </div>
+            <div id="productivity-chart">
+              <ResponsiveContainer width="100%" height={300}>
+                <BarChart data={authorProductivityData} margin={{ bottom: 10 }}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="label" />
+                  <YAxis />
+                  <Tooltip formatter={(v) => [`${v} authors`]} />
+                  <Bar dataKey="count" name="Authors" fill="#8b5cf6" radius={[6, 6, 0, 0]} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+
+          {/* Solo vs Collaborative Trend */}
+          <div className="bg-white p-6 rounded-lg shadow-lg">
+            <div className="flex justify-between items-center mb-2">
+              <h3 className="text-xl font-semibold text-gray-700">
+                Solo vs. Collaborative Trend
+              </h3>
+              <button
+                className="bg-green-600 text-white px-3 py-1 rounded-lg text-xs font-medium hover:bg-green-700 flex items-center gap-1 shadow-md"
+                onClick={() =>
+                  downloadChartAsImage("solo-collab-chart", "solo-vs-collaborative")
+                }
+              >
+                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Download
+              </button>
+            </div>
+            <div className="text-gray-500 text-sm mb-3">
+              Single-author vs. multi-author papers per year — shows whether collaboration is growing over time.
+            </div>
+            <div id="solo-collab-chart">
+              <ResponsiveContainer width="100%" height={300}>
+                <AreaChart data={soloVsCollabByYear} margin={{ bottom: 10 }}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="year" />
+                  <YAxis />
+                  <Tooltip />
+                  <Legend />
+                  <Area type="monotone" dataKey="collaborative" stackId="1" stroke="#2563eb" fill="#2563eb" fillOpacity={0.6} name="Collaborative" />
+                  <Area type="monotone" dataKey="solo" stackId="1" stroke="#f59e42" fill="#f59e42" fillOpacity={0.6} name="Solo" />
+                </AreaChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+        </div>
+
+        {/* All Papers Table */}
         <div className="bg-white p-6 rounded-lg shadow-lg mb-8">
-          <h3 className="text-xl font-semibold mb-2 text-gray-700">
-            Recent Papers
-          </h3>
-          <div className="text-gray-500 text-sm mb-2">
-            Table of the most recent papers in the filtered dataset. All columns
-            reflect your current filter selections above.
+          <div className="flex justify-between items-center mb-2">
+            <h3 className="text-xl font-semibold text-gray-700">All Papers</h3>
+            <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full font-medium">
+              {filteredPapers.length} papers
+            </span>
+          </div>
+          <div className="text-gray-500 text-sm mb-4">
+            Full list of papers in the filtered dataset, sorted by year (newest first). Use the filters above to narrow results.
           </div>
           <div className="overflow-x-auto">
-            <table className="min-w-full">
+            <table className="min-w-full text-sm">
               <thead>
                 <tr className="bg-gray-100">
-                  <th className="p-3 text-left">Paper Title</th>
-                  <th className="p-3 text-left">Authors</th>
-                  <th className="p-3 text-left">Author Regions</th>
-                  <th className="p-3 text-left">Year</th>
-                  <th className="p-3 text-left">Domain</th>
-                  <th className="p-3 text-left">Focus Region</th>
+                  <th className="p-3 text-left font-semibold text-gray-700">Paper Title</th>
+                  <th className="p-3 text-left font-semibold text-gray-700">Authors</th>
+                  <th className="p-3 text-left font-semibold text-gray-700">Regions</th>
+                  <th className="p-3 text-left font-semibold text-gray-700">Year</th>
+                  <th className="p-3 text-left font-semibold text-gray-700">Domain</th>
+                  <th className="p-3 text-left font-semibold text-gray-700">DOI</th>
                 </tr>
               </thead>
               <tbody>
                 {filteredPapers
+                  .slice()
                   .sort((a, b) => b.year - a.year)
-                  .slice(0, 10)
-                  .map((paper) => (
-                    <tr key={paper.SN} className="border-b hover:bg-gray-50">
-                      <td className="p-3">{paper["Paper Title"]}</td>
-                      <td className="p-3">
-                        {paper.authors.slice(0, 3).join(", ")}
-                        {paper.authors.length > 3 ? "..." : ""}
+                  .slice(
+                    (papersPage - 1) * paperPageSize,
+                    papersPage * paperPageSize
+                  )
+                  .map((paper, idx) => (
+                    <tr
+                      key={paper.SN || idx}
+                      className={`border-b hover:bg-blue-50 align-top transition-colors ${
+                        idx % 2 === 0 ? "bg-white" : "bg-gray-50/40"
+                      }`}
+                    >
+                      <td className="p-3 max-w-xs">
+                        <div className="line-clamp-2 text-gray-900 font-medium leading-snug">
+                          {paper["Paper Title"]}
+                        </div>
                       </td>
-                      <td className="p-3">
+                      <td className="p-3 max-w-[200px]">
+                        <span className="text-gray-700">
+                          {paper.authors.slice(0, 2).join("; ")}
+                        </span>
+                        {paper.authors.length > 2 && (
+                          <span className="text-gray-400 text-xs">
+                            {" "}+{paper.authors.length - 2} more
+                          </span>
+                        )}
+                      </td>
+                      <td className="p-3 text-xs text-gray-600 max-w-[150px]">
                         {paper.authorRegions.slice(0, 3).join(", ")}
-                        {paper.authorRegions.length > 3 ? "..." : ""}
+                        {paper.authorRegions.length > 3 && (
+                          <span className="text-gray-400">
+                            {" "}+{paper.authorRegions.length - 3}
+                          </span>
+                        )}
                       </td>
-                      <td className="p-3">{paper.year}</td>
-                      <td className="p-3">{paper.domain}</td>
-                      <td className="p-3">{paper.focusRegion}</td>
+                      <td className="p-3 text-gray-700 font-medium whitespace-nowrap">
+                        {paper.year}
+                      </td>
+                      <td className="p-3">
+                        <span className="px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 text-xs font-medium whitespace-nowrap">
+                          {paper.domain}
+                        </span>
+                      </td>
+                      <td className="p-3">
+                        {paper["DOI"] ? (
+                          <a
+                            href={`https://doi.org/${paper["DOI"]}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:underline text-xs block max-w-[130px] truncate"
+                            title={String(paper["DOI"])}
+                          >
+                            {String(paper["DOI"])}
+                          </a>
+                        ) : (
+                          <span className="text-gray-400 text-xs">—</span>
+                        )}
+                      </td>
                     </tr>
                   ))}
               </tbody>
             </table>
           </div>
+          {/* Pagination */}
+          {(() => {
+            const total = filteredPapers.length;
+            const totalPages = Math.ceil(total / paperPageSize);
+            const start = Math.min((papersPage - 1) * paperPageSize + 1, total);
+            const end = Math.min(papersPage * paperPageSize, total);
+            return (
+              <div className="flex items-center justify-between mt-4">
+                <span className="text-xs text-gray-500">
+                  Showing {start}–{end} of {total} papers
+                </span>
+                <div className="flex gap-1 items-center">
+                  <button
+                    className="px-3 py-1 rounded bg-gray-200 text-sm disabled:opacity-40 hover:bg-gray-300 transition-colors"
+                    disabled={papersPage === 1}
+                    onClick={() => setPapersPage((p) => Math.max(1, p - 1))}
+                  >
+                    ← Prev
+                  </button>
+                  <span className="px-3 py-1 text-sm text-gray-600 font-medium">
+                    {papersPage} / {totalPages || 1}
+                  </span>
+                  <button
+                    className="px-3 py-1 rounded bg-gray-200 text-sm disabled:opacity-40 hover:bg-gray-300 transition-colors"
+                    disabled={papersPage >= totalPages}
+                    onClick={() =>
+                      setPapersPage((p) => Math.min(totalPages, p + 1))
+                    }
+                  >
+                    Next →
+                  </button>
+                </div>
+              </div>
+            );
+          })()}
         </div>
       </div>
     </div>
