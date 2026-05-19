@@ -33,19 +33,19 @@ ax = domain_year.plot(kind='line', marker='o', linewidth=2, markersize=6, figsiz
 plt.xlabel('Year', fontsize=14)
 plt.ylabel('Number of Papers', fontsize=14)
 
-# Add value labels on each data point with both count and percentage
-total_papers = len(df)
-for domain in domain_year.columns:
-    for year in domain_year.index:
-        value = domain_year.loc[year, domain]
-        if value > 0:  # Only label non-zero values
-            percentage = (value / total_papers) * 100
-            plt.text(year, value + 0.2, f'{int(value)}\n({percentage:.1f}%)', 
-                     ha='center', va='bottom', fontsize=14, alpha=0.8)
-
+# NOTE: Per-point value labels commented out — with 520 papers across 5 domains,
+# labels stack heavily in the 2022–2026 peak years making the chart unreadable.
+# total_papers = len(df)
+# for domain in domain_year.columns:
+#     for year in domain_year.index:
+#         value = domain_year.loc[year, domain]
+#         if value > 0:
+#             percentage = (value / total_papers) * 100
+#             plt.text(year, value + 0.2, f'{int(value)}\n({percentage:.1f}%)',
+#                      ha='center', va='bottom', fontsize=14, alpha=0.8)
 
 # Add legend inside the plot
-plt.legend(title='Domain', loc='upper right', fontsize=13)
+plt.legend(title='Domain', loc='upper left', fontsize=11)
 plt.grid(True, alpha=0.3)
 plt.xticks(rotation=0, fontsize=13)
 plt.yticks(fontsize=13)
