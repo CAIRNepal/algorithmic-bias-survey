@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   output: 'export',
   trailingSlash: true,
   images: {
-    unoptimized: true
+    unoptimized: true,
   },
   basePath: isProd ? '/algorithmic-bias-survey' : '',
   assetPrefix: isProd ? '/algorithmic-bias-survey' : '',

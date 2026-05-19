@@ -50,34 +50,40 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <header className="w-full bg-white shadow flex items-center justify-between px-8 py-4 mb-4 z-50 relative">
+        <header className="w-full bg-white border-b border-gray-100 shadow-sm flex items-center justify-between px-8 py-4 sticky top-0 z-50">
           <div className="flex items-center gap-4">
             <a href="https://cair-nepal.org/" target="_blank" rel="noopener noreferrer">
-              <Image src={`${BASE_PATH}/logo-slogan.png`} alt="CAIR Nepal Logo" width={120} height={40} className="h-10 mr-4 object-contain" priority unoptimized />
+              <Image src={`${BASE_PATH}/logo-slogan.png`} alt="CAIR Nepal Logo" width={120} height={40} className="h-10 object-contain" priority unoptimized />
             </a>
-            <div>
-              <span className="text-2xl font-bold text-blue-700">Bias Research Dashboard</span>
-              <span className="block text-sm text-gray-500">Empowering Fairness & Transparency in AI Research</span>
+            <div className="border-l border-gray-200 pl-4">
+              <span className="text-xl font-bold text-gray-900">Bias Research Dashboard</span>
+              <span className="block text-xs text-gray-500 mt-0.5">Empowering Fairness &amp; Transparency in AI Research</span>
             </div>
           </div>
-          <nav className="flex items-center gap-2 text-blue-700 font-medium text-lg">
-            <Link href="/" className="px-3 py-2 hover:text-blue-900 transition">Home</Link>
-            <Link href="/advanced" className="px-3 py-2 hover:text-blue-900 transition">Advanced Analytics</Link>
-        
-            
-            <a href="https://cair-nepal.org/giving" target="_blank" className="ml-2 px-5 py-2 rounded bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition">Donate</a>
+          <nav className="flex items-center gap-1">
+            <Link href="/" className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all">Home</Link>
+            <Link href="/advanced" className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all">Advanced Analytics</Link>
+            <a href="https://cair-nepal.org/giving" target="_blank" className="ml-3 px-5 py-2 text-sm font-semibold rounded-lg bg-blue-600 text-white shadow-sm hover:bg-blue-700 transition-colors">Donate</a>
           </nav>
         </header>
-        <main className="min-h-screen bg-gray-50">
+        <main className="min-h-screen bg-slate-50">
           {children}
         </main>
-        <footer className="w-full bg-white border-t mt-8 py-4 text-center text-xs text-gray-500">
-          <div className="mb-1">
-            This work is part of <span className="font-semibold text-gray-700">Towards FAIR AI: A Survey of Regional Trends and Knowledge Graph-Enhanced Bias Mitigation</span>.<br />
-            <span className="text-gray-700">Abhash Shrestha, Tek Raj Chhetri, Sanju Tiwari</span>
-          </div>
-          <div>
-            &copy; {new Date().getFullYear()} <a href="https://cair-nepal.org" className="underline hover:text-blue-700" target="_blank" rel="noopener noreferrer">cair-nepal.org</a>. <a href="https://www.apache.org/licenses/LICENSE-2.0" className="underline hover:text-blue-700" target="_blank" rel="noopener noreferrer">Apache License 2.0</a>
+        <footer className="w-full bg-gray-900 text-white mt-0 py-8">
+          <div className="max-w-7xl mx-auto px-8 text-center">
+            <p className="text-gray-300 text-sm leading-relaxed">
+              This work is part of{" "}
+              <span className="font-semibold text-white">
+                Towards FAIR AI: A Survey of Regional Trends and Knowledge Graph-Enhanced Bias Mitigation
+              </span>
+            </p>
+            <p className="text-gray-400 text-sm mt-1">Abhash Shrestha · Tek Raj Chhetri · Sanju Tiwari</p>
+            <div className="mt-5 pt-5 border-t border-gray-800 flex items-center justify-center gap-4 text-xs text-gray-500">
+              <span>&copy; {new Date().getFullYear()}</span>
+              <a href="https://cair-nepal.org" className="text-gray-400 hover:text-white transition-colors underline" target="_blank" rel="noopener noreferrer">cair-nepal.org</a>
+              <span>·</span>
+              <a href="https://www.apache.org/licenses/LICENSE-2.0" className="text-gray-400 hover:text-white transition-colors underline" target="_blank" rel="noopener noreferrer">Apache License 2.0</a>
+            </div>
           </div>
         </footer>
       </body>
