@@ -89,6 +89,7 @@ type Paper = {
   Affiliations?: string;
   Year?: string;
   "Focus Region"?: string;
+  "ORC ID"?: string;
   Domain?: string;
   Abstract?: string;
   Citations?: string;
@@ -1249,7 +1250,7 @@ const BiasResearchDashboard = () => {
                 <table className="min-w-full text-sm">
                   <thead>
                     <tr className="bg-gray-50 border-b border-gray-200">
-                      {["SN", "Paper Title", "Authors", "DOI", "Year", "Author Regions", "Focus Region", "Domain", "Abstract", "Details"].map((col) => (
+                      {["SN", "Paper Title", "Authors", "DOI", "Year", "Author Regions", "ORC ID", "Domain", "Details"].map((col) => (
                         <th
                           key={col}
                           className="px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wide cursor-pointer select-none hover:bg-gray-100 transition-colors whitespace-nowrap"
@@ -1321,19 +1322,20 @@ const BiasResearchDashboard = () => {
                           <td className="px-4 py-3 text-gray-500 text-xs" style={{ maxWidth: 160 }}>
                             {regionDisplay}
                           </td>
-                          <td className="px-4 py-3 text-gray-500 text-xs whitespace-nowrap">{paper["Focus Region"]}</td>
+                          <td className="px-4 py-3 text-xs" style={{ maxWidth: 160 }}>
+                            {(paper["ORC ID"] || "").split(";").map((id, i) => {
+                              const trimmed = id.trim();
+                              if (!trimmed || trimmed === "N/A") return <span key={i} className="block text-gray-300">N/A</span>;
+                              const url = trimmed.startsWith("http") ? trimmed : `https://orcid.org/${trimmed}`;
+                              return <a key={i} href={url} target="_blank" rel="noopener noreferrer" className="block text-blue-500 hover:underline truncate">{trimmed.replace("https://orcid.org/", "")}</a>;
+                            })}
+                          </td>
                           <td className="px-4 py-3" style={{ minWidth: 140 }}>
                             {paper["Domain"] && (
                               <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">
                                 {paper["Domain"]}
                               </span>
                             )}
-                          </td>
-                          <td className="px-4 py-3 text-gray-400 text-xs" style={{ maxWidth: 160 }}>
-                            <span className="line-clamp-2">
-                              {(paper["Abstract"] || "").slice(0, 80)}
-                              {(paper["Abstract"] || "").length > 80 ? "…" : ""}
-                            </span>
                           </td>
                           <td className="px-4 py-3 whitespace-nowrap">
                             <button
