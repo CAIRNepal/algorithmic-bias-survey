@@ -1929,6 +1929,7 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
                   <th className="p-3 text-left font-semibold text-gray-700">Regions</th>
                   <th className="p-3 text-left font-semibold text-gray-700">Year</th>
                   <th className="p-3 text-left font-semibold text-gray-700">Domain</th>
+                  <th className="p-3 text-left font-semibold text-gray-700">ORC ID</th>
                   <th className="p-3 text-left font-semibold text-gray-700">DOI</th>
                 </tr>
               </thead>
@@ -1978,10 +1979,20 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
                           {paper.domain}
                         </span>
                       </td>
+                      <td className="p-3 text-xs" style={{ maxWidth: 160 }}>
+                        {(() => {
+                          const parts = String(paper["ORC ID"] || "").split(";").map(s => s.trim()).filter(s => s && s !== "N/A");
+                          if (parts.length === 0) return <span className="text-gray-400">—</span>;
+                          return parts.map((id, i) => {
+                            const url = id.startsWith("http") ? id : `https://orcid.org/${id}`;
+                            return <a key={i} href={url} target="_blank" rel="noopener noreferrer" className="block text-blue-500 hover:underline truncate">{id.replace("https://orcid.org/", "")}</a>;
+                          });
+                        })()}
+                      </td>
                       <td className="p-3">
                         {paper["DOI"] ? (
                           <a
-                            href={`https://doi.org/${paper["DOI"]}`}
+                            href={String(paper["DOI"]).startsWith("http") ? String(paper["DOI"]) : `https://doi.org/${paper["DOI"]}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-blue-600 hover:underline text-xs block max-w-[130px] truncate"

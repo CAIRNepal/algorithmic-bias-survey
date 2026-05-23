@@ -748,11 +748,11 @@ const BiasResearchDashboard = () => {
                 {firstAuthorRegionData.length === 0 ? (
                   <div className="flex items-center justify-center h-40 text-gray-400 text-sm">No data available.</div>
                 ) : (
-                  <div id="first-author-regions-chart" style={{ width: "100%", overflowX: "auto" }}>
+                  <div id="first-author-regions-chart" style={{ width: "100%" }}>
                     <ResponsiveContainer width="100%" height={380}>
-                      <BarChart data={firstAuthorRegionData} margin={{ top: 20, right: 20, left: 10, bottom: 80 }}>
+                      <BarChart data={[...firstAuthorRegionData].sort((a, b) => b.count - a.count)} margin={{ top: 10, right: 20, left: 10, bottom: 70 }}>
                         <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
-                        <XAxis dataKey="region" angle={-45} textAnchor="end" interval={0} height={100} tick={{ fontSize: 11, fill: "#6b7280" }} label={{ value: "Country", position: "insideBottom", offset: -60, fill: "#6b7280", fontSize: 11 }} />
+                        <XAxis dataKey="region" angle={-45} textAnchor="end" interval={0} height={80} tick={{ fontSize: 9, fill: "#6b7280" }} tickFormatter={(v) => { const m: Record<string,string> = {"United States":"USA","United Kingdom":"UK","China":"CHN","Germany":"GER","India":"IND","Italy":"ITA","Canada":"CAN","Netherlands":"NLD","Australia":"AUS","France":"FRA","Switzerland":"CHE","Spain":"ESP","Singapore":"SGP","Israel":"ISR","Japan":"JPN","Turkey":"TUR","Hong Kong":"HKG","South Korea":"KOR","Taiwan":"TWN","Malaysia":"MYS","Sweden":"SWE","Greece":"GRE","Austria":"AUT","Denmark":"DEN","Belgium":"BEL","Norway":"NOR","Brazil":"BRA","Portugal":"POR","Ireland":"IRE","Poland":"POL","Finland":"FIN","Romania":"ROM","Serbia":"SRB","Ukraine":"UKR","Russia":"RUS","South Africa":"ZAF","Nigeria":"NGR","Kenya":"KEN","Ghana":"GHA","Egypt":"EGY","Morocco":"MAR","Saudi Arabia":"KSA","United Arab Emirates":"UAE","Jordan":"JOR","Pakistan":"PAK","Bangladesh":"BGD","Vietnam":"VNM","Thailand":"THA","Indonesia":"IDN","Philippines":"PHI","New Zealand":"NZL","Mexico":"MEX","Colombia":"COL","Argentina":"ARG","Chile":"CHL","Luxembourg":"LUX","Macau":"MAC","Nepal":"NEP","Sri Lanka":"LKA","Ethiopia":"ETH","Tunisia":"TUN","Iran":"IRN"}; return m[String(v)] || String(v); }} label={{ value: "Country", position: "insideBottom", offset: -60, fill: "#6b7280", fontSize: 11 }} />
                         <YAxis tick={{ fontSize: 11, fill: "#6b7280" }} label={{ value: "Count", angle: -90, position: "insideLeft", fill: "#6b7280", fontSize: 11 }} />
                         <Tooltip contentStyle={tooltipStyle} />
                         <Bar dataKey="count" fill="#2563eb" radius={[4, 4, 0, 0]} />
@@ -780,11 +780,11 @@ const BiasResearchDashboard = () => {
                 {allAuthorsRegionData.length === 0 ? (
                   <div className="flex items-center justify-center h-40 text-gray-400 text-sm">No data available.</div>
                 ) : (
-                  <div id="all-authors-regions-chart" style={{ width: "100%", overflowX: "auto" }}>
+                  <div id="all-authors-regions-chart" style={{ width: "100%" }}>
                     <ResponsiveContainer width="100%" height={380}>
-                      <BarChart data={allAuthorsRegionData} margin={{ top: 20, right: 20, left: 10, bottom: 80 }}>
+                      <BarChart data={[...allAuthorsRegionData].sort((a, b) => b.count - a.count)} margin={{ top: 10, right: 20, left: 10, bottom: 70 }}>
                         <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
-                        <XAxis dataKey="region" angle={-45} textAnchor="end" interval={0} height={100} tick={{ fontSize: 11, fill: "#6b7280" }} label={{ value: "Country", position: "insideBottom", offset: -60, fill: "#6b7280", fontSize: 11 }} />
+                        <XAxis dataKey="region" angle={-45} textAnchor="end" interval={0} height={80} tick={{ fontSize: 9, fill: "#6b7280" }} tickFormatter={(v) => { const m: Record<string,string> = {"United States":"USA","United Kingdom":"UK","China":"CHN","Germany":"GER","India":"IND","Italy":"ITA","Canada":"CAN","Netherlands":"NLD","Australia":"AUS","France":"FRA","Switzerland":"CHE","Spain":"ESP","Singapore":"SGP","Israel":"ISR","Japan":"JPN","Turkey":"TUR","Hong Kong":"HKG","South Korea":"KOR","Taiwan":"TWN","Malaysia":"MYS","Sweden":"SWE","Greece":"GRE","Austria":"AUT","Denmark":"DEN","Belgium":"BEL","Norway":"NOR","Brazil":"BRA","Portugal":"POR","Ireland":"IRE","Poland":"POL","Finland":"FIN","Romania":"ROM","Serbia":"SRB","Ukraine":"UKR","Russia":"RUS","South Africa":"ZAF","Nigeria":"NGR","Kenya":"KEN","Ghana":"GHA","Egypt":"EGY","Morocco":"MAR","Saudi Arabia":"KSA","United Arab Emirates":"UAE","Jordan":"JOR","Pakistan":"PAK","Bangladesh":"BGD","Vietnam":"VNM","Thailand":"THA","Indonesia":"IDN","Philippines":"PHI","New Zealand":"NZL","Mexico":"MEX","Colombia":"COL","Argentina":"ARG","Chile":"CHL","Luxembourg":"LUX","Macau":"MAC","Nepal":"NEP","Sri Lanka":"LKA","Ethiopia":"ETH","Tunisia":"TUN","Iran":"IRN"}; return m[String(v)] || String(v); }} label={{ value: "Country", position: "insideBottom", offset: -60, fill: "#6b7280", fontSize: 11 }} />
                         <YAxis tick={{ fontSize: 11, fill: "#6b7280" }} label={{ value: "Count", angle: -90, position: "insideLeft", fill: "#6b7280", fontSize: 11 }} />
                         <Tooltip contentStyle={tooltipStyle} />
                         <Bar dataKey="count" fill="#059669" radius={[4, 4, 0, 0]} />
