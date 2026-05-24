@@ -32,6 +32,7 @@ type Paper = {
   "Focus Region"?: string;
   Domain?: string;
   Abstract?: string;
+  "ORC ID"?: string;
   [key: string]: unknown;
 };
 
