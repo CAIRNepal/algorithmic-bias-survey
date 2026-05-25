@@ -63,10 +63,17 @@ export default function RootLayout({
           <nav className="flex items-center gap-1">
             <Link href="/" className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all">Home</Link>
             <Link href="/advanced" className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all">Advanced Analytics</Link>
+            <Link href="/atlas" className="flex items-center gap-1.5 px-4 py-2 text-sm font-semibold text-violet-600 hover:text-violet-800 hover:bg-violet-50 rounded-lg transition-all">
+              <span className="flex h-2 w-2 relative">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-60" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-violet-500" />
+              </span>
+              Atlas
+            </Link>
             <a href="https://cair-nepal.org/giving" target="_blank" className="ml-3 px-5 py-2 text-sm font-semibold rounded-lg bg-blue-600 text-white shadow-sm hover:bg-blue-700 transition-colors">Donate</a>
           </nav>
         </header>
-        <main className="min-h-screen bg-slate-50">
+        <main className="bg-slate-50">
           {children}
         </main>
         <footer className="w-full bg-gray-900 text-white mt-0 py-8">
