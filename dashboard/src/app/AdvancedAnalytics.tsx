@@ -18,6 +18,7 @@ import {
 } from "recharts";
 import { useState, useMemo, useEffect } from "react";
 import CoAuthorNetworkGraph from "./CoAuthorNetworkGraph";
+import SemanticClusterChart from "./SemanticClusterChart";
 import Select from "react-select";
 import html2canvas from "html2canvas";
 
@@ -88,7 +89,7 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
   const [networkSearchOpen, setNetworkSearchOpen] = useState(false);
 
   // Author detail modal (co-author network click)
-  const [selectedNetworkAuthor, setSelectedNetworkAuthor] = useState<string | null>(null);
+  const [selectedNetworkAuthor, setSelectedNetworkAuthor] = useState<{ name: string; variants: string[] } | null>(null);
 
   // Papers table pagination
   const [papersPage, setPapersPage] = useState(1);
@@ -578,15 +579,16 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
   // Author detail for network click modal
   const authorDetail = useMemo(() => {
     if (!selectedNetworkAuthor) return null;
-    const name = selectedNetworkAuthor;
+    const { name, variants } = selectedNetworkAuthor;
+    const variantSet = new Set(variants.map((v) => v.trim()));
     const authorPapers = filteredPapers.filter((p) =>
-      p.authors.map((a: string) => a.trim()).includes(name.trim())
+      p.authors.some((a: string) => variantSet.has(a.trim()))
     );
     const domains = [...new Set(authorPapers.map((p) => p.domain).filter(Boolean))];
     const regions = [
       ...new Set(
         authorPapers.flatMap((p) => {
-          const idx = p.authors.map((a: string) => a.trim()).indexOf(name.trim());
+          const idx = p.authors.findIndex((a: string) => variantSet.has(a.trim()));
           return idx >= 0 && p.authorRegions[idx] ? [p.authorRegions[idx]] : [];
         })
       ),
@@ -594,7 +596,7 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
     const collaborators = [
       ...new Set(
         authorPapers.flatMap((p) =>
-          p.authors.filter((a: string) => a.trim() !== name.trim())
+          p.authors.filter((a: string) => !variantSet.has(a.trim()))
         )
       ),
     ].slice(0, 20);
@@ -1408,6 +1410,18 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
           )}
         </div>
 
+        {/* Semantic Cluster Visualization */}
+        <div className="bg-white p-6 rounded-lg shadow-lg mb-8">
+          <div className="mb-4">
+            <h3 className="text-xl font-semibold text-gray-700">Semantic Landscape</h3>
+            <p className="text-xs text-gray-400 mt-0.5">
+              Each dot is a paper — papers closer together are semantically similar based on their abstracts.
+              Hover to preview · click for details · filter by cluster or domain.
+            </p>
+          </div>
+          <SemanticClusterChart />
+        </div>
+
         {/* Co-Author Network Visualization */}
         <div className="bg-white p-6 rounded-lg shadow-lg mb-8">
           <div className="flex flex-wrap justify-between items-center mb-2 gap-3">
@@ -1493,7 +1507,7 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
                           className="w-full text-left px-4 py-2 text-sm text-gray-800 hover:bg-blue-50 hover:text-blue-700 transition-colors"
                           onMouseDown={(e) => {
                             e.preventDefault();
-                            setSelectedNetworkAuthor(author);
+                            setSelectedNetworkAuthor({ name: author, variants: [author] });
                             setNetworkAuthorSearch("");
                             setNetworkSearchOpen(false);
                           }}
@@ -1511,7 +1525,7 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
           <CoAuthorNetworkGraph
             papers={filteredPapers}
             maxNodes={networkMaxNodes === 0 ? 99999 : networkMaxNodes}
-            onAuthorClick={(author) => setSelectedNetworkAuthor(author)}
+            onAuthorClick={(author, variants) => setSelectedNetworkAuthor({ name: author, variants: variants || [author] })}
           />
         </div>
 
@@ -1580,7 +1594,7 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
                         <button
                           key={c}
                           className="px-2 py-0.5 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-full text-xs font-medium hover:bg-emerald-100 transition-colors"
-                          onClick={() => setSelectedNetworkAuthor(c)}
+                          onClick={() => setSelectedNetworkAuthor({ name: c, variants: [c] })}
                         >
                           {c}
                         </button>

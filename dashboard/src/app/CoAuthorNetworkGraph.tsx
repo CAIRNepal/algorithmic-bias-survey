@@ -25,6 +25,7 @@ type Paper = {
   'Focus Region'?: string;
   Domain?: string;
   Abstract?: string;
+  'ORC ID'?: string;
   [key: string]: unknown;
 };
 
@@ -33,13 +34,14 @@ type AuthorNodeData = {
   region: string;
   affiliation: string;
   paperCount: number;
+  nameVariants: string[];
 };
 
 type AuthorNodeProps = { data: AuthorNodeData };
 
 interface CoAuthorNetworkGraphProps {
   papers: Paper[];
-  onAuthorClick?: (author: string) => void;
+  onAuthorClick?: (author: string, nameVariants: string[]) => void;
   maxNodes?: number;
 }
 
@@ -60,6 +62,31 @@ const REGION_COLORS: Record<string, string> = {
 };
 
 const getColor = (region: string) => REGION_COLORS[(region || '').trim()] || '#8884d8';
+
+// ── Author deduplication helpers ──────────────────────────────────────────────
+
+const ORCID_RE = /^\d{4}-\d{4}-\d{4}-\d{3}[\dX]$/;
+
+function parseOrcid(raw: string): string {
+  const s = raw.trim().replace(/^https?:\/\/orcid\.org\//, '');
+  return ORCID_RE.test(s) ? s : '';
+}
+
+/** Normalized fallback key for authors without a valid ORCID: "lastname_firstinitial" */
+function normalizeAuthorName(name: string): string {
+  const clean = name.toLowerCase().replace(/[.,]/g, '').trim();
+  const parts = clean.split(/\s+/).filter(Boolean);
+  if (parts.length === 0) return clean;
+  const lastName = parts[parts.length - 1];
+  const firstInitial = parts[0][0] || '';
+  return `${lastName}_${firstInitial}`;
+}
+
+/** Canonical key: ORCID-based if valid, otherwise normalized name */
+function canonicalKey(name: string, orcid: string): string {
+  const id = parseOrcid(orcid);
+  return id ? `orcid:${id}` : `name:${normalizeAuthorName(name)}`;
+}
 
 // ── Node components ───────────────────────────────────────────────────────────
 
@@ -145,7 +172,7 @@ const DEFAULT_MAX_NODES = 50;
 
 // ── Layout builders ───────────────────────────────────────────────────────────
 
-type AuthorMeta = { region: string; affiliation: string; paperCount: number };
+type AuthorMeta = { region: string; affiliation: string; paperCount: number; displayName: string; nameVariants: Set<string> };
 
 /** Circular cluster layout — good for ≤ 200 nodes */
 function circularClusterLayout(topAuthors: string[], authorMeta: Map<string, AuthorMeta>): Node[] {
@@ -191,7 +218,7 @@ function circularClusterLayout(topAuthors: string[], authorMeta: Map<string, Aut
       nodes.push({
         id: author,
         type: 'author',
-        data: { label: author, region: meta.region, affiliation: meta.affiliation, paperCount: meta.paperCount, size },
+        data: { label: meta.displayName, region: meta.region, affiliation: meta.affiliation, paperCount: meta.paperCount, nameVariants: Array.from(meta.nameVariants), size },
         position: { x: cx + (innerR + 30) * Math.cos(a), y: cy + (innerR + 30) * Math.sin(a) },
       });
     });
@@ -247,7 +274,7 @@ function gridClusterLayout(topAuthors: string[], authorMeta: Map<string, AuthorM
       nodes.push({
         id: author,
         type: 'dotNode',
-        data: { label: author, region: meta.region, affiliation: meta.affiliation, paperCount: meta.paperCount },
+        data: { label: meta.displayName, region: meta.region, affiliation: meta.affiliation, paperCount: meta.paperCount, nameVariants: Array.from(meta.nameVariants) },
         position: { x: curX + col * PITCH, y: curY + LABEL_H + row * PITCH },
       });
     });
@@ -264,7 +291,7 @@ interface NetworkFlowProps {
   nodes: Node[];
   edges: Edge[];
   isLarge: boolean;
-  onAuthorClick?: (author: string) => void;
+  onAuthorClick?: (author: string, nameVariants: string[]) => void;
 }
 
 const NetworkFlow: React.FC<NetworkFlowProps> = ({ nodes, edges, isLarge, onAuthorClick }) => {
@@ -283,7 +310,10 @@ const NetworkFlow: React.FC<NetworkFlowProps> = ({ nodes, edges, isLarge, onAuth
 
   const onNodeClick = useCallback((_: React.MouseEvent, node: Node) => {
     if (node.id.startsWith('__label__')) return;
-    if (onAuthorClick) onAuthorClick(node.id as string);
+    if (onAuthorClick) {
+      const d = node.data as AuthorNodeData;
+      onAuthorClick(d.label, d.nameVariants?.length ? d.nameVariants : [d.label]);
+    }
   }, [onAuthorClick]);
 
   return (
@@ -342,20 +372,40 @@ const CoAuthorNetworkGraph: React.FC<CoAuthorNetworkGraphProps> = ({
       const authors = (paper['Authors'] || '').split(';').map((a: string) => a.trim()).filter(Boolean);
       const regions = (paper['Author Regions'] || '').split(';').map((r: string) => r.trim());
       const affiliations = (paper['Affiliations'] || '').split(';').map((a: string) => a.trim());
+      const orcids = (paper['ORC ID'] || '').split(';').map((o: string) => o.trim());
+
+      // Resolve canonical keys for all authors in this paper first (needed for edge building)
+      const keys = authors.map((author: string, idx: number) =>
+        canonicalKey(author, orcids[idx] || '')
+      );
 
       authors.forEach((author: string, idx: number) => {
-        if (!authorMeta.has(author)) {
-          authorMeta.set(author, { region: regions[idx] || 'Unknown', affiliation: affiliations[idx] || '', paperCount: 0 });
+        const key = keys[idx];
+        if (!authorMeta.has(key)) {
+          authorMeta.set(key, {
+            region: regions[idx] || 'Unknown',
+            affiliation: affiliations[idx] || '',
+            paperCount: 0,
+            displayName: author,
+            nameVariants: new Set([author]),
+          });
+        } else {
+          // Merge: accumulate name variants; keep most-used display name (first seen)
+          authorMeta.get(key)!.nameVariants.add(author);
+          // Fill in region/affiliation if previously unknown
+          const m = authorMeta.get(key)!;
+          if (m.region === 'Unknown' && regions[idx]) m.region = regions[idx];
+          if (!m.affiliation && affiliations[idx]) m.affiliation = affiliations[idx];
         }
-        authorMeta.get(author)!.paperCount++;
-        authorDegree.set(author, (authorDegree.get(author) || 0) + authors.length - 1);
+        authorMeta.get(key)!.paperCount++;
+        authorDegree.set(key, (authorDegree.get(key) || 0) + authors.length - 1);
       });
 
-      for (let i = 0; i < authors.length; i++) {
-        for (let j = i + 1; j < authors.length; j++) {
-          const key = [authors[i], authors[j]].sort().join('|||');
-          if (!edgeMap.has(key)) edgeMap.set(key, { source: authors[i], target: authors[j], count: 0 });
-          edgeMap.get(key)!.count++;
+      for (let i = 0; i < keys.length; i++) {
+        for (let j = i + 1; j < keys.length; j++) {
+          const edgeKey = [keys[i], keys[j]].sort().join('|||');
+          if (!edgeMap.has(edgeKey)) edgeMap.set(edgeKey, { source: keys[i], target: keys[j], count: 0 });
+          edgeMap.get(edgeKey)!.count++;
         }
       }
     });
