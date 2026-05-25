@@ -41,7 +41,7 @@ INPUT_CSV = BASE_DIR / "papers_new.csv"
 OUT_DIR   = "figures_new"
 os.makedirs(OUT_DIR, exist_ok=True)
 
-TOP = None                     # set an int (e.g., 20) or None to plot ALL countries
+TOP = 15                       # show top N countries; remainder bucketed as "Other"
 KEEP_GLOBAL = False            # drop "Global" bucket by default
 COUNT_UNIQUE_AUTHORS = False    # True = unique people per country, False = all author rows (ALL-AUTHORS variant)
 SHOW_RATIO_LINE = False        # overlay Authors-per-Paper on a secondary axis
@@ -152,9 +152,16 @@ def plot_summary_bar(
     authors_col="Authors",
     papers_col="Papers",
 ):
-    # Order & Top-N
+    # Order & Top-N with "Other" bucket for remainder
     S = summary.sort_values([papers_col, authors_col], ascending=[False, False])
-    S = S if TOP is None else S.head(TOP)
+    if TOP is not None and len(S) > TOP:
+        top_s  = S.head(TOP)
+        rest   = S.iloc[TOP:]
+        other  = pd.DataFrame(
+            {authors_col: [rest[authors_col].sum()], papers_col: [rest[papers_col].sum()]},
+            index=["Other"]
+        )
+        S = pd.concat([top_s, other])
 
     if S.empty:
         print("No data to plot.")

@@ -67,6 +67,7 @@ OUT_PDF   = os.path.join(OUT_DIR, "country_collaboration_matrix.pdf")
 
 WRAP_WIDTH = 12                 # wrap width (chars) for tick labels
 ANNOTATE_MAX_CELLS = 2500       # annotate only if matrix not too large
+TOP_N_COUNTRIES = 20            # keep only top N countries by collaboration weight; None = all
 
 # Counting behavior
 WEIGHT_BY_AUTHOR_MULTIPLICITY = False   # True=all-author weighting; False=one-per-paper-per-pair
@@ -218,16 +219,23 @@ for a in diag_counts:
 
 wdeg = dict(G.degree(weight="weight"))
 countries = sorted(G.nodes(), key=lambda c: (-wdeg.get(c, 0), c))
+if TOP_N_COUNTRIES is not None:
+    countries = countries[:TOP_N_COUNTRIES]
 n = len(countries)
 idx = {c: i for i, c in enumerate(countries)}
 
 # ---------------- Adjacency matrix ----------------
+country_set = set(countries)
 mat = np.zeros((n, n), dtype=int)
 for (a, b), w in pair_counts.items():
+    if a not in country_set or b not in country_set:
+        continue
     i, j = idx[a], idx[b]
     mat[i, j] = int(w); mat[j, i] = int(w)
 if INCLUDE_WITHIN_COUNTRY:
     for a, w in diag_counts.items():
+        if a not in country_set:
+            continue
         i = idx[a]; mat[i, i] = int(w)
 
 # ---------------- Plot ----------------

@@ -91,9 +91,16 @@ bp = ax.boxplot(data, patch_artist=True, showfliers=True,
 for i, (patch, color, d) in enumerate(zip(bp['boxes'], colors, domains_ordered)):
     patch.set_facecolor(color)
     patch.set_alpha(0.75)
-    med = df[df['Domain']==d]['cited_by_count'].median()
-    ax.text(i + 1, med * 1.15, f'median={int(med)}',
-            ha='center', va='bottom', fontsize=8, fontweight='bold')
+    vals = df[df['Domain']==d]['cited_by_count']
+    med  = vals.median()
+    top  = vals.max()
+    # Median label above box
+    ax.text(i + 1, med * 1.3, f'median={int(med)}',
+            ha='center', va='bottom', fontsize=7.5, fontweight='bold', color='#222')
+    # Top outlier label
+    ax.text(i + 1, top * 1.05, f'{int(top):,}',
+            ha='center', va='bottom', fontsize=7.5, fontweight='bold', color='#333',
+            bbox=dict(boxstyle='round,pad=0.2', fc='white', alpha=0.7, ec='none'))
 
 ax.set_xticklabels(labels, fontsize=8)
 ax.set_ylabel('Global citation count', fontsize=10)
@@ -128,7 +135,7 @@ ax.set_yticklabels(titles_short, fontsize=8)
 ax.invert_yaxis()
 ax.margins(x=0.15)
 ax.set_xlabel('Global citation count (source: OpenAlex — all academic literature)', fontsize=10)
-ax.set_title('Top 15 Most Cited Papers in Corpus\n(global citations across all academic literature, via OpenAlex)', fontsize=12, fontweight='bold', pad=10)
+ax.set_title('Top 15 Most Cited Papers from Corpus\n(global citations across all academic literature, via OpenAlex)', fontsize=12, fontweight='bold', pad=10)
 legend_patches = [mpatches.Patch(color=c, label=d) for d, c in DOMAIN_COLORS.items()]
 ax.legend(handles=legend_patches, fontsize=7, loc='lower right', framealpha=0.9)
 ax.xaxis.grid(True, alpha=0.3)
