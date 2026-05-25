@@ -25,6 +25,25 @@ const DOMAIN_COLORS: Record<string, string> = {
 };
 const getColor = (domain: string) => DOMAIN_COLORS[domain] ?? '#adb5bd';
 
+function convexHull(pts: {x: number; y: number}[]): {x: number; y: number}[] {
+  if (pts.length < 3) return pts;
+  const sorted = [...pts].sort((a, b) => a.x - b.x || a.y - b.y);
+  const cross = (O: {x:number;y:number}, A: {x:number;y:number}, B: {x:number;y:number}) =>
+    (A.x - O.x) * (B.y - O.y) - (A.y - O.y) * (B.x - O.x);
+  const lower: {x:number;y:number}[] = [];
+  for (const p of sorted) {
+    while (lower.length >= 2 && cross(lower[lower.length-2], lower[lower.length-1], p) <= 0) lower.pop();
+    lower.push(p);
+  }
+  const upper: {x:number;y:number}[] = [];
+  for (const p of [...sorted].reverse()) {
+    while (upper.length >= 2 && cross(upper[upper.length-2], upper[upper.length-1], p) <= 0) upper.pop();
+    upper.push(p);
+  }
+  upper.pop(); lower.pop();
+  return lower.concat(upper);
+}
+
 interface TooltipState { x: number; y: number; point: ClusterPoint; }
 
 export default function SemanticClusterChart() {
@@ -75,6 +94,18 @@ export default function SemanticClusterChart() {
     [scaledPoints, activeDomains]
   );
 
+  const hullPaths = useMemo(() => {
+    if (!activeDomains.size) return [];
+    return Array.from(activeDomains).flatMap(domain => {
+      const pts = scaledPoints
+        .filter(p => p.Domain === domain)
+        .map(p => ({ x: (p as typeof p & {sx:number}).sx, y: (p as typeof p & {sy:number}).sy }));
+      if (pts.length < 3) return [];
+      const hull = convexHull(pts);
+      return [{ domain, points: hull.map(p => `${p.x},${p.y}`).join(' ') }];
+    });
+  }, [scaledPoints, activeDomains]);
+
   const handleMouseMove = (e: React.MouseEvent<SVGCircleElement>, p: ClusterPoint & { sx: number; sy: number }) => {
     const rect = svgRef.current?.getBoundingClientRect();
     if (!rect) return;
@@ -124,6 +155,19 @@ export default function SemanticClusterChart() {
             className="w-full"
             style={{ background: '#f8f9fa', borderRadius: 8, border: '1px solid #e5e7eb' }}
           >
+            {/* Convex hull outlines — only when domains are selected */}
+            {hullPaths.map(h => (
+              <polygon key={h.domain}
+                points={h.points}
+                fill={getColor(h.domain)}
+                fillOpacity={0.08}
+                stroke={getColor(h.domain)}
+                strokeWidth={1.5}
+                strokeOpacity={0.6}
+                strokeDasharray="5 3"
+              />
+            ))}
+
             {/* Dimmed points */}
             {dimPoints.map(p => (
               <circle key={p.SN}

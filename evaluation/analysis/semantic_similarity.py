@@ -11,7 +11,7 @@ import umap
 warnings.filterwarnings('ignore')
 
 plt.rcParams.update({
-    'font.size': 11,
+    'font.size': 14,
     'font.family': 'serif',
     'figure.dpi': 300,
     'savefig.dpi': 300,
@@ -65,7 +65,7 @@ df[['SN', 'Paper Title', 'DOI', 'Domain', 'Year', 'umap_x', 'umap_y',
 print(f'\nSaved results: {OUT_CSV}')
 
 # ── Figure ────────────────────────────────────────────────────────────────────
-fig, ax = plt.subplots(figsize=(12, 9))
+fig, ax = plt.subplots(figsize=(14, 10))
 
 # Draw convex hull per domain (background, semi-transparent)
 for domain, color in DOMAIN_COLORS.items():
@@ -75,9 +75,9 @@ for domain, color in DOMAIN_COLORS.items():
             hull = ConvexHull(pts)
             hull_pts = np.append(hull.vertices, hull.vertices[0])
             ax.fill(pts[hull_pts, 0], pts[hull_pts, 1],
-                    alpha=0.07, color=color, zorder=1)
+                    alpha=0.12, color=color, zorder=1)
             ax.plot(pts[hull_pts, 0], pts[hull_pts, 1],
-                    alpha=0.25, color=color, linewidth=0.8, zorder=2)
+                    alpha=0.40, color=color, linewidth=1.2, zorder=2)
         except Exception:
             pass
 
@@ -85,23 +85,60 @@ for domain, color in DOMAIN_COLORS.items():
 for domain, color in DOMAIN_COLORS.items():
     sub = df[df['Domain'] == domain]
     ax.scatter(sub['umap_x'], sub['umap_y'],
-               c=color, s=20, alpha=0.80, linewidths=0, zorder=3, label=domain)
+               c=color, s=55, alpha=0.90, linewidths=0.3,
+               edgecolors='white', zorder=3, label=domain)
 
 # Legend
-ax.legend(loc='lower right', fontsize=8, framealpha=0.9,
-          title='Domain', title_fontsize=9, markerscale=1.4)
+ax.legend(loc='lower right', fontsize=13, framealpha=0.9,
+          title='Domain', title_fontsize=14, markerscale=2.2)
 
-ax.set_title(
-    'Semantic Landscape of AI Bias Research\n'
-    'UMAP projection of SBERT abstract embeddings',
-    fontsize=13, fontweight='bold', pad=12
-)
-ax.set_xlabel('UMAP Dimension 1', fontsize=10)
-ax.set_ylabel('UMAP Dimension 2', fontsize=10)
+# ax.set_title(
+#     'Semantic Landscape of AI Bias Research\n'
+#     'UMAP projection of SBERT abstract embeddings',
+#     fontsize=16, fontweight='bold', pad=14
+# )
+ax.set_xlabel('UMAP Dimension 1', fontsize=14)
+ax.set_ylabel('UMAP Dimension 2', fontsize=14)
+ax.tick_params(labelsize=12)
 ax.set_facecolor('#f8f9fa')
 fig.tight_layout()
-fig.savefig(OUT_FIG, dpi=180, bbox_inches='tight')
+fig.savefig(OUT_FIG, dpi=300, bbox_inches='tight')
 print(f'Saved figure: {OUT_FIG}')
+
+# ── Cluster selection (elbow + silhouette) ───────────────────────────────────
+from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_score
+
+print('\nRunning cluster selection (k=3..13)...')
+ks, inertias, sils = [], [], []
+for k in range(3, 14):
+    km = KMeans(n_clusters=k, random_state=42, n_init=10)
+    labels = km.fit_predict(coords)
+    ks.append(k)
+    inertias.append(km.inertia_)
+    sils.append(silhouette_score(coords, labels))
+
+fig2, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
+ax1.plot(ks, inertias, 'o-', color='#457b9d', linewidth=2, markersize=7)
+ax1.axvline(x=8, color='#e63946', linestyle='--', label='k=8')
+ax1.set_xlabel('k', fontsize=14)
+ax1.set_ylabel('Inertia', fontsize=14)
+ax1.set_title('Elbow Method', fontsize=15, fontweight='bold')
+ax1.tick_params(labelsize=12)
+ax1.legend(fontsize=12)
+
+ax2.plot(ks, sils, 'o-', color='#2a9d8f', linewidth=2, markersize=7)
+ax2.axvline(x=8, color='#e63946', linestyle='--', label='k=8')
+ax2.set_xlabel('k', fontsize=14)
+ax2.set_ylabel('Silhouette Score', fontsize=14)
+ax2.set_title('Silhouette Score', fontsize=15, fontweight='bold')
+ax2.tick_params(labelsize=12)
+ax2.legend(fontsize=12)
+
+fig2.tight_layout()
+fig2.savefig(OUT_DIR / 'cluster_selection.png', dpi=300, bbox_inches='tight')
+plt.close(fig2)
+print('Saved figure: cluster_selection.png')
 
 # ── Domain overlap analysis ───────────────────────────────────────────────────
 # For each paper, find its nearest neighbour from a different domain

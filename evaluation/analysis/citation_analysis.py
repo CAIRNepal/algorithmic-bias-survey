@@ -9,7 +9,7 @@ from pathlib import Path
 warnings.filterwarnings('ignore')
 
 plt.rcParams.update({
-    'font.size': 11,
+    'font.size': 16,
     'font.family': 'serif',
     'figure.dpi': 300,
     'savefig.dpi': 300,
@@ -56,20 +56,21 @@ for domain in year_domain.columns:
     for bar, v, b in zip(bars, vals, bottom):
         if v >= 5:
             ax.text(bar.get_x() + bar.get_width()/2, b + v/2,
-                    str(int(v)), ha='center', va='center', fontsize=6.5, color='white', fontweight='bold')
+                    str(int(v)), ha='center', va='center', fontsize=11, color='white', fontweight='bold')
     bottom += vals
 
 # Total on top of each bar
 totals = year_domain.sum(axis=1)
 for x, total in zip(year_domain.index, totals):
-    ax.text(x, total + 1, str(int(total)), ha='center', va='bottom', fontsize=7.5, fontweight='bold')
+    ax.text(x, total + 1, str(int(total)), ha='center', va='bottom', fontsize=12, fontweight='bold')
 
-ax.set_xlabel('Year', fontsize=10)
-ax.set_ylabel('Number of papers', fontsize=10)
-ax.set_title('Publication Growth by Domain (2015–2026)', fontsize=13, fontweight='bold', pad=10)
+ax.set_xlabel('Year', fontsize=16)
+ax.set_ylabel('Number of papers', fontsize=16)
+# ax.set_title('Publication Growth by Domain (2015–2026)', fontsize=15, fontweight='bold', pad=10)
 ax.set_xticks(year_domain.index)
-ax.tick_params(axis='x', rotation=45)
-ax.legend(fontsize=8, loc='upper left', framealpha=0.9)
+ax.tick_params(axis='x', rotation=45, labelsize=14)
+ax.tick_params(axis='y', labelsize=14)
+ax.legend(fontsize=13, loc='upper left', framealpha=0.9)
 fig.tight_layout()
 fig.savefig(OUT_DIR / 'citation_publication_growth.png', bbox_inches='tight')
 plt.close()
@@ -77,13 +78,21 @@ print('  Saved: citation_publication_growth.png')
 
 # ── 2. EXTERNAL: Citation distribution by domain ───────────────────────────────
 print('\n=== Citation distribution by domain ===')
-fig, ax = plt.subplots(figsize=(10, 5))
+DOMAIN_SHORT = {
+    'Health & Clinical AI':                     'Health &\nClinical AI',
+    'General Fairness & Bias Mitigation':       'General\nFairness',
+    'Graph-Based Fairness & Bias Mitigation':   'Graph-Based\nFairness',
+    'LLMs & NLP':                               'LLMs &\nNLP',
+    'Recommender Systems':                      'Recommender\nSystems',
+}
+
+fig, ax = plt.subplots(figsize=(13, 6))
 domains_ordered = sorted(DOMAIN_COLORS.keys(),
                          key=lambda d: df[df['Domain']==d]['cited_by_count'].median(),
                          reverse=True)
 data   = [df[df['Domain']==d]['cited_by_count'].values for d in domains_ordered]
 colors = [DOMAIN_COLORS[d] for d in domains_ordered]
-labels = [f"{d}\n(n={len(df[df['Domain']==d])})" for d in domains_ordered]
+labels = [f"{DOMAIN_SHORT.get(d, d)}\n(n={len(df[df['Domain']==d])})" for d in domains_ordered]
 
 bp = ax.boxplot(data, patch_artist=True, showfliers=True,
                 flierprops=dict(marker='o', markersize=3, alpha=0.4),
@@ -96,15 +105,15 @@ for i, (patch, color, d) in enumerate(zip(bp['boxes'], colors, domains_ordered))
     top  = vals.max()
     # Median label above box
     ax.text(i + 1, med * 1.3, f'median={int(med)}',
-            ha='center', va='bottom', fontsize=7.5, fontweight='bold', color='#222')
+            ha='center', va='bottom', fontsize=12, fontweight='bold', color='#222')
     # Top outlier label
     ax.text(i + 1, top * 1.05, f'{int(top):,}',
-            ha='center', va='bottom', fontsize=7.5, fontweight='bold', color='#333',
+            ha='center', va='bottom', fontsize=12, fontweight='bold', color='#333',
             bbox=dict(boxstyle='round,pad=0.2', fc='white', alpha=0.7, ec='none'))
 
-ax.set_xticklabels(labels, fontsize=8)
-ax.set_ylabel('Global citation count', fontsize=10)
-ax.set_title('Global Citation Distribution by Domain\n(cited_by_count from OpenAlex — all academic literature)', fontsize=12, fontweight='bold', pad=10)
+ax.set_xticklabels(labels, fontsize=14, linespacing=1.3)
+ax.set_ylabel('Global citation count', fontsize=16)
+# ax.set_title('Global Citation Distribution by Domain\n(cited_by_count from OpenAlex — all academic literature)', fontsize=14, fontweight='bold', pad=10)
 ax.set_yscale('symlog', linthresh=10)
 ax.yaxis.grid(True, alpha=0.3)
 fig.tight_layout()
@@ -123,23 +132,25 @@ top15 = df.nlargest(15, 'cited_by_count')[['Paper Title', 'Domain', 'Year', 'cit
 for _, row in top15.iterrows():
     print(f"  [{int(row['cited_by_count']):5d}] {str(row['Paper Title'])[:65]} ({int(row['Year'])})")
 
-fig, ax = plt.subplots(figsize=(12, 6))
+fig, ax = plt.subplots(figsize=(13, 7))
 titles_short = [str(t)[:55] + ('…' if len(str(t)) > 55 else '') for t in top15['Paper Title']]
 bar_colors   = [DOMAIN_COLORS.get(d, '#adb5bd') for d in top15['Domain']]
 bars = ax.barh(range(len(top15)), top15['cited_by_count'], color=bar_colors, alpha=0.85)
 for bar, val in zip(bars, top15['cited_by_count']):
     ax.text(bar.get_width() + 30, bar.get_y() + bar.get_height()/2,
-            f'{int(val):,}', va='center', fontsize=8, fontweight='bold')
+            f'{int(val):,}', va='center', fontsize=13, fontweight='bold')
 ax.set_yticks(range(len(top15)))
-ax.set_yticklabels(titles_short, fontsize=8)
+ax.set_yticklabels(titles_short, fontsize=13)
 ax.invert_yaxis()
-ax.margins(x=0.15)
-ax.set_xlabel('Global citation count (source: OpenAlex — all academic literature)', fontsize=10)
-ax.set_title('Top 15 Most Cited Papers from Corpus\n(global citations across all academic literature, via OpenAlex)', fontsize=12, fontweight='bold', pad=10)
+ax.margins(x=0.12)
+ax.set_xlabel('Global citation count (source: OpenAlex — all academic literature)', fontsize=15)
+# ax.set_title('Top 15 Most Cited Papers from Corpus\n(global citations across all academic literature, via OpenAlex)', fontsize=14, fontweight='bold', pad=10)
 legend_patches = [mpatches.Patch(color=c, label=d) for d, c in DOMAIN_COLORS.items()]
-ax.legend(handles=legend_patches, fontsize=7, loc='lower right', framealpha=0.9)
+ax.legend(handles=legend_patches, fontsize=12, loc='lower center',
+          bbox_to_anchor=(0.5, -0.25), ncol=3, framealpha=0.9)
 ax.xaxis.grid(True, alpha=0.3)
 fig.tight_layout()
+fig.subplots_adjust(bottom=0.18)
 fig.savefig(OUT_DIR / 'citation_top15.png', bbox_inches='tight')
 plt.close()
 print('  Saved: citation_top15.png')
@@ -172,19 +183,21 @@ fig, axes = plt.subplots(1, 2, figsize=(14, 6))
 top_n = country_stats.nlargest(15, 'paper_count')
 axes[0].barh(top_n['country'], top_n['paper_count'], color='#457b9d', alpha=0.8)
 axes[0].invert_yaxis()
-axes[0].set_xlabel('Number of papers', fontsize=10)
-axes[0].set_title('Papers per Country (top 15)', fontsize=11, fontweight='bold')
+axes[0].set_xlabel('Number of papers', fontsize=15)
+axes[0].set_title('Papers per Country (top 15)', fontsize=15, fontweight='bold')
 axes[0].xaxis.grid(True, alpha=0.3)
+axes[0].tick_params(labelsize=14)
 
 # Right: median citations
 top_n2 = country_stats.nlargest(15, 'median_citations')
 axes[1].barh(top_n2['country'], top_n2['median_citations'], color='#e63946', alpha=0.8)
 axes[1].invert_yaxis()
-axes[1].set_xlabel('Median citation count', fontsize=10)
-axes[1].set_title('Median Citations per Country (top 15, min 5 papers)', fontsize=11, fontweight='bold')
+axes[1].set_xlabel('Median citation count', fontsize=15)
+axes[1].set_title('Median Citations per Country (top 15, min 5 papers)', fontsize=15, fontweight='bold')
 axes[1].xaxis.grid(True, alpha=0.3)
+axes[1].tick_params(labelsize=14)
 
-fig.suptitle('Regional Publication & Citation Analysis', fontsize=13, fontweight='bold', y=1.01)
+fig.suptitle('Regional Publication & Citation Analysis', fontsize=17, fontweight='bold', y=1.01)
 fig.tight_layout()
 fig.savefig(OUT_DIR / 'citation_regional.png', bbox_inches='tight')
 plt.close()
@@ -253,17 +266,18 @@ height = 0.35
 base_colors = [DOMAIN_COLORS[d] for d in domain_order]
 
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5.5), sharey=True)
-fig.suptitle('Citation Impact by Research Domain', fontsize=14, fontweight='bold', y=1.02)
+# fig.suptitle('Citation Impact by Research Domain', fontsize=16, fontweight='bold', y=1.02)
 
 # Left: total internal citations
 bars1 = ax1.barh(y, total_internal, height * 1.6, color=base_colors, alpha=0.9)
 for bar, val in zip(bars1, total_internal):
     ax1.text(bar.get_width() + 1, bar.get_y() + bar.get_height()/2,
-             str(val), va='center', fontsize=10, fontweight='bold')
+             str(val), va='center', fontsize=12, fontweight='bold')
 ax1.set_yticks(y)
-ax1.set_yticklabels([d.replace(' & ', '\n& ') for d in domain_order], fontsize=9.5)
-ax1.set_xlabel('Total citations received\nfrom other papers in this corpus', fontsize=9)
-ax1.set_title('Internal Citations\n(within 519-paper corpus)', fontsize=10, fontweight='bold')
+ax1.set_yticklabels([d.replace(' & ', '\n& ') for d in domain_order], fontsize=14)
+ax1.set_xlabel('Total citations received\nfrom other papers in this corpus', fontsize=15)
+ax1.set_title('Internal Citations\n(within 519-paper corpus)', fontsize=15, fontweight='bold')
+ax1.tick_params(axis='x', labelsize=14)
 ax1.xaxis.grid(True, alpha=0.25)
 ax1.set_axisbelow(True)
 
@@ -271,9 +285,10 @@ ax1.set_axisbelow(True)
 bars2 = ax2.barh(y, total_global, height * 1.6, color=base_colors, alpha=0.9)
 for bar, val in zip(bars2, total_global):
     ax2.text(bar.get_width() * 1.01, bar.get_y() + bar.get_height()/2,
-             f'{val:,}', va='center', fontsize=10, fontweight='bold')
-ax2.set_xlabel('Total citations received\nacross all academic literature (OpenAlex)', fontsize=9)
-ax2.set_title('Global Citations\n(all academic literature via OpenAlex)', fontsize=10, fontweight='bold')
+             f'{val:,}', va='center', fontsize=14, fontweight='bold')
+ax2.set_xlabel('Total citations received\nacross all academic literature (OpenAlex)', fontsize=15)
+ax2.set_title('Global Citations\n(all academic literature via OpenAlex)', fontsize=15, fontweight='bold')
+ax2.tick_params(axis='x', labelsize=14)
 ax2.xaxis.grid(True, alpha=0.25)
 ax2.set_axisbelow(True)
 
