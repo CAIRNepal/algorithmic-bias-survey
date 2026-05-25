@@ -47,7 +47,7 @@ plt.rcParams.update({
 # Config
 # =========================
 BASE_DIR = Path(__file__).resolve().parent
-INPUT_CSV = BASE_DIR / "papers.csv"
+INPUT_CSV = BASE_DIR / "papers_new.csv"
 OUT_DIR = "figures"
 os.makedirs(OUT_DIR, exist_ok=True)
 
@@ -273,7 +273,7 @@ df = pd.read_csv(INPUT_CSV)
 
 # Ensure required columns
 if "Affiliations" not in df.columns or "Domain" not in df.columns:
-    raise KeyError("Expected columns 'Affiliations' and 'Domain' in papers.csv")
+    raise KeyError("Expected columns 'Affiliations' and 'Domain' in papers_new.csv")
 
 if "Focus Region" not in df.columns:
     df["Focus Region"] = "Global"
