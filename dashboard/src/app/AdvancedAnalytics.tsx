@@ -18,7 +18,6 @@ import {
 } from "recharts";
 import { useState, useMemo, useEffect } from "react";
 import CoAuthorNetworkGraph from "./CoAuthorNetworkGraph";
-import SemanticClusterChart from "./SemanticClusterChart";
 import Select from "react-select";
 import html2canvas from "html2canvas";
 
@@ -708,30 +707,31 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
   }, [selectedAuthors, selectedDomains, selectedRegions, selectedInstitutions]);
 
   return (
-    <div className="w-full p-6 bg-gray-50">
+    <div className="w-full p-6">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-2xl font-bold text-center mb-8 text-gray-800">
-          Research Analytics Dashboard
-        </h2>
+        <div className="mb-8">
+          <h1 className="text-2xl font-bold text-gray-900">Advanced Analytics</h1>
+          <p className="text-sm text-gray-500 mt-1">Author networks, collaboration patterns and topic evolution</p>
+        </div>
 
         {/* Key Metrics Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-          <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-6 rounded-lg shadow-lg">
+          <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-6 rounded-2xl border border-gray-100 shadow-sm">
             <h3 className="text-lg font-semibold">Total Papers</h3>
             <p className="text-3xl font-bold">{metrics.totalPapers}</p>
             <p className="text-sm opacity-90">Research Publications</p>
           </div>
-          <div className="bg-gradient-to-r from-green-500 to-green-600 text-white p-6 rounded-lg shadow-lg">
+          <div className="bg-gradient-to-r from-green-500 to-green-600 text-white p-6 rounded-2xl border border-gray-100 shadow-sm">
             <h3 className="text-lg font-semibold">Unique Authors</h3>
             <p className="text-3xl font-bold">{metrics.totalAuthors}</p>
             <p className="text-sm opacity-90">Researchers</p>
           </div>
-          <div className="bg-gradient-to-r from-purple-500 to-purple-600 text-white p-6 rounded-lg shadow-lg">
+          <div className="bg-gradient-to-r from-purple-500 to-purple-600 text-white p-6 rounded-2xl border border-gray-100 shadow-sm">
             <h3 className="text-lg font-semibold">Institutions</h3>
             <p className="text-3xl font-bold">{metrics.totalAffiliations}</p>
             <p className="text-sm opacity-90">Organizations</p>
           </div>
-          <div className="bg-gradient-to-r from-orange-500 to-orange-600 text-white p-6 rounded-lg shadow-lg">
+          <div className="bg-gradient-to-r from-orange-500 to-orange-600 text-white p-6 rounded-2xl border border-gray-100 shadow-sm">
             <h3 className="text-lg font-semibold">Research Domains</h3>
             <p className="text-3xl font-bold">{metrics.uniqueDomains}</p>
             <p className="text-sm opacity-90">Diverse Coverage</p>
@@ -739,7 +739,7 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
         </div>
 
         {/* Key Insights Summary */}
-        <div className="bg-white p-6 rounded-lg shadow-lg">
+        <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
           <h3 className="text-xl font-semibold mb-4 text-gray-700">
             Key Research Insights
           </h3>
@@ -795,7 +795,7 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
         </div>
 
         {/* Filter Bar */}
-        <div className="bg-gray-100 rounded-lg p-4 mb-6 flex flex-wrap gap-4 items-end">
+        <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-4 mb-6 flex flex-wrap gap-4 items-end">
           <div className="min-w-[220px]">
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Authors
@@ -851,7 +851,7 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
             />
           </div>
           <button
-            className="ml-4 bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-500"
+            className="ml-4 bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-300 transition-colors"
             onClick={() => {
               setSelectedAuthors([]);
               setSelectedDomains([]);
@@ -864,7 +864,7 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
         </div>
 
         {/* Research Evolution Timeline */}
-        <div className="bg-white p-6 rounded-lg shadow-lg mb-8">
+        <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm mb-6">
           <div className="flex justify-between items-center mb-4">
             <h3 className="text-xl font-semibold text-gray-700">
               Research Evolution Timeline
@@ -924,7 +924,7 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
 
         {/* Domain Evolution */}
 
-        <div className="bg-white p-6 rounded-lg shadow-lg mb-8">
+        <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm mb-6">
           <div className="flex justify-between items-center mb-4">
             <h3 className="text-xl font-semibold text-gray-700">
               Domain Evolution Over Time
@@ -993,7 +993,7 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
 
         {/* Top Authors */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          <div className="bg-white p-6 rounded-lg shadow-lg">
+          <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
             <div className="flex justify-between items-center mb-2">
               <h3 className="text-xl font-semibold text-gray-700">
                 Top Authors by Publications
@@ -1082,7 +1082,7 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
             </div>
           </div>
 
-          <div className="bg-white p-6 rounded-lg shadow-lg">
+          <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
             <div className="flex justify-between items-center mb-2">
               <h3 className="text-xl font-semibold text-gray-700">
                 Top Institutions
@@ -1153,7 +1153,7 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
         </div>
 
         {/* Author Domain Statistics */}
-        <div className="bg-white p-6 rounded-lg shadow-lg mt-6 mb-2">
+        <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm mt-6 mb-2">
           <div className="flex justify-between items-center mb-2">
             <div>
               <h3 className="text-xl font-semibold text-gray-700">Author Domain Statistics</h3>
@@ -1410,20 +1410,27 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
           )}
         </div>
 
-        {/* Semantic Cluster Visualization */}
-        <div className="bg-white p-6 rounded-lg shadow-lg mb-8">
-          <div className="mb-4">
-            <h3 className="text-xl font-semibold text-gray-700">Semantic Landscape</h3>
-            <p className="text-xs text-gray-400 mt-0.5">
-              Each dot is a paper — papers closer together are semantically similar based on their abstracts.
-              Hover to preview · click for details · filter by cluster or domain.
+        {/* Atlas link card — replaces the old SemanticClusterChart */}
+        <div className="bg-gradient-to-br from-violet-600 to-blue-700 p-6 rounded-2xl shadow-sm mb-6 flex items-center justify-between gap-6">
+          <div>
+            <h3 className="text-lg font-bold text-white mb-1">Semantic Landscape (2D + 3D)</h3>
+            <p className="text-violet-200 text-sm leading-relaxed max-w-xl">
+              Explore all 519 papers on an interactive UMAP map — semantically similar papers cluster together.
+              Supports 2D pan/zoom with lasso selection, 3D rotation, search, and per-paper detail panels.
             </p>
           </div>
-          <SemanticClusterChart />
+          <a href="/atlas"
+            className="shrink-0 flex items-center gap-2 px-5 py-2.5 bg-white text-violet-700 font-semibold rounded-xl hover:bg-violet-50 transition-colors text-sm shadow">
+            <span className="flex h-2 w-2 relative mr-1">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-60" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-violet-500" />
+            </span>
+            Open Atlas ↗
+          </a>
         </div>
 
         {/* Co-Author Network Visualization */}
-        <div className="bg-white p-6 rounded-lg shadow-lg mb-8">
+        <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm mb-6">
           <div className="flex flex-wrap justify-between items-center mb-2 gap-3">
             <h3 className="text-xl font-semibold text-gray-700">
               Co-Author Network
@@ -1500,7 +1507,7 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
                   )}
                 </div>
                 {networkSearchOpen && matches.length > 0 && (
-                  <ul className="absolute z-20 top-full mt-1 left-0 right-0 bg-white border border-gray-200 rounded-lg shadow-lg max-h-56 overflow-y-auto">
+                  <ul className="absolute z-20 top-full mt-1 left-0 right-0 bg-white border border-gray-200 rounded-2xl border border-gray-100 shadow-sm max-h-56 overflow-y-auto">
                     {matches.map((author) => (
                       <li key={author}>
                         <button
@@ -1559,7 +1566,7 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
               <div className="overflow-y-auto p-6 space-y-5">
                 {/* Meta chips */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="bg-gray-50 rounded-xl p-4">
+                  <div className="bg-slate-50 rounded-xl border border-gray-100 p-4">
                     <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Regions</p>
                     <div className="flex flex-wrap gap-1.5">
                       {authorDetail.regions.length > 0
@@ -1571,7 +1578,7 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
                         : <span className="text-gray-400 text-sm">Unknown</span>}
                     </div>
                   </div>
-                  <div className="bg-gray-50 rounded-xl p-4">
+                  <div className="bg-slate-50 rounded-xl border border-gray-100 p-4">
                     <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Domains</p>
                     <div className="flex flex-wrap gap-1.5">
                       {authorDetail.domains.map((d) => (
@@ -1640,7 +1647,7 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
 
         {/* Author Regions Analysis */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          <div className="bg-white p-6 rounded-lg shadow-lg">
+          <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
             <div className="flex justify-between items-center mb-2">
               <h3 className="text-xl font-semibold text-gray-700">
                 Author Regions Distribution
@@ -1700,7 +1707,7 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
           </div>
 
           {/* Cross Regions Collaborations Analysis */}
-          <div className="bg-white p-6 rounded-lg shadow-lg">
+          <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
             <div className="flex justify-between items-center mb-2">
               <h3 className="text-xl font-semibold text-gray-700">
                 Cross-Region Collaborations
@@ -1757,7 +1764,7 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
         {/* Collaboration Patterns + Growth Rate */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           {/* Collaboration Pattern Distribution */}
-          <div className="bg-white p-6 rounded-lg shadow-lg">
+          <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
             <div className="flex justify-between items-center mb-2">
               <h3 className="text-xl font-semibold text-gray-700">
                 Collaboration Patterns
@@ -1810,7 +1817,7 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
           </div>
 
           {/* Year-over-Year Growth Rate */}
-          <div className="bg-white p-6 rounded-lg shadow-lg">
+          <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
             <div className="flex justify-between items-center mb-2">
               <h3 className="text-xl font-semibold text-gray-700">
                 Year-over-Year Growth
@@ -1854,7 +1861,7 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
         {/* Author Productivity + Solo vs Collaborative Trend */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           {/* Author Productivity Distribution */}
-          <div className="bg-white p-6 rounded-lg shadow-lg">
+          <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
             <div className="flex justify-between items-center mb-2">
               <h3 className="text-xl font-semibold text-gray-700">
                 Author Productivity
@@ -1888,7 +1895,7 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
           </div>
 
           {/* Solo vs Collaborative Trend */}
-          <div className="bg-white p-6 rounded-lg shadow-lg">
+          <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
             <div className="flex justify-between items-center mb-2">
               <h3 className="text-xl font-semibold text-gray-700">
                 Solo vs. Collaborative Trend
@@ -1925,7 +1932,7 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
         </div>
 
         {/* All Papers Table */}
-        <div className="bg-white p-6 rounded-lg shadow-lg mb-8">
+        <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm mb-6">
           <div className="flex justify-between items-center mb-2">
             <h3 className="text-xl font-semibold text-gray-700">All Papers</h3>
             <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full font-medium">

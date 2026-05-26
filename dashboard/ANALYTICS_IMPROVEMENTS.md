@@ -1,244 +1,163 @@
-# Analytics Improvements for Bias Research Dashboard
+# Analytics Improvements — Bias Research Dashboard
 
 ## Overview
 
-This document outlines the comprehensive analytics improvements implemented for the Bias Research Analysis Dashboard, transforming it from a basic visualization tool into a sophisticated research analytics platform.
-
-## 🚀 New Features Implemented
-
-### 1. Enhanced Analytics Dashboard
-
-#### Key Metrics Cards
-- **Total Papers**: Real-time count of research publications
-- **Total Citations**: Aggregate citation impact across all papers
-- **Average Impact Score**: Quality metric based on research significance
-- **Research Domains**: Count of distinct research areas covered
-
-#### Advanced Visualizations
-- **Research Evolution Timeline**: Area chart showing publication trends over time with impact scores
-- **Domain Impact Analysis**: Scatter plot correlating citations vs. impact scores by domain
-- **Bias Type Distribution**: Pie chart showing distribution of bias research types
-- **Methodology Analysis**: Bar chart of research approaches (Survey, Mitigation, Detection, Evaluation)
-- **Top Papers by Citations**: Ranked table of most cited research papers
-- **Regional Collaboration Analysis**: Bar chart showing papers vs. collaborations by region
-
-### 2. Co-Author Analysis Dashboard
-
-#### Author Analytics
-- **Top Authors by Publications**: Bar chart ranking authors by number of papers
-- **Top Authors by Citations**: Bar chart ranking authors by total citations and h-index
-- **Author Domain Distribution**: Pie chart showing research domain focus by authors
-- **Author Regional Distribution**: Bar chart showing geographic distribution of authors
-- **Author Details Table**: Comprehensive table with metrics, domains, regions, and collaboration counts
-
-#### Collaboration Analytics
-- **Top Collaborations by Papers**: Bar chart showing most productive author pairs
-- **Strongest Collaborations**: Scatter plot correlating joint papers vs. average citations
-- **Collaboration Details Table**: Detailed breakdown of collaboration metrics and strength scores
-
-#### Network Analysis
-- **Network Density**: Percentage of possible connections in the collaboration network
-- **Network Statistics**: Key metrics including most connected author, isolated authors, and average degree
-- **Network Insights**: Data-driven findings and recommendations for collaboration improvement
-
-#### Interactive Features
-- **Author Selection**: Click on any author to view detailed profile and collaborator list
-- **View Mode Toggle**: Switch between Authors, Collaborations, and Networks views
-- **Real-time Metrics**: Dynamic calculation of network statistics and collaboration patterns
-
-### 3. Research Insights & Recommendations
-
-#### Intelligent Analysis
-- **Research Gap Analysis**: Identifies underrepresented areas and emerging trends
-- **Geographic Distribution Insights**: Analysis of global research coverage
-- **Temporal Evolution**: Tracking of research trends over time
-- **Bias Type Focus**: Analysis of dominant bias research areas
-- **Collaboration Patterns**: Assessment of research collaboration rates
-
-#### Actionable Recommendations
-- **For Researchers**: Specific guidance on focus areas and collaboration opportunities
-- **For Institutions**: Strategic recommendations for supporting bias research
-- **Research Priorities**: Data-driven suggestions for future research directions
-
-### 4. Enhanced Filtering & Search
-
-#### Advanced Filtering
-- **Author Filter**: Filter papers by specific authors or co-authors
-- **Multi-dimensional Search**: Search across titles, authors, domains, regions, and DOIs
-- **Combined Filters**: Apply multiple filters simultaneously (year, region, domain, author)
-- **Clear Filters**: One-click option to reset all filters
-- **Filter Status**: Visual indicator showing when filters are active
-
-#### Improved Data Display
-- **Real-time Count**: Shows filtered vs. total paper count
-- **Enhanced Table**: Improved paper details table with better formatting
-- **Export Functionality**: Export filtered results to CSV
-
-### 5. Interactive Features
-
-#### Tabbed Interface
-- **Basic Analytics**: Original dashboard functionality
-- **Enhanced Analytics**: Advanced visualizations and metrics
-- **Research Insights**: AI-powered analysis and recommendations
-- **Co-Author Analysis**: Comprehensive author and collaboration analytics
-
-#### Dynamic Filtering
-- **Category-based filtering**: Filter insights by domain, geographic, temporal, bias-type, or collaboration
-- **Real-time updates**: All visualizations update dynamically based on filters
-- **Multi-dimensional analysis**: Cross-reference different aspects of the data
-
-## 📊 Analytics Capabilities
-
-### Data Processing
-- **Enhanced Paper Metadata**: Extended data model with citations, impact scores, collaboration counts
-- **Bias Type Classification**: Automatic categorization of papers by bias type
-- **Methodology Detection**: Intelligent identification of research approaches
-- **Geographic Analysis**: Country/region-based research distribution analysis
-- **Author Network Analysis**: Comprehensive co-author relationship mapping
-
-### Statistical Analysis
-- **Impact Assessment**: Quantitative evaluation of research significance
-- **Trend Analysis**: Identification of emerging research directions
-- **Gap Detection**: Recognition of underrepresented research areas
-- **Collaboration Metrics**: Analysis of research partnership patterns
-- **Network Analysis**: Graph theory-based collaboration network analysis
-
-### Visualization Types
-- **Line Charts**: Temporal trends and evolution
-- **Area Charts**: Cumulative impact over time
-- **Scatter Plots**: Correlation analysis between metrics
-- **Pie Charts**: Distribution analysis
-- **Bar Charts**: Comparative analysis
-- **Tables**: Detailed data presentation
-- **Network Visualizations**: Collaboration relationship mapping
-
-## 🎯 Key Benefits
-
-### For Researchers
-1. **Identify Research Gaps**: Discover underrepresented areas for new research
-2. **Track Impact**: Monitor citation and impact metrics
-3. **Find Collaborators**: Identify potential research partners through network analysis
-4. **Understand Trends**: Stay informed about emerging research directions
-5. **Author Discovery**: Find papers by specific authors or research teams
-
-### For Institutions
-1. **Strategic Planning**: Data-driven decisions for research investment
-2. **Resource Allocation**: Identify areas needing support
-3. **Partnership Opportunities**: Find collaboration possibilities through network analysis
-4. **Impact Assessment**: Measure research effectiveness
-5. **Talent Identification**: Discover leading researchers in specific domains
-
-### For Policy Makers
-1. **Research Priorities**: Understand current bias research landscape
-2. **Funding Decisions**: Identify areas requiring investment
-3. **Global Perspective**: Understand international research distribution
-4. **Trend Analysis**: Predict future research needs
-5. **Collaboration Networks**: Understand research community structure
-
-## 🔧 Technical Implementation
-
-### Architecture
-- **React Components**: Modular, reusable analytics components
-- **TypeScript**: Type-safe data processing and visualization
-- **Recharts**: Professional-grade charting library
-- **Tailwind CSS**: Modern, responsive styling
-
-### Data Flow
-1. **CSV Import**: Load research data from papers.csv
-2. **Data Enhancement**: Add simulated metrics (citations, impact scores)
-3. **Author Extraction**: Parse and normalize author information
-4. **Network Analysis**: Build collaboration networks and calculate metrics
-5. **Analysis Processing**: Generate insights and recommendations
-6. **Visualization Rendering**: Display interactive charts and tables
-
-### Performance Optimizations
-- **Lazy Loading**: Components load only when needed
-- **Memoization**: Cached calculations for better performance
-- **Responsive Design**: Optimized for all device sizes
-- **Efficient Filtering**: Real-time data filtering without performance impact
-- **Network Optimization**: Efficient collaboration network calculations
-
-## 📈 Future Enhancements
-
-### Planned Features
-1. **Real Citation Data**: Integration with academic APIs (Google Scholar, Scopus)
-2. **Machine Learning Insights**: AI-powered research trend prediction
-3. **Advanced Network Analysis**: Co-author and institutional collaboration networks
-4. **Advanced Filtering**: Multi-dimensional search and filtering
-5. **Export Capabilities**: PDF reports and data export options
-6. **Interactive Network Graphs**: Visual collaboration network diagrams
-7. **Author Profile Pages**: Detailed individual researcher profiles
-
-### API Integrations
-- **Academic APIs**: Real citation and impact data
-- **Research Databases**: Additional paper metadata
-- **Collaboration Networks**: Institutional partnership data
-- **Funding Information**: Research grant and funding data
-- **Author Profiles**: Researcher information and metrics
-
-## 🎨 User Experience
-
-### Design Principles
-- **Intuitive Navigation**: Clear tab structure and navigation
-- **Visual Hierarchy**: Important information prominently displayed
-- **Interactive Elements**: Hover effects and click interactions
-- **Responsive Layout**: Works seamlessly on all devices
-- **Accessibility**: WCAG compliant design
-
-### Color Scheme
-- **Primary**: Blue (#2563eb) for main actions and highlights
-- **Secondary**: Green (#16a34a) for positive metrics
-- **Accent**: Purple (#9333ea) for special features
-- **Warning**: Orange (#ca8a04) for attention items
-- **Error**: Red (#dc2626) for critical information
-
-## 📋 Usage Guide
-
-### Getting Started
-1. **Load Data**: Ensure papers.csv is in the public folder
-2. **Navigate Tabs**: Switch between Basic, Enhanced Analytics, Research Insights, and Co-Author Analysis
-3. **Explore Visualizations**: Click on charts for detailed information
-4. **Apply Filters**: Use author, year, region, and domain filters to focus on specific areas
-5. **Review Insights**: Read AI-generated recommendations
-6. **Analyze Collaborations**: Explore author networks and collaboration patterns
-
-### Best Practices
-- **Regular Updates**: Keep the CSV data current
-- **Data Quality**: Ensure consistent formatting in the data file
-- **Performance**: Monitor for large datasets (>1000 papers)
-- **Backup**: Maintain backups of the research data
-- **Author Consistency**: Use consistent author name formatting for better analysis
-
-## 🔍 Troubleshooting
-
-### Common Issues
-1. **Data Not Loading**: Check CSV file format and location
-2. **Charts Not Rendering**: Verify browser compatibility
-3. **Performance Issues**: Consider data size and browser memory
-4. **Styling Problems**: Check Tailwind CSS installation
-5. **Author Filter Issues**: Verify author name formatting in CSV
-
-### Support
-- **Documentation**: Refer to this guide for implementation details
-- **Code Comments**: Inline documentation in component files
-- **Error Logging**: Browser console for debugging information
-
-## 📚 References
-
-### Technologies Used
-- **React 18**: Modern React with hooks and functional components
-- **TypeScript**: Type-safe JavaScript development
-- **Recharts**: Professional data visualization library
-- **Tailwind CSS**: Utility-first CSS framework
-- **Papa Parse**: CSV parsing library
-
-### Data Sources
-- **Research Papers**: Academic publications on algorithmic bias
-- **Citation Data**: Simulated for demonstration (replace with real APIs)
-- **Geographic Data**: Country/region information from paper metadata
-- **Temporal Data**: Publication years and trends
-- **Author Data**: Researcher information and collaboration patterns
+This document tracks the analytics features and improvements implemented for the Bias Research Dashboard, which now consists of two primary surfaces: the **Atlas** (home page, semantic UMAP explorer) and **Research Analytics** (`/advanced`, full overview dashboard).
 
 ---
 
-*This enhanced analytics dashboard represents a significant upgrade to the original bias research visualization tool, providing researchers, institutions, and policy makers with comprehensive insights into the algorithmic bias research landscape, including advanced co-author analysis and collaboration network insights.* 
+## 🗺️ Atlas — Semantic Paper Explorer (`/`)
+
+The Atlas is the default home page. It provides interactive 2D + 3D UMAP visualisations of all 519 papers alongside rich filtering and analytics.
+
+### Map Views (toggle in toolbar)
+
+| View | Description |
+|------|-------------|
+| **UMAP** | Side-by-side 2D (pan/zoom/lasso) + 3D (auto-rotate, drag, zoom) canvas scatter plots, coloured by domain or semantic cluster |
+| **🌍 World** | Choropleth world map coloured by dominant research domain per country (react-simple-maps). Hover shows country, contribution count, dominant domain. |
+| **🔗 Collab** | Ranked bar list of top 30 cross-region country co-authorship pairs with relative count bars |
+
+### Filters (left sidebar — existing)
+- **Domain** — multi-select checkboxes with paper counts
+- **Cluster** — HDBSCAN semantic cluster checkboxes with labels and counts
+
+### Right Panel — Filters & Analytics (new, shown when no paper selected)
+
+| Section | Feature |
+|---------|---------|
+| **Publication Timeline** | Year-by-year bar chart; click a bar to snap year filter; From/To year selectors |
+| **Open Access toggle** | Filter to freely available papers only |
+| **Location / Country** | Searchable multi-select list of all countries with per-country paper counts and relative bars |
+| **Co-Authors** | Searchable multi-select list of authors with ≥2 papers in corpus, with count bars |
+| **Download** | Export current filtered set as CSV (header + rows) |
+
+### Toolbar controls
+- **Search** — full-text across title, abstract, keywords, authors (press `/` to focus)
+- **Domain pills** — quick-toggle active domain filters
+- **Map-view toggle** — UMAP / World / Collab
+- **Colour-mode toggle** — domain / cluster
+- **Lasso** — draw free-form selection on 2D canvas to filter
+- **Hide/Show maps** — collapse map panels to maximise list + detail
+- **Download CSV** — export filtered papers
+- **Reset** — clears all active filters (also bound to `Esc`)
+- **Paper count** — live filtered / total display
+
+### Right Panel — Paper Detail (shown when a paper is clicked)
+
+| Section | Content |
+|---------|---------|
+| Header | SN, domain/cluster badge, OA badge, paper title |
+| Stats bar | Year, citations, author count, citation percentile bar |
+| Abstract | Full text or "not available" fallback |
+| Co-Author Analysis | Per-author paper count bar, domains, regions; click name to filter |
+| Geography | Countries (OpenAlex) + regions (survey) |
+| Keywords | Clickable chips → set search query |
+| Cluster Context | Domain breakdown bar chart for the paper's semantic cluster |
+| Semantically Related | 6 nearest UMAP neighbours with distance, year, citations; clickable |
+| DOI | External link to full paper |
+
+### UMAP technical details
+- **Embeddings:** `all-MiniLM-L6-v2` (sentence-transformers) on title + abstract
+- **2D:** `n_neighbors=15, min_dist=0.08, metric=cosine, random_state=42`
+- **3D:** `n_neighbors=15, min_dist=0.10, metric=cosine, random_state=42`
+- **Clustering:** HDBSCAN `min_cluster_size=10, min_samples=3` → 14 named clusters
+- **Cluster labels:** Auto-generated from top keywords per cluster (stop-words filtered)
+- **Stale-closure fix:** `render2Ref`/`render3Ref` refs updated every render ensure RAF loops always call the latest render closure (fixes blank 3D on load and after hide/show)
+
+---
+
+## 📊 Research Analytics — Overview Dashboard (`/advanced`)
+
+Powered by `BiasResearchDashboard.tsx` reading `public/papers.csv`.
+
+### Features
+- **World choropleth** — countries coloured by dominant research domain; All Authors / First Author toggle; multi-domain select with dashed secondary-domain borders
+- **Domain distribution** — pie chart of research domains
+- **Country bar charts** — top-15 countries by paper count + Other bucket
+- **Year trend** — publication timeline
+- **Collaboration heatmap** — top-20 country co-authorship matrix
+- **Co-author network** — author collaboration analysis
+- **Research Insights** — gap analysis, geographic distribution, temporal evolution, recommendations
+- **Advanced Analytics tab** — citation analysis, h-index, network density, methodology breakdown
+
+---
+
+## 🔧 Technical Implementation
+
+### Stack
+- **Next.js 15** — App Router, static export for GitHub Pages
+- **TypeScript** — fully typed throughout
+- **Tailwind CSS** — utility-first styling, consistent design tokens
+- **Recharts** — charts in BiasResearchDashboard / AdvancedAnalytics
+- **Canvas API** — 2D and 3D UMAP rendering in AbstractAtlas (no library overhead)
+- **react-simple-maps** — SVG world choropleth in Atlas + BiasResearchDashboard
+- **Papa Parse** — runtime CSV loading
+
+### Routing
+
+| Route | Component | Data |
+|-------|-----------|------|
+| `/` | `AbstractAtlas` | `public/atlas_data.csv` |
+| `/advanced` | `BiasResearchDashboard` | `public/papers.csv` |
+| `/atlas` | `AbstractAtlas` | `public/atlas_data.csv` |
+
+### Design system
+- Card style: `rounded-2xl border border-gray-100 shadow-sm`
+- Background: `bg-slate-50` on `<main>` in layout
+- Domain colours: Health `#e63946` · General `#2563eb` · Graph `#059669` · LLMs `#d97706` · Recommender `#7c3aed`
+- Atlas full-screen: `calc(100vh - 72px)` height, body `overflow: hidden`
+
+---
+
+## 📋 Adding New Papers
+
+New papers do **not** appear automatically. Follow this pipeline:
+
+```bash
+# 1. Add rows to source CSV
+#    evaluation/analysis/papers_new.csv
+
+# 2. Re-run UMAP pipeline
+python generate_atlas_umap.py
+#    → dashboard/public/atlas_data.csv (new embeddings + clusters)
+
+# 3. Refresh papers.csv for Research Analytics page
+python -c "
+import pandas as pd, csv
+pd.read_csv('evaluation/analysis/papers_new.csv').to_csv(
+    'dashboard/public/papers.csv', index=False, quoting=csv.QUOTE_ALL
+)
+"
+
+# 4. Push to main → auto-deploys via GitHub Actions
+git add dashboard/public/ evaluation/analysis/papers_new.csv
+git commit -m "Add N new papers, re-run UMAP"
+git push
+```
+
+> ⚠️ UMAP must be re-run because adding papers changes the embedding space and cluster assignments.
+
+---
+
+## 🐛 Known Fixes Applied
+
+| Bug | Fix |
+|-----|-----|
+| 3D canvas blank on initial load | `render3Ref` ref updated every render; auto-rotate loop calls `render3Ref.current()` instead of stale closure |
+| Hide/Show maps breaks canvas sizing | Added `showMaps` + `mapView` to ResizeObserver `useEffect` dependency array |
+| `s.toLowerCase is not a function` | `norm()` helper uses `String(s ?? '')` to handle null/number CSV values |
+| Double header on Atlas page | Removed `AppHeader` from `atlas/page.tsx`; Atlas link added to global `layout.tsx` nav instead |
+| `__webpack_modules__[moduleId] is not a function` | Removed `next/dynamic(ssr:false)` from `'use client'` page; direct import used instead |
+| `Cannot find module './NNN.js'` | Stale `.next` cache — fix: `rm -rf .next && npm run build` |
+
+---
+
+## 📈 Planned Enhancements
+
+1. **Auto-pipeline GitHub Action** — trigger `generate_atlas_umap.py` on `papers_new.csv` changes
+2. **Institution filter** — once `Affiliations` column is populated in `papers_new.csv`
+3. **Interactive network graph** — D3 force-directed co-author network in Atlas
+4. **Abstract search with embeddings** — semantic nearest-neighbour search beyond keyword matching
+5. **OpenAlex live enrichment** — fetch citations/abstracts at build time via API
+6. **PDF export** — downloadable report of filtered paper set with charts

@@ -430,7 +430,7 @@ const BiasResearchDashboard = () => {
   };
 
   return (
-    <div className="w-full bg-slate-50 min-h-screen">
+    <div className="w-full">
       <div className="max-w-7xl mx-auto px-6 py-8">
         {loading ? (
           <div className="flex flex-col items-center justify-center h-64 gap-4">
