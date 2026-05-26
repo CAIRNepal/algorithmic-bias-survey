@@ -49,7 +49,7 @@ DOMAIN_COLORS = {
     'Recommender Systems':                      '#f4a261',
 }
 
-UMAP_PARAMS = dict(n_neighbors=15, min_dist=0.1, metric='cosine', random_state=42)
+UMAP_PARAMS = dict(n_neighbors=15, min_dist=0.0, metric='cosine', random_state=42)
 
 # ── Load data ─────────────────────────────────────────────────────────────────
 print('Loading data...')

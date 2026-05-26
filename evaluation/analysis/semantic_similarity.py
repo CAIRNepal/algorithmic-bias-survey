@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
-from scipy.stats import gaussian_kde
+
 import warnings
 from pathlib import Path
 from sentence_transformers import SentenceTransformer
@@ -81,59 +81,33 @@ out.to_csv(DASHBOARD_CSV, index=False)
 print(f'\nSaved results: {OUT_CSV}')
 print(f'Saved dashboard: {DASHBOARD_CSV}')
 
-# ── Figure ────────────────────────────────────────────────────────────────────
-fig, ax = plt.subplots(figsize=(14, 10))
+# ── Figure (one per model) ────────────────────────────────────────────────────
+MODEL_LABELS = {'minilm': 'MiniLM-L6', 'mpnet': 'MPNet-base', 'specter': 'SPECTER'}
 
-# KDE contour grid — cover full data range with padding
-pad = 0.5
-all_x = df['umap_x'].values
-all_y = df['umap_y'].values
-xx, yy = np.mgrid[
-    all_x.min() - pad : all_x.max() + pad : 200j,
-    all_y.min() - pad : all_y.max() + pad : 200j,
-]
-grid = np.vstack([xx.ravel(), yy.ravel()])
+for _, key, _ in MODELS:
+    fig, ax = plt.subplots(figsize=(14, 10))
+    xk, yk = f'umap_x_{key}', f'umap_y_{key}'
+    for domain, color in DOMAIN_COLORS.items():
+        sub = df[df['Domain'] == domain]
+        ax.scatter(sub[xk], sub[yk],
+                   c=color, s=55, alpha=0.90, linewidths=0.3,
+                   edgecolors='white', zorder=3, label=domain)
+    ax.legend(loc='lower right', fontsize=13, framealpha=0.9,
+              title='Domain', title_fontsize=14, markerscale=2.2)
+    ax.set_xlabel('UMAP Dimension 1', fontsize=14)
+    ax.set_ylabel('UMAP Dimension 2', fontsize=14)
+    ax.tick_params(labelsize=12)
+    ax.set_facecolor('#f8f9fa')
+    fig.tight_layout()
+    out_path = OUT_DIR / f'semantic_landscape_{key}.png'
+    fig.savefig(out_path, dpi=300, bbox_inches='tight')
+    plt.close(fig)
+    print(f'Saved figure: {out_path}')
 
-# Draw KDE contour per domain (encloses ~75% of each domain's density mass)
-for domain, color in DOMAIN_COLORS.items():
-    pts = df[df['Domain'] == domain][['umap_x', 'umap_y']].values
-    if len(pts) < 10:
-        continue
-    try:
-        kde  = gaussian_kde(pts.T, bw_method=0.35)
-        z    = kde(grid).reshape(xx.shape)
-        # Level at the 25th percentile of KDE values at data points → encloses ~75% of mass
-        level = np.percentile(kde(pts.T), 25)
-        ax.contourf(xx, yy, z, levels=[level, z.max()],
-                    colors=[color], alpha=0.10, zorder=1)
-        ax.contour(xx, yy, z, levels=[level],
-                   colors=[color], alpha=0.55, linewidths=1.5, zorder=2)
-    except Exception:
-        pass
-
-# Scatter points per domain
-for domain, color in DOMAIN_COLORS.items():
-    sub = df[df['Domain'] == domain]
-    ax.scatter(sub['umap_x'], sub['umap_y'],
-               c=color, s=55, alpha=0.90, linewidths=0.3,
-               edgecolors='white', zorder=3, label=domain)
-
-# Legend
-ax.legend(loc='upper left', fontsize=13, framealpha=0.9,
-          title='Domain', title_fontsize=14, markerscale=2.2)
-
-# ax.set_title(
-#     'Semantic Landscape of AI Bias Research\n'
-#     'UMAP projection of SBERT abstract embeddings',
-#     fontsize=16, fontweight='bold', pad=14
-# )
-ax.set_xlabel('UMAP Dimension 1', fontsize=14)
-ax.set_ylabel('UMAP Dimension 2', fontsize=14)
-ax.tick_params(labelsize=12)
-ax.set_facecolor('#f8f9fa')
-fig.tight_layout()
-fig.savefig(OUT_FIG, dpi=300, bbox_inches='tight')
-print(f'Saved figure: {OUT_FIG}')
+# Also save default (mpnet) to original path for backwards compat
+import shutil
+shutil.copy(OUT_DIR / 'semantic_landscape_mpnet.png', OUT_FIG)
+print(f'Copied mpnet → {OUT_FIG}')
 
 # ── Cluster selection (elbow + silhouette) ───────────────────────────────────
 from sklearn.cluster import KMeans
