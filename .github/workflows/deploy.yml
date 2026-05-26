@@ -3,7 +3,6 @@ name: Deploy Next.js site to Pages
 on:
   push:
     branches: ["main"]
-  # Allow manual triggering (used by update-atlas.yml when atlas files change)
   workflow_dispatch:
 
 permissions:
