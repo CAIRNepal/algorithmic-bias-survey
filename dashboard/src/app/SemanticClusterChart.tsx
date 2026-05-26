@@ -10,11 +10,25 @@ type ClusterPoint = {
   Year: number;
   umap_x: number;
   umap_y: number;
+  umap_x_minilm: number;
+  umap_y_minilm: number;
+  umap_x_mpnet: number;
+  umap_y_mpnet: number;
+  umap_x_specter: number;
+  umap_y_specter: number;
   cited_by_count: number;
   is_oa: string;
   oa_status: string;
   oa_url: string;
 };
+
+type ModelKey = 'minilm' | 'mpnet' | 'specter';
+
+const EMBEDDING_MODELS: { key: ModelKey; label: string; description: string }[] = [
+  { key: 'mpnet',   label: 'MPNet-base',   description: 'Best domain separation' },
+  { key: 'minilm',  label: 'MiniLM-L6',    description: 'Fast, general purpose' },
+  { key: 'specter', label: 'SPECTER',       description: 'Scientific paper trained' },
+];
 
 const DOMAIN_COLORS: Record<string, string> = {
   'Health & Clinical AI':                     '#e63946',
@@ -47,12 +61,13 @@ function convexHull(pts: {x: number; y: number}[]): {x: number; y: number}[] {
 interface TooltipState { x: number; y: number; point: ClusterPoint; }
 
 export default function SemanticClusterChart() {
-  const [points, setPoints]     = useState<ClusterPoint[]>([]);
-  const [loading, setLoading]   = useState(true);
-  const [tooltip, setTooltip]   = useState<TooltipState | null>(null);
-  const [selected, setSelected] = useState<ClusterPoint | null>(null);
-  const [hovered, setHovered]   = useState<number | null>(null);
+  const [points, setPoints]       = useState<ClusterPoint[]>([]);
+  const [loading, setLoading]     = useState(true);
+  const [tooltip, setTooltip]     = useState<TooltipState | null>(null);
+  const [selected, setSelected]   = useState<ClusterPoint | null>(null);
+  const [hovered, setHovered]     = useState<number | null>(null);
   const [activeDomains, setActiveDomains] = useState<Set<string>>(new Set());
+  const [activeModel, setActiveModel] = useState<ModelKey>('mpnet');
   const svgRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
@@ -72,17 +87,23 @@ export default function SemanticClusterChart() {
   const { scaledPoints, W, H } = useMemo(() => {
     if (!points.length) return { scaledPoints: [], W: 800, H: 560 };
     const W = 800, H = 560, PAD = 36;
-    const xs = points.map(p => p.umap_x);
-    const ys = points.map(p => p.umap_y);
+    const xKey = `umap_x_${activeModel}` as keyof ClusterPoint;
+    const yKey = `umap_y_${activeModel}` as keyof ClusterPoint;
+    const xs = points.map(p => p[xKey] as number);
+    const ys = points.map(p => p[yKey] as number);
     const [minX, maxX] = [Math.min(...xs), Math.max(...xs)];
     const [minY, maxY] = [Math.min(...ys), Math.max(...ys)];
     const scaleX = (v: number) => PAD + ((v - minX) / (maxX - minX)) * (W - PAD * 2);
     const scaleY = (v: number) => H - PAD - ((v - minY) / (maxY - minY)) * (H - PAD * 2);
     return {
-      scaledPoints: points.map(p => ({ ...p, sx: scaleX(p.umap_x), sy: scaleY(p.umap_y) })),
+      scaledPoints: points.map(p => ({
+        ...p,
+        sx: scaleX(p[xKey] as number),
+        sy: scaleY(p[yKey] as number),
+      })),
       W, H,
     };
-  }, [points]);
+  }, [points, activeModel]);
 
   const activePoints = useMemo(() =>
     activeDomains.size ? scaledPoints.filter(p => activeDomains.has(p.Domain)) : scaledPoints,
@@ -123,6 +144,23 @@ export default function SemanticClusterChart() {
 
   return (
     <div>
+      {/* Embedding model selector */}
+      <div className="flex flex-wrap gap-1.5 items-center mb-2">
+        <span className="text-xs text-gray-500 mr-1">Embedding:</span>
+        {EMBEDDING_MODELS.map(m => (
+          <button
+            key={m.key}
+            title={m.description}
+            className={`px-2.5 py-0.5 rounded-full text-xs border transition-colors ${
+              activeModel === m.key
+                ? 'bg-gray-800 text-white border-gray-800'
+                : 'bg-white text-gray-600 border-gray-200 hover:border-gray-400'
+            }`}
+            onClick={() => { setActiveModel(m.key); setSelected(null); }}
+          >{m.label}</button>
+        ))}
+      </div>
+
       {/* Domain filter */}
       <div className="flex flex-wrap gap-1.5 items-center mb-3">
         <span className="text-xs text-gray-500 mr-1">Highlight:</span>

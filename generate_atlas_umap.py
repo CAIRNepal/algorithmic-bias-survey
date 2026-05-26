@@ -69,26 +69,44 @@ for sn, p in papers.items():
 
 print(f"Merged {len(merged)} papers. {sum(1 for m in merged if m['abstract'])} have abstracts.")
 
-# ── 4. Sentence embeddings
+# ── 4. Sentence embeddings (3 models) + 2D UMAP per model
 from sentence_transformers import SentenceTransformer
-print("Encoding with all-MiniLM-L6-v2…")
-model = SentenceTransformer("all-MiniLM-L6-v2")
-texts = [m["embed_text"] for m in merged]
-embeddings = model.encode(texts, show_progress_bar=True, batch_size=64)
-print(f"Embeddings: {embeddings.shape}")
-
-# ── 5. 2D UMAP
 import umap
-print("UMAP 2D…")
-r2 = umap.UMAP(n_components=2, n_neighbors=15, min_dist=0.08, metric="cosine", random_state=42)
-coords_2d = r2.fit_transform(embeddings)
-print(f"  2D range X[{coords_2d[:,0].min():.2f},{coords_2d[:,0].max():.2f}] Y[{coords_2d[:,1].min():.2f},{coords_2d[:,1].max():.2f}]")
 
-# ── 6. 3D UMAP
-print("UMAP 3D…")
-r3 = umap.UMAP(n_components=3, n_neighbors=15, min_dist=0.10, metric="cosine", random_state=42)
-coords_3d = r3.fit_transform(embeddings)
-print(f"  3D done.")
+EMBED_MODELS = [
+    ("all-mpnet-base-v2", "mpnet"),    # best domain separation — used as default
+    ("all-MiniLM-L6-v2",  "minilm"),
+    ("allenai-specter",    "specter"),
+]
+
+texts = [m["embed_text"] for m in merged]
+all_coords_2d: dict[str, np.ndarray] = {}
+all_coords_3d: dict[str, np.ndarray] = {}
+all_embeddings: dict[str, np.ndarray] = {}
+
+for model_id, key in EMBED_MODELS:
+    print(f"Encoding with {model_id}…")
+    sbert = SentenceTransformer(model_id)
+    emb = sbert.encode(texts, show_progress_bar=True, batch_size=32, normalize_embeddings=True)
+    print(f"  Embeddings: {emb.shape}")
+    all_embeddings[key] = emb
+
+    print(f"  UMAP 2D ({key})…")
+    r2 = umap.UMAP(n_components=2, n_neighbors=15, min_dist=0.0, metric="cosine", random_state=42)
+    c2 = r2.fit_transform(emb)
+    all_coords_2d[key] = c2
+    print(f"    X[{c2[:,0].min():.2f},{c2[:,0].max():.2f}] Y[{c2[:,1].min():.2f},{c2[:,1].max():.2f}]")
+
+    print(f"  UMAP 3D ({key})…")
+    r3 = umap.UMAP(n_components=3, n_neighbors=15, min_dist=0.10, metric="cosine", random_state=42)
+    c3 = r3.fit_transform(emb)
+    all_coords_3d[key] = c3
+    print(f"  3D done.")
+
+# Default 2D + 3D = mpnet
+coords_2d  = all_coords_2d["mpnet"]
+coords_3d  = all_coords_3d["mpnet"]
+embeddings = all_embeddings["mpnet"]
 
 # ── 7. HDBSCAN clustering (on 2D coords for stability)
 from sklearn.cluster import HDBSCAN
@@ -131,8 +149,14 @@ fieldnames = [
     "authors", "author_regions", "abstract", "keywords",
     "cited_by_count", "is_oa", "oa_status", "oa_url",
     "openalex_countries", "openalex_authors",
-    "umap_x", "umap_y",
-    "umap_x3", "umap_y3", "umap_z3",
+    "umap_x", "umap_y",                          # default (mpnet)
+    "umap_x_mpnet", "umap_y_mpnet",
+    "umap_x_minilm", "umap_y_minilm",
+    "umap_x_specter", "umap_y_specter",
+    "umap_x3", "umap_y3", "umap_z3",             # default 3D (mpnet)
+    "umap_x3_mpnet", "umap_y3_mpnet", "umap_z3_mpnet",
+    "umap_x3_minilm", "umap_y3_minilm", "umap_z3_minilm",
+    "umap_x3_specter", "umap_y3_specter", "umap_z3_specter",
     "cluster", "cluster_label",
 ]
 
@@ -143,6 +167,12 @@ with open(out_path, "w", newline="") as f:
         row = {k: m.get(k, "") for k in fieldnames}
         row["umap_x"]  = round(float(coords_2d[i, 0]), 5)
         row["umap_y"]  = round(float(coords_2d[i, 1]), 5)
+        for key in ("mpnet", "minilm", "specter"):
+            row[f"umap_x_{key}"]  = round(float(all_coords_2d[key][i, 0]), 5)
+            row[f"umap_y_{key}"]  = round(float(all_coords_2d[key][i, 1]), 5)
+            row[f"umap_x3_{key}"] = round(float(all_coords_3d[key][i, 0]), 5)
+            row[f"umap_y3_{key}"] = round(float(all_coords_3d[key][i, 1]), 5)
+            row[f"umap_z3_{key}"] = round(float(all_coords_3d[key][i, 2]), 5)
         row["umap_x3"] = round(float(coords_3d[i, 0]), 5)
         row["umap_y3"] = round(float(coords_3d[i, 1]), 5)
         row["umap_z3"] = round(float(coords_3d[i, 2]), 5)

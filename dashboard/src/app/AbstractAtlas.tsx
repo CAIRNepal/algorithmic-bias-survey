@@ -24,9 +24,25 @@ type AtlasPaper = {
   openalex_authors: string;
   umap_x: number;
   umap_y: number;
+  umap_x_mpnet: number;
+  umap_y_mpnet: number;
+  umap_x_minilm: number;
+  umap_y_minilm: number;
+  umap_x_specter: number;
+  umap_y_specter: number;
   umap_x3: number;
   umap_y3: number;
   umap_z3: number;
+  umap_x3_mpnet: number;  umap_y3_mpnet: number;  umap_z3_mpnet: number;
+  umap_x3_minilm: number; umap_y3_minilm: number; umap_z3_minilm: number;
+  umap_x3_specter: number;umap_y3_specter: number;umap_z3_specter: number;
+};
+
+type EmbedModel = 'mpnet' | 'minilm' | 'specter';
+const EMBED_MODEL_LABELS: Record<EmbedModel, string> = {
+  mpnet:   'MPNet',
+  minilm:  'MiniLM',
+  specter: 'SPECTER',
 };
 
 // ── Palette ────────────────────────────────────────────────────────────────────
@@ -93,6 +109,7 @@ export default function AbstractAtlas() {
   const [activeDomains, setActiveDomains]   = useState<Set<string>>(new Set());
   const [activeClusters, setActiveClusters] = useState<Set<number>>(new Set());
   const [colorMode, setColorMode]           = useState<'domain' | 'cluster'>('domain');
+  const [embedModel, setEmbedModel]         = useState<EmbedModel>('mpnet');
   const [lassoMode, setLassoMode]           = useState(false);
   const [lassoFilter, setLassoFilter]       = useState<Set<number> | null>(null);
   const [showMaps, setShowMaps]             = useState(true);
@@ -146,7 +163,8 @@ export default function AbstractAtlas() {
   const selRef       = useRef<AtlasPaper | null>(null);
   const hovRef       = useRef<AtlasPaper | null>(null);
   const filtRef      = useRef<Set<number>>(new Set());
-  const colorModeRef = useRef<'domain' | 'cluster'>('domain');
+  const colorModeRef  = useRef<'domain' | 'cluster'>('domain');
+  const embedModelRef = useRef<EmbedModel>('mpnet');
 
   // ── Load CSV ────────────────────────────────────────────────────────────────
   useEffect(() => {
@@ -163,22 +181,28 @@ export default function AbstractAtlas() {
   // ── Derived ─────────────────────────────────────────────────────────────────
   const dataRange = useMemo(() => {
     if (!papers.length) return null;
-    const xs = papers.map(p => p.umap_x), ys = papers.map(p => p.umap_y);
+    const xk = `umap_x_${embedModel}` as keyof AtlasPaper;
+    const yk = `umap_y_${embedModel}` as keyof AtlasPaper;
+    const xs = papers.map(p => (p[xk] ?? p.umap_x) as number);
+    const ys = papers.map(p => (p[yk] ?? p.umap_y) as number);
     return { minX: Math.min(...xs), maxX: Math.max(...xs), minY: Math.min(...ys), maxY: Math.max(...ys) };
-  }, [papers]);
+  }, [papers, embedModel]);
 
   const dataRange3 = useMemo(() => {
     if (!papers.length) return null;
-    const xs = papers.map(p => p.umap_x3).filter(v => typeof v === 'number');
-    const ys = papers.map(p => p.umap_y3).filter(v => typeof v === 'number');
-    const zs = papers.map(p => p.umap_z3).filter(v => typeof v === 'number');
+    const xk = `umap_x3_${embedModel}` as keyof AtlasPaper;
+    const yk = `umap_y3_${embedModel}` as keyof AtlasPaper;
+    const zk = `umap_z3_${embedModel}` as keyof AtlasPaper;
+    const xs = papers.map(p => (p[xk] ?? p.umap_x3) as number).filter(v => typeof v === 'number');
+    const ys = papers.map(p => (p[yk] ?? p.umap_y3) as number).filter(v => typeof v === 'number');
+    const zs = papers.map(p => (p[zk] ?? p.umap_z3) as number).filter(v => typeof v === 'number');
     if (!xs.length) return null;
     const cx = (Math.min(...xs) + Math.max(...xs)) / 2;
     const cy = (Math.min(...ys) + Math.max(...ys)) / 2;
     const cz = (Math.min(...zs) + Math.max(...zs)) / 2;
     const maxR = Math.max(...xs.map((x, i) => Math.hypot(x - cx, ys[i] - cy, zs[i] - cz))) || 1;
     return { cx, cy, cz, maxR };
-  }, [papers]);
+  }, [papers, embedModel]);
 
   const filteredPapers = useMemo(() => {
     const q = norm(query);
@@ -285,7 +309,15 @@ export default function AbstractAtlas() {
   filtRef.current      = new Set(filteredPapers.map(p => p.SN));
   selRef.current       = selected;
   hovRef.current       = hovered;
-  colorModeRef.current = colorMode;
+  colorModeRef.current  = colorMode;
+  embedModelRef.current = embedModel;
+
+  // ── Embedding model coord accessor ───────────────────────────────────────────
+  const px  = (p: AtlasPaper) => (p[`umap_x_${embedModelRef.current}`  as keyof AtlasPaper] ?? p.umap_x)  as number;
+  const py  = (p: AtlasPaper) => (p[`umap_y_${embedModelRef.current}`  as keyof AtlasPaper] ?? p.umap_y)  as number;
+  const px3 = (p: AtlasPaper) => (p[`umap_x3_${embedModelRef.current}` as keyof AtlasPaper] ?? p.umap_x3) as number;
+  const py3 = (p: AtlasPaper) => (p[`umap_y3_${embedModelRef.current}` as keyof AtlasPaper] ?? p.umap_y3) as number;
+  const pz3 = (p: AtlasPaper) => (p[`umap_z3_${embedModelRef.current}` as keyof AtlasPaper] ?? p.umap_z3) as number;
 
   // ── Coordinate helpers ───────────────────────────────────────────────────────
   const toScreen2 = useCallback((ux: number, uy: number) => {
@@ -331,14 +363,14 @@ export default function AbstractAtlas() {
 
     for (const p of papers) {
       if (hasF && filt.has(p.SN)) continue;
-      const { sx, sy } = toScreen2(p.umap_x, p.umap_y);
+      const { sx, sy } = toScreen2(px(p), py(p));
       ctx.beginPath(); ctx.arc(sx, sy, R * 0.65, 0, Math.PI * 2);
       ctx.fillStyle = getColor(p) + (hasF ? '20' : '80'); ctx.fill();
     }
 
     const active = hasF ? filteredPapers : papers;
     for (const p of active) {
-      const { sx, sy } = toScreen2(p.umap_x, p.umap_y);
+      const { sx, sy } = toScreen2(px(p), py(p));
       const isHov = hovRef.current?.SN === p.SN;
       const isSel = selRef.current?.SN === p.SN;
       const r = isSel ? R * 2 : isHov ? R * 1.6 : R;
@@ -374,7 +406,7 @@ export default function AbstractAtlas() {
     ctx.clearRect(0, 0, w, h);
     ctx.fillStyle = '#f0f4f8'; ctx.fillRect(0, 0, w, h);
 
-    if (!papers.some(p => typeof p.umap_x3 === 'number')) {
+    if (!papers.some(p => typeof px3(p) === 'number')) {
       ctx.fillStyle = '#94a3b8'; ctx.font = '13px system-ui,sans-serif';
       ctx.textAlign = 'center'; ctx.fillText('3D data not available', w / 2, h / 2);
       ctx.textAlign = 'left'; return;
@@ -382,8 +414,8 @@ export default function AbstractAtlas() {
 
     const filt = filtRef.current; const hasF = filt.size < papers.length;
     const pts = papers
-      .filter(p => typeof p.umap_x3 === 'number')
-      .map(p => ({ p, ...project3(p.umap_x3, p.umap_y3, p.umap_z3) }))
+      .filter(p => typeof px3(p) === 'number')
+      .map(p => ({ p, ...project3(px3(p), py3(p), pz3(p)) }))
       .sort((a, b) => b.depth - a.depth);
 
     for (const { p, sx, sy } of pts) {
@@ -463,7 +495,7 @@ export default function AbstractAtlas() {
     const R = Math.max(2.5, Math.min(5 * Math.sqrt(scale), 9)) + 6;
     let best: AtlasPaper | null = null, bd = Infinity;
     for (const p of filtRef.current.size ? papers.filter(p2 => filtRef.current.has(p2.SN)) : papers) {
-      const { sx, sy } = toScreen2(p.umap_x, p.umap_y);
+      const { sx, sy } = toScreen2(px(p), py(p));
       const d = Math.hypot(ex - sx, ey - sy);
       if (d < R && d < bd) { bd = d; best = p; }
     }
@@ -473,8 +505,8 @@ export default function AbstractAtlas() {
   function hit3(ex: number, ey: number) {
     let best: AtlasPaper | null = null, bd = Infinity;
     for (const p of filtRef.current.size ? papers.filter(p2 => filtRef.current.has(p2.SN)) : papers) {
-      if (typeof p.umap_x3 !== 'number') continue;
-      const { sx, sy } = project3(p.umap_x3, p.umap_y3, p.umap_z3);
+      if (typeof px3(p) !== 'number') continue;
+      const { sx, sy } = project3(px3(p), py3(p), pz3(p));
       const d = Math.hypot(ex - sx, ey - sy);
       if (d < 12 && d < bd) { bd = d; best = p; }
     }
@@ -510,7 +542,7 @@ export default function AbstractAtlas() {
       if (poly.length > 3) {
         const inside = new Set(
           papers.filter(p => {
-            const { sx, sy } = toScreen2(p.umap_x, p.umap_y);
+            const { sx, sy } = toScreen2(px(p), py(p));
             return pointInPolygon(sx, sy, poly);
           }).map(p => p.SN)
         );
@@ -583,8 +615,8 @@ export default function AbstractAtlas() {
     const { w, h } = sz2.current;
     const dr = dataRange; if (!dr) return;
     const PAD = 40;
-    const bx = PAD + ((p.umap_x - dr.minX) / (dr.maxX - dr.minX)) * (w - PAD * 2);
-    const by = PAD + (1 - (p.umap_y - dr.minY) / (dr.maxY - dr.minY)) * (h - PAD * 2);
+    const bx = PAD + ((px(p) - dr.minX) / (dr.maxX - dr.minX)) * (w - PAD * 2);
+    const by = PAD + (1 - (py(p) - dr.minY) / (dr.maxY - dr.minY)) * (h - PAD * 2);
     const s = tx2.current.scale;
     tx2.current.tx = w / 2 - bx * s;
     tx2.current.ty = h / 2 - by * s;
@@ -682,6 +714,17 @@ export default function AbstractAtlas() {
             {(['domain', 'cluster'] as const).map(m => (
               <button key={m} onClick={() => setColorMode(m)}
                 className={`px-2.5 py-1 capitalize ${colorMode === m ? 'bg-blue-600 text-white' : 'bg-white text-gray-600 hover:bg-gray-50'}`}>{m}</button>
+            ))}
+          </div>
+
+          {/* Embedding model */}
+          <div className="flex border border-gray-200 rounded-lg overflow-hidden text-[11px] font-medium">
+            {(Object.keys(EMBED_MODEL_LABELS) as EmbedModel[]).map(m => (
+              <button key={m} onClick={() => { setEmbedModel(m); }}
+                title={m === 'mpnet' ? 'Best domain separation' : m === 'minilm' ? 'Fast, general purpose' : 'Scientific paper trained'}
+                className={`px-2.5 py-1 ${embedModel === m ? 'bg-purple-600 text-white' : 'bg-white text-gray-600 hover:bg-gray-50'}`}>
+                {EMBED_MODEL_LABELS[m]}
+              </button>
             ))}
           </div>
 
@@ -903,6 +946,7 @@ export default function AbstractAtlas() {
                 clusterLabel={clusterLabel}
                 onKeyword={setQuery}
                 onSelectPaper={(p) => { setSelected(p); panTo(p); scrollListTo(p); }}
+                embedModel={embedModel}
               />
             : <RightFilterPanel
                 countryCounts={countryCounts}
@@ -1351,7 +1395,7 @@ function RightFilterPanel({
 }
 
 // ── Detail Panel ──────────────────────────────────────────────────────────────
-function DetailPanel({ paper, allPapers, onClose, getColor, colorMode, clusterLabel, onKeyword, onSelectPaper }: {
+function DetailPanel({ paper, allPapers, onClose, getColor, colorMode, clusterLabel, onKeyword, onSelectPaper, embedModel }: {
   paper: AtlasPaper;
   allPapers: AtlasPaper[];
   onClose: () => void;
@@ -1360,7 +1404,10 @@ function DetailPanel({ paper, allPapers, onClose, getColor, colorMode, clusterLa
   clusterLabel: Record<number, string>;
   onKeyword: (k: string) => void;
   onSelectPaper: (p: AtlasPaper) => void;
+  embedModel: EmbedModel;
 }) {
+  const dpx = (p: AtlasPaper) => (p[`umap_x_${embedModel}` as keyof AtlasPaper] ?? p.umap_x) as number;
+  const dpy = (p: AtlasPaper) => (p[`umap_y_${embedModel}` as keyof AtlasPaper] ?? p.umap_y) as number;
   const label = colorMode === 'domain'
     ? paper.domain.replace('Graph-Based ', 'Graph ')
     : (clusterLabel[paper.cluster] || `Cluster ${paper.cluster}`);
@@ -1396,7 +1443,7 @@ function DetailPanel({ paper, allPapers, onClose, getColor, colorMode, clusterLa
   const related = React.useMemo(() =>
     allPapers
       .filter(p => p.SN !== paper.SN)
-      .map(p => ({ p, dist: Math.hypot(p.umap_x - paper.umap_x, p.umap_y - paper.umap_y) }))
+      .map(p => ({ p, dist: Math.hypot(dpx(p) - dpx(paper), dpy(p) - dpy(paper)) }))
       .sort((a, b) => a.dist - b.dist)
       .slice(0, 6),
   // eslint-disable-next-line react-hooks/exhaustive-deps

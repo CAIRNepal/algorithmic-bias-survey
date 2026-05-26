@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
-from scipy.spatial import ConvexHull
+from scipy.stats import gaussian_kde
 import warnings
 from pathlib import Path
 from sentence_transformers import SentenceTransformer
@@ -23,8 +23,13 @@ ENRICHED   = BASE_DIR.parent.parent / 'openalex_enriched.csv'
 CORPUS     = BASE_DIR / 'papers_new.csv'
 OUT_DIR    = BASE_DIR / 'figures_new'
 OUT_FIG    = OUT_DIR / 'semantic_landscape.png'
-OUT_CSV    = BASE_DIR / 'semantic_similarity_results.csv'
-MODEL_NAME = 'all-MiniLM-L6-v2'
+OUT_CSV        = BASE_DIR / 'semantic_similarity_results.csv'
+DASHBOARD_CSV  = BASE_DIR.parent.parent / 'dashboard' / 'public' / 'semantic_clusters.csv'
+MODELS = [
+    ('all-MiniLM-L6-v2', 'minilm',  None),
+    ('all-mpnet-base-v2', 'mpnet',   None),
+    ('allenai-specter',   'specter', None),
+]
 
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -45,41 +50,66 @@ df = df[df['abstract'].fillna('').str.strip() != ''].reset_index(drop=True)
 print(f'  Papers with abstracts: {len(df)}')
 print(f'  Domain counts: {df["Domain"].value_counts().to_dict()}')
 
-# ── Embed ─────────────────────────────────────────────────────────────────────
-print(f'\nLoading SBERT model ({MODEL_NAME})...')
-model = SentenceTransformer(MODEL_NAME)
-print('Encoding abstracts...')
-embeddings = model.encode(df['abstract'].tolist(), show_progress_bar=True, batch_size=64)
-print(f'  Embeddings shape: {embeddings.shape}')
+# ── Embed + UMAP for each model ───────────────────────────────────────────────
+all_embeddings = {}  # key -> np array (for domain separation stats)
 
-# ── UMAP ─────────────────────────────────────────────────────────────────────
-print('\nRunning UMAP...')
-reducer = umap.UMAP(n_neighbors=15, min_dist=0.1, metric='cosine', random_state=42)
-coords = reducer.fit_transform(embeddings)
-df['umap_x'] = coords[:, 0]
-df['umap_y'] = coords[:, 1]
+for model_id, key, prefix in MODELS:
+    print(f'\nLoading model: {model_id}')
+    m = SentenceTransformer(model_id)
+    inputs = df['abstract'].tolist()
+    emb = m.encode(inputs, show_progress_bar=True, batch_size=32, normalize_embeddings=True)
+    print(f'  Embeddings shape: {emb.shape}')
+    all_embeddings[key] = emb
+
+    print(f'  Running UMAP (n_neighbors=15, min_dist=0.0)...')
+    reducer = umap.UMAP(n_neighbors=15, min_dist=0.0, metric='cosine', random_state=42)
+    coords  = reducer.fit_transform(emb)
+    df[f'umap_x_{key}'] = coords[:, 0]
+    df[f'umap_y_{key}'] = coords[:, 1]
+
+# Use mpnet as the default display coords
+df['umap_x'] = df['umap_x_mpnet']
+df['umap_y'] = df['umap_y_mpnet']
 
 # ── Save results CSV ──────────────────────────────────────────────────────────
-df[['SN', 'Paper Title', 'DOI', 'Domain', 'Year', 'umap_x', 'umap_y',
-    'cited_by_count', 'is_oa', 'oa_status', 'oa_url']].to_csv(OUT_CSV, index=False)
+coord_cols = [c for m in MODELS for c in (f'umap_x_{m[1]}', f'umap_y_{m[1]}')]
+out = df[['SN', 'Paper Title', 'DOI', 'Domain', 'Year',
+          'umap_x', 'umap_y', *coord_cols,
+          'cited_by_count', 'is_oa', 'oa_status', 'oa_url']]
+out.to_csv(OUT_CSV, index=False)
+out.to_csv(DASHBOARD_CSV, index=False)
 print(f'\nSaved results: {OUT_CSV}')
+print(f'Saved dashboard: {DASHBOARD_CSV}')
 
 # ── Figure ────────────────────────────────────────────────────────────────────
 fig, ax = plt.subplots(figsize=(14, 10))
 
-# Draw convex hull per domain (background, semi-transparent)
+# KDE contour grid — cover full data range with padding
+pad = 0.5
+all_x = df['umap_x'].values
+all_y = df['umap_y'].values
+xx, yy = np.mgrid[
+    all_x.min() - pad : all_x.max() + pad : 200j,
+    all_y.min() - pad : all_y.max() + pad : 200j,
+]
+grid = np.vstack([xx.ravel(), yy.ravel()])
+
+# Draw KDE contour per domain (encloses ~75% of each domain's density mass)
 for domain, color in DOMAIN_COLORS.items():
     pts = df[df['Domain'] == domain][['umap_x', 'umap_y']].values
-    if len(pts) >= 4:
-        try:
-            hull = ConvexHull(pts)
-            hull_pts = np.append(hull.vertices, hull.vertices[0])
-            ax.fill(pts[hull_pts, 0], pts[hull_pts, 1],
-                    alpha=0.12, color=color, zorder=1)
-            ax.plot(pts[hull_pts, 0], pts[hull_pts, 1],
-                    alpha=0.40, color=color, linewidth=1.2, zorder=2)
-        except Exception:
-            pass
+    if len(pts) < 10:
+        continue
+    try:
+        kde  = gaussian_kde(pts.T, bw_method=0.35)
+        z    = kde(grid).reshape(xx.shape)
+        # Level at the 25th percentile of KDE values at data points → encloses ~75% of mass
+        level = np.percentile(kde(pts.T), 25)
+        ax.contourf(xx, yy, z, levels=[level, z.max()],
+                    colors=[color], alpha=0.10, zorder=1)
+        ax.contour(xx, yy, z, levels=[level],
+                   colors=[color], alpha=0.55, linewidths=1.5, zorder=2)
+    except Exception:
+        pass
 
 # Scatter points per domain
 for domain, color in DOMAIN_COLORS.items():
@@ -89,7 +119,7 @@ for domain, color in DOMAIN_COLORS.items():
                edgecolors='white', zorder=3, label=domain)
 
 # Legend
-ax.legend(loc='lower right', fontsize=13, framealpha=0.9,
+ax.legend(loc='upper left', fontsize=13, framealpha=0.9,
           title='Domain', title_fontsize=14, markerscale=2.2)
 
 # ax.set_title(
@@ -145,15 +175,17 @@ print('Saved figure: cluster_selection.png')
 from sklearn.metrics.pairwise import cosine_similarity
 
 print('\n=== Domain separation (mean intra- vs inter-domain cosine similarity) ===')
-emb_df = pd.DataFrame(embeddings, index=df.index)
-for domain in DOMAIN_COLORS:
-    idx_in  = df[df['Domain'] == domain].index.tolist()
-    idx_out = df[df['Domain'] != domain].index.tolist()
-    if not idx_in or not idx_out:
-        continue
-    intra = cosine_similarity(embeddings[idx_in]).mean()
-    inter = cosine_similarity(embeddings[idx_in], embeddings[idx_out]).mean()
-    print(f'  {domain[:40]:40s}  intra={intra:.3f}  inter={inter:.3f}  diff={intra-inter:.3f}')
+for model_id, key, _ in MODELS:
+    emb = all_embeddings[key]
+    print(f'\n  [{key}]')
+    for domain in DOMAIN_COLORS:
+        idx_in  = df[df['Domain'] == domain].index.tolist()
+        idx_out = df[df['Domain'] != domain].index.tolist()
+        if not idx_in or not idx_out:
+            continue
+        intra = cosine_similarity(emb[idx_in]).mean()
+        inter = cosine_similarity(emb[idx_in], emb[idx_out]).mean()
+        print(f'  {domain[:40]:40s}  intra={intra:.3f}  inter={inter:.3f}  diff={intra-inter:.3f}')
 
 print('\n=== Top cited paper per domain ===')
 for domain in DOMAIN_COLORS:
