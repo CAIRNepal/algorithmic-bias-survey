@@ -69,6 +69,7 @@ export default function RootLayout({
               Atlas
             </Link>
             <Link href="/advanced" className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all">Research Analytics</Link>
+            <Link href="/analytics" className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-purple-700 hover:bg-purple-50 rounded-lg transition-all">Advanced Analytics</Link>
             <a href="https://cair-nepal.org/giving" target="_blank" className="ml-3 px-5 py-2 text-sm font-semibold rounded-lg bg-blue-600 text-white shadow-sm hover:bg-blue-700 transition-colors">Donate</a>
           </nav>
         </header>

@@ -1,6 +1,11 @@
 'use client';
+import dynamic from 'next/dynamic';
+import AtlasLoading from '../AtlasLoading';
 
-import AbstractAtlas from '../AbstractAtlas';
+const AbstractAtlas = dynamic(() => import('../AbstractAtlas'), {
+  ssr: false,
+  loading: AtlasLoading,
+});
 
 export default function AtlasPage() {
   return <AbstractAtlas />;

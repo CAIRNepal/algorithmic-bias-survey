@@ -248,15 +248,17 @@ export default function AbstractAtlas() {
   }, [filteredPapers, allYears]);
 
   // World-map aggregation (respects current filteredPapers)
+  // rawNames: the original openalex_countries values that map to this geo
   const worldMapData = useMemo(() => {
-    const byCountry: Record<string, { count: number; domains: Record<string, number>; dominant: string }> = {};
+    const byCountry: Record<string, { count: number; domains: Record<string, number>; dominant: string; rawNames: string[] }> = {};
     filteredPapers.forEach(p =>
       [...new Set((p.openalex_countries || '').split(';').map(c => c.trim()).filter(Boolean))]
-        .map(toGeoName)
-        .forEach(geo => {
-          if (!byCountry[geo]) byCountry[geo] = { count: 0, domains: {}, dominant: '' };
+        .forEach(raw => {
+          const geo = toGeoName(raw);
+          if (!byCountry[geo]) byCountry[geo] = { count: 0, domains: {}, dominant: '', rawNames: [] };
           byCountry[geo].count++;
           byCountry[geo].domains[p.domain] = (byCountry[geo].domains[p.domain] || 0) + 1;
+          if (!byCountry[geo].rawNames.includes(raw)) byCountry[geo].rawNames.push(raw);
         })
     );
     Object.values(byCountry).forEach(d => {
@@ -777,9 +779,34 @@ export default function AbstractAtlas() {
               </div>
             </>
           ) : mapView === 'world' ? (
-            <WorldMapPanel worldMapData={worldMapData} filteredCount={filteredPapers.length} />
+            <WorldMapPanel
+              worldMapData={worldMapData}
+              filteredCount={filteredPapers.length}
+              activeCountries={activeCountries}
+              onCountryClick={rawNames => {
+                setActiveCountries(prev => {
+                  const n = new Set(prev);
+                  // If all rawNames already selected, deselect them (toggle off)
+                  const allSelected = rawNames.every(r => n.has(r));
+                  rawNames.forEach(r => allSelected ? n.delete(r) : n.add(r));
+                  return n;
+                });
+              }}
+            />
           ) : (
-            <CollabPanel collabData={collabData} filteredCount={filteredPapers.length} />
+            <CollabPanel
+              collabData={collabData}
+              filteredCount={filteredPapers.length}
+              activeCountries={activeCountries}
+              onCountryClick={countries => {
+                setActiveCountries(prev => {
+                  const n = new Set(prev);
+                  const allSelected = countries.every(c => n.has(c));
+                  countries.forEach(c => allSelected ? n.delete(c) : n.add(c));
+                  return n;
+                });
+              }}
+            />
           )}
         </div>
       )}
@@ -906,13 +933,32 @@ export default function AbstractAtlas() {
       </div>
 
       {/* Footer */}
-      <div className="flex-shrink-0 border-t border-gray-100 bg-gray-50 px-6 py-1.5 flex items-center justify-between text-[10px] text-gray-400">
-        <span>Semantic UMAP · <span className="font-medium text-gray-500">all-MiniLM-L6-v2</span> · HDBSCAN clusters · 2D + 3D</span>
-        <span>
-          <kbd className="px-1.5 py-0.5 bg-white border border-gray-200 rounded text-[10px]">/</kbd> search ·{' '}
-          <kbd className="px-1.5 py-0.5 bg-white border border-gray-200 rounded text-[10px]">Esc</kbd> reset
-        </span>
-      </div>
+      <footer className="flex-shrink-0 bg-gray-900 text-white px-8 py-5">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div className="text-center sm:text-left">
+            <p className="text-gray-300 text-xs leading-relaxed">
+              This work is part of{' '}
+              <span className="font-semibold text-white">
+                Towards FAIR AI: A Survey of Regional Trends and Knowledge Graph-Enhanced Bias Mitigation
+              </span>
+            </p>
+            <p className="text-gray-400 text-xs mt-0.5">Abhash Shrestha · Tek Raj Chhetri · Sanju Tiwari</p>
+          </div>
+          <div className="flex items-center gap-3 text-[11px] text-gray-500">
+            <span>Semantic UMAP · <span className="text-gray-400">all-MiniLM-L6-v2</span> · HDBSCAN</span>
+            <span className="text-gray-700">·</span>
+            <span>&copy; {new Date().getFullYear()}</span>
+            <a href="https://cair-nepal.org" className="text-gray-400 hover:text-white transition-colors underline" target="_blank" rel="noopener noreferrer">cair-nepal.org</a>
+            <span className="text-gray-700">·</span>
+            <a href="https://www.apache.org/licenses/LICENSE-2.0" className="text-gray-400 hover:text-white transition-colors underline" target="_blank" rel="noopener noreferrer">Apache 2.0</a>
+          </div>
+        </div>
+        <div className="max-w-7xl mx-auto mt-2 pt-2 border-t border-gray-800 flex items-center justify-center gap-4 text-[10px] text-gray-600">
+          <kbd className="px-1.5 py-0.5 bg-gray-800 border border-gray-700 rounded">/</kbd> search ·{' '}
+          <kbd className="px-1.5 py-0.5 bg-gray-800 border border-gray-700 rounded">Esc</kbd> reset ·{' '}
+          <span>drag to pan · scroll to zoom · lasso to multi-select</span>
+        </div>
+      </footer>
     </div>
   );
 }
@@ -942,9 +988,13 @@ function Tooltip({ paper, x, y, maxW, getColor }: {
 function WorldMapPanel({
   worldMapData,
   filteredCount,
+  activeCountries,
+  onCountryClick,
 }: {
-  worldMapData: Record<string, { count: number; domains: Record<string, number>; dominant: string }>;
+  worldMapData: Record<string, { count: number; domains: Record<string, number>; dominant: string; rawNames: string[] }>;
   filteredCount: number;
+  activeCountries: Set<string>;
+  onCountryClick: (rawNames: string[]) => void;
 }) {
   const [mounted, setMounted] = useState(false);
   const [tip, setTip] = useState<{ country: string; count: number; dominant: string; x: number; y: number } | null>(null);
@@ -959,11 +1009,25 @@ function WorldMapPanel({
     );
   }
 
+  const selectedCount = Object.values(worldMapData).filter(d => d.rawNames.some(r => activeCountries.has(r))).length;
+
   return (
     <div className="flex-1 relative bg-slate-50 overflow-hidden">
-      <div className="absolute top-2 left-3 z-10 text-[10px] font-bold text-gray-500 uppercase tracking-widest">
-        Geographic Distribution · {filteredCount} papers
+      <div className="absolute top-2 left-3 z-10 flex items-center gap-2">
+        <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">
+          Geographic Distribution · {filteredCount} papers
+        </span>
+        {activeCountries.size > 0 && (
+          <span className="text-[10px] bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-semibold">
+            {selectedCount} countr{selectedCount !== 1 ? 'ies' : 'y'} selected — click to deselect
+          </span>
+        )}
       </div>
+      {activeCountries.size === 0 && (
+        <div className="absolute top-2 right-3 z-10 text-[10px] text-gray-400">
+          Click a country to filter papers
+        </div>
+      )}
       <ComposableMap projection="geoEqualEarth" projectionConfig={{ scale: 147 }} style={{ width: '100%', height: '100%' }}>
         <ZoomableGroup>
           <Geographies geography="https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json">
@@ -971,17 +1035,21 @@ function WorldMapPanel({
               const name: string = geo.properties.NAME || geo.properties.name || '';
               const data = worldMapData[name];
               const base = data ? domainColor(data.dominant) : '#e2e8f0';
+              const isSelected = data ? data.rawNames.some(r => activeCountries.has(r)) : false;
+              const fillColor = data
+                ? isSelected ? base : base + 'bb'
+                : activeCountries.size > 0 ? '#f1f5f9' : base;
               return (
                 <Geography
                   key={geo.rsmKey}
                   geography={geo}
-                  fill={data ? base + 'bb' : base}
-                  stroke="#fff"
-                  strokeWidth={0.5}
+                  fill={fillColor}
+                  stroke={isSelected ? '#1e40af' : '#fff'}
+                  strokeWidth={isSelected ? 1.5 : 0.5}
                   style={{
                     default: { outline: 'none' },
                     hover: { fill: data ? base : '#cbd5e1', outline: 'none', cursor: data ? 'pointer' : 'default' },
-                    pressed: { outline: 'none' },
+                    pressed: { fill: data ? base + 'dd' : '#cbd5e1', outline: 'none' },
                   }}
                   onMouseEnter={() => {
                     if (data) setTip({ country: name, count: data.count, dominant: data.dominant, x: 0, y: 0 });
@@ -990,6 +1058,9 @@ function WorldMapPanel({
                     if (data) setTip(prev => prev ? { ...prev, x: e.clientX, y: e.clientY } : null);
                   }}
                   onMouseLeave={() => setTip(null)}
+                  onClick={() => {
+                    if (data) onCountryClick(data.rawNames);
+                  }}
                 />
               );
             })}
@@ -1016,6 +1087,7 @@ function WorldMapPanel({
           <div className="mt-0.5 font-medium" style={{ color: domainColor(tip.dominant) }}>
             {tip.dominant.replace('Graph-Based ', 'Graph ')}
           </div>
+          <div className="mt-1 text-gray-400 italic">Click to filter papers</div>
         </div>
       )}
     </div>
@@ -1023,9 +1095,11 @@ function WorldMapPanel({
 }
 
 // ── CollabPanel ───────────────────────────────────────────────────────────────
-function CollabPanel({ collabData, filteredCount }: {
+function CollabPanel({ collabData, filteredCount, activeCountries, onCountryClick }: {
   collabData: [string, number][];
   filteredCount: number;
+  activeCountries: Set<string>;
+  onCountryClick: (countries: string[]) => void;
 }) {
   const max = collabData[0]?.[1] || 1;
   return (
@@ -1035,27 +1109,49 @@ function CollabPanel({ collabData, filteredCount }: {
           <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Cross-Region Collaboration</p>
           <p className="text-[11px] text-gray-500">{filteredCount} papers · top country co-authorship pairs</p>
         </div>
+        {activeCountries.size > 0 && (
+          <span className="text-[10px] bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-semibold">
+            {activeCountries.size} selected
+          </span>
+        )}
       </div>
-      <div className="p-4 grid grid-cols-1 gap-2">
+      {collabData.length > 0 && (
+        <p className="text-[10px] text-gray-400 px-4 pt-3 pb-1">Click a pair to filter papers to that collaboration</p>
+      )}
+      <div className="p-4 pt-1 grid grid-cols-1 gap-2">
         {collabData.length === 0 && (
           <p className="text-center text-gray-400 text-sm py-8">No cross-region collaborations in current filter.</p>
         )}
         {collabData.map(([pair, count]) => {
           const [a, b] = pair.split(' × ');
+          const isSelected = activeCountries.has(a) && activeCountries.has(b);
+          const isPartial = (activeCountries.has(a) || activeCountries.has(b)) && !isSelected;
           return (
-            <div key={pair} className="flex items-center gap-3 bg-white rounded-xl px-4 py-2.5 border border-gray-100 shadow-sm">
+            <button
+              key={pair}
+              onClick={() => onCountryClick([a, b])}
+              className={`flex items-center gap-3 rounded-xl px-4 py-2.5 border shadow-sm w-full text-left transition-all ${
+                isSelected
+                  ? 'bg-blue-50 border-blue-300 ring-1 ring-blue-200'
+                  : isPartial
+                  ? 'bg-blue-50/50 border-blue-200'
+                  : 'bg-white border-gray-100 hover:bg-blue-50/40 hover:border-blue-200'
+              }`}
+            >
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-1.5 text-xs font-semibold text-gray-700 mb-1.5">
-                  <span>{a}</span>
+                  <span className={activeCountries.has(a) ? 'text-blue-700' : ''}>{a}</span>
                   <span className="text-gray-300 font-normal">×</span>
-                  <span>{b}</span>
+                  <span className={activeCountries.has(b) ? 'text-blue-700' : ''}>{b}</span>
+                  {isSelected && <span className="ml-auto text-[10px] text-blue-500">✓ filtered</span>}
                 </div>
                 <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
-                  <div className="h-full bg-blue-500 rounded-full transition-all" style={{ width: `${(count / max) * 100}%` }} />
+                  <div className={`h-full rounded-full transition-all ${isSelected ? 'bg-blue-600' : 'bg-blue-400'}`}
+                    style={{ width: `${(count / max) * 100}%` }} />
                 </div>
               </div>
-              <span className="text-base font-bold text-blue-700 shrink-0 w-8 text-right">{count}</span>
-            </div>
+              <span className={`text-base font-bold shrink-0 w-8 text-right ${isSelected ? 'text-blue-700' : 'text-blue-500'}`}>{count}</span>
+            </button>
           );
         })}
       </div>
