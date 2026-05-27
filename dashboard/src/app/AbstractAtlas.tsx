@@ -888,7 +888,7 @@ export default function AbstractAtlas() {
                     onChange={() => setActiveClusters(prev => { const n = new Set(prev); n.has(c) ? n.delete(c) : n.add(c); return n; })}
                     className="rounded border-gray-300 text-blue-600 focus:ring-blue-400 w-3 h-3 shrink-0" />
                   <span className="w-2 h-2 rounded-full shrink-0" style={{ background: clusterColor(c) }} />
-                  <span className="text-[10px] text-gray-600 flex-1 leading-tight truncate">{c < 0 ? 'Unclustered' : (clusterLabel[c] || `C${c}`)}</span>
+                  <span className="text-[10px] text-gray-600 flex-1 leading-tight break-words">{c < 0 ? 'Unclustered' : (clusterLabel[c] || `C${c}`)}</span>
                   <span className="text-[10px] text-gray-400 shrink-0">{papers.filter(p => p.cluster === c).length}</span>
                 </label>
               ))}

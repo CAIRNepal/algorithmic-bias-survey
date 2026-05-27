@@ -33,9 +33,13 @@ MODELS = [
     ('allenai-specter',   'specter', None),
 ]
 
-# Grid search params
+# UMAP grid search params
 N_NEIGHBORS_LIST = [5, 10, 15, 30, 50]
 MIN_DIST_LIST    = [0.0, 0.05, 0.1, 0.2]
+
+# HDBSCAN grid search params (run on MPNet best coords)
+HDBSCAN_MIN_CLUSTER_SIZE_LIST = [5, 10, 15, 20, 25]
+HDBSCAN_MIN_SAMPLES_LIST      = [1, 3, 5, 10]
 
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -175,6 +179,78 @@ grid_path = OUT_DIR / 'umap_grid_search_silhouette.png'
 fig_gs.savefig(grid_path, dpi=300, bbox_inches='tight')
 plt.close(fig_gs)
 print(f'Saved grid search heatmap: {grid_path}')
+
+# ── HDBSCAN grid search (on MPNet best coords) ────────────────────────────────
+from sklearn.cluster import HDBSCAN
+
+mpnet_coords = np.column_stack([df['umap_x_mpnet'].values, df['umap_y_mpnet'].values])
+total_hdb = len(HDBSCAN_MIN_CLUSTER_SIZE_LIST) * len(HDBSCAN_MIN_SAMPLES_LIST)
+hdb_results = []
+
+print(f'\nHDBSCAN grid search ({total_hdb} combos on MPNet coords)...')
+print(f'  {"mcs":>4}  {"ms":>4}  {"clusters":>8}  {"noise":>6}  {"silhouette":>10}')
+for mcs, ms in product(HDBSCAN_MIN_CLUSTER_SIZE_LIST, HDBSCAN_MIN_SAMPLES_LIST):
+    hdb = HDBSCAN(min_cluster_size=mcs, min_samples=ms, metric='euclidean')
+    labels = hdb.fit_predict(mpnet_coords)
+    n_clusters = len(set(labels)) - (1 if -1 in labels else 0)
+    n_noise = (labels == -1).sum()
+    # silhouette only on non-noise points, requires >=2 clusters
+    mask = labels != -1
+    if n_clusters >= 2 and mask.sum() > n_clusters:
+        sil = silhouette_score(mpnet_coords[mask], labels[mask])
+    else:
+        sil = float('nan')
+    hdb_results.append({'mcs': mcs, 'ms': ms, 'n_clusters': n_clusters, 'n_noise': n_noise, 'silhouette': sil})
+    print(f'  {mcs:>4}  {ms:>4}  {n_clusters:>8}  {n_noise:>6}  {sil:>10.4f}')
+
+# Sort by silhouette descending
+hdb_results_sorted = sorted([r for r in hdb_results if not np.isnan(r['silhouette'])],
+                             key=lambda r: r['silhouette'], reverse=True)
+print(f'\n  Top 5 by silhouette:')
+print(f'  {"Rank":<5} {"mcs":<6} {"ms":<6} {"clusters":<10} {"noise":<8} {"silhouette"}')
+for rank, r in enumerate(hdb_results_sorted[:5], 1):
+    print(f'  {rank:<5} {r["mcs"]:<6} {r["ms"]:<6} {r["n_clusters"]:<10} {r["n_noise"]:<8} {r["silhouette"]:.4f}')
+
+# ── HDBSCAN heatmaps: silhouette + noise count ─────────────────────────────────
+fig_hdb, axes_hdb = plt.subplots(1, 2, figsize=(14, 5))
+
+for ax_hdb, metric, label, fmt in zip(
+    axes_hdb,
+    ['silhouette', 'n_noise'],
+    ['Silhouette Score', 'Noise Points'],
+    ['.3f', 'd'],
+):
+    matrix = np.full((len(HDBSCAN_MIN_CLUSTER_SIZE_LIST), len(HDBSCAN_MIN_SAMPLES_LIST)), np.nan)
+    for r in hdb_results:
+        ri = HDBSCAN_MIN_CLUSTER_SIZE_LIST.index(r['mcs'])
+        ci = HDBSCAN_MIN_SAMPLES_LIST.index(r['ms'])
+        matrix[ri, ci] = r[metric]
+    im = ax_hdb.imshow(matrix, aspect='auto',
+                       cmap='YlGnBu' if metric == 'silhouette' else 'YlOrRd_r',
+                       vmin=np.nanmin(matrix), vmax=np.nanmax(matrix))
+    ax_hdb.set_xticks(range(len(HDBSCAN_MIN_SAMPLES_LIST)))
+    ax_hdb.set_xticklabels(HDBSCAN_MIN_SAMPLES_LIST, fontsize=14)
+    ax_hdb.set_yticks(range(len(HDBSCAN_MIN_CLUSTER_SIZE_LIST)))
+    ax_hdb.set_yticklabels(HDBSCAN_MIN_CLUSTER_SIZE_LIST, fontsize=14)
+    ax_hdb.set_xlabel('min_samples', fontsize=15)
+    ax_hdb.set_ylabel('min_cluster_size', fontsize=15)
+    ax_hdb.set_title(label, fontsize=16, fontweight='bold')
+    for ri in range(len(HDBSCAN_MIN_CLUSTER_SIZE_LIST)):
+        for ci in range(len(HDBSCAN_MIN_SAMPLES_LIST)):
+            val = matrix[ri, ci]
+            if not np.isnan(val):
+                txt = f'{int(val)}' if fmt == 'd' else f'{val:.3f}'
+                ax_hdb.text(ci, ri, txt, ha='center', va='center', fontsize=12,
+                            color='black' if val < 0.85 * np.nanmax(matrix) else 'white')
+    fig_hdb.colorbar(im, ax=ax_hdb, shrink=0.8, label=label)
+
+fig_hdb.suptitle('HDBSCAN Grid Search — MPNet 2D Coords (n_neighbors=10, min_dist=0.0)',
+                 fontsize=14, fontweight='bold')
+fig_hdb.tight_layout()
+hdb_path = OUT_DIR / 'hdbscan_grid_search.png'
+fig_hdb.savefig(hdb_path, dpi=300, bbox_inches='tight')
+plt.close(fig_hdb)
+print(f'\nSaved HDBSCAN grid search heatmap: {hdb_path}')
 
 # ── Cluster selection (elbow + silhouette) ───────────────────────────────────
 from sklearn.cluster import KMeans

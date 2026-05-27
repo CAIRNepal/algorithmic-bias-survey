@@ -47,7 +47,11 @@ for sn, p in papers.items():
     abstract = e.get("abstract", "")
     keywords = e.get("keywords", "")
     title = p["title"]
-    embed_text = f"{title}. {abstract}" if abstract else (f"{title}. Keywords: {keywords}" if keywords else title)
+    # Use abstract only (consistent with semantic_similarity.py analysis)
+    # Papers without abstracts (SNs 1, 362, 387) are excluded from embedding
+    if not abstract:
+        continue
+    # embed_text = f"{title}. {abstract}" if abstract else (f"{title}. Keywords: {keywords}" if keywords else title)  # previous: title+abstract
     merged.append({
         "SN": sn,
         "title": title,
@@ -64,7 +68,7 @@ for sn, p in papers.items():
         "oa_url": e.get("oa_url", ""),
         "openalex_countries": e.get("openalex_countries", ""),
         "openalex_authors": e.get("openalex_authors", ""),
-        "embed_text": embed_text,
+        "embed_text": abstract,  # previously: embed_text
     })
 
 print(f"Merged {len(merged)} papers. {sum(1 for m in merged if m['abstract'])} have abstracts.")
@@ -92,13 +96,13 @@ for model_id, key in EMBED_MODELS:
     all_embeddings[key] = emb
 
     print(f"  UMAP 2D ({key})…")
-    r2 = umap.UMAP(n_components=2, n_neighbors=15, min_dist=0.0, metric="cosine", random_state=42)
+    r2 = umap.UMAP(n_components=2, n_neighbors=10, min_dist=0.0, metric="cosine", random_state=42)
     c2 = r2.fit_transform(emb)
     all_coords_2d[key] = c2
     print(f"    X[{c2[:,0].min():.2f},{c2[:,0].max():.2f}] Y[{c2[:,1].min():.2f},{c2[:,1].max():.2f}]")
 
     print(f"  UMAP 3D ({key})…")
-    r3 = umap.UMAP(n_components=3, n_neighbors=15, min_dist=0.10, metric="cosine", random_state=42)
+    r3 = umap.UMAP(n_components=3, n_neighbors=10, min_dist=0.0, metric="cosine", random_state=42)
     c3 = r3.fit_transform(emb)
     all_coords_3d[key] = c3
     print(f"  3D done.")
