@@ -6,6 +6,8 @@ import matplotlib.patches as mpatches
 import warnings
 from pathlib import Path
 from sentence_transformers import SentenceTransformer
+from sklearn.metrics import silhouette_score
+from itertools import product
 import umap
 
 warnings.filterwarnings('ignore')
@@ -31,6 +33,10 @@ MODELS = [
     ('allenai-specter',   'specter', None),
 ]
 
+# Grid search params
+N_NEIGHBORS_LIST = [5, 10, 15, 30, 50]
+MIN_DIST_LIST    = [0.0, 0.05, 0.1, 0.2]
+
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 DOMAIN_COLORS = {
@@ -52,6 +58,9 @@ print(f'  Domain counts: {df["Domain"].value_counts().to_dict()}')
 
 # ── Embed + UMAP for each model ───────────────────────────────────────────────
 all_embeddings = {}  # key -> np array (for domain separation stats)
+all_silhouettes = {}  # key -> silhouette score at best params
+all_grid_results = {}  # key -> full grid results list
+domain_labels = df['Domain'].values
 
 for model_id, key, prefix in MODELS:
     print(f'\nLoading model: {model_id}')
@@ -61,9 +70,28 @@ for model_id, key, prefix in MODELS:
     print(f'  Embeddings shape: {emb.shape}')
     all_embeddings[key] = emb
 
-    print(f'  Running UMAP (n_neighbors=15, min_dist=0.0)...')
-    reducer = umap.UMAP(n_neighbors=15, min_dist=0.0, metric='cosine', random_state=42)
-    coords  = reducer.fit_transform(emb)
+    # ── Grid search over n_neighbors x min_dist ──────────────────────────────
+    print(f'  Grid search (n_neighbors x min_dist) for {key}...')
+    grid_results = []
+    total = len(N_NEIGHBORS_LIST) * len(MIN_DIST_LIST)
+    for i, (nn, md) in enumerate(product(N_NEIGHBORS_LIST, MIN_DIST_LIST), 1):
+        r = umap.UMAP(n_neighbors=nn, min_dist=md, metric='cosine', random_state=42)
+        c = r.fit_transform(emb)
+        sil = silhouette_score(c, domain_labels)
+        grid_results.append({'n_neighbors': nn, 'min_dist': md, 'silhouette': sil, 'coords': c})
+        print(f'    [{i:2d}/{total}] n_neighbors={nn:2d}  min_dist={md}  silhouette={sil:.4f}')
+    grid_results.sort(key=lambda r: r['silhouette'], reverse=True)
+    best = grid_results[0]
+    print(f'  Best: n_neighbors={best["n_neighbors"]}, min_dist={best["min_dist"]}, silhouette={best["silhouette"]:.4f}')
+
+    # Print full ranking
+    print(f'  {"Rank":<5} {"n_neighbors":<13} {"min_dist":<10} {"silhouette"}')
+    for rank, r in enumerate(grid_results, 1):
+        print(f'  {rank:<5} {r["n_neighbors"]:<13} {r["min_dist"]:<10} {r["silhouette"]:.4f}')
+
+    coords = best['coords']
+    all_silhouettes[key] = best['silhouette']
+    all_grid_results[key] = grid_results
     df[f'umap_x_{key}'] = coords[:, 0]
     df[f'umap_y_{key}'] = coords[:, 1]
 
@@ -92,13 +120,21 @@ for _, key, _ in MODELS:
         ax.scatter(sub[xk], sub[yk],
                    c=color, s=55, alpha=0.90, linewidths=0.3,
                    edgecolors='white', zorder=3, label=domain)
-    ax.legend(loc='lower right', fontsize=13, framealpha=0.9,
-              title='Domain', title_fontsize=14, markerscale=2.2)
+    leg = ax.legend(loc='upper left', fontsize=13, framealpha=0.9,
+                    title='Domain', title_fontsize=14, markerscale=2.2)
     ax.set_xlabel('UMAP Dimension 1', fontsize=14)
     ax.set_ylabel('UMAP Dimension 2', fontsize=14)
     ax.tick_params(labelsize=12)
     ax.set_facecolor('#f8f9fa')
     fig.tight_layout()
+    # Place silhouette score box directly below the legend
+    fig.canvas.draw()
+    sil = all_silhouettes[key]
+    leg_bb = leg.get_window_extent(fig.canvas.get_renderer())
+    leg_bb_ax = leg_bb.transformed(ax.transAxes.inverted())
+    ax.text(leg_bb_ax.x0, leg_bb_ax.y0 - 0.02, f'Silhouette: {sil:.4f}',
+            transform=ax.transAxes, fontsize=14, ha='left', va='top',
+            bbox=dict(boxstyle='round,pad=0.3', facecolor='white', edgecolor='#cccccc', alpha=0.9))
     out_path = OUT_DIR / f'semantic_landscape_{key}.png'
     fig.savefig(out_path, dpi=300, bbox_inches='tight')
     plt.close(fig)
@@ -108,6 +144,37 @@ for _, key, _ in MODELS:
 import shutil
 shutil.copy(OUT_DIR / 'semantic_landscape_mpnet.png', OUT_FIG)
 print(f'Copied mpnet → {OUT_FIG}')
+
+# ── Grid search heatmap (one subplot per model) ───────────────────────────────
+fig_gs, axes_gs = plt.subplots(1, 3, figsize=(18, 5))
+for ax_gs, (_, key, _) in zip(axes_gs, MODELS):
+    results = all_grid_results[key]
+    # Build matrix: rows=n_neighbors, cols=min_dist
+    matrix = np.zeros((len(N_NEIGHBORS_LIST), len(MIN_DIST_LIST)))
+    for r in results:
+        ri = N_NEIGHBORS_LIST.index(r['n_neighbors'])
+        ci = MIN_DIST_LIST.index(r['min_dist'])
+        matrix[ri, ci] = r['silhouette']
+    im = ax_gs.imshow(matrix, aspect='auto', cmap='YlGnBu',
+                      vmin=matrix.min(), vmax=matrix.max())
+    ax_gs.set_xticks(range(len(MIN_DIST_LIST)))
+    ax_gs.set_xticklabels(MIN_DIST_LIST, fontsize=14)
+    ax_gs.set_yticks(range(len(N_NEIGHBORS_LIST)))
+    ax_gs.set_yticklabels(N_NEIGHBORS_LIST, fontsize=14)
+    ax_gs.set_xlabel('min_dist', fontsize=15)
+    ax_gs.set_ylabel('n_neighbors', fontsize=15)
+    ax_gs.set_title(f'{MODEL_LABELS[key]}\nbest sil={all_silhouettes[key]:.4f}', fontsize=16, fontweight='bold')
+    for ri in range(len(N_NEIGHBORS_LIST)):
+        for ci in range(len(MIN_DIST_LIST)):
+            ax_gs.text(ci, ri, f'{matrix[ri, ci]:.3f}', ha='center', va='center',
+                       fontsize=12, color='black' if matrix[ri, ci] < 0.85 * matrix.max() else 'white')
+    fig_gs.colorbar(im, ax=ax_gs, shrink=0.8, label='Silhouette')
+fig_gs.suptitle('UMAP Grid Search — Silhouette Score by Model (domain labels)', fontsize=14, fontweight='bold')
+fig_gs.tight_layout()
+grid_path = OUT_DIR / 'umap_grid_search_silhouette.png'
+fig_gs.savefig(grid_path, dpi=300, bbox_inches='tight')
+plt.close(fig_gs)
+print(f'Saved grid search heatmap: {grid_path}')
 
 # ── Cluster selection (elbow + silhouette) ───────────────────────────────────
 from sklearn.cluster import KMeans
