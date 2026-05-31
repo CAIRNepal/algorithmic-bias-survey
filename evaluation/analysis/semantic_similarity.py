@@ -124,11 +124,13 @@ for _, key, _ in MODELS:
         ax.scatter(sub[xk], sub[yk],
                    c=color, s=55, alpha=0.90, linewidths=0.3,
                    edgecolors='white', zorder=3, label=domain)
-    leg = ax.legend(loc='upper left', fontsize=13, framealpha=0.9,
-                    title='Domain', title_fontsize=14, markerscale=2.2)
-    ax.set_xlabel('UMAP Dimension 1', fontsize=14)
-    ax.set_ylabel('UMAP Dimension 2', fontsize=14)
-    ax.tick_params(labelsize=12)
+    leg = ax.legend(loc='upper right', framealpha=0.0,
+                    title='Domain', title_fontsize=15, markerscale=2.2,
+                    prop={'size': 14, 'weight': 'bold'})
+    leg.get_title().set_fontweight('bold')
+    ax.set_xlabel('UMAP Dimension 1', fontsize=16)
+    ax.set_ylabel('UMAP Dimension 2', fontsize=16)
+    ax.tick_params(labelsize=14)
     ax.set_facecolor('#f8f9fa')
     fig.tight_layout()
     # Place silhouette score box directly below the legend
@@ -136,9 +138,9 @@ for _, key, _ in MODELS:
     sil = all_silhouettes[key]
     leg_bb = leg.get_window_extent(fig.canvas.get_renderer())
     leg_bb_ax = leg_bb.transformed(ax.transAxes.inverted())
-    ax.text(leg_bb_ax.x0, leg_bb_ax.y0 - 0.02, f'Silhouette: {sil:.4f}',
-            transform=ax.transAxes, fontsize=14, ha='left', va='top',
-            bbox=dict(boxstyle='round,pad=0.3', facecolor='white', edgecolor='#cccccc', alpha=0.9))
+    ax.text(leg_bb_ax.x1, leg_bb_ax.y0 - 0.02, f'Silhouette: {sil:.4f}',
+            transform=ax.transAxes, fontsize=15, fontweight='bold', ha='right', va='top',
+            bbox=dict(boxstyle='round,pad=0.3', facecolor='none', edgecolor='#cccccc'))
     out_path = OUT_DIR / f'semantic_landscape_{key}.png'
     fig.savefig(out_path, dpi=300, bbox_inches='tight')
     plt.close(fig)

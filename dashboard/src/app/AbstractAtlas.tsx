@@ -976,33 +976,6 @@ export default function AbstractAtlas() {
         </aside>
       </div>
 
-      {/* Footer */}
-      <footer className="flex-shrink-0 bg-gray-900 text-white px-8 py-5">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
-          <div className="text-center sm:text-left">
-            <p className="text-gray-300 text-xs leading-relaxed">
-              This work is part of{' '}
-              <span className="font-semibold text-white">
-                Towards FAIR AI: A Survey of Regional Trends and Knowledge Graph-Enhanced Bias Mitigation
-              </span>
-            </p>
-            <p className="text-gray-400 text-xs mt-0.5">Abhash Shrestha · Tek Raj Chhetri · Sanju Tiwari</p>
-          </div>
-          <div className="flex items-center gap-3 text-[11px] text-gray-500">
-            <span>Semantic UMAP · <span className="text-gray-400">all-MiniLM-L6-v2</span> · HDBSCAN</span>
-            <span className="text-gray-700">·</span>
-            <span>&copy; {new Date().getFullYear()}</span>
-            <a href="https://cair-nepal.org" className="text-gray-400 hover:text-white transition-colors underline" target="_blank" rel="noopener noreferrer">cair-nepal.org</a>
-            <span className="text-gray-700">·</span>
-            <a href="https://www.apache.org/licenses/LICENSE-2.0" className="text-gray-400 hover:text-white transition-colors underline" target="_blank" rel="noopener noreferrer">Apache 2.0</a>
-          </div>
-        </div>
-        <div className="max-w-7xl mx-auto mt-2 pt-2 border-t border-gray-800 flex items-center justify-center gap-4 text-[10px] text-gray-600">
-          <kbd className="px-1.5 py-0.5 bg-gray-800 border border-gray-700 rounded">/</kbd> search ·{' '}
-          <kbd className="px-1.5 py-0.5 bg-gray-800 border border-gray-700 rounded">Esc</kbd> reset ·{' '}
-          <span>drag to pan · scroll to zoom · lasso to multi-select</span>
-        </div>
-      </footer>
     </div>
   );
 }

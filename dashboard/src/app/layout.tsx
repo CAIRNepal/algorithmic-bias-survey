@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Image from 'next/image';
 import Link from 'next/link';
+import FooterConditional from './FooterConditional';
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
@@ -48,7 +49,8 @@ export default function RootLayout({
         <link rel="icon" href={`${BASE_PATH}/logo-slogan.png`} type="image/png" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
+        suppressHydrationWarning
       >
         <header className="w-full bg-white border-b border-gray-100 shadow-sm flex items-center justify-between px-8 py-4 sticky top-0 z-50">
           <div className="flex items-center gap-4">
@@ -73,9 +75,10 @@ export default function RootLayout({
             <a href="https://cair-nepal.org/giving" target="_blank" className="ml-3 px-5 py-2 text-sm font-semibold rounded-lg bg-blue-600 text-white shadow-sm hover:bg-blue-700 transition-colors">Donate</a>
           </nav>
         </header>
-        <main className="bg-slate-50">
+        <main className="bg-slate-50 flex-1">
           {children}
         </main>
+        <FooterConditional>
         <footer className="w-full bg-gray-900 text-white mt-0 py-8">
           <div className="max-w-7xl mx-auto px-8 text-center">
             <p className="text-gray-300 text-sm leading-relaxed">
@@ -93,6 +96,7 @@ export default function RootLayout({
             </div>
           </div>
         </footer>
+        </FooterConditional>
       </body>
     </html>
   );
