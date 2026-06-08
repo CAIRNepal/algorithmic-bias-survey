@@ -1,0 +1,53 @@
+Country,Authors,Papers,AuthorsPerPaper
+USA,194,216,0.8981481481481481
+China,49,51,0.9607843137254902
+UK,32,35,0.9142857142857143
+Germany,26,27,0.9629629629629629
+India,16,17,0.9411764705882353
+Italy,14,17,0.8235294117647058
+Canada,14,14,1.0
+Netherlands,11,11,1.0
+Australia,10,10,1.0
+France,10,10,1.0
+Switzerland,7,9,0.7777777777777778
+Spain,8,8,1.0
+Singapore,6,7,0.8571428571428571
+Israel,5,6,0.8333333333333334
+Japan,5,5,1.0
+Hong Kong,4,4,1.0
+Malaysia,4,4,1.0
+South Korea,4,4,1.0
+Sweden,4,4,1.0
+Taiwan,4,4,1.0
+Turkey,4,4,1.0
+Belgium,3,3,1.0
+Brazil,3,3,1.0
+Greece,3,3,1.0
+Indonesia,3,3,1.0
+Ireland,3,3,1.0
+New Zealand,3,3,1.0
+Denmark,2,3,0.6666666666666666
+United Arab Emirates,2,3,0.6666666666666666
+Austria,2,2,1.0
+Finland,2,2,1.0
+Luxembourg,2,2,1.0
+Thailand,2,2,1.0
+South Africa,1,2,0.5
+Algeria,1,1,1.0
+Bangladesh,1,1,1.0
+Bulgaria,1,1,1.0
+Colombia,1,1,1.0
+Egypt,1,1,1.0
+Ghana,1,1,1.0
+Iran,1,1,1.0
+Jordan,1,1,1.0
+Kenya,1,1,1.0
+Macau,1,1,1.0
+Morocco,1,1,1.0
+Norway,1,1,1.0
+Pakistan,1,1,1.0
+Qatar,1,1,1.0
+Romania,1,1,1.0
+Russia,1,1,1.0
+Saudi Arabia,1,1,1.0
+Vietnam,1,1,1.0
