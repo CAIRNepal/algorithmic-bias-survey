@@ -1,4 +1,5 @@
-import React, { useMemo, useCallback, useEffect } from 'react';
+import React, { useMemo, useCallback, useEffect, useRef } from 'react';
+import html2canvas from 'html2canvas';
 import ReactFlow, {
   MiniMap,
   Controls,
@@ -190,10 +191,11 @@ function circularClusterLayout(topAuthors: string[], authorMeta: Map<string, Aut
   const numR = sorted.length;
 
   const maxCluster = Math.max(...sorted.map(([, a]) => a.length));
-  const maxInner = Math.max((maxCluster * nodeW) / (2 * Math.PI), 80);
-  const outerR = Math.max((numR * (maxInner * 2 + 120)) / (2 * Math.PI), 400);
-  const CX = outerR + 200;
-  const CY = outerR + 200;
+  // Cap inner radius so large clusters (e.g. USA) don't balloon the canvas
+  const maxInner = Math.min(Math.max((maxCluster * nodeW) / (2 * Math.PI), 60), 160);
+  const outerR = Math.min(Math.max((numR * (maxInner * 1.6 + 60)) / (2 * Math.PI), 220), 650);
+  const CX = outerR + 120;
+  const CY = outerR + 120;
 
   const nodes: Node[] = [];
   sorted.forEach(([region, authors], rIdx) => {
@@ -201,7 +203,7 @@ function circularClusterLayout(topAuthors: string[], authorMeta: Map<string, Aut
     const cx = CX + outerR * Math.cos(ang);
     const cy = CY + outerR * Math.sin(ang);
     const n = authors.length;
-    const innerR = n <= 1 ? 0 : Math.max((n * nodeW) / (2 * Math.PI), 60);
+    const innerR = n <= 1 ? 0 : Math.min(Math.max((n * nodeW) / (2 * Math.PI), 50), 160);
 
     nodes.push({
       id: `__label__${region}`,
@@ -363,6 +365,21 @@ const CoAuthorNetworkGraph: React.FC<CoAuthorNetworkGraphProps> = ({
   onAuthorClick,
   maxNodes = DEFAULT_MAX_NODES,
 }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const handleDownload = useCallback(async () => {
+    if (!containerRef.current) return;
+    const canvas = await html2canvas(containerRef.current, {
+      scale: 3,
+      useCORS: true,
+      backgroundColor: '#f8fafc',
+    });
+    const link = document.createElement('a');
+    link.download = 'coauthor_network.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+  }, []);
+
   const { nodes, edges, totalAuthors, isLarge } = useMemo(() => {
     const authorMeta = new Map<string, AuthorMeta>();
     const edgeMap = new Map<string, { source: string; target: string; count: number }>();
@@ -469,8 +486,14 @@ const CoAuthorNetworkGraph: React.FC<CoAuthorNetworkGraphProps> = ({
             <span className="flex items-center gap-1"><span style={{ display:'inline-block', width:10, height:3, background:'#2563eb', borderRadius:2 }}/>same region</span>
           </div>
         )}
+        <button
+          onClick={handleDownload}
+          style={{ marginLeft: 'auto', background: '#fff', border: '1px solid #e2e8f0', borderRadius: 6, padding: '4px 12px', fontSize: 12, color: '#475569', cursor: 'pointer', boxShadow: '0 1px 3px rgba(0,0,0,0.1)', display: 'flex', alignItems: 'center', gap: 5 }}
+        >
+          ↓ Download PNG
+        </button>
       </div>
-      <div style={{ width: '100%', height: 680, background: '#f8fafc', borderRadius: 12, border: '1px solid #e5e7eb' }}>
+      <div ref={containerRef} style={{ width: '100%', height: 680, background: '#f8fafc', borderRadius: 12, border: '1px solid #e5e7eb' }}>
         {/* key forces full remount when layout changes → fitView fires on clean mount */}
         <ReactFlowProvider key={`${shownAuthors}-${isLarge}`}>
           <NetworkFlow nodes={nodes} edges={edges} isLarge={isLarge} onAuthorClick={onAuthorClick} />

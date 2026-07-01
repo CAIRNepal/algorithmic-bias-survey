@@ -1,0 +1,446 @@
+SN,Paper Title,Domain,Year,cluster,umap_x,umap_y,cited_by_count,is_oa,oa_status
+2,Artificial intelligence and algorithmic bias: implications for health systems,Health & Clinical AI,2019,3,3.6801782,-0.95379496,499,True,gold
+3,Artificial Intelligence in Clinical Decision Support: Challenges for Evaluating AI and Practical Implications,Health & Clinical AI,2019,3,1.6617057,1.2570118,335,True,hybrid
+5,Inherent Bias in Artificial Intelligence-Based Decision Support Systems for Healthcare,Health & Clinical AI,2020,3,1.4998826,1.0799503,46,True,gold
+7,Fairness Constraints: Mechanisms for Fair Classification,General Fairness & Bias Mitigation,2015,7,5.904634,-0.19163015,335,True,green
+8,Bias Mitigation for Machine Learning Classifiers: A Comprehensive Survey,General Fairness & Bias Mitigation,2022,7,5.3990455,0.23773335,23,True,green
+9,Fairness And Bias in Artificial Intelligence: A Brief Survey of Sources Impacts And Mitigation Strategies,General Fairness & Bias Mitigation,2023,3,2.8589058,0.53210396,668,True,gold
+11,Semantic Web technologies and bias in artificial intelligence: A systematic literature review,Graph-Based Fairness & Bias Mitigation,2023,1,3.9307988,0.5992774,24,True,hybrid
+12,Bias in data-driven artificial intelligence systems—An introductory survey,General Fairness & Bias Mitigation,2019,1,3.8257449,0.17265855,21,True,green
+13,Are AI systems biased against the poor? A machine learning analysis using Word2Vec and GloVe embeddings,LLMs & NLP,2022,2,5.3279815,2.5902612,52,True,hybrid
+14,Sources of bias in artificial intelligence that perpetuate healthcare disparities—A global review,Health & Clinical AI,2022,3,1.4178427,0.79803574,0,False,closed
+15,Analysis of Countries in Terms of Artificial Intelligence Technologies: PROMETHEE and GAIA Method Approach,General Fairness & Bias Mitigation,2022,1,2.9661496,0.37365434,23,True,gold
+16,Evaluation and Mitigation of Racial Bias in Clinical Machine Learning Models: Scoping Review,Health & Clinical AI,2022,3,0.58006996,1.3836321,180,True,gold
+17,Towards Debiasing Sentence Representations,LLMs & NLP,2020,2,5.643445,2.8034048,7,True,green
+18,Algorithmic Bias in Autonomous Systems,General Fairness & Bias Mitigation,2017,1,3.735399,-0.8429964,440,True,gold
+19,Meritocratic Fairness for Infinite and Contextual Bandits,General Fairness & Bias Mitigation,2018,7,5.859864,-0.984133,21,False,closed
+20,Trustworthy AI: A Computational Perspective,General Fairness & Bias Mitigation,2022,1,3.532601,-0.6256464,2,True,green
+22,A Comprehensive Empirical Study of Bias Mitigation Methods for Machine Learning Classifiers,General Fairness & Bias Mitigation,2023,7,5.118626,0.46995902,13,True,green
+23,Ignorance and Prejudice in Software Fairness,General Fairness & Bias Mitigation,2021,7,5.482748,0.056245126,69,True,green
+24,Removing Biased Data to Improve Fairness and Accuracy,General Fairness & Bias Mitigation,2021,7,5.036593,0.7505317,10,True,green
+25,FAIR MIXUP: Fairness via Interpolation,General Fairness & Bias Mitigation,2021,7,5.8176103,0.48983565,11,True,green
+27,Black Box Fairness Testing of Machine Learning Models,General Fairness & Bias Mitigation,2019,7,5.0822477,0.85385656,180,False,closed
+28,MAAT: A Novel Ensemble Approach to Addressing Fairness and Performance Bugs for Machine Learning Software,General Fairness & Bias Mitigation,2023,7,5.1344233,0.3038614,59,True,green
+29,Fairea: A Model Behaviour Mutation Approach to Benchmarking Bias Mitigation Methods,General Fairness & Bias Mitigation,2021,7,5.1258574,0.5179673,68,True,green
+32,A Review on Fairness in Machine Learning,General Fairness & Bias Mitigation,2022,7,4.976279,-0.8272445,527,False,closed
+34,Reconciling Modern Machine Learning Practice and the Bias-Variance Trade-Off,General Fairness & Bias Mitigation,2019,6,4.8964605,0.8068249,83,True,green
+37,Fairness-Aware Explainable Recommendation over Knowledge Graphs,Recommender Systems,2020,5,8.02249,1.5912616,189,False,closed
+39,Men Also Like Shopping: Reducing Gender Bias Amplification Using Corpus-Level Constraints,LLMs & NLP,2017,6,4.1932306,2.215724,124,True,green
+40,Certifying and Removing Disparate Impact,General Fairness & Bias Mitigation,2015,7,3.8491805,-1.0630819,1767,False,closed
+41,Integrating Behavioral Economic and Technical Insights to Address Algorithmic Bias,General Fairness & Bias Mitigation,2022,7,5.068157,-0.56813186,23,False,closed
+42,Fairness in Recommendation: Foundations Methods and Applications,Recommender Systems,2023,5,8.386775,1.7112795,83,False,closed
+43,A Survey on Trustworthy Recommender Systems,Recommender Systems,2024,5,8.425423,2.299059,63,True,hybrid
+44,A Comprehensive Survey on Trustworthy Recommender Systems,Recommender Systems,2022,5,8.508143,2.25887,15,True,green
+45,Towards Personalized Fairness Based on Causal Notion,Recommender Systems,2021,5,8.296867,1.73654,133,True,gold
+47,Knowledge Graphs and Explainable AI in Healthcare,Health & Clinical AI,2022,3,1.9649982,1.0240576,44,True,gold
+48,Constructing Knowledge Graphs and Their Biomedical Applications,Health & Clinical AI,2020,6,1.9785408,1.1526263,267,True,gold
+49,Algorithmic Fairness Datasets: The Story So Far,General Fairness & Bias Mitigation,2022,7,5.6897755,0.4441623,1,True,hybrid
+50,Review of Mathematical Frameworks for Fairness in Machine Learning,General Fairness & Bias Mitigation,2020,7,5.7664375,-0.87280923,20,True,green
+51,Did You Do Your Homework? Raising Awareness on Software Fairness and Discrimination,General Fairness & Bias Mitigation,2021,7,5.763945,0.18998635,16,True,green
+52,Fairness in Machine Learning: A Survey,General Fairness & Bias Mitigation,2023,7,5.661499,0.04014439,433,True,hybrid
+53,Privileged and Unprivileged Groups: An Empirical Study on the Impact of the Age Attribute on Fairness,General Fairness & Bias Mitigation,2022,7,5.6315074,0.39285353,5,True,gold
+54,Fairway: A Way to Build Fair ML Software,General Fairness & Bias Mitigation,2020,7,5.0698757,0.5845947,119,True,green
+56,Fair Preprocessing: Understanding Compositional Fairness of Data Transformers in ML Pipeline,General Fairness & Bias Mitigation,2021,7,5.512385,0.01691554,94,True,gold
+57,Bias in Machine Learning Software: Why? How? What to Do?,General Fairness & Bias Mitigation,2021,7,5.6304846,0.351897,166,True,green
+60,Representation Bias in Data: A Survey on Identification and Resolution Techniques,General Fairness & Bias Mitigation,2023,7,4.4831057,0.81519365,101,False,closed
+62,A Survey on Fairness for Machine Learning on Graphs,Graph-Based Fairness & Bias Mitigation,2024,7,7.4872713,0.6704979,3,True,green
+63,Slice Tuner: A Selective Data Acquisition Framework for Fair ML Models,General Fairness & Bias Mitigation,2021,7,5.1648965,0.7224419,31,False,closed
+64,Optimized Score Transformation for Consistent Fair Classification,General Fairness & Bias Mitigation,2021,7,5.866429,-0.11913903,1,True,green
+65,Counterfactual Fairness,General Fairness & Bias Mitigation,2017,7,5.59726,-0.42203265,870,True,green
+66,Algorithmic Fairness: Choices Assumptions and Definitions,General Fairness & Bias Mitigation,2021,7,5.688729,-0.82511795,556,True,hybrid
+67,On the Applicability of Machine Learning Fairness Notions,General Fairness & Bias Mitigation,2021,0,4.651486,2.1489434,9,True,green
+68,Approval of AI/ML-Based Medical Devices in USA & Europe,Health & Clinical AI,2021,3,1.6516812,0.9665581,623,True,gold
+69,AI in Medicine: Structural Challenges in Improving Patient Care,Health & Clinical AI,2022,3,1.6919612,1.0703645,69,True,gold
+71,Data Drift in Medical ML: Implications and Remedies,Health & Clinical AI,2023,6,1.2839596,0.4960183,189,True,bronze
+72,Recommendations on compiling test datasets for evaluating artificial intelligence solutions in pathology,Health & Clinical AI,2022,3,1.41719,0.32583103,66,True,hybrid
+73,Shifting ML in Healthcare: From Development to Deployment,Health & Clinical AI,2022,6,1.400235,0.7328102,389,True,hybrid
+74,Towards a Fair Marketplace: Fairness & Satisfaction in Recommender Systems,Recommender Systems,2022,5,8.784256,1.8867916,274,False,closed
+76,Bias and Fairness in Large Language Models: A Survey,LLMs & NLP,2024,2,5.329614,2.8152974,476,True,diamond
+77,Investigating Bias in LLM-Based Bias Detection: Disparities between LLMs and Human Perception,LLMs & NLP,2024,2,4.974705,3.25792,22,True,green
+78,Systematic Biases in LLM Simulations of Debates,LLMs & NLP,2024,2,5.0329432,3.2019114,37,True,gold
+79,Kelly is a Warm Person Joseph is a Role Model: Gender Biases in LLM-Generated Reference Letters,LLMs & NLP,2023,2,5.786434,3.1944144,17,True,green
+80,Justice or Prejudice? Quantifying Biases in LLM-as-a-Judge,LLMs & NLP,2024,4,4.5121336,3.5748496,6,True,green
+81,Bias and Unfairness in Information Retrieval Systems: New Challenges in the LLM Era,LLMs & NLP,2024,4,4.606334,2.9402316,98,True,gold
+82,Probing Explicit and Implicit Gender Bias through LLM Conditional Text Generation,LLMs & NLP,2023,2,5.7532187,3.3118765,8,True,green
+83,On the Independence of Association Bias and Empirical Fairness in Language Models,LLMs & NLP,2023,2,5.2377076,2.7978797,0,True,green
+84,Fairness in Large Language Models: A Taxonomic Survey,LLMs & NLP,2023,2,5.137743,2.584164,54,False,closed
+85,Survey on Factuality in Large Language Models: Knowledge Retrieval and Domain-Specificity,LLMs & NLP,2024,4,4.1281404,3.609292,53,True,green
+86,A Survey of Large Language Models in Medicine: Progress Application and Challenge,LLMs & NLP,2023,0,2.2680912,2.2423065,37,True,green
+87,Creating Trustworthy LLMs: Dealing with Hallucinations in Healthcare AI,LLMs & NLP,2023,0,2.060186,2.0916574,17,True,green
+88,Risk Taxonomy Mitigation and Assessment Benchmarks of Large Language Model Systems,LLMs & NLP,2023,4,3.9100544,3.5337238,13,True,green
+89,Large Language Models in Healthcare and Medical Domain: A Review,LLMs & NLP,2024,4,2.4320345,2.2902722,321,True,gold
+92,Intentional Biases in LLM Responses,LLMs & NLP,2023,2,5.11605,3.1011713,9,False,closed
+94,Bias in data-driven artificial intelligence systems—An introductory survey (2nd entry),Graph-Based Fairness & Bias Mitigation,2020,1,3.845521,0.108871534,976,True,hybrid
+95,Contextual knowledge graph approach to bias-reduced decision support systems,Graph-Based Fairness & Bias Mitigation,2024,7,4.8929095,-0.25029498,5,True,bronze
+96,Detecting and Mitigating Bias in LLMs through Knowledge Graph-Augmented Training,Graph-Based Fairness & Bias Mitigation,2025,2,5.836597,2.5148172,0,True,green
+97,StereoKG: Data-Driven Knowledge Graph Construction For Cultural Knowledge and Stereotypes,Graph-Based Fairness & Bias Mitigation,2022,2,5.4942117,2.7290967,8,True,gold
+98,Visual Affect Around the World,Graph-Based Fairness & Bias Mitigation,2015,6,4.016466,2.5092,96,True,gold
+99,Semantics of the Black-Box: Can knowledge graphs help make deep learning systems more interpretable and explainable?,Graph-Based Fairness & Bias Mitigation,2020,6,3.545526,1.5785675,0,True,green
+100,Leveraging Structural Causal Models for Bias Detection and Feature Adjustment in Machine Learning Predictions,Graph-Based Fairness & Bias Mitigation,2024,7,5.2321863,-0.2298423,1,False,closed
+101,Gender Bias Analysis in Commonsense Knowledge Graph Embeddings,Graph-Based Fairness & Bias Mitigation,2023,2,6.150603,2.1594908,1,False,closed
+102,Towards Engineering Fair Ontologies: Unbiasing a Surveillance Ontology,Graph-Based Fairness & Bias Mitigation,2021,1,4.098614,0.22245845,5,False,closed
+103,Personalized Recommender System for Improving Gender-fairness in Teaching,Recommender Systems,2019,5,8.254148,1.8517231,1,False,closed
+104,Fairness and Bias in E-commerce Recommendation Systems: A Literature Review,Recommender Systems,2024,5,9.075834,2.2290719,1,False,closed
+105,De-Biasing user conformity bias and item popularity bias in Group recommendation,Recommender Systems,2023,5,9.063642,2.2094905,7,False,closed
+106,DF-CDR: A Unified Framework for Dual Fairness in Cross-Domain Recommendation Systems,Recommender Systems,2025,5,8.050196,1.9039723,0,False,closed
+107,"Enhancing Netflix's Recommendation System: A Hybrid AI Approach for Personalization, Bias Reduction, and Engagement Optimization",Recommender Systems,2025,5,7.9783435,2.1704628,0,False,closed
+108,Properly Scoring Users' Mainstreamness to Evaluate Recommendation Bias,Recommender Systems,2023,5,8.959258,2.1508694,0,False,closed
+109,A Bias Aware News Recommendation System,Recommender Systems,2019,5,7.8531914,2.6883886,1,True,green
+110,Cross-Modality Bias Auditing and Fairness Evaluation in Generalist Clinical AI Models,Health & Clinical AI,2025,3,0.99658734,0.751522,0,False,closed
+111,A Survey of Bias and Fairness in Healthcare AI,Health & Clinical AI,2024,3,1.5291471,0.9946605,8,False,closed
+112,The Problem Of Data Bias In Healthcare AI,Health & Clinical AI,2024,7,4.928971,0.34183785,2,False,closed
+113,Gradient-Based Reconciliation of Fairness and Performance in Healthcare AI,Health & Clinical AI,2025,3,0.8667992,0.55279523,0,False,closed
+114,"Integrated Framework for Equitable Healthcare AI: Bias Mitigation, Community Participation, and Regulatory Governance",Health & Clinical AI,2025,3,0.86556816,0.5430183,0,False,closed
+115,Racial Bias in Multimodal Classification of Healthcare Data - Evidence from MIMIC-IV,Health & Clinical AI,2025,3,1.2846963,0.43064052,0,False,closed
+116,Fairness Metrics in AI Healthcare Applications: A Review,Health & Clinical AI,2024,3,0.7272471,0.7847382,10,False,closed
+117,Enhancing Multi-Attribute Fairness in Healthcare Predictive Modeling,Health & Clinical AI,2025,3,0.784914,0.54521203,0,False,closed
+118,De-Biased Disentanglement Learning for Pulmonary Embolism Survival Prediction on Multimodal Data,Health & Clinical AI,2024,3,1.1244211,0.43893874,2,False,closed
+119,Mitigating Racial Bias in Skin Lesion Classification with a Novel Deep Learning-Driven Dataset,Health & Clinical AI,2025,6,1.3884685,-0.22071287,0,False,closed
+120,"Underrepresented Tones: Addressing Skin Bias in Medical Imaging for Eczema, Psoriasis, and Melanoma Detection Using CNNs",Health & Clinical AI,2023,3,1.3999907,-0.07775337,4,False,closed
+121,Assessing Bias Within Diabetes Risk Prediction in Machine Learning Techniques,Health & Clinical AI,2025,3,0.44881496,1.0082885,0,False,closed
+122,fair-LDP: Uncertainty-Guided Fairness and Privacy for Federated Healthcare Learning,Health & Clinical AI,2025,3,1.8842914,0.5394653,0,False,closed
+123,Addressing Algorithmic Bias in Diabetes Care: A Multi-Modal Machine Learning Framework for Equitable Readmission Prediction,Health & Clinical AI,2025,3,0.560895,0.7420672,0,False,closed
+124,FairCLIP: Harnessing Fairness in Vision-Language Learning,Health & Clinical AI,2024,3,0.7500725,0.15357518,39,False,closed
+125,AGR: Age Group fairness Reward for Bias Mitigation in LLMs,LLMs & NLP,2025,7,5.7133317,0.68675554,2,False,closed
+126,Causal Mitigation of Pink Tax: Intersectional Bias Reduction in LLMs,LLMs & NLP,2025,2,5.945693,3.251142,0,False,closed
+127,Evaluating Bias Detection and Mitigation Approaches Across Classical and Large Language Models,LLMs & NLP,2026,7,5.148268,2.0283816,0,True,gold
+128,Leveraging Large Language Models for Bias Detection and Mitigation in Data Analytics Models,LLMs & NLP,2025,2,5.59925,2.097638,2,False,closed
+129,ThaiSBi: A Thai Social Bias Dataset for Large Language Model,LLMs & NLP,2025,2,5.093385,2.6617038,0,False,closed
+130,Fairness in AI: Evaluating and Mitigating Bias in Decision-Making Models,LLMs & NLP,2025,1,2.7443404,-0.23260608,0,False,closed
+132,Exploring Bias Evaluation Techniques for Quantifying Large Language Model Biases,LLMs & NLP,2023,2,5.3126693,3.5677674,4,False,closed
+133,Mitigating Bias in Large Language Models Through Culturally-Relevant LLMs,LLMs & NLP,2025,2,5.457273,2.888644,1,False,closed
+134,Probing into the Fairness of Large Language Models: A Case Study of ChatGPT,LLMs & NLP,2024,7,4.1411343,-0.2553477,5,False,closed
+135,Leveraging Multiple LLM Evaluators for Scalable and Fair Language Model Assessments,LLMs & NLP,2025,4,4.316704,3.7905426,33,False,closed
+137,Bias Detection and Mitigation in Large Language Models for Code Generation,LLMs & NLP,2025,4,4.702641,1.7054305,0,False,closed
+138,Applying Prompt-Based Mitigation of Gender-Role Bias in Large Language Models for Security,LLMs & NLP,2025,2,5.862044,3.12237,0,False,closed
+139,Behind the Words: Unmasking Bias Lurking in LLMs and Data,LLMs & NLP,2025,2,5.2448893,3.2944171,0,False,closed
+140,Deep Learning Approach for Evaluating Fairness in LLMs,LLMs & NLP,2025,2,5.071001,3.5318863,2,False,closed
+141,Comparative Study of Large Language Model Evaluation Frameworks with a Focus on NLP vs LLM-As-A-Judge Metrics,LLMs & NLP,2025,4,4.232502,3.7954707,2,False,closed
+142,Auditing Demographic Bias in Mistral: An Open-Source LLM's Diagnostic Performance on the MedQA Benchmark,LLMs & NLP,2026,0,1.3799069,1.945322,0,True,gold
+143,A Vision for Debiasing Confirmation Bias in Software Testing via LLM,LLMs & NLP,2025,4,4.744417,2.4560866,0,False,closed
+144,Measuring and Mitigating Gender Entropy Bias in Large Language Models,LLMs & NLP,2025,2,5.5543914,3.4011364,0,False,closed
+145,Spoken Stereoset: on Evaluating Social Bias Toward Speaker in Speech Large Language Models,LLMs & NLP,2024,2,5.304595,3.5751543,5,False,closed
+146,Position Bias Across LLM Model Families,LLMs & NLP,2025,4,4.467001,3.5206547,0,False,closed
+147,Knowledge Graph-Based Diversified Recommendation,Graph-Based Fairness & Bias Mitigation,2025,5,7.854357,1.7934918,0,True,gold
+148,Bursting the Filter Bubble with Knowledge Graph Inversion,Graph-Based Fairness & Bias Mitigation,2025,5,8.2725935,2.228873,3,True,gold
+149,An Ontology for Fairness Metrics,Graph-Based Fairness & Bias Mitigation,2022,7,5.334408,-0.18773948,31,False,closed
+150,Towards an Ontology-Driven Approach to Document Bias,Graph-Based Fairness & Bias Mitigation,2025,1,3.7656593,1.0336195,1,True,diamond
+151,Fair-RGNN: Mitigating Relational Bias on Knowledge Graphs,Graph-Based Fairness & Bias Mitigation,2024,6,7.2027645,1.192482,1,True,bronze
+152,Knowledge-Enhanced Language Models Are Not Bias-Proof: Situated Knowledge and Epistemic Injustice in AI,Graph-Based Fairness & Bias Mitigation,2024,2,5.329298,3.134108,21,True,gold
+153,Bias-Aware Agent: Enhancing Fairness in AI-Driven Knowledge Retrieval,Graph-Based Fairness & Bias Mitigation,2025,4,4.1589494,2.624492,4,True,green
+154,FnRGNN: Distribution-aware Fairness in Graph Neural Network,Graph-Based Fairness & Bias Mitigation,2025,7,7.5416994,0.79742736,0,True,gold
+155,Fairness-Aware Graph Learning: A Benchmark,Graph-Based Fairness & Bias Mitigation,2025,7,7.547562,0.6844712,0,True,gold
+156,Can We Trust Recommender System Fairness Evaluation? The Role of Fairness and Relevance,Recommender Systems,2024,5,8.781818,1.7116052,5,True,green
+158,Fairness and Transparency in Music Recommender Systems: Improvements for Artists,Recommender Systems,2024,5,8.633754,2.1360793,0,True,gold
+159,"Understanding Biases in ChatGPT-based Recommender Systems: Provider Fairness, Temporal Stability, and Recency",Recommender Systems,2024,5,8.481183,1.8755201,35,True,bronze
+160,Unmasking Gender Bias in Recommendation Systems and Enhancing Category-Aware Fairness,Recommender Systems,2025,5,7.8126483,2.2120779,5,True,gold
+161,No Bias Left Behind: Fairness Testing for Deep Recommender Systems Targeting General Disadvantaged Groups,Recommender Systems,2025,5,8.36163,1.9949675,0,True,hybrid
+162,A Reproducibility Study of Product-side Fairness in Bundle Recommendation,Recommender Systems,2025,5,8.657898,1.7116867,0,True,gold
+163,CFaiRLLM: Consumer Fairness Evaluation in Large-Language Model Recommender System,Recommender Systems,2025,5,8.504939,1.6778562,23,True,hybrid
+164,Dynamic Fairness-aware Recommendation Through Multi-agent Social Choice,Recommender Systems,2024,5,8.493236,1.4417164,9,True,hybrid
+165,FairCRS: Towards User-oriented Fairness in Conversational Recommendation Systems,Recommender Systems,2024,5,8.476636,1.8601667,5,True,gold
+166,Shift your Focus for the Greater Good: Improving Fairness at no cost for Accuracy and Diversity in News Recommender Systems,Recommender Systems,2026,5,8.394645,2.1417842,0,False,closed
+167,"Accuracy, Fairness, Diversity All at Once: An Influence-Function-Guided Data Enhancement Approach for Recommender System",Recommender Systems,2025,5,8.280916,2.1452038,0,False,closed
+168,Balancing Fairness and High Match Rates in Reciprocal Recommender Systems: A Nash Social Welfare Approach,Recommender Systems,2026,5,8.5761385,1.5061285,0,True,hybrid
+169,Relevance-aware Individual Item Fairness Measures for Recommender Systems: Limitations and Usage Guidelines,Recommender Systems,2025,5,8.726807,1.6659535,1,True,hybrid
+170,When Fairness meets Bias: a Debiased Framework for Fairness aware Top-N Recommendation,Recommender Systems,2023,5,8.530255,1.9953502,27,False,closed
+171,On Inherited Popularity Bias in Cold-Start Item Recommendation,Recommender Systems,2025,5,8.038267,2.1133106,0,True,green
+172,Opening the Black Box: Interpretable Remedies for Popularity Bias in Recommender Systems,Recommender Systems,2025,5,7.9419293,2.091792,0,True,gold
+173,Rewriting Bias: Automated Rewriting to Reduce Media Bias Polarisation in News Recommender Systems,Recommender Systems,2025,2,6.7165923,2.9252846,0,True,hybrid
+174,Investigating User-Side Fairness in Outcome and Process for Multi-Type Sensitive Attributes in Recommendations,Recommender Systems,2025,5,8.168252,1.6195269,1,True,hybrid
+175,Long-term Dynamics of Fairness Intervention in Connection Recommender Systems,Recommender Systems,2022,5,8.71236,1.4017235,13,True,gold
+176,Enhancing Data Diversity and Traceability to Mitigate Bias in Healthcare AI: A Blockchain-Driven Approach,Health & Clinical AI,2024,1,2.2463975,0.41765922,2,True,gold
+177,Addressing Bias and Ensuring Fairness in AI Systems for Healthcare,Health & Clinical AI,2025,3,0.98483014,0.97767276,1,True,gold
+178,Inherent Bias in Electronic Health Records: A Scoping Review of Sources of Bias,Health & Clinical AI,2025,3,1.1714784,1.3206061,8,False,closed
+179,"An Agentic Framework for Compliant, Ethical and Trustworthy GenAI Applications in Healthcare",Health & Clinical AI,2025,3,2.0905278,0.7031533,3,True,gold
+180,Fair Foundation Models for Medical Image Analysis: Challenges and Perspectives,Health & Clinical AI,2026,3,1.5711354,0.6958986,2,False,closed
+183,Investigating Perception of Gender Stereotypes in Large Language Models: A Computational Grounded Theory Approach,LLMs & NLP,2025,2,5.6300654,2.9208834,1,False,closed
+184,Indian-BhED: A Dataset for Measuring India-Centric Biases in Large Language Models,LLMs & NLP,2024,2,5.3673267,3.5373394,11,False,closed
+185,Unmasking Bias in Financial AI: A Robust Framework for Evaluating and Mitigating Hidden Biases in LLMs,LLMs & NLP,2025,4,4.7824507,3.420947,1,False,closed
+186,Fairness of Large Language Models in Education,LLMs & NLP,2024,2,5.211217,2.2140746,6,False,closed
+187,EVENS: Equality versus Equity Notion Spectrum of LLMs,LLMs & NLP,2025,7,4.214234,-0.43126467,0,True,gold
+188,The Root Shapes the Fruit: On the Persistence of Gender-Exclusive Harms in Aligned Language Models,LLMs & NLP,2025,2,5.8034987,3.283084,4,True,gold
+192,Implications of algorithmic bias in AI-driven emergency response systems,General Fairness & Bias Mitigation,2025,3,0.9840289,0.9399387,0,True,diamond
+193,The Butterfly Effect in artificial intelligence systems: Implications for AI bias and fairness,General Fairness & Bias Mitigation,2024,1,4.8088555,0.026802193,93,True,gold
+194,Algorithmic bias: Social science research integration through the 3-D Dependable AI Framework,General Fairness & Bias Mitigation,2024,1,3.8537889,-0.7166113,15,True,hybrid
+196,Towards early detection of algorithmic bias from dataset's bias symptoms: An empirical study,General Fairness & Bias Mitigation,2025,7,4.7848125,0.27727485,1,True,hybrid
+197,Human-Centric AI to Mitigate AI Biases,General Fairness & Bias Mitigation,2023,1,2.8866537,0.36265278,32,True,diamond
+198,"Teaching AI awareness in middle school classrooms: Design, implementation and evaluation of two education modules on algorithmic bias and filter bubbles",General Fairness & Bias Mitigation,2025,1,3.6502345,-0.2150995,3,True,gold
+201,Evaluating Algorithmic Bias in 30-Day Hospital Readmission Models: Retrospective Analysis,Health & Clinical AI,2024,3,0.6114271,1.0473497,6,True,gold
+203,Rethinking fairness in unsupervised healthcare AI: A methodological scoping review,Health & Clinical AI,2026,3,0.49404708,0.69050413,0,True,hybrid
+205,Toward fair medical advice: Addressing and mitigating bias in large language model-based healthcare applications,Health & Clinical AI,2025,2,4.809034,3.2798069,2,True,hybrid
+206,Meta-Fair: AI-assisted fairness testing of large language models,LLMs & NLP,2026,4,4.9610043,2.2066908,1,True,hybrid
+207,A resource-efficient framework for cultural alignment in large language models (LLMs): The Chinese context,LLMs & NLP,2026,4,5.057445,2.8361232,0,True,hybrid
+208,"Diagnosing the bias iceberg in large language models: A three-level framework of explicit, evaluative, and implicit gender bias",LLMs & NLP,2025,2,5.404185,3.6052215,4,True,hybrid
+210,Fairness and social bias quantification in Large Language Models for sentiment analysis,LLMs & NLP,2025,2,5.5014024,3.0844462,9,True,hybrid
+211,"Implicit Gender, Racial, and Ethnic Biases in Large Language Models: An Audit Study of Automated Psychiatric Diagnoses",LLMs & NLP,2026,0,1.339335,2.0697818,0,True,diamond
+226,FAIR-MED: Bias Detection and Fairness Evaluation in Healthcare Focused XAI,Health & Clinical AI,2025,3,0.47297597,0.59893864,1,True,hybrid
+227,From Ethical Declarations to Provable Independence: An Ontology-Driven Optimal-Transport Framework for Certifiably Fair AI Systems,Graph-Based Fairness & Bias Mitigation,2025,7,4.729253,-0.25420806,0,True,green
+233,EqStruct-GNN: toward fair recommendation via debiased graph structure learning,Recommender Systems,2025,5,7.645726,0.867977,0,False,closed
+234,The Impact of Popularity Bias and Perceived Fairness on Intention to Use Recommender System in Indonesian E-Commerce,Recommender Systems,2026,5,9.026999,2.2665503,0,False,closed
+235,Fairness Aware Regularization on a Learning-to-Rank Recommender System for Controlling Popularity Bias in E-Commerce Domain,Recommender Systems,2018,5,9.0450945,2.2462242,12,False,closed
+236,A Dual-Adversarial Learning Framework with Explicit Constraints for Two-Sided Fairness in Recommendation System,Recommender Systems,2026,5,7.966459,1.9323257,0,True,diamond
+237,A scoping review and evidence gap analysis of clinical AI fairness,Health & Clinical AI,2025,3,0.95443684,0.80375445,29,True,gold
+239,Biased AI: A Case for Positive Bias in Healthcare AI,Health & Clinical AI,2025,3,1.1057614,0.8270961,1,True,hybrid
+240,"Governing Healthcare AI in the Real World: How Fairness, Transparency, and Human Oversight Can Coexist",Health & Clinical AI,2026,1,2.131527,0.86815125,3,True,gold
+241,Mitigating Data Bias in Healthcare AI with Self-Supervised Standardization,Health & Clinical AI,2025,3,1.6258291,0.3278052,1,False,closed
+243,BiasFreeBench: a Benchmark for Mitigating Bias in Large Language Model Responses,LLMs & NLP,2025,4,4.7986536,3.405217,0,True,green
+244,Ethical perspectives on deployment of large language model agents in biomedicine: a survey,LLMs & NLP,2025,1,2.4830496,0.9767463,0,True,hybrid
+246,Mitigating Nonlinear Algorithmic Bias in Binary Classification,General Fairness & Bias Mitigation,2024,7,6.2191257,0.08823986,2,True,green
+248,Aggregating Concepts of Fairness and Accuracy in Prediction Algorithms,General Fairness & Bias Mitigation,2025,7,5.666456,-0.7136163,0,True,gold
+250,Mitigating Algorithmic Bias in Multiclass CNN Classifications Using Causal Modeling,General Fairness & Bias Mitigation,2025,7,6.35218,0.18076621,1,False,closed
+251,Post-processing methods for mitigating algorithmic bias in healthcare classification models: An extended umbrella review,Health & Clinical AI,2025,3,0.69118476,1.4385723,3,True,diamond
+252,"Whither bias goes, I will go: An integrative, systematic review of algorithmic bias mitigation",General Fairness & Bias Mitigation,2024,7,4.548407,0.5303777,16,True,green
+253,Detecting and Mitigating Algorithmic Bias in Automated Hiring Systems Using Fairness Constraints,General Fairness & Bias Mitigation,2025,7,4.4735928,0.4845554,0,False,closed
+254,Public Perceptions of Algorithmic Bias and Fairness in Cloud-Based Decision Systems,General Fairness & Bias Mitigation,2025,1,2.515835,0.26661977,1,True,diamond
+255,Towards Ethical AI: Bias Detection and Mitigation in AI Models for Recruitment Systems and Criminal Justice Systems,General Fairness & Bias Mitigation,2025,1,3.81076,-0.29021224,1,False,closed
+256,Algorithmic Bias Detection: A Focus on Skin Tone and Gender Fairness in AI Models,General Fairness & Bias Mitigation,2025,7,1.5417293,-0.4510132,1,False,closed
+257,Large Language Model Bias Mitigation from the Perspective of Knowledge Editing,LLMs & NLP,2024,7,5.7693906,0.67188895,0,True,green
+258,Mitigating the Bias of Large Language Model Evaluation,LLMs & NLP,2024,4,4.4517665,3.7142446,0,True,green
+259,Is ChatGPT Fair for Recommendation? Evaluating Fairness in Large Language Model Recommendation,Recommender Systems,2023,5,8.268972,1.9939319,124,False,closed
+260,Fairer Preferences Elicit Improved Human-Aligned Large Language Model Judgments,LLMs & NLP,2024,4,4.5809975,3.5446737,0,True,green
+261,RRAO: An Ontology for the Representation of Reoffending Risk Assessment Knowledge,Graph-Based Fairness & Bias Mitigation,2025,1,4.179932,0.114019655,0,False,closed
+262,AI Bias in Power Systems Domain—Exemplary Cases and Approaches,General Fairness & Bias Mitigation,2025,1,3.6474183,0.7383294,0,True,gold
+263,Bias in Conversational Search: The Double-Edged Sword of the Personalized Knowledge Graph,Graph-Based Fairness & Bias Mitigation,2020,5,8.684704,2.4777977,24,True,green
+264,Comprehensive Fair Meta-learned Recommender System,Recommender Systems,2022,5,8.137778,2.0643709,47,True,green
+265,START Foundation: Coping with Bias and Fairness when Implementing and Using an AI System,General Fairness & Bias Mitigation,2024,1,6.5281086,0.7878661,1,False,closed
+266,Measuring Inter-Bias Effects and Fairness-Accuracy Trade-Offs in GNN-Based Recommender Systems,Graph-Based Fairness & Bias Mitigation,2025,5,8.670173,2.3118482,1,True,gold
+268,"The Connection Between Popularity Bias, Calibration, and Fairness in Recommendation",Recommender Systems,2020,5,8.96771,2.1306849,10,True,green
+270,Advancing Algorithmic Justice: A Systematic Review of Fair Decision-Making Protocols in Healthcare AI,Health & Clinical AI,2024,3,1.5899596,1.0821902,1,True,gold
+271,MACAIF: Machine Learning Auditing for Clinical AI Fairness,Health & Clinical AI,2023,3,0.23543347,0.6643184,1,False,closed
+272,Auditing fairness in clinical AI systems using provenance-based simulation,Health & Clinical AI,2026,3,0.80038106,0.99970496,0,True,gold
+273,A Review of Bias and Fairness in Artificial Intelligence,General Fairness & Bias Mitigation,2023,7,4.8273106,-0.14075123,53,True,diamond
+274,Addressing AI Bias in MRI-Based Dementia Classification Among Hispanic Individuals,Health & Clinical AI,2025,3,0.6009838,0.4221718,0,True,hybrid
+275,Mitigating Algorithmic Bias in AI-Driven Cardiovascular Imaging for Fairer Diagnostics,Health & Clinical AI,2024,3,0.8215931,0.25055793,23,True,gold
+276,Data augmentation for fairness-aware machine learning,General Fairness & Bias Mitigation,2022,7,4.5605817,-0.044681355,30,True,hybrid
+277,HIFI: Explaining and Mitigating Algorithmic Bias Through the Lens of Game-Theoretic Interactions,General Fairness & Bias Mitigation,2025,7,5.598184,0.1024593,0,False,closed
+278,Pre-processing Techniques to Mitigate Against Algorithmic Bias,General Fairness & Bias Mitigation,2023,7,5.4763536,-0.011656108,5,False,closed
+279,D-BIAS: A Causality-Based Human-in-the-Loop System for Tackling Algorithmic Bias,General Fairness & Bias Mitigation,2022,1,5.4921403,1.2867377,41,False,closed
+280,Detection and Mitigation of Algorithmic Bias via Predictive Parity,General Fairness & Bias Mitigation,2023,7,5.956936,-0.63331485,7,False,closed
+281,Mitigating Algorithmic Bias with Limited Annotations,General Fairness & Bias Mitigation,2022,7,5.7313747,0.44481182,0,True,green
+282,A step toward building a unified framework for managing AI bias,General Fairness & Bias Mitigation,2023,7,4.840415,-0.023425642,18,True,gold
+284,Algorithmic Fairness in Clinical Predictive Models: A Review of Bias Audits and Mitigation Strategies in Epidemiological Research,Health & Clinical AI,2025,3,0.32913116,1.1127915,0,True,hybrid
+285,Mitigating Algorithmic Bias in Multiclass CNN Classifications Using Causal Modeling,General Fairness & Bias Mitigation,2025,7,6.3550863,0.16189118,1,False,closed
+286,Post-processing methods for mitigating algorithmic bias in healthcare classification models: An extended umbrella review,Health & Clinical AI,2025,3,0.7479497,1.4070843,3,True,diamond
+287,"Whither bias goes, I will go: An integrative, systematic review of algorithmic bias mitigation",General Fairness & Bias Mitigation,2024,7,4.457162,0.54500985,16,True,green
+288,Detecting and Mitigating Algorithmic Bias in Automated Hiring Systems Using Fairness Constraints,General Fairness & Bias Mitigation,2025,7,4.429252,0.6125699,0,False,closed
+289,Public Perceptions of Algorithmic Bias and Fairness in Cloud-Based Decision Systems,General Fairness & Bias Mitigation,2025,1,2.5224469,0.21840157,1,True,diamond
+290,Towards Ethical AI: Bias Detection and Mitigation in AI Models for Recruitment Systems and Criminal Justice Systems,General Fairness & Bias Mitigation,2025,1,3.9772842,-0.20961344,1,False,closed
+291,Algorithmic Bias Detection: A Focus on Skin Tone and Gender Fairness in AI Models,General Fairness & Bias Mitigation,2025,7,1.5439607,-0.42934975,1,False,closed
+292,Add-Remove-or-Relabel: Practitioner-Friendly Bias Mitigation via Influential Fairness,General Fairness & Bias Mitigation,2023,7,4.940107,0.16913733,4,False,closed
+293,Fairness And Bias Mitigation in AI Models for Diabetes Diagnosis: A Comparative Evaluation of Algorithmic Approaches,Health & Clinical AI,2025,3,0.60263294,0.6049919,0,True,hybrid
+294,BIAS AUDIT FRAMEWORKS: Developing Tools for Early Detection of Algorithmic Bias in AI Development,General Fairness & Bias Mitigation,2025,3,2.1275308,0.12701128,1,True,diamond
+295,Justice in Judgment: Unveiling (Hidden) Bias in LLM-assisted Peer Reviews,LLMs & NLP,2025,2,5.7478337,3.2009497,0,True,green
+296,Does RAG Introduce Unfairness in LLMs? Evaluating Fairness in Retrieval-Augmented Generation Systems,LLMs & NLP,2024,2,4.954608,2.6926405,2,True,green
+297,Ethical Imperatives for Retrieval-Augmented Generation in Clinical Nursing: Viewpoint on Responsible AI Use,Health & Clinical AI,2025,0,2.1112905,1.4160676,1,True,gold
+298,Algorithmic individual fairness and healthcare: a scoping review,Health & Clinical AI,2024,3,0.5823469,0.8378542,19,True,gold
+300,Neural Retrievers are Biased Towards LLM-Generated Content,LLMs & NLP,2024,4,4.228588,3.0003424,26,False,closed
+301,Invisible Relevance Bias: Text-Image Retrieval Models Prefer AI-Generated Images,General Fairness & Bias Mitigation,2024,6,4.035079,2.6305275,16,True,gold
+302,The ethics of ChatGPT in medicine and healthcare: a systematic review on Large Language Models (LLMs),Health & Clinical AI,2024,0,2.1032634,1.8719225,290,True,gold
+303,"Dynamic feedback loops in recommender systems: Analyzing fairness, popularity bias, and user group disparities",Recommender Systems,2026,5,8.954595,1.9811414,0,True,hybrid
+304,Mind the Blind Spots: A Focus-Level Evaluation Framework for LLM Reviews,LLMs & NLP,2025,4,4.4204755,3.8661,2,True,gold
+305,Measuring the Fairness Gap Between Retrieval and Generation in RAG Systems using a Cognitive Complexity Framework,LLMs & NLP,2025,4,4.757723,2.7317216,2,True,gold
+306,Popularity Bias in Recommender Systems: The Search for Fairness in the Long Tail,Recommender Systems,2025,5,8.877119,2.058698,12,True,gold
+307,Toward Human-Like Evaluation for Natural Language Generation with Error Analysis,LLMs & NLP,2023,4,4.2830625,3.823245,10,True,gold
+309,Understanding the Effect of Model Compression on Social Bias in Large Language Models,LLMs & NLP,2023,2,5.120154,3.5750732,0,True,green
+310,"Linguistic and dialectal bias in large language models: a review of evidence, mechanisms,and implications (20182025)",LLMs & NLP,2026,2,5.4937167,3.350593,0,True,hybrid
+311,The Quantization Trap: Breaking Linear Scaling Laws in Multi-Hop Reasoning,LLMs & NLP,2026,6,4.591793,1.0351489,0,True,green
+312,GNNFairViz: Visual Analysis for Graph Neural Network Fairness,Graph-Based Fairness & Bias Mitigation,2025,7,7.517538,0.7569011,4,False,closed
+313,Procedural Fairness in Machine Learning,General Fairness & Bias Mitigation,2026,7,5.330056,-0.18453528,0,True,diamond
+314,Beyond Black Boxes: Designing and Testing Agentic AI Systems for Strategy,General Fairness & Bias Mitigation,2026,1,3.1566715,0.041508045,1,False,closed
+315,A Non-Parametric Choice Model That Learns How Users Choose Between Recommended Options,Recommender Systems,2025,5,8.866168,1.9055644,0,True,gold
+316,Fairness and Bias in Multimodal AI: A Survey,General Fairness & Bias Mitigation,2024,2,5.1174126,2.4627662,3,True,green
+317,Towards Fair Graph Neural Networks via Counterfactual and Balance,Graph-Based Fairness & Bias Mitigation,2025,7,7.486326,0.72927016,0,True,gold
+318,Fairness Testing of Large Language Models in Role-Playing,LLMs & NLP,2024,2,4.9063115,2.8178556,5,True,green
+320,Generative AI and the Foundation Model Era: A Comprehensive Review,LLMs & NLP,2026,6,3.565644,2.1468554,0,True,gold
+321,From Detection to Mitigation: Addressing Bias in Deep Learning Models for Chest X-Ray Diagnosis,Health & Clinical AI,2025,6,0.9629456,0.11248146,0,True,gold
+322,Popularity bias reduction in multi-criteria recommender systems: the RelPref and PriRelPref approaches,Recommender Systems,2026,5,9.055973,2.1825082,0,True,gold
+323,Fairness-in-the-Workflow: How Machine Learning Practitioners at Big Tech Companies Approach Fairness in Recommender Systems,Recommender Systems,2026,5,8.638612,1.3600689,0,True,gold
+324,"Bias Is a Math Problem, AI Bias Is a Technical Problem: 10-Year Literature Review of AI/LLM Bias Research Reveals Narrow [Gender-Centric] Conceptions of ‘Bias’, and Academia-Industry Gap",General Fairness & Bias Mitigation,2025,2,4.061837,1.2776852,0,True,bronze
+325,Advancing Fairness in Generative AI Through Intrinsic and Extrinsic Bias Evaluation and Mitigation,LLMs & NLP,2025,7,3.5490851,0.52618647,0,True,bronze
+326,NLP Needs Diversity outside of ‘Diversity’,LLMs & NLP,2025,2,5.292105,2.6455305,0,True,gold
+327,Exploring Social Choice Mechanisms for Recommendation Fairness in SCRUF,Recommender Systems,2023,5,8.6685915,1.402653,1,True,green
+328,Dialectal Toxicity Detection: Evaluating LLM-as-a-Judge Consistency Across Language Varieties,LLMs & NLP,2024,4,5.002323,3.704426,1,True,green
+329,Cross-Lingual Retrieval Augmented Prompt for Low-Resource Languages,LLMs & NLP,2022,4,4.0232368,3.2674234,1,True,green
+330,Beyond Demographics: Evaluating News Recommender Systems Fairness Through Behavioural Communities,Recommender Systems,2025,5,8.419457,1.2020663,1,True,gold
+331,Fairness and Diversity in Recommender Systems: A Survey,Recommender Systems,2024,5,8.765565,1.6078509,73,True,bronze
+332,Differential Privacy Has Disparate Impact on Model Accuracy,General Fairness & Bias Mitigation,2019,7,5.5418024,0.6008137,77,True,green
+333,Exploring gender biases in ML and AI academic research through systematic literature review,General Fairness & Bias Mitigation,2022,1,4.080702,0.77381694,83,True,gold
+334,Artificial intelligence in nursing education: A scoping review of intelligent tutoring systems-evidence and implementation gaps,Health & Clinical AI,2026,0,1.238378,1.6524291,0,True,hybrid
+335,In Anticipation of Perfect Deepfake: Identity-anchored Artifact-agnostic Detection under Rebalanced Deepfake Detection Protocol,General Fairness & Bias Mitigation,2024,6,3.739341,2.2281055,0,True,green
+336,RepMatch: Quantifying Cross-Instance Similarities in Representation Space,General Fairness & Bias Mitigation,2024,6,5.345803,1.4804446,0,True,green
+338,Algorithmic fairness and bias mitigation for clinical machine learning with deep reinforcement learning,Health & Clinical AI,2023,3,0.3896773,0.54494935,108,True,hybrid
+339,Fairness of artificial intelligence in healthcare: review and recommendations,Health & Clinical AI,2023,3,1.641681,0.64557153,497,True,hybrid
+340,Bias in artificial intelligence algorithms and recommendations for mitigation,General Fairness & Bias Mitigation,2023,3,1.2599962,1.0378207,533,True,gold
+341,"A Survey of Large Language Models for Healthcare: from Data, Technology, and Applications to Accountability and Ethics",Health & Clinical AI,2023,0,2.2832365,2.175018,28,True,green
+342,"“Kelly is a Warm Person, Joseph is a Role Model”: Gender Biases in LLM-Generated Reference Letters",LLMs & NLP,2023,2,5.857395,3.1750627,104,True,gold
+343,Comparing scientific abstracts generated by ChatGPT to real abstracts with detectors and blinded human reviewers,LLMs & NLP,2023,4,4.1853256,3.1733332,638,True,gold
+344,Personalized Prompt Learning for Explainable Recommendation,Recommender Systems,2023,4,7.7115808,2.2173285,150,False,closed
+345,Contrastive Self-supervised Learning in Recommender Systems: A Survey,Recommender Systems,2023,5,7.8063145,2.074335,97,False,closed
+346,"ArguGPT: evaluating, understanding and identifying argumentative essays generated by GPT models",LLMs & NLP,2023,4,4.168189,3.7878077,30,True,green
+347,Generative Visual Question Answering,LLMs & NLP,2023,6,3.7492592,2.2833335,0,True,green
+348,Survey on Machine Learning Biases and Mitigation Techniques,General Fairness & Bias Mitigation,2023,7,5.0027566,0.7326458,62,True,diamond
+349,Diversity-Promoting Ensemble for Medical Image Segmentation,Health & Clinical AI,2023,6,1.1297321,0.14025795,22,False,closed
+350,Algorithmic fairness in computational medicine,Health & Clinical AI,2022,3,0.2208115,0.78078276,142,True,gold
+351,A framework for the automatic description of healthcare processes in natural language: Application in an aortic stenosis integrated care process,Health & Clinical AI,2022,0,2.2642379,2.1355808,14,True,hybrid
+352,Are Graph Representation Learning Methods Robust to Graph Sparsity and Asymmetric Node Information?,Graph-Based Fairness & Bias Mitigation,2022,6,7.393093,0.9489306,0,True,green
+353,EDITS: Modeling and Mitigating Data Bias for Graph Neural Networks,Graph-Based Fairness & Bias Mitigation,2022,7,7.5671663,0.8584423,118,True,bronze
+354,Variational Reasoning about User Preferences for Conversational Recommendation,Recommender Systems,2022,5,8.583888,2.4232457,32,False,closed
+355,On the Dangers of Stochastic Parrots,LLMs & NLP,2021,4,4.0352235,3.7641068,5297,True,gold
+357,Ethical Machine Learning in Healthcare,Health & Clinical AI,2021,3,0.13343109,0.72859293,465,True,green
+358,Underdiagnosis bias of artificial intelligence algorithms applied to chest radiographs in under-served patient populations,Health & Clinical AI,2021,3,1.2545524,0.33175763,745,True,hybrid
+359,Addressing bias in big data and AI for health care: A call for open science,Health & Clinical AI,2021,3,1.2282777,0.8703281,772,True,gold
+360,Moving beyond “algorithmic bias is a data problem”,General Fairness & Bias Mitigation,2021,1,4.758547,0.8082451,165,True,gold
+361,A survey on datasets for fairness-aware machine learning,General Fairness & Bias Mitigation,2021,7,5.2027493,-0.104146026,40,True,hybrid
+363,Hidden in Plain Sight — Reconsidering the Use of Race Correction in Clinical Algorithms,Health & Clinical AI,2020,0,0.9521758,1.7245469,1639,True,bronze
+364,Ethical limitations of algorithmic fairness solutions in health care machine learning,Health & Clinical AI,2020,3,0.11451048,0.89618444,258,True,gold
+365,Model Cards for Model Reporting,General Fairness & Bias Mitigation,2019,6,0.4082309,0.29732528,1605,True,green
+366,Dissecting racial bias in an algorithm used to manage the health of populations,Health & Clinical AI,2019,3,0.8773358,1.1119448,5913,True,gold
+368,Fairness definitions explained,General Fairness & Bias Mitigation,2018,7,4.783805,-0.9807476,1046,False,closed
+369,Word embeddings quantify 100 years of gender and ethnic stereotypes,LLMs & NLP,2018,2,5.6808853,2.6763542,1081,True,green
+370,AI can be sexist and racist — it’s time to make it fair,General Fairness & Bias Mitigation,2018,1,4.7014604,0.31093436,745,True,hybrid
+371,Ensuring Fairness in Machine Learning to Advance Health Equity,Health & Clinical AI,2018,3,0.3339193,1.0533596,1134,True,green
+372,"The accuracy, fairness, and limits of predicting recidivism",General Fairness & Bias Mitigation,2018,7,4.4161744,0.023717195,1009,True,gold
+373,Fair Prediction with Disparate Impact: A Study of Bias in Recidivism Prediction Instruments,General Fairness & Bias Mitigation,2017,7,4.3949966,-0.06521147,158,True,bronze
+374,Equality of Opportunity in Supervised Learning,General Fairness & Bias Mitigation,2016,7,6.0762777,-0.088790245,1915,True,green
+375,Big Data's Disparate Impact,General Fairness & Bias Mitigation,2016,7,4.0499163,-1.1671444,1053,True,green
+376,Man is to Computer Programmer as Woman is to Homemaker? Debiasing Word Embeddings,LLMs & NLP,2016,2,5.8067117,2.5899057,1362,True,green
+377,Fairness through awareness,General Fairness & Bias Mitigation,2012,7,6.0460644,-0.53398263,3331,False,closed
+378,“How Biased are Your Features?”: Computing Fairness Influence Functions with Global Sensitivity Analysis,General Fairness & Bias Mitigation,2023,7,5.802362,-0.019805955,8,True,gold
+379,A Critical Survey on Fairness Benefits of Explainable AI,General Fairness & Bias Mitigation,2024,7,4.5369115,-0.8257791,38,True,gold
+380,A deep-learning method for the end-to-end prediction of intracranial aneurysm rupture risk,Health & Clinical AI,2023,6,1.2438624,-0.030025458,20,True,gold
+381,A Framework for Assurance Audits of Algorithmic Systems,General Fairness & Bias Mitigation,2024,1,2.8626351,-0.6959562,25,True,gold
+382,A scientometric analysis of fairness in health AI literature,Health & Clinical AI,2024,3,0.1701919,0.80756694,9,True,gold
+383,A scoping review of fair machine learning techniques when using real-world data,General Fairness & Bias Mitigation,2024,3,0.54507506,0.85639846,40,True,hybrid
+384,A Theory of Auditability for Allocation and Social Choice Mechanisms,General Fairness & Bias Mitigation,2023,1,5.7058725,-1.1495985,4,False,closed
+385,ACROCPoLis: A Descriptive Framework for Making Sense of Fairness,General Fairness & Bias Mitigation,2023,7,4.7997665,-0.8901964,8,True,gold
+386,Addressing Bias and Fairness in Machine Learning: A Practical Guide and Hands-on Tutorial,General Fairness & Bias Mitigation,2023,7,4.982851,0.066141486,3,False,closed
+387,Advances in decision support for diagnosis and early management of acute leukaemia,Health & Clinical AI,2024,6,4.420271,2.140593,3,True,gold
+388,Algorithm Bias and Perceived Fairness: A Comprehensive Scoping Review,General Fairness & Bias Mitigation,2024,7,4.336852,-0.8178305,4,True,gold
+389,Algorithmic Pluralism: A Structural Approach To Equal Opportunity,General Fairness & Bias Mitigation,2024,1,4.232336,-1.1967741,12,True,gold
+390,Annotating and Detecting Fine-grained Factual Errors for Dialogue Summarization,LLMs & NLP,2023,4,4.0205226,3.4212759,1,True,gold
+391,Assessing the potential of GPT-4 to perpetuate racial and gender biases in health care: a model evaluation study,LLMs & NLP,2023,0,1.2721598,1.8485198,427,True,gold
+392,Association Between Unmet Nonmedication Needs After Hospital Discharge and Readmission or Death Among Acute Respiratory Failure Survivors: A Multicenter Prospective Cohort Study*,Health & Clinical AI,2023,0,0.8465192,1.3579016,10,False,closed
+393,Auditing Cross-Cultural Consistency of Human-Annotated Labels for Recommendation Systems,Recommender Systems,2023,2,7.393502,2.3031156,5,True,green
+394,Auditing for Racial Discrimination in the Delivery of Education Ads,General Fairness & Bias Mitigation,2024,1,4.7028112,-1.2674984,9,True,gold
+395,Auditing Work: Exploring the New York City algorithmic bias audit regime,General Fairness & Bias Mitigation,2024,1,3.176899,-0.94421476,36,True,gold
+396,Bias and Debias in Recommender System: A Survey and Future Directions,Recommender Systems,2022,5,8.976298,2.2897682,603,False,closed
+397,Bias Discovery in Machine Learning Models for Mental Health,Health & Clinical AI,2022,3,0.13534984,0.4991569,27,True,gold
+398,Bias in machine learning models can be significantly mitigated by careful training: Evidence from neuroimaging studies,General Fairness & Bias Mitigation,2023,3,0.7190148,0.3802005,73,True,hybrid
+399,Causal Fairness Analysis: A Causal Toolkit for Fair Machine Learning,General Fairness & Bias Mitigation,2024,7,5.4715657,-0.54668355,23,False,closed
+400,Deep Multimodal Data Fusion,General Fairness & Bias Mitigation,2024,6,3.640464,2.1540864,304,True,bronze
+401,Disentangling Perceptions of Offensiveness: Cultural and Moral Correlates,General Fairness & Bias Mitigation,2024,1,3.7196455,-1.2424427,7,True,gold
+402,"Ethnic Classifications in Algorithmic Fairness: Concepts, Measures and Implications in Practice",General Fairness & Bias Mitigation,2024,7,5.7742934,-0.32766026,4,True,gold
+403,Ethnic disparity in diagnosing asymptomatic bacterial vaginosis using machine learning,Health & Clinical AI,2023,3,0.31438863,0.88159096,27,True,gold
+405,"Evidence of What, for Whom? The Socially Contested Role of Algorithmic Bias in a Predictive Policing Tool",General Fairness & Bias Mitigation,2024,1,3.7928576,-1.0308188,11,True,gold
+406,Fairness and bias correction in machine learning for depression prediction across four study populations,Health & Clinical AI,2024,3,0.09632327,0.59843427,31,True,gold
+407,Fairness Feedback Loops: Training on Synthetic Data Amplifies Bias,Health & Clinical AI,2024,7,5.290859,0.84579647,14,True,gold
+408,Fairness in AI-Based Mental Health: Clinician Perspectives and Bias Mitigation,General Fairness & Bias Mitigation,2024,3,0.23538998,0.40060422,7,True,bronze
+409,Fairness in Graph Machine Learning: Recent Advances and Future Prospectives,Graph-Based Fairness & Bias Mitigation,2023,7,7.5283923,0.7951316,4,False,closed
+410,Fairness in Graph Mining: A Survey,Graph-Based Fairness & Bias Mitigation,2023,7,7.524269,0.6102501,124,False,closed
+411,Fairness in Reinforcement Learning: A Survey,General Fairness & Bias Mitigation,2024,7,5.650647,-0.9013045,5,True,bronze
+412,FairSwiRL: fair semi-supervised classification with representation learning,General Fairness & Bias Mitigation,2023,7,5.899524,0.3891476,3,True,hybrid
+413,Find-2-Find: Multitask Learning for Anaphora Resolution and Object Localization,LLMs & NLP,2023,6,3.802259,2.2871952,0,True,gold
+414,Framework for bias evaluation in large language models in healthcare settings,LLMs & NLP,2025,0,1.839965,1.5566363,25,True,gold
+416,General then Personal: Decoupling and Pre-training for Personalized Headline Generation,LLMs & NLP,2023,4,4.214893,3.2637029,4,True,diamond
+417,Global Health Informatics: the state of research and lessons learned,Health & Clinical AI,2023,0,1.6823925,1.4665524,6,True,bronze
+418,Group Fairness via Group Consensus,General Fairness & Bias Mitigation,2024,7,5.566665,0.54879177,6,True,gold
+419,GumbelSoft: Diversified Language Model Watermarking via the GumbelMax-trick,LLMs & NLP,2024,4,4.198002,3.2050328,6,True,gold
+420,Impact on bias mitigation algorithms to variations in inferred sensitive attribute uncertainty,General Fairness & Bias Mitigation,2025,7,5.3324366,0.19323048,1,True,gold
+421,Incorporating Attribution Importance for Improving Faithfulness Metrics,General Fairness & Bias Mitigation,2023,4,4.2667627,3.4474845,4,True,gold
+422,Intersectional Stereotypes in Large Language Models: Dataset and Analysis,LLMs & NLP,2023,2,5.638661,3.4974275,4,True,gold
+423,Language or rating scales based classifications of emotions: computational analysis of language and alexithymia,LLMs & NLP,2024,0,1.8151509,2.39644,4,True,diamond
+424,Large Language Models are not Fair Evaluators,LLMs & NLP,2024,4,4.331025,3.8990717,67,True,gold
+425,LLatrieval: LLM-Verified Retrieval for Verifiable Generation,LLMs & NLP,2024,4,4.3711095,3.884831,15,True,gold
+426,Patient-centricity in digital measure development: co-evolution of best practice and regulatory guidance,Health & Clinical AI,2024,0,1.5563625,1.6890914,9,True,gold
+427,PEEB: Part-based Image Classifiers with an Explainable and Editable Language Bottleneck,General Fairness & Bias Mitigation,2024,6,3.7414775,2.7123961,2,True,gold
+428,Retrieving Relevant Context to Align Representations for Cross-lingual Event Detection,LLMs & NLP,2023,6,3.958371,2.9552553,6,True,gold
+429,SAF: Stakeholders’ Agreement on Fairness in the Practice of Machine Learning Development,General Fairness & Bias Mitigation,2023,7,4.691346,0.068265125,3,True,hybrid
+430,Should Fairness be a Metric or a Model? A Model-based Framework for Assessing Bias in Machine Learning Pipelines,General Fairness & Bias Mitigation,2024,7,5.855684,0.88723516,27,False,closed
+431,SKD-NER: Continual Named Entity Recognition via Span-based Knowledge Distillation with Reinforcement Learning,LLMs & NLP,2023,6,3.0700006,2.4867232,10,True,gold
+432,Sociodemographic bias in clinical machine learning models: a scoping review of algorithmic bias instances and mechanisms,Health & Clinical AI,2024,3,0.6369062,1.4754109,21,True,hybrid
+433,Systematic literature review on bias mitigation in generative AI,LLMs & NLP,2025,1,3.807452,0.6665594,22,True,hybrid
+434,The Conflict Between Algorithmic Fairness and Non-Discrimination: An Analysis of Fair Automated Hiring,General Fairness & Bias Mitigation,2024,7,4.3211265,-0.38303486,3,True,gold
+435,The limits of fair medical imaging AI in real-world generalization,Health & Clinical AI,2024,3,1.3182184,0.29427254,198,True,hybrid
+436,The Neutrality Fallacy: When Algorithmic Fairness Interventions are (Not) Positive Action,General Fairness & Bias Mitigation,2024,7,4.5815263,-0.7210915,6,True,gold
+437,Toward fairness in artificial intelligence for medical image analysis: identification and mitigation of potential biases in the roadmap from data collection to model deployment,Health & Clinical AI,2023,3,1.4082648,0.5246265,125,True,hybrid
+438,Towards Fair Graph Neural Networks via Graph Counterfactual,Graph-Based Fairness & Bias Mitigation,2023,7,7.5634813,0.693571,20,True,green
+439,Using the electronic health record to provide audit and feedback in medical student clerkships,Health & Clinical AI,2024,0,1.7342516,1.7113369,0,True,gold
+440,Certification Labels for Trustworthy AI: Insights From an Empirical Mixed-Method Study,General Fairness & Bias Mitigation,2023,1,2.8265254,-0.7800859,40,True,gold
+441,On the Impact of Explanations on Understanding of Algorithmic Decision-Making,General Fairness & Bias Mitigation,2023,1,3.1276238,-0.25232863,11,True,gold
+442,Towards a Science of Human-AI Decision Making: An Overview of Design Space in Empirical Human-Subject Studies,General Fairness & Bias Mitigation,2023,1,3.2925782,0.014157112,152,False,closed
+443,Machine Explanations and Human Understanding,General Fairness & Bias Mitigation,2023,1,3.1501918,-0.2374879,14,False,closed
+444,"Humans, AI, and Context: Understanding End-Users’ Trust in a Real-World Computer Vision Application",General Fairness & Bias Mitigation,2023,1,2.7245588,-0.888643,35,True,gold
+445,The Possibility of Fairness: Revisiting the Impossibility Theorem in Practice,General Fairness & Bias Mitigation,2023,7,5.8407407,-0.6776685,19,True,gold
+446,Maximal fairness,General Fairness & Bias Mitigation,2023,7,5.72685,-0.90862787,3,True,gold
+447,Enhancing AI fairness through impact assessment in the European Union: a legal and computer science perspective,General Fairness & Bias Mitigation,2023,1,2.7246287,-0.345412,23,False,closed
+448,Help or Hinder? Evaluating the Impact of Fairness Metrics and Algorithms in Visualizations for Consensus Ranking,General Fairness & Bias Mitigation,2023,5,8.579401,1.3105567,4,True,green
+449,Simplicity Bias Leads to Amplified Performance Disparities,General Fairness & Bias Mitigation,2023,6,5.5591884,1.1996244,3,True,gold
+450,A Sociotechnical Audit: Assessing Police Use of Facial Recognition,General Fairness & Bias Mitigation,2023,1,3.2385843,-0.95407724,20,True,gold
+451,Which Stereotypes Are Moderated and Under-Moderated in Search Engine Autocompletion?,LLMs & NLP,2023,0,5.5227914,2.5388734,10,True,gold
+452,AI Regulation Is (not) All You Need,General Fairness & Bias Mitigation,2023,1,2.8190854,-0.5275539,35,False,closed
+453,Examining risks of racial biases in NLP tools for child protective services,LLMs & NLP,2023,2,5.66449,2.3901021,15,True,gold
+454,Interrogating the T in FAccT,General Fairness & Bias Mitigation,2023,1,4.9543467,-0.8347033,15,True,gold
+455,Representation in AI Evaluations,General Fairness & Bias Mitigation,2023,1,3.7393746,0.1626012,15,True,gold
+456,A Systematic Review of Ethics Disclosures in Predictive Mental Health Research,Health & Clinical AI,2023,0,2.666548,0.73351526,15,False,closed
+457,"WEIRD FAccTs: How Western, Educated, Industrialized, Rich, and Democratic is FAccT?",General Fairness & Bias Mitigation,2023,1,4.1830034,1.234312,46,True,green
+458,Diagnosing AI Explanation Methods with Folk Concepts of Behavior,General Fairness & Bias Mitigation,2023,1,3.1219587,-0.2337978,0,True,gold
+459,How to Explain and Justify Almost Any Decision: Potential Pitfalls for Accountability in AI Decision-Making,General Fairness & Bias Mitigation,2023,1,3.2203763,-0.70903975,8,False,closed
+460,"Explainable AI is Dead, Long Live Explainable AI!",General Fairness & Bias Mitigation,2023,1,3.098009,-0.20654352,136,False,closed
+461,"Explainability in AI Policies: A Critical Review of Communications, Reports, Regulations, and Standards in the EU, US, and UK",General Fairness & Bias Mitigation,2023,1,2.8571916,-0.4199935,58,True,gold
+462,An Empirical Analysis of Racial Categories in the Algorithmic Fairness Literature,General Fairness & Bias Mitigation,2023,7,4.1129336,-1.2209762,15,True,green
+463,How Redundant are Redundant Encodings? Blindness in the Wild and Racial Disparity when Race is Unobserved,General Fairness & Bias Mitigation,2023,3,0.19994749,1.0651242,9,True,gold
+464,Bias as Boundary Object: Unpacking The Politics Of An Austerity Algorithm Using Bias Frameworks,General Fairness & Bias Mitigation,2023,1,4.2318387,0.6296969,4,False,closed
+465,Skin Deep: Investigating Subjectivity in Skin Tone Annotations for Computer Vision Benchmark Datasets,General Fairness & Bias Mitigation,2023,0,1.6662127,-0.5228968,15,True,green
+466,"Attitudes Toward Facial Analysis AI: A Cross-National Study Comparing Argentina, Kenya, Japan, and the USA",General Fairness & Bias Mitigation,2024,1,3.0522573,-0.49277514,9,True,gold
+467,Learning Fairness from Demonstrations via Inverse Reinforcement Learning,General Fairness & Bias Mitigation,2024,7,5.660351,-0.75611734,1,True,gold
+468,Meaningful Transparency for Clinicians: Operationalising HCXAI Research with Gynaecologists,Health & Clinical AI,2024,0,1.9650508,1.2652196,6,True,gold
+469,Black-Box Access is Insufficient for Rigorous AI Audits,General Fairness & Bias Mitigation,2024,1,3.0214298,-0.800684,52,True,gold
+470,A Framework for Exploring the Consequences of AI-Mediated Enterprise Knowledge Access and Identifying Risks to Workers,General Fairness & Bias Mitigation,2024,1,3.1205602,0.73644817,8,True,gold
+471,Machine learning data practices through a data curation lens: An evaluation framework,General Fairness & Bias Mitigation,2024,7,4.957306,-0.12273166,8,True,gold
+472,Structural Interventions and the Dynamics of Inequality,General Fairness & Bias Mitigation,2024,7,5.891843,-0.73381877,5,True,gold
+473,Should Users Trust Advanced AI Assistants? Justified Trust As a Function of Competence and Alignment,General Fairness & Bias Mitigation,2024,1,2.7104247,-0.8923702,21,True,gold
+474,Algorithmic Misjudgement in Google Search Results: Evidence from Auditing the US Online Electoral Information Environment,General Fairness & Bias Mitigation,2024,1,4.393391,2.8494473,8,True,gold
+475,Racial/Ethnic Categories in AI and Algorithmic Fairness: Why They Matter and What They Represent,General Fairness & Bias Mitigation,2024,7,4.367837,-1.0642562,3,True,gold
+476,Misgendered During Moderation: How Transgender Bodies Make Visible Cisnormative Content Moderation Policies and Enforcement in a Meta Oversight Board Case,General Fairness & Bias Mitigation,2024,0,6.7813873,2.9295654,15,True,gold
+477,A preprocessing Shapley value-based approach to detect relevant and disparity prone features in machine learning,General Fairness & Bias Mitigation,2024,7,5.6698065,-0.17520608,2,True,gold
+478,Understanding Disparities in Post Hoc Machine Learning Explanation,General Fairness & Bias Mitigation,2024,2,5.9175115,2.9408987,9,True,gold
+480,Discrimination Induced by Algorithmic Recourse Objectives,General Fairness & Bias Mitigation,2025,7,5.3009143,-0.5195771,0,True,gold
+481,Auditing the Audits: Lessons for Algorithmic Accountability from Local Law 144's Bias Audits,General Fairness & Bias Mitigation,2025,1,3.4786296,-0.97873884,2,True,gold
+482,"WEIRD Audits? Research Trends, Linguistic and Geographical Disparities in the Algorithm Audits of Online Platforms - A Systematic Literature Review",General Fairness & Bias Mitigation,2025,1,3.74234,-1.0557008,2,True,gold
+483,Epistemic Injustice in Algorithmic Systems and the Limits of Civil Rights Law,General Fairness & Bias Mitigation,2025,7,4.2053423,-1.2474731,0,True,gold
+484,It's only fair when I think it's fair: How Gender Bias Alignment Undermines Distributive Fairness in Human-AI Collaboration,LLMs & NLP,2025,6,2.7610216,1.2693737,4,True,gold
+485,Expressing stigma and inappropriate responses prevents LLMs from safely replacing mental health providers.,General Fairness & Bias Mitigation,2025,0,1.9622198,2.0210633,105,True,gold
+486,Disambiguating Algorithmic Bias: From Neutrality to Justice,General Fairness & Bias Mitigation,2023,1,3.92875,-1.0195318,26,True,gold
+487,Evaluating the Fairness of Discriminative Foundation Models in Computer Vision,General Fairness & Bias Mitigation,2023,7,5.173084,1.5818768,5,True,gold
+488,Stress-Testing Bias Mitigation Algorithms to Understand Fairness Vulnerabilities,General Fairness & Bias Mitigation,2023,7,5.0345836,0.2585065,3,True,gold
+489,Unmasking Nationality Bias: A Study of Human Perception of Nationalities in AI-Generated Articles,General Fairness & Bias Mitigation,2023,2,5.3372154,2.598689,13,False,closed
+490,Not So Fair: The Impact of Presumably Fair Machine Learning Models,General Fairness & Bias Mitigation,2023,7,6.0765667,-0.22546677,6,True,green
+491,"Target specification bias, counterfactual prediction, and algorithmic fairness in healthcare",Health & Clinical AI,2023,3,0.36668065,1.0962417,10,True,green
+492,Perceived Algorithmic Fairness using Organizational Justice Theory: An Empirical Case Study on Algorithmic Hiring,General Fairness & Bias Mitigation,2023,7,4.516065,-1.0318725,7,True,green
+493,Policy advice and best practices on bias and fairness in AI,General Fairness & Bias Mitigation,2024,7,4.1905484,-0.34377444,76,True,hybrid
+494,The Illusion of Artificial Inclusion,General Fairness & Bias Mitigation,2024,1,3.230397,0.41721728,55,True,gold
+495,Navigating the Audit Landscape: A Framework for Developing Transparent and Auditable XR,General Fairness & Bias Mitigation,2023,1,2.976686,-0.6482091,7,True,gold
+496,Datafication Genealogies beyond Algorithmic Fairness: Making Up Racialised Subjects,General Fairness & Bias Mitigation,2023,1,3.9728105,-1.2929083,17,True,gold
+497,The ethical ambiguity of AI data enrichment: Measuring gaps in research ethics norms and practices,General Fairness & Bias Mitigation,2023,1,3.4070756,0.3234745,14,True,green
+498,Envisioning Equitable Speech Technologies for Black Older Adults,LLMs & NLP,2023,2,5.3595033,2.4661195,40,True,gold
+499,Understanding accountability in algorithmic supply chains,General Fairness & Bias Mitigation,2023,1,2.6722903,-0.4216353,75,True,gold
+500,Rethinking Transparency as a Communicative Constellation,General Fairness & Bias Mitigation,2023,1,5.1236167,-0.6961909,14,True,gold
+501,Domain Adaptive Decision Trees: Implications for Accuracy and Fairness,General Fairness & Bias Mitigation,2023,6,5.076271,0.82369006,5,True,green
+502,Bias on Demand: A Modelling Framework That Generates Synthetic Data With Bias,General Fairness & Bias Mitigation,2023,7,4.994527,0.10553253,15,True,gold
+503,Co-Design Perspectives on Algorithm Transparency Reporting: Guidelines and Prototypes,General Fairness & Bias Mitigation,2023,5,8.411756,2.5070233,10,False,closed
+504,Using Supervised Learning to Estimate Inequality in the Size and Persistence of Income Shocks,General Fairness & Bias Mitigation,2023,6,6.0810695,-0.36163852,4,True,gold
+505,A Causal Perspective on Label Bias,General Fairness & Bias Mitigation,2024,7,0.29773334,0.99746084,0,True,gold
+506,Fairness in Online Ad Delivery,General Fairness & Bias Mitigation,2024,7,5.867553,-0.8307631,5,True,gold
+507,Constructing Capabilities: The Politics of Testing Infrastructures for Generative AI,General Fairness & Bias Mitigation,2024,1,3.305107,0.47190055,9,True,gold
+508,Crediting Humans: A Systematic Assessment of Influencing Factors for Human-in-the-Loop Figurations in Consumer Credit Lending Decisions,General Fairness & Bias Mitigation,2025,1,2.9676542,-0.073519535,0,True,gold
+510,Envisioning Stakeholder-Action Pairs to Mitigate Negative Impacts of AI: A Participatory Approach to Inform Policy Making,General Fairness & Bias Mitigation,2025,1,2.7860246,-0.41369563,4,True,green
+511,"Frameworks, Methods and Shared Tasks: Connecting Participatory AI to Trustworthy AI Through a Systematic Review of Global Projects",General Fairness & Bias Mitigation,2025,1,2.7467048,-0.84897304,6,True,gold
+512,"Recourse, Repair, Reparation, &amp; Prevention: A Stakeholder Analysis of AI Supply Chains",General Fairness & Bias Mitigation,2025,1,2.491526,-0.17436886,2,True,gold
+513,"“You Cannot Sound Like GPT"": Signs of language discrimination and resistance in computer science publishing",LLMs & NLP,2025,2,5.4230337,3.109181,10,True,gold
+514,Guardian: A Runtime Framework for LLM-Based UI Exploration,LLMs & NLP,2024,4,4.6115446,2.2921014,13,False,closed
+515,Graph-Aware Contrasting for Multivariate Time-Series Classification,Graph-Based Fairness & Bias Mitigation,2024,6,7.2950406,1.4555947,24,True,diamond
+516,Complete Neural Networks for Complete Euclidean Graphs,Graph-Based Fairness & Bias Mitigation,2024,6,7.2787337,1.058804,3,True,diamond
+517,ResidualTransformer: Residual Low-Rank Learning with Weight-Sharing for Transformer Layers,General Fairness & Bias Mitigation,2023,6,3.5800061,2.441096,0,True,green
+518,Socially Fair k-Means Clustering,General Fairness & Bias Mitigation,2021,7,7.056284,0.2541645,1,True,green
+519,Fairness Without Demographics in Repeated Loss Minimization,General Fairness & Bias Mitigation,2018,7,5.507335,0.9755544,108,True,green

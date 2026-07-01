@@ -11,6 +11,7 @@ from pathlib import Path
 from sentence_transformers import SentenceTransformer
 from sklearn.cluster import HDBSCAN
 from sklearn.metrics import silhouette_score, adjusted_rand_score, normalized_mutual_info_score
+import matplotlib.pyplot as plt
 import umap
 import warnings
 
@@ -27,8 +28,8 @@ MODEL_ID = 'all-mpnet-base-v2'
 UMAP_N_NEIGHBORS = 15
 UMAP_MIN_DIST    = 0.1
 
-# HDBSCAN params — same as your paper
-HDBSCAN_MCS = 10
+# HDBSCAN — same params as main analysis (isolates UMAP effect only)
+HDBSCAN_MCS = 15
 HDBSCAN_MS  = 3
 
 # ── Load data ─────────────────────────────────────────────────────────────────
@@ -55,7 +56,7 @@ reducer = umap.UMAP(n_neighbors=UMAP_N_NEIGHBORS, min_dist=UMAP_MIN_DIST,
 coords = reducer.fit_transform(embeddings)
 print(f'  2D projection shape: {coords.shape}')
 
-# ── HDBSCAN (same params as paper) ───────────────────────────────────────────
+# ── HDBSCAN (same params as main analysis — only UMAP is varied) ─────────────
 print(f'\nRunning HDBSCAN: min_cluster_size={HDBSCAN_MCS}, min_samples={HDBSCAN_MS}')
 hdb = HDBSCAN(min_cluster_size=HDBSCAN_MCS, min_samples=HDBSCAN_MS, metric='euclidean')
 cluster_labels = hdb.fit_predict(coords)
@@ -107,5 +108,67 @@ if n_clusters >= 2 and mask.sum() > n_clusters:
         majority_cluster = pd.Series(domain_clusters).mode()[0]
         majority_pct = (domain_clusters == majority_cluster).mean() * 100
         print(f'  {domain:45s} → Cluster {majority_cluster} ({majority_pct:.1f}% of domain)')
+
+    # ── Robustness heatmap ─────────────────────────────────────────────────
+    DOMAIN_ORDER = [
+        'Health & Clinical AI',
+        'LLMs & NLP',
+        'General Fairness & Bias Mitigation',
+        'Recommender Systems',
+        'Graph-Based Fairness & Bias Mitigation',
+    ]
+    # Order clusters by size descending, Unclustered last
+    cluster_ids_sorted = sorted(
+        [c for c in set(cluster_labels) if c >= 0]
+    )
+    if -1 in set(cluster_labels):
+        cluster_ids_sorted.append(-1)
+
+    cluster_display = ['Unclustered' if c < 0 else f'Cluster {c+1}' for c in cluster_ids_sorted]
+
+    matrix = np.zeros((len(DOMAIN_ORDER), len(cluster_ids_sorted)), dtype=int)
+    for i in range(len(df)):
+        dom = domain_labels[i]
+        cid = cluster_labels[i]
+        if dom in DOMAIN_ORDER and cid in cluster_ids_sorted:
+            r = DOMAIN_ORDER.index(dom)
+            c = cluster_ids_sorted.index(cid)
+            matrix[r, c] += 1
+
+    row_totals = matrix.sum(axis=1)
+
+    fig, ax = plt.subplots(figsize=(11, 5))
+    im = ax.imshow(matrix, cmap='Blues', aspect='auto')
+    cbar = fig.colorbar(im, ax=ax, shrink=0.85)
+    cbar.set_label('Number of papers', fontsize=13)
+
+    ax.set_xticks(range(len(cluster_display)))
+    ax.set_xticklabels(cluster_display, rotation=25, ha='right', fontsize=11)
+    ax.set_yticks(range(len(DOMAIN_ORDER)))
+    ax.set_yticklabels(DOMAIN_ORDER, fontsize=12)
+    ax.set_xlabel(f'HDBSCAN Cluster (Default UMAP: n_neighbors={UMAP_N_NEIGHBORS}, min_dist={UMAP_MIN_DIST})',
+                  fontsize=13, fontweight='bold')
+    ax.set_ylabel('Domain', fontsize=15, fontweight='bold')
+    ax.set_title(f'Domain × Cluster Co-occurrence — Robustness Check '
+                 f'({n_clusters} clusters, ARI={ari:.2f}, NMI={nmi:.2f})',
+                 fontsize=14, fontweight='bold')
+
+    for r in range(len(DOMAIN_ORDER)):
+        for c in range(len(cluster_ids_sorted)):
+            val = matrix[r, c]
+            if val == 0:
+                continue
+            pct = 100 * val / row_totals[r] if row_totals[r] > 0 else 0
+            color = 'white' if val > matrix.max() * 0.55 else 'black'
+            ax.text(c, r, f'{val}\n({pct:.1f}%)', ha='center', va='center',
+                    fontsize=10, color=color)
+
+    plt.tight_layout()
+    out_dir = BASE_DIR / 'figures_new'
+    out_dir.mkdir(parents=True, exist_ok=True)
+    plt.savefig(out_dir / 'robustness_heatmap.png', dpi=200, bbox_inches='tight')
+    plt.savefig(out_dir / 'robustness_heatmap.pdf', dpi=200, bbox_inches='tight')
+    print(f'\nSaved: robustness_heatmap.png + .pdf')
+
 else:
     print(f'\n  Cannot compute metrics: only {n_clusters} cluster(s) found.')

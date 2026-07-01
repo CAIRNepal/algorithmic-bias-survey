@@ -92,6 +92,7 @@ dfa = pd.DataFrame(rows, columns=["SN", "Country", "Domain"])
 # Clean country labels  ✅ fixed here
 dfa = dfa[dfa["Country"].notna()].copy()
 dfa["Country"] = dfa["Country"].astype(str).str.strip()
+dfa["Country"] = dfa["Country"].replace({"UK": "United Kingdom"})
 dfa = dfa[~dfa["Country"].str.lower().isin(["nan", "na", "none", ""])]
 
 # Aggregate (each paper counted once in its first author's country)

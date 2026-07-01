@@ -96,13 +96,13 @@ for model_id, key in EMBED_MODELS:
     all_embeddings[key] = emb
 
     print(f"  UMAP 2D ({key})…")
-    r2 = umap.UMAP(n_components=2, n_neighbors=10, min_dist=0.0, metric="cosine", random_state=42)
+    r2 = umap.UMAP(n_components=2, n_neighbors=30, min_dist=0.0, metric="cosine", random_state=42)
     c2 = r2.fit_transform(emb)
     all_coords_2d[key] = c2
     print(f"    X[{c2[:,0].min():.2f},{c2[:,0].max():.2f}] Y[{c2[:,1].min():.2f},{c2[:,1].max():.2f}]")
 
     print(f"  UMAP 3D ({key})…")
-    r3 = umap.UMAP(n_components=3, n_neighbors=10, min_dist=0.0, metric="cosine", random_state=42)
+    r3 = umap.UMAP(n_components=3, n_neighbors=30, min_dist=0.0, metric="cosine", random_state=42)
     c3 = r3.fit_transform(emb)
     all_coords_3d[key] = c3
     print(f"  3D done.")
@@ -115,7 +115,7 @@ embeddings = all_embeddings["mpnet"]
 # ── 7. HDBSCAN clustering (on 2D coords for stability)
 from sklearn.cluster import HDBSCAN
 print("HDBSCAN clustering…")
-hdb = HDBSCAN(min_cluster_size=10, min_samples=3, metric="euclidean")
+hdb = HDBSCAN(min_cluster_size=15, min_samples=3, metric="euclidean")
 cluster_ids = hdb.fit_predict(coords_2d)
 n_clusters = len(set(cluster_ids)) - (1 if -1 in cluster_ids else 0)
 n_noise = (cluster_ids == -1).sum()
@@ -126,6 +126,8 @@ STOP_TERMS = {
     "computer science", "political science", "machine learning", "data science",
     "artificial intelligence", "biology", "engineering", "statistics",
     "management science", "knowledge management", "economics", "philosophy",
+    "psychology", "sociology", "criminology", "mathematics", "pedagogy",
+    "social psychology", "cognitive science", "epistemology", "demography",
 }
 cluster_labels: dict[int, str] = {}
 for c in sorted(set(cluster_ids)):

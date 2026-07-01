@@ -36,14 +36,16 @@ for _, c in rows:
     cluster_counts[c] += 1
 cluster_order = sorted(cluster_counts, key=lambda x: -cluster_counts[x])
 
-CLUSTER_ABBREV = {
-    "Psychology · Mathematics":                    "Psych. · Math",
-    "Psychology · Natural language processing":    "Psych. · NLP",
-    "Health care · Medicine":                      "Health · Medicine",
-    "Recommender system · Information retrieval":  "RecSys · Info. Retrieval",
-    "Health care · Psychology":                    "Health · Psychology",
-    "Graph · Theoretical computer science":        "Graph · Comp. Sci.",
-}
+# Map cluster labels to simple numeric labels, sorted by size descending
+# "Unclustered" stays as-is
+cluster_numeric = {}
+idx = 1
+for c in cluster_order:
+    if c.lower() == "unclustered":
+        cluster_numeric[c] = "Unclustered"
+    else:
+        cluster_numeric[c] = f"Cluster {idx}"
+        idx += 1
 
 # ── 3. Build co-occurrence matrix
 matrix = np.zeros((len(DOMAIN_ORDER), len(cluster_order)), dtype=int)
@@ -67,7 +69,7 @@ cbar.set_label("Number of papers", fontsize=13)
 
 # Axis labels
 ax.set_xticks(range(len(cluster_order)))
-ax.set_xticklabels([CLUSTER_ABBREV.get(c, c) for c in cluster_order], rotation=25, ha="right", fontsize=11)
+ax.set_xticklabels([cluster_numeric[c] for c in cluster_order], rotation=25, ha="right", fontsize=11)
 ax.set_yticks(range(len(DOMAIN_ORDER)))
 ax.set_yticklabels(DOMAIN_ORDER, fontsize=12)
 
@@ -83,7 +85,7 @@ for r in range(len(DOMAIN_ORDER)):
             continue
         pct = 100 * val / row_totals[r] if row_totals[r] > 0 else 0
         color = "white" if val > matrix.max() * 0.55 else "black"
-        ax.text(c, r, f"{val}\n({pct:.0f}%)", ha="center", va="center",
+        ax.text(c, r, f"{val}\n({pct:.1f}%)", ha="center", va="center",
                 fontsize=10, color=color)
 
 plt.tight_layout()

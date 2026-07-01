@@ -185,9 +185,12 @@ def country_set_for_row(row):
     - if empty, fall back to Focus Region
     - if still empty, return {'Unknown'}
     """
-    countries = set(split_safe(row.get("Author Regions")))
+    _uk_norm = lambda c: "United Kingdom" if c == "UK" else c
+    countries = set(_uk_norm(c) for c in split_safe(row.get("Author Regions")))
     focus = row.get("Focus Region")
     focus = None if (pd.isna(focus) or str(focus).strip().lower() in ("", "nan", "na", "none")) else str(focus).strip()
+    if focus:
+        focus = _uk_norm(focus)
     if not countries:
         countries = {focus} if focus else {"Unknown"}
     return countries
@@ -218,8 +221,8 @@ def author_country_list_for_row(row):
         regions = list(regions) + [fill] * max(0, len(authors) - len(regions))
         regions = regions[:len(authors)]
 
-    # final cleanup
-    regions = [(r if r else (focus or "Unknown")) for r in regions]
+    # final cleanup + UK normalization
+    regions = [("United Kingdom" if r == "UK" else r) if r else (focus or "Unknown") for r in regions]
     return regions
 
 # =========================

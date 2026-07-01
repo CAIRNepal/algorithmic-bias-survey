@@ -1,0 +1,42 @@
+test,scope,statistic,value,p_value,effect_size,n,notes
+Kruskal-Wallis,all domains,H,32.7161,1.37e-06,,704,Citation counts across 5 domains
+Dunn post-hoc (Bonferroni),General Fairness & Bias Mitigation vs Graph-Based Fairness & Bias Mitigation,p_adj,0.001,0.0010,,,Significant
+Dunn post-hoc (Bonferroni),General Fairness & Bias Mitigation vs Health & Clinical AI,p_adj,1.0,1.0000,,,Not significant
+Dunn post-hoc (Bonferroni),General Fairness & Bias Mitigation vs LLMs & NLP,p_adj,0.0073,0.0073,,,Significant
+Dunn post-hoc (Bonferroni),General Fairness & Bias Mitigation vs Recommender Systems,p_adj,0.0003,0.0003,,,Significant
+Dunn post-hoc (Bonferroni),Graph-Based Fairness & Bias Mitigation vs Health & Clinical AI,p_adj,0.0516,0.0516,,,Not significant
+Dunn post-hoc (Bonferroni),Graph-Based Fairness & Bias Mitigation vs LLMs & NLP,p_adj,0.6349,0.6349,,,Not significant
+Dunn post-hoc (Bonferroni),Graph-Based Fairness & Bias Mitigation vs Recommender Systems,p_adj,1.0,1.0000,,,Not significant
+Dunn post-hoc (Bonferroni),Health & Clinical AI vs LLMs & NLP,p_adj,1.0,1.0000,,,Not significant
+Dunn post-hoc (Bonferroni),Health & Clinical AI vs Recommender Systems,p_adj,0.0803,0.0803,,,Not significant
+Dunn post-hoc (Bonferroni),LLMs & NLP vs Recommender Systems,p_adj,1.0,1.0000,,,Not significant
+Spearman correlation,volume vs median citation,rho,0.0627,0.7987,,19,Countries with >= 5 papers
+Gini coefficient,geographic (first-author country),Gini,0.7808,,,54,Top country share: 47.9%
+Gini coefficient,institutional (all authors),Gini,0.5668,,,755,Top: Carnegie Mellon University
+Gini coefficient,institutional (first author),Gini,0.3702,,,385,Top: Carnegie Mellon University
+Chi-square,country x domain independence,chi2,130.5341,1.57e-11,Cramer's V=0.2364,584,"df=40, countries >= 10 papers"
+Bootstrap 95% CI,domain: General Fairness & Bias Mitigation,median,13.0,,"CI=[9, 16]",329,
+Bootstrap 95% CI,domain: Graph-Based Fairness & Bias Mitigation,median,2.5,,"CI=[0, 4]",38,
+Bootstrap 95% CI,domain: Health & Clinical AI,median,10.0,,"CI=[4, 19]",117,
+Bootstrap 95% CI,domain: LLMs & NLP,median,7.0,,"CI=[4, 10]",151,
+Bootstrap 95% CI,domain: Recommender Systems,median,3.0,,"CI=[1, 7]",69,
+Bootstrap 95% CI,country: USA,median,15.0,,"CI=[10, 17]",337,
+Bootstrap 95% CI,country: China,median,4.0,,"CI=[1, 10]",51,
+Bootstrap 95% CI,country: United Kingdom,median,13.0,,"CI=[6, 20]",46,
+Bootstrap 95% CI,country: Germany,median,9.0,,"CI=[4, 20]",37,
+Bootstrap 95% CI,country: India,median,1.0,,"CI=[0, 4]",21,
+Bootstrap 95% CI,country: Italy,median,3.0,,"CI=[1, 12]",20,
+Bootstrap 95% CI,country: Canada,median,10.0,,"CI=[7, 44]",19,
+Bootstrap 95% CI,country: Netherlands,median,6.0,,"CI=[0, 10]",15,
+Bootstrap 95% CI,country: Australia,median,3.0,,"CI=[2, 7]",13,
+Bootstrap 95% CI,country: France,median,9.0,,"CI=[3, 23]",13,
+Bootstrap 95% CI,country: Switzerland,median,19.0,,"CI=[2, 44]",12,
+Bootstrap 95% CI,country: Spain,median,22.5,,"CI=[1, 53]",8,
+Bootstrap 95% CI,country: Unknown,median,4.5,,"CI=[0, 46]",8,
+Bootstrap 95% CI,country: Singapore,median,12.5,,"CI=[1, 28]",8,
+Bootstrap 95% CI,country: South Korea,median,23.5,,"CI=[1, 64]",6,
+Bootstrap 95% CI,country: Israel,median,7.5,,"CI=[2, 282]",6,
+Bootstrap 95% CI,country: Japan,median,0.5,,"CI=[0, 266]",6,
+Bootstrap 95% CI,country: Sweden,median,4.0,,"CI=[0, 43]",5,
+Bootstrap 95% CI,country: Denmark,median,4.0,,"CI=[0, 12]",5,
+Mann-Whitney U,Global North vs Global South,U,48773.0,0.000000,rank-biserial r=-0.3478,579 vs 125,"North median=10, South median=2"

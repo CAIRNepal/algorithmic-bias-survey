@@ -276,7 +276,7 @@ for bar, val in zip(bars1, total_internal):
 ax1.set_yticks(y)
 ax1.set_yticklabels([d.replace(' & ', '\n& ') for d in domain_order], fontsize=14)
 ax1.set_xlabel('Total citations received\nfrom other papers in this corpus', fontsize=15)
-ax1.set_title('Internal Citations\n(within 519-paper corpus)', fontsize=15, fontweight='bold')
+ax1.set_title('Internal Citations\n(within 704-paper corpus)', fontsize=15, fontweight='bold')
 ax1.tick_params(axis='x', labelsize=14)
 ax1.xaxis.grid(True, alpha=0.25)
 ax1.set_axisbelow(True)

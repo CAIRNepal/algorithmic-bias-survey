@@ -1415,7 +1415,7 @@ const AdvancedAnalytics = ({ papers }: { papers: Paper[] }) => {
           <div>
             <h3 className="text-lg font-bold text-white mb-1">Semantic Landscape (2D + 3D)</h3>
             <p className="text-violet-200 text-sm leading-relaxed max-w-xl">
-              Explore all 519 papers on an interactive UMAP map — semantically similar papers cluster together.
+              Explore all 704 papers on an interactive UMAP map — semantically similar papers cluster together.
               Supports 2D pan/zoom with lasso selection, 3D rotation, search, and per-paper detail panels.
             </p>
           </div>
