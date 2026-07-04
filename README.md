@@ -1,6 +1,6 @@
-# 🧠 Towards FAIR AI: A Survey of Regional Trends and Knowledge Graph-Enhanced Bias Mitigation
+# 🧠 Whose fairness? Structural concentration in the foundations of AI bias research
 
-This work is part of the research initiative **"Towards FAIR AI: A Survey of Regional Trends and Knowledge Graph-Enhanced Bias Mitigation."**
+This work is part of the research initiative **"Whose fairness? Structural concentration in the foundations of AI bias research."**
 
 **Authors**: Abhash Shrestha, Tek Raj Chhetri, Sanju Tiwari  
 
