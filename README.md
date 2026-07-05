@@ -1,6 +1,6 @@
 # 🧠 BiasAtlas — an interactive atlas of AI bias research
 
-**Live atlas:** [https://cairnepal.github.io/biasatlas/](https://cairnepal.github.io/biasatlas/).&nbsp; **Companion paper:** *Whose fairness? Structural concentration in the foundations of AI bias research*
+**Live atlas:** [http://biasatlas.cair-nepal.org](http://biasatlas.cair-nepal.org).&nbsp; **Companion paper:** *Whose fairness? Structural concentration in the foundations of AI bias research*
 
 BiasAtlas is an interactive, continuously updatable map of the AI bias research
 landscape. It lets anyone explore who produces research on AI bias, where, in
@@ -50,7 +50,7 @@ If you use BiasAtlas or the underlying corpus, please cite:
   title   = {Whose fairness? Structural concentration in the foundations of AI bias research},
   author  = {Shrestha, Abhash and Gautam, Subigya and Tiwari, Sanju and Chhetri, Tek Raj},
   year    = {2026},
-  note    = {Interactive atlas: https://atlas.cair-nepal.org},
+  note    = {Interactive atlas: http://biasatlas.cair-nepal.org},
 
 }
 ```
