@@ -42,7 +42,7 @@ This work is part of [_**Bridging Minds and Machines: Human Perspectives and Res
 
 If you use this work, please cite it as:
 
-```bibtex
+ 
 If you use BiasAtlas or the underlying corpus, please cite:
 
 ```bibtex
