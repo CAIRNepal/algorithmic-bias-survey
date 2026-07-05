@@ -59,7 +59,7 @@ jobs:
         run: npx next build
         working-directory: dashboard
         env:
-          NEXT_PUBLIC_BASE_PATH: /algorithmic-bias-survey
+          NEXT_PUBLIC_BASE_PATH: ""
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Bias Research Dashboard | CAIR-Nepal | Towards FAIR AI | AI Bias | CAIR-Nepal",
     description: "Explore regional trends and knowledge graph-based bias mitigation in AI research.",
-    url: "https://cairnepal.github.io/algorithmic-bias-survey/",
+    url: "https://biasatlas.cair-nepal.org/",
     siteName: "Bias Research Dashboard",
     images: [
       {

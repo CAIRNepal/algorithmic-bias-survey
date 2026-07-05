@@ -71,7 +71,7 @@ export default function SemanticClusterChart() {
   const svgRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
-    const base = process.env.NODE_ENV === 'production' ? '/algorithmic-bias-survey' : '';
+    const base = process.env.NEXT_PUBLIC_BASE_PATH || '';
     Papa.parse(`${base}/semantic_clusters.csv`, {
       download: true, header: true, dynamicTyping: true,
       complete: (result) => {

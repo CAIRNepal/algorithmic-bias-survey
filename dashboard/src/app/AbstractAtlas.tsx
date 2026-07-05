@@ -168,7 +168,7 @@ export default function AbstractAtlas() {
 
   // ── Load CSV ────────────────────────────────────────────────────────────────
   useEffect(() => {
-    const base = process.env.NODE_ENV === 'production' ? '/algorithmic-bias-survey' : '';
+    const base = process.env.NEXT_PUBLIC_BASE_PATH || '';
     Papa.parse(`${base}/atlas_data.csv`, {
       download: true, header: true, dynamicTyping: true, skipEmptyLines: true,
       complete: (res) => {
