@@ -18,12 +18,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Bias Research Dashboard | CAIR-Nepal",
-  description: "Explore regional trends and knowledge graph-based bias mitigation in AI research. Empowering fairness and transparency in AI.",
-  keywords: "AI bias, fairness, transparency, CAIR Nepal, knowledge graph, regional trends, research dashboard",
+  title: "Bias Atlas | CAIR-Nepal",
+  description: "Bias Atlas provides an interactive view of the global AI bias research landscape, highlighting how fairness and bias research is distributed across countries, institutions, domains, and collaborations.",
+  keywords: "AI bias, AI fairness, responsible AI, bias mitigation, research atlas, bibliometric analysis, regional trends, CAIR Nepal",
   openGraph: {
-    title: "Bias Research Dashboard | CAIR-Nepal | Towards FAIR AI | AI Bias | CAIR-Nepal",
-    description: "Explore regional trends and knowledge graph-based bias mitigation in AI research.",
+    title: "Bias Atlas | Mapping AI Bias Research | CAIR-Nepal",
+    description: "Explore how AI bias research is distributed across regions, institutions, domains, and collaboration networks.",
     url: "https://biasatlas.cair-nepal.org/",
     siteName: "Bias Research Dashboard",
     images: [
