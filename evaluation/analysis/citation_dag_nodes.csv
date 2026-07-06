@@ -1,705 +1,693 @@
 SN,Paper Title,Domain,Year,cited_by_count,in_degree_corpus,out_degree_corpus
-377,Fairness through awareness,General Fairness & Bias Mitigation,2012,3331,130,0
+369,Fairness through awareness,General Fairness & Bias Mitigation,2012,3331,129,0
 40,Certifying and Removing Disparate Impact,General Fairness & Bias Mitigation,2015,1767,73,1
-366,Dissecting racial bias in an algorithm used to manage the health of populations,Health & Clinical AI,2019,5913,67,4
-368,Fairness definitions explained,General Fairness & Bias Mitigation,2018,1046,56,3
-355,On the Dangers of Stochastic Parrots,LLMs & NLP,2021,5297,55,1
-374,Equality of Opportunity in Supervised Learning,General Fairness & Bias Mitigation,2016,1915,54,2
-522,Fairness and Abstraction in Sociotechnical Systems,General Fairness & Bias Mitigation,2019,1324,51,3
-38,Big Data's Disparate Impact,General Fairness & Bias Mitigation,2016,2128,50,0
-365,Model Cards for Model Reporting,General Fairness & Bias Mitigation,2019,1605,46,1
-65,Counterfactual Fairness,General Fairness & Bias Mitigation,2017,870,38,3
-369,Word embeddings quantify 100 years of gender and ethnic stereotypes,LLMs & NLP,2018,1081,27,0
-371,Ensuring Fairness in Machine Learning to Advance Health Equity,Health & Clinical AI,2018,1134,26,0
-375,Big Data's Disparate Impact,General Fairness & Bias Mitigation,2016,1053,26,0
-536,Towards a Critical Race Methodology in Algorithmic Fairness,General Fairness & Bias Mitigation,2020,287,24,6
-367,The Measure and Mismeasure of Fairness,General Fairness & Bias Mitigation,2018,474,24,5
-537,Mitigating Bias in Algorithmic Hiring: Evaluating Claims and Practices,General Fairness & Bias Mitigation,2020,634,21,3
-558,Measurement and Fairness,General Fairness & Bias Mitigation,2021,202,21,3
-94,Bias in data-driven artificial intelligence systems—An introductory survey (2nd entry),Graph-Based Fairness & Bias Mitigation,2020,976,20,7
+359,Dissecting racial bias in an algorithm used to manage the health of populations,Health & Clinical AI,2019,5913,63,3
+361,Fairness definitions explained,General Fairness & Bias Mitigation,2018,1046,55,3
+348,On the Dangers of Stochastic Parrots,LLMs & NLP,2021,5297,53,1
+367,Equality of Opportunity in Supervised Learning,General Fairness & Bias Mitigation,2016,1915,51,1
+514,Fairness and Abstraction in Sociotechnical Systems,General Fairness & Bias Mitigation,2019,1324,51,3
+38,Big Data's Disparate Impact,General Fairness & Bias Mitigation,2016,2128,49,0
+358,Model Cards for Model Reporting,General Fairness & Bias Mitigation,2019,1605,44,1
+65,Counterfactual Fairness,General Fairness & Bias Mitigation,2017,870,37,3
+364,Ensuring Fairness in Machine Learning to Advance Health Equity,Health & Clinical AI,2018,1134,26,0
+362,Word embeddings quantify 100 years of gender and ethnic stereotypes,LLMs & NLP,2018,1081,25,0
+528,Towards a Critical Race Methodology in Algorithmic Fairness,General Fairness & Bias Mitigation,2020,287,24,6
+360,The Measure and Mismeasure of Fairness,General Fairness & Bias Mitigation,2018,474,23,4
+550,Measurement and Fairness,General Fairness & Bias Mitigation,2021,202,21,3
 66,Algorithmic Fairness: Choices Assumptions and Definitions,General Fairness & Bias Mitigation,2021,556,20,12
-546,Fairness Is Not Static: Deeper Understanding of Long Term Fairness via Agents and Environments,General Fairness & Bias Mitigation,2020,160,19,2
-363,Hidden in Plain Sight — Reconsidering the Use of Race Correction in Clinical Algorithms,Health & Clinical AI,2020,1639,19,1
-372,"The accuracy, fairness, and limits of predicting recidivism",General Fairness & Bias Mitigation,2018,1009,18,0
-396,Bias and Debias in Recommender System: A Survey and Future Directions,Recommender Systems,2022,603,18,8
+94,Bias in data-driven artificial intelligence systems—An introductory survey (2nd entry),Graph-Based Fairness & Bias Mitigation,2020,976,20,6
+529,Mitigating Bias in Algorithmic Hiring: Evaluating Claims and Practices,General Fairness & Bias Mitigation,2020,634,20,3
+538,Fairness Is Not Static: Deeper Understanding of Long Term Fairness via Agents and Environments,General Fairness & Bias Mitigation,2020,160,19,2
+356,Hidden in Plain Sight — Reconsidering the Use of Race Correction in Clinical Algorithms,Health & Clinical AI,2020,1639,19,1
 32,A Review on Fairness in Machine Learning,General Fairness & Bias Mitigation,2022,527,18,6
-553,BOLD: Dataset and Metrics for Measuring Biases in Open-Ended Language Generation,LLMs & NLP,2021,191,17,0
-520,Bias in Bios: A Case Study of Semantic Representation Bias in a High-Stakes Setting,LLMs & NLP,2019,282,17,2
-376,Man is to Computer Programmer as Woman is to Homemaker? Debiasing Word Embeddings,LLMs & NLP,2016,1362,17,3
-574,Taxonomy of Risks posed by Language Models,LLMs & NLP,2022,606,14,2
-523,Problem Formulation and Fairness,General Fairness & Bias Mitigation,2019,210,14,0
-76,Bias and Fairness in Large Language Models: A Survey,LLMs & NLP,2024,476,13,12
+388,Bias and Debias in Recommender System: A Survey and Future Directions,Recommender Systems,2022,603,18,8
+368,Man is to Computer Programmer as Woman is to Homemaker? Debiasing Word Embeddings,LLMs & NLP,2016,1362,17,2
+512,Bias in Bios: A Case Study of Semantic Representation Bias in a High-Stakes Setting,LLMs & NLP,2019,282,17,2
+365,"The accuracy, fairness, and limits of predicting recidivism",General Fairness & Bias Mitigation,2018,1009,17,0
+545,BOLD: Dataset and Metrics for Measuring Biases in Open-Ended Language Generation,LLMs & NLP,2021,191,16,0
+566,Taxonomy of Risks posed by Language Models,LLMs & NLP,2022,606,14,2
+515,Problem Formulation and Fairness,General Fairness & Bias Mitigation,2019,210,14,0
+516,Racial categories in machine learning,General Fairness & Bias Mitigation,2019,106,12,4
+76,Bias and Fairness in Large Language Models: A Survey,LLMs & NLP,2024,476,12,12
 74,Towards a Fair Marketplace: Fairness & Satisfaction in Recommender Systems,Recommender Systems,2022,274,12,1
 7,Fairness Constraints: Mechanisms for Fair Classification,General Fairness & Bias Mitigation,2015,335,12,0
-524,Racial categories in machine learning,General Fairness & Bias Mitigation,2019,106,12,5
-616,"""I'm Fully Who I Am"": Towards Centering Transgender and Non-Binary Voices to Measure Biases in Open Language Generation",LLMs & NLP,2023,38,11,1
-358,Underdiagnosis bias of artificial intelligence algorithms applied to chest radiographs in under-served patient populations,Health & Clinical AI,2021,745,11,6
-52,Fairness in Machine Learning: A Survey,General Fairness & Bias Mitigation,2023,433,11,17
-45,Towards Personalized Fairness Based on Causal Notion,Recommender Systems,2021,133,11,7
-27,Black Box Fairness Testing of Machine Learning Models,General Fairness & Bias Mitigation,2019,180,10,2
-618,Easily Accessible Text-to-Image Generation Amplifies Demographic Stereotypes at Large Scale,LLMs & NLP,2023,265,10,3
+45,Towards Personalized Fairness Based on Causal Notion,Recommender Systems,2021,133,11,6
+351,Underdiagnosis bias of artificial intelligence algorithms applied to chest radiographs in under-served patient populations,Health & Clinical AI,2021,745,11,6
+52,Fairness in Machine Learning: A Survey,General Fairness & Bias Mitigation,2023,433,11,16
+610,Easily Accessible Text-to-Image Generation Amplifies Demographic Stereotypes at Large Scale,LLMs & NLP,2023,265,10,3
 36,Fairness in Machine Learning,General Fairness & Bias Mitigation,2020,298,10,5
-532,Dissecting Racial Bias in an Algorithm that Guides Health Decisions for 70 Million People,Health & Clinical AI,2019,119,9,0
-551,Image Representations Learned With Unsupervised Pre-Training Contain Human-like Biases,General Fairness & Bias Mitigation,2021,152,9,5
+27,Black Box Fairness Testing of Machine Learning Models,General Fairness & Bias Mitigation,2019,180,10,2
+350,Ethical Machine Learning in Healthcare,Health & Clinical AI,2021,465,9,5
+37,Fairness-Aware Explainable Recommendation over Knowledge Graphs,Recommender Systems,2020,189,9,4
+543,Image Representations Learned With Unsupervised Pre-Training Contain Human-like Biases,General Fairness & Bias Mitigation,2021,152,9,5
+357,Ethical limitations of algorithmic fairness solutions in health care machine learning,Health & Clinical AI,2020,258,9,2
 9,Fairness And Bias in Artificial Intelligence: A Brief Survey of Sources Impacts And Mitigation Strategies,General Fairness & Bias Mitigation,2023,668,9,7
-337,Algorithmic fairness in artificial intelligence for medicine and healthcare,Health & Clinical AI,2023,558,9,12
-18,Algorithmic Bias in Autonomous Systems,General Fairness & Bias Mitigation,2017,440,9,2
-364,Ethical limitations of algorithmic fairness solutions in health care machine learning,Health & Clinical AI,2020,258,9,2
-37,Fairness-Aware Explainable Recommendation over Knowledge Graphs,Recommender Systems,2020,189,9,5
-357,Ethical Machine Learning in Healthcare,Health & Clinical AI,2021,465,9,5
-350,Algorithmic fairness in computational medicine,Health & Clinical AI,2022,142,8,7
-556,Fairness Violations and Mitigation under Covariate Shift,General Fairness & Bias Mitigation,2021,40,8,0
-391,Assessing the potential of GPT-4 to perpetuate racial and gender biases in health care: a model evaluation study,LLMs & NLP,2023,427,8,1
+608,"""I'm Fully Who I Am"": Towards Centering Transgender and Non-Binary Voices to Measure Biases in Open Language Generation",LLMs & NLP,2023,38,9,1
+524,Dissecting Racial Bias in an Algorithm that Guides Health Decisions for 70 Million People,Health & Clinical AI,2019,119,9,0
 54,Fairway: A Way to Build Fair ML Software,General Fairness & Bias Mitigation,2020,119,8,2
+383,Assessing the potential of GPT-4 to perpetuate racial and gender biases in health care: a model evaluation study,LLMs & NLP,2023,427,8,1
+571,"Are ""Intersectionally Fair"" AI Algorithms Really Fair to Women of Color? A Philosophical Analysis",General Fairness & Bias Mitigation,2022,56,8,1
+330,Algorithmic fairness in artificial intelligence for medicine and healthcare,Health & Clinical AI,2023,558,8,12
 42,Fairness in Recommendation: Foundations Methods and Applications,Recommender Systems,2023,83,8,12
-457,"WEIRD FAccTs: How Western, Educated, Industrialized, Rich, and Democratic is FAccT?",General Fairness & Bias Mitigation,2023,46,8,2
-579,"Are ""Intersectionally Fair"" AI Algorithms Really Fair to Women of Color? A Philosophical Analysis",General Fairness & Bias Mitigation,2022,56,8,1
-370,AI can be sexist and racist — it’s time to make it fair,General Fairness & Bias Mitigation,2018,745,7,2
-583,Demographic-Reliant Algorithmic Fairness: Characterizing the Risks of Demographic Data Collection in the Pursuit of Fairness,General Fairness & Bias Mitigation,2022,46,7,8
-410,Fairness in Graph Mining: A Survey,Graph-Based Fairness & Bias Mitigation,2023,124,7,8
-521,50 Years of Test (Un)fairness: Lessons for Machine Learning,General Fairness & Bias Mitigation,2019,126,7,4
-578,The Road to Explainability is Paved with Bias: Measuring the Fairness of Explanations,General Fairness & Bias Mitigation,2022,65,7,2
-576,"Towards Intersectionality in Machine Learning: Including More Identities, Handling Underrepresentation, and Performing Evaluation",General Fairness & Bias Mitigation,2022,84,7,7
-359,Addressing bias in big data and AI for health care: A call for open science,Health & Clinical AI,2021,772,7,3
-544,The False Promise of Risk Assessments: Epistemic Reform and the Limits of Fairness,General Fairness & Bias Mitigation,2020,82,7,3
-2,Artificial intelligence and algorithmic bias: implications for health systems,Health & Clinical AI,2019,499,7,1
-353,EDITS: Modeling and Mitigating Data Bias for Graph Neural Networks,Graph-Based Fairness & Bias Mitigation,2022,118,7,5
-563,Fairness in Risk Assessment Instruments: Post-Processing to Achieve Counterfactual Equalized Odds,General Fairness & Bias Mitigation,2021,50,7,3
+548,Fairness Violations and Mitigation under Covariate Shift,General Fairness & Bias Mitigation,2021,40,8,0
+18,Algorithmic Bias in Autonomous Systems,General Fairness & Bias Mitigation,2017,440,8,1
+536,The False Promise of Risk Assessments: Epistemic Reform and the Limits of Fairness,General Fairness & Bias Mitigation,2020,82,7,2
+343,Algorithmic fairness in computational medicine,Health & Clinical AI,2022,142,7,7
+346,EDITS: Modeling and Mitigating Data Bias for Graph Neural Networks,Graph-Based Fairness & Bias Mitigation,2022,118,7,5
+14,Sources of bias in artificial intelligence that perpetuate healthcare disparities—A global review,Health & Clinical AI,2022,485,7,0
+352,Addressing bias in big data and AI for health care: A call for open science,Health & Clinical AI,2021,772,7,3
 31,A Survey on Bias and Fairness in Machine Learning,General Fairness & Bias Mitigation,2021,317,7,13
-584,"Fair Ranking: A Critical Review, Challenges, and Future Directions",General Fairness & Bias Mitigation,2022,45,6,6
-340,Bias in artificial intelligence algorithms and recommendations for mitigation,General Fairness & Bias Mitigation,2023,533,6,3
-539,Bias in Word Embeddings,LLMs & NLP,2020,87,6,3
-16,Evaluation and Mitigation of Racial Bias in Clinical Machine Learning Models: Scoping Review,Health & Clinical AI,2022,180,6,7
+575,Demographic-Reliant Algorithmic Fairness: Characterizing the Risks of Demographic Data Collection in the Pursuit of Fairness,General Fairness & Bias Mitigation,2022,46,7,8
+513,50 Years of Test (Un)fairness: Lessons for Machine Learning,General Fairness & Bias Mitigation,2019,126,7,4
+568,"Towards Intersectionality in Machine Learning: Including More Identities, Handling Underrepresentation, and Performing Evaluation",General Fairness & Bias Mitigation,2022,84,7,7
+363,AI can be sexist and racist — it’s time to make it fair,General Fairness & Bias Mitigation,2018,745,7,2
+402,Fairness in Graph Mining: A Survey,Graph-Based Fairness & Bias Mitigation,2023,124,7,8
+570,The Road to Explainability is Paved with Bias: Measuring the Fairness of Explanations,General Fairness & Bias Mitigation,2022,65,7,2
+449,"WEIRD FAccTs: How Western, Educated, Industrialized, Rich, and Democratic is FAccT?",General Fairness & Bias Mitigation,2023,46,7,2
+531,Bias in Word Embeddings,LLMs & NLP,2020,87,6,3
 264,Comprehensive Fair Meta-learned Recommender System,Recommender Systems,2022,47,6,0
-650,Identifying and Improving Disability Bias in GPT-Based Resume Screening,LLMs & NLP,2024,62,6,3
-585,"Theories of ""Gender"" in NLP Bias Research",LLMs & NLP,2022,43,6,1
-342,"“Kelly is a Warm Person, Joseph is a Role Model”: Gender Biases in LLM-Generated Reference Letters",LLMs & NLP,2023,104,6,5
+576,"Fair Ranking: A Critical Review, Challenges, and Future Directions",General Fairness & Bias Mitigation,2022,45,6,6
+577,"Theories of ""Gender"" in NLP Bias Research",LLMs & NLP,2022,43,6,1
+333,Bias in artificial intelligence algorithms and recommendations for mitigation,General Fairness & Bias Mitigation,2023,533,6,4
+335,"“Kelly is a Warm Person, Joseph is a Role Model”: Gender Biases in LLM-Generated Reference Letters",LLMs & NLP,2023,104,6,5
+555,Fairness in Risk Assessment Instruments: Post-Processing to Achieve Counterfactual Equalized Odds,General Fairness & Bias Mitigation,2021,50,6,3
+619,"""I Wouldn't Say Offensive but..."": Disability-Centered Perspectives on Large Language Models",LLMs & NLP,2023,131,5,6
+349,Machine learning and algorithmic fairness in public and population health,Health & Clinical AI,2021,208,5,6
+584,Markedness in Visual Semantic AI,General Fairness & Bias Mitigation,2022,28,5,2
+617,Bias Against 93 Stigmatized Groups in Masked Language Models and Downstream Sentiment Classification Tasks,LLMs & NLP,2023,46,5,0
+2,Artificial intelligence and algorithmic bias: implications for health systems,Health & Clinical AI,2019,499,5,1
+353,Moving beyond “algorithmic bias is a data problem”,General Fairness & Bias Mitigation,2021,165,5,2
+491,Understanding accountability in algorithmic supply chains,General Fairness & Bias Mitigation,2023,75,5,4
 57,Bias in Machine Learning Software: Why? How? What to Do?,General Fairness & Bias Mitigation,2021,166,5,2
+16,Evaluation and Mitigation of Racial Bias in Clinical Machine Learning Models: Scoping Review,Health & Clinical AI,2022,180,5,7
+523,Measuring the Biases that Matter: The Ethical and Causal Foundations for Measures of Fairness in Algorithms,General Fairness & Bias Mitigation,2019,51,5,3
+490,Envisioning Equitable Speech Technologies for Black Older Adults,LLMs & NLP,2023,40,5,6
+535,Case Study: Predictive Fairness to Reduce Misdemeanor Recidivism Through Social Service Interventions,General Fairness & Bias Mitigation,2020,32,5,3
 29,Fairea: A Model Behaviour Mutation Approach to Benchmarking Bias Mitigation Methods,General Fairness & Bias Mitigation,2021,68,5,7
-627,"""I Wouldn't Say Offensive but..."": Disability-Centered Perspectives on Large Language Models",LLMs & NLP,2023,131,5,6
-360,Moving beyond “algorithmic bias is a data problem”,General Fairness & Bias Mitigation,2021,165,5,2
-356,Machine learning and algorithmic fairness in public and population health,Health & Clinical AI,2021,208,5,6
-543,Case Study: Predictive Fairness to Reduce Misdemeanor Recidivism Through Social Service Interventions,General Fairness & Bias Mitigation,2020,32,5,3
-625,Bias Against 93 Stigmatized Groups in Masked Language Models and Downstream Sentiment Classification Tasks,LLMs & NLP,2023,46,5,0
-531,Measuring the Biases that Matter: The Ethical and Causal Foundations for Measures of Fairness in Algorithms,General Fairness & Bias Mitigation,2019,51,5,4
-499,Understanding accountability in algorithmic supply chains,General Fairness & Bias Mitigation,2023,75,5,4
-592,Markedness in Visual Semantic AI,General Fairness & Bias Mitigation,2022,28,5,2
-30,Machine Learning Fairness Notions: Bridging the Gap with Real-World Applications,General Fairness & Bias Mitigation,2021,53,5,11
-498,Envisioning Equitable Speech Technologies for Black Older Adults,LLMs & NLP,2023,40,5,6
-362,Racial Bias in Pulse Oximetry Measurement,Health & Clinical AI,2020,995,4,0
-569,Can You Fake It Until You Make It? Impacts of Differentially Private GAN Outputs in Clinical Settings,Health & Clinical AI,2021,38,4,2
-652,The Four-fifths Rule is not Disparate Impact: A Woeful Tale of Epistemic Trespassing in Algorithmic Fairness,General Fairness & Bias Mitigation,2024,7,4,5
-575,Exploring How Machine Learning Practitioners (Try To) Use Fairness Toolkits,General Fairness & Bias Mitigation,2022,89,4,7
 56,Fair Preprocessing: Understanding Compositional Fairness of Data Transformers in ML Pipeline,General Fairness & Bias Mitigation,2021,94,4,5
+396,Evaluating and mitigating bias in machine learning models for cardiovascular disease prediction,Health & Clinical AI,2023,72,4,4
+641,Identifying and Improving Disability Bias in GPT-Based Resume Screening,LLMs & NLP,2024,62,4,3
+561,Can You Fake It Until You Make It? Impacts of Differentially Private GAN Outputs in Clinical Settings,Health & Clinical AI,2021,38,4,2
+527,FlipTest: Fairness Testing via Optimal Transport,General Fairness & Bias Mitigation,2020,53,4,3
+366,Fair Prediction with Disparate Impact: A Study of Bias in Recidivism Prediction Instruments,General Fairness & Bias Mitigation,2017,158,4,2
+30,Machine Learning Fairness Notions: Bridging the Gap with Real-World Applications,General Fairness & Bias Mitigation,2021,53,4,10
+355,Racial Bias in Pulse Oximetry Measurement,Health & Clinical AI,2020,995,4,0
 259,Is ChatGPT Fair for Recommendation? Evaluating Fairness in Large Language Model Recommendation,Recommender Systems,2023,124,4,1
-373,Fair Prediction with Disparate Impact: A Study of Bias in Recidivism Prediction Instruments,General Fairness & Bias Mitigation,2017,158,4,2
 269,Fairness metrics and bias mitigation strategies for rating predictions,Recommender Systems,2021,45,4,7
-535,FlipTest: Fairness Testing via Optimal Transport,General Fairness & Bias Mitigation,2020,53,4,3
-404,Evaluating and mitigating bias in machine learning models for cardiovascular disease prediction,Health & Clinical AI,2023,72,4,4
-60,Representation Bias in Data: A Survey on Identification and Resolution Techniques,General Fairness & Bias Mitigation,2023,101,4,8
-462,An Empirical Analysis of Racial Categories in the Algorithmic Fairness Literature,General Fairness & Bias Mitigation,2023,15,4,4
-437,Toward fairness in artificial intelligence for medical image analysis: identification and mitigation of potential biases in the roadmap from data collection to model deployment,Health & Clinical AI,2023,125,3,6
-552,"One Label, One Billion Faces: Usage and Consistency of Racial Categories in Computer Vision",General Fairness & Bias Mitigation,2021,10,3,3
+454,An Empirical Analysis of Racial Categories in the Algorithmic Fairness Literature,General Fairness & Bias Mitigation,2023,15,4,4
+567,Exploring How Machine Learning Practitioners (Try To) Use Fairness Toolkits,General Fairness & Bias Mitigation,2022,89,4,7
+544,"One Label, One Billion Faces: Usage and Consistency of Racial Categories in Computer Vision",General Fairness & Bias Mitigation,2021,10,3,3
+23,Ignorance and Prejudice in Software Fairness,General Fairness & Bias Mitigation,2021,69,3,7
+332,Fairness of artificial intelligence in healthcare: review and recommendations,Health & Clinical AI,2023,497,3,3
+587,Achieving Fairness via Post-Processing in Web-Scale Recommender Systems,Recommender Systems,2022,22,3,6
+580,Bias in Automated Speaker Recognition,LLMs & NLP,2022,44,3,0
+662,Akal Badi ya Bias: An Exploratory Study of Gender Bias in Hindi Language Technology,LLMs & NLP,2024,9,3,3
 170,When Fairness meets Bias: a Debiased Framework for Fairness aware Top-N Recommendation,Recommender Systems,2023,27,3,2
-451,Which Stereotypes Are Moderated and Under-Moderated in Search Engine Autocompletion?,LLMs & NLP,2023,10,3,3
-617,Multi-Dimensional Discrimination in Law and Machine Learning: A Comparative Overview,General Fairness & Bias Mitigation,2023,20,3,8
-595,Achieving Fairness via Post-Processing in Web-Scale Recommender Systems,Recommender Systems,2022,22,3,6
-596,Providing Item-Side Individual Fairness for Deep Recommender Systems,Recommender Systems,2022,21,3,2
-571,Fair Clustering via Equitable Group Representations,General Fairness & Bias Mitigation,2021,48,3,3
-603,Evidence for Hypodescent in Visual Semantic AI,General Fairness & Bias Mitigation,2022,15,3,3
+559,Avoiding Disparity Amplification under Different Worldviews,General Fairness & Bias Mitigation,2021,22,3,5
+389,Bias Discovery in Machine Learning Models for Mental Health,Health & Clinical AI,2022,27,3,1
 149,An Ontology for Fairness Metrics,Graph-Based Fairness & Bias Mitigation,2022,31,3,2
-567,Avoiding Disparity Amplification under Different Worldviews,General Fairness & Bias Mitigation,2021,22,3,6
-588,Bias in Automated Speaker Recognition,LLMs & NLP,2022,44,3,0
-675,Recommend Me? Designing Fairness Metrics with Providers,Recommender Systems,2024,13,3,2
-662,"Large Language Models Portray Socially Subordinate Groups as More Homogeneous, Consistent with a Bias Observed in Humans",LLMs & NLP,2024,38,3,3
-339,Fairness of artificial intelligence in healthcare: review and recommendations,Health & Clinical AI,2023,497,3,3
-23,Ignorance and Prejudice in Software Fairness,General Fairness & Bias Mitigation,2021,69,3,8
-397,Bias Discovery in Machine Learning Models for Mental Health,Health & Clinical AI,2022,27,3,1
+643,The Four-fifths Rule is not Disparate Impact: A Woeful Tale of Epistemic Trespassing in Algorithmic Fairness,General Fairness & Bias Mitigation,2024,7,3,5
+595,Evidence for Hypodescent in Visual Semantic AI,General Fairness & Bias Mitigation,2022,15,3,3
+653,"Large Language Models Portray Socially Subordinate Groups as More Homogeneous, Consistent with a Bias Observed in Humans",LLMs & NLP,2024,38,3,3
+539,Data in New Delhi's Predictive Policing System,General Fairness & Bias Mitigation,2020,50,3,1
+588,Providing Item-Side Individual Fairness for Deep Recommender Systems,Recommender Systems,2022,21,3,2
+60,Representation Bias in Data: A Survey on Identification and Resolution Techniques,General Fairness & Bias Mitigation,2023,101,3,8
+429,Toward fairness in artificial intelligence for medical image analysis: identification and mitigation of potential biases in the roadmap from data collection to model deployment,Health & Clinical AI,2023,125,3,6
+541,Differential Tweetment,General Fairness & Bias Mitigation,2021,31,3,3
+563,Fair Clustering via Equitable Group Representations,General Fairness & Bias Mitigation,2021,48,3,3
+609,Multi-Dimensional Discrimination in Law and Machine Learning: A Comparative Overview,General Fairness & Bias Mitigation,2023,20,3,8
 6,Algorithmic bias in data-driven innovation in the age of AI,General Fairness & Bias Mitigation,2021,403,3,2
-665,Equalised Odds is not Equal Individual Odds: Post-processing for Group and Individual Fairness,General Fairness & Bias Mitigation,2024,7,3,3
-549,Differential Tweetment,General Fairness & Bias Mitigation,2021,31,3,3
-671,Akal Badi ya Bias: An Exploratory Study of Gender Bias in Hindi Language Technology,LLMs & NLP,2024,9,3,3
-547,Data in New Delhi's Predictive Policing System,General Fairness & Bias Mitigation,2020,50,3,1
-455,Representation in AI Evaluations,General Fairness & Bias Mitigation,2023,15,2,5
-590,Exploring the Role of Grammar and Word Choice in Bias Toward African American English (AAE) in Hate Speech Classification,LLMs & NLP,2022,34,2,0
+666,Recommend Me? Designing Fairness Metrics with Providers,Recommender Systems,2024,13,3,2
+583,"De-biasing ""Bias"" Measurement",General Fairness & Bias Mitigation,2022,28,2,1
+478,Disambiguating Algorithmic Bias: From Neutrality to Justice,General Fairness & Bias Mitigation,2023,26,2,12
+456,Bias as Boundary Object: Unpacking The Politics Of An Austerity Algorithm Using Bias Frameworks,General Fairness & Bias Mitigation,2023,4,2,2
+482,Not So Fair: The Impact of Presumably Fair Machine Learning Models,General Fairness & Bias Mitigation,2023,6,2,3
+457,Skin Deep: Investigating Subjectivity in Skin Tone Annotations for Computer Vision Benchmark Datasets,General Fairness & Bias Mitigation,2023,15,2,1
+488,Datafication Genealogies beyond Algorithmic Fairness: Making Up Racialised Subjects,General Fairness & Bias Mitigation,2023,17,2,1
+486,The Illusion of Artificial Inclusion,General Fairness & Bias Mitigation,2024,55,2,3
+483,"Target specification bias, counterfactual prediction, and algorithmic fairness in healthcare",Health & Clinical AI,2023,10,2,2
+586,What is Proxy Discrimination?,General Fairness & Bias Mitigation,2022,26,2,3
+443,Which Stereotypes Are Moderated and Under-Moderated in Search Engine Autocompletion?,LLMs & NLP,2023,10,2,3
+582,Exploring the Role of Grammar and Word Choice in Bias Toward African American English (AAE) in Hate Speech Classification,LLMs & NLP,2022,34,2,0
 175,Long-term Dynamics of Fairness Intervention in Connection Recommender Systems,Recommender Systems,2022,13,2,3
-591,"De-biasing ""Bias"" Measurement",General Fairness & Bias Mitigation,2022,28,2,1
-554,Towards Cross-Lingual Generalization of Translation Gender Bias,LLMs & NLP,2021,22,2,1
-594,What is Proxy Discrimination?,General Fairness & Bias Mitigation,2022,26,2,3
-534,Assessing Algorithmic Fairness with Unobserved Protected Class Using Data Combination,General Fairness & Bias Mitigation,2020,77,2,3
-494,The Illusion of Artificial Inclusion,General Fairness & Bias Mitigation,2024,55,2,3
-496,Datafication Genealogies beyond Algorithmic Fairness: Making Up Racialised Subjects,General Fairness & Bias Mitigation,2023,17,2,1
-442,Towards a Science of Human-AI Decision Making: An Overview of Design Space in Empirical Human-Subject Studies,General Fairness & Bias Mitigation,2023,152,2,1
-246,Mitigating Nonlinear Algorithmic Bias in Binary Classification,General Fairness & Bias Mitigation,2024,2,2,2
-445,The Possibility of Fairness: Revisiting the Impossibility Theorem in Practice,General Fairness & Bias Mitigation,2023,19,2,1
-533,Closing the AI Accountability Gap: Defining an End-to-End Framework for Internal Algorithmic Auditing,General Fairness & Bias Mitigation,2020,161,2,1
-28,MAAT: A Novel Ensemble Approach to Addressing Fairness and Performance Bugs for Machine Learning Software,General Fairness & Bias Mitigation,2023,59,2,7
-538,Reducing Sentiment Polarity for Demographic Attributes in Word Embeddings using Adversarial Learning,LLMs & NLP,2020,38,2,1
-452,AI Regulation Is (not) All You Need,General Fairness & Bias Mitigation,2023,35,2,2
-582,Robots Enact Malignant Stereotypes,General Fairness & Bias Mitigation,2022,50,2,4
-486,Disambiguating Algorithmic Bias: From Neutrality to Justice,General Fairness & Bias Mitigation,2023,26,2,12
+546,Towards Cross-Lingual Generalization of Translation Gender Bias,LLMs & NLP,2021,22,2,1
+437,The Possibility of Fairness: Revisiting the Impossibility Theorem in Practice,General Fairness & Bias Mitigation,2023,19,2,1
+530,Reducing Sentiment Polarity for Demographic Attributes in Word Embeddings using Adversarial Learning,LLMs & NLP,2020,38,2,1
+557,The Effect of Differential Victim Crime Reporting on Predictive Policing Systems,General Fairness & Bias Mitigation,2021,36,2,0
+558,Detecting Discriminatory Risk through Data Annotation Based on Bayesian Inferences,General Fairness & Bias Mitigation,2021,17,2,3
+526,Assessing Algorithmic Fairness with Unobserved Protected Class Using Data Combination,General Fairness & Bias Mitigation,2020,77,2,3
+564,Narratives and Counternarratives on Data Sharing in Africa,General Fairness & Bias Mitigation,2021,91,2,0
+565,Group Fairness: Independence Revisited,General Fairness & Bias Mitigation,2021,29,2,2
+525,Closing the AI Accountability Gap: Defining an End-to-End Framework for Internal Algorithmic Auditing,General Fairness & Bias Mitigation,2020,161,2,1
+569,"Tackling Algorithmic Disability Discrimination in the Hiring Process: An Ethical, Legal and Technical Analysis",General Fairness & Bias Mitigation,2022,77,2,2
+331,Algorithmic fairness and bias mitigation for clinical machine learning with deep reinforcement learning,Health & Clinical AI,2023,108,2,2
+574,Robots Enact Malignant Stereotypes,General Fairness & Bias Mitigation,2022,50,2,4
+444,AI Regulation Is (not) All You Need,General Fairness & Bias Mitigation,2023,35,2,2
+447,Representation in AI Evaluations,General Fairness & Bias Mitigation,2023,15,2,5
 263,Bias in Conversational Search: The Double-Edged Sword of the Personalized Knowledge Graph,Graph-Based Fairness & Bias Mitigation,2020,24,2,0
-577,"Tackling Algorithmic Disability Discrimination in the Hiring Process: An Ethical, Legal and Technical Analysis",General Fairness & Bias Mitigation,2022,77,2,2
-338,Algorithmic fairness and bias mitigation for clinical machine learning with deep reinforcement learning,Health & Clinical AI,2023,108,2,2
-573,Group Fairness: Independence Revisited,General Fairness & Bias Mitigation,2021,29,2,2
-572,Narratives and Counternarratives on Data Sharing in Africa,General Fairness & Bias Mitigation,2021,91,2,0
-491,"Target specification bias, counterfactual prediction, and algorithmic fairness in healthcare",Health & Clinical AI,2023,10,2,2
-202,Multidisciplinary considerations of fairness in medical AI: A scoping review,Health & Clinical AI,2023,22,2,6
+600,ABCinML: Anticipatory Bias Correction in Machine Learning Applications,General Fairness & Bias Mitigation,2022,7,2,2
+299,Popularity Bias in Recommender Systems: The Search for Fairness in the Long Tail,Recommender Systems,2025,12,2,3
 39,Men Also Like Shopping: Reducing Gender Bias Amplification Using Corpus-Level Constraints,LLMs & NLP,2017,124,2,2
-566,Detecting Discriminatory Risk through Data Annotation Based on Bayesian Inferences,General Fairness & Bias Mitigation,2021,17,2,3
-565,The Effect of Differential Victim Crime Reporting on Predictive Policing Systems,General Fairness & Bias Mitigation,2021,36,2,0
-490,Not So Fair: The Impact of Presumably Fair Machine Learning Models,General Fairness & Bias Mitigation,2023,6,2,3
-608,ABCinML: Anticipatory Bias Correction in Machine Learning Applications,General Fairness & Bias Mitigation,2022,7,2,2
-474,Algorithmic Misjudgement in Google Search Results: Evidence from Auditing the US Online Electoral Information Environment,General Fairness & Bias Mitigation,2024,8,2,0
-649,Auditing GPT's Content Moderation Guardrails: Can ChatGPT Write Your Favorite TV Show?,LLMs & NLP,2024,16,2,3
-465,Skin Deep: Investigating Subjectivity in Skin Tone Annotations for Computer Vision Benchmark Datasets,General Fairness & Bias Mitigation,2023,15,2,1
-634,The Progression of Disparities within the Criminal Justice System: Differential Enforcement and Risk Assessment Instruments,General Fairness & Bias Mitigation,2023,13,2,3
-435,The limits of fair medical imaging AI in real-world generalization,Health & Clinical AI,2024,198,2,6
-87,Creating Trustworthy LLMs: Dealing with Hallucinations in Healthcare AI,LLMs & NLP,2023,17,2,0
+4,Artificial intelligence bias in medical system designs: a systematic review,Health & Clinical AI,2023,57,2,10
+422,Should Fairness be a Metric or a Model? A Model-based Framework for Assessing Bias in Machine Learning Pipelines,General Fairness & Bias Mitigation,2024,27,2,9
+645,Beyond Behaviorist Representational Harms: A Plan for Measurement and Mitigation,General Fairness & Bias Mitigation,2024,20,2,5
+427,The limits of fair medical imaging AI in real-world generalization,Health & Clinical AI,2024,198,2,6
+371,A Critical Survey on Fairness Benefits of Explainable AI,General Fairness & Bias Mitigation,2024,38,2,5
+631,Operationalizing the Search for Less Discriminatory Alternatives in Fair Lending,General Fairness & Bias Mitigation,2024,30,2,6
+630,Not My Voice! A Taxonomy of Ethical and Safety Harms of Speech Generators,LLMs & NLP,2024,42,2,3
+626,The Progression of Disparities within the Criminal Justice System: Differential Enforcement and Risk Assessment Instruments,General Fairness & Bias Mitigation,2023,13,2,3
 124,FairCLIP: Harnessing Fairness in Vision-Language Learning,Health & Clinical AI,2024,39,2,2
-626,Contrastive Language-Vision AI Models Pretrained on Web-Scraped Multimodal Data Exhibit Sexual Objectification Bias,LLMs & NLP,2023,33,2,1
-639,Not My Voice! A Taxonomy of Ethical and Safety Harms of Speech Generators,LLMs & NLP,2024,42,2,3
-623,Detecting Disparities in Police Deployments Using Dashcam Data,General Fairness & Bias Mitigation,2023,13,2,1
-469,Black-Box Access is Insufficient for Rigorous AI Audits,General Fairness & Bias Mitigation,2024,52,2,6
-381,A Framework for Assurance Audits of Algorithmic Systems,General Fairness & Bias Mitigation,2024,25,2,4
-640,Operationalizing the Search for Less Discriminatory Alternatives in Fair Lending,General Fairness & Bias Mitigation,2024,30,2,6
-379,A Critical Survey on Fairness Benefits of Explainable AI,General Fairness & Bias Mitigation,2024,38,2,5
-464,Bias as Boundary Object: Unpacking The Politics Of An Austerity Algorithm Using Bias Frameworks,General Fairness & Bias Mitigation,2023,4,2,2
-658,WorldBench: Quantifying Geographic Disparities in LLM Factual Recall,LLMs & NLP,2024,22,2,0
-4,Artificial intelligence bias in medical system designs: a systematic review,Health & Clinical AI,2023,57,2,9
-430,Should Fairness be a Metric or a Model? A Model-based Framework for Assessing Bias in Machine Learning Pipelines,General Fairness & Bias Mitigation,2024,27,2,9
-612,Improving Fairness in AI Models on Electronic Health Records: The Case for Federated Learning Methods,Health & Clinical AI,2023,63,2,1
-394,Auditing for Racial Discrimination in the Delivery of Education Ads,General Fairness & Bias Mitigation,2024,9,2,1
-654,Beyond Behaviorist Representational Harms: A Plan for Measurement and Mitigation,General Fairness & Bias Mitigation,2024,20,2,5
-395,Auditing Work: Exploring the New York City algorithmic bias audit regime,General Fairness & Bias Mitigation,2024,36,2,5
-306,Popularity Bias in Recommender Systems: The Search for Fairness in the Long Tail,Recommender Systems,2025,12,2,3
-398,Bias in machine learning models can be significantly mitigated by careful training: Evidence from neuroimaging studies,General Fairness & Bias Mitigation,2023,73,1,3
-237,A scoping review and evidence gap analysis of clinical AI fairness,Health & Clinical AI,2025,29,1,18
-399,Causal Fairness Analysis: A Causal Toolkit for Fair Machine Learning,General Fairness & Bias Mitigation,2024,23,1,0
-660,Speaking of Accent: A Content Analysis of Accent Misconceptions in ASR Research,LLMs & NLP,2024,6,1,0
-98,Visual Affect Around the World,Graph-Based Fairness & Bias Mitigation,2015,96,1,0
-440,Certification Labels for Trustworthy AI: Insights From an Empirical Mixed-Method Study,General Fairness & Bias Mitigation,2023,40,1,1
-44,A Comprehensive Survey on Trustworthy Recommender Systems,Recommender Systems,2022,15,1,0
-26,Mitigating Unwanted Biases with Adversarial Learning,General Fairness & Bias Mitigation,2018,98,1,2
-48,Constructing Knowledge Graphs and Their Biomedical Applications,Health & Clinical AI,2020,267,1,0
-492,Perceived Algorithmic Fairness using Organizational Justice Theory: An Empirical Case Study on Algorithmic Hiring,General Fairness & Bias Mitigation,2023,7,1,1
-104,Fairness and Bias in E-commerce Recommendation Systems: A Literature Review,Recommender Systems,2024,1,1,5
-659,The Dark Side of Dataset Scaling: Evaluating Racial Classification in Multimodal Models,General Fairness & Bias Mitigation,2024,21,1,3
-228,Fairness-aware Cross-Domain Recommendation,Recommender Systems,2025,2,1,1
-90,Understanding Asian Stereotyping and Bias in LLMs,LLMs & NLP,2024,416,1,3
-68,Approval of AI/ML-Based Medical Devices in USA & Europe,Health & Clinical AI,2021,623,1,0
-8,Bias Mitigation for Machine Learning Classifiers: A Comprehensive Survey,General Fairness & Bias Mitigation,2022,23,1,0
-403,Ethnic disparity in diagnosing asymptomatic bacterial vaginosis using machine learning,Health & Clinical AI,2023,27,1,2
-348,Survey on Machine Learning Biases and Mitigation Techniques,General Fairness & Bias Mitigation,2023,62,1,4
-502,Bias on Demand: A Modelling Framework That Generates Synthetic Data With Bias,General Fairness & Bias Mitigation,2023,15,1,5
-276,Data augmentation for fairness-aware machine learning,General Fairness & Bias Mitigation,2022,30,1,3
-471,Machine learning data practices through a data curation lens: An evaluation framework,General Fairness & Bias Mitigation,2024,8,1,6
-328,Dialectal Toxicity Detection: Evaluating LLM-as-a-Judge Consistency Across Language Varieties,LLMs & NLP,2024,1,1,0
-453,Examining risks of racial biases in NLP tools for child protective services,LLMs & NLP,2023,15,1,1
-71,Data Drift in Medical ML: Implications and Remedies,Health & Clinical AI,2023,189,1,2
-331,Fairness and Diversity in Recommender Systems: A Survey,Recommender Systems,2024,73,1,5
-421,Incorporating Attribution Importance for Improving Faithfulness Metrics,General Fairness & Bias Mitigation,2023,4,1,0
-332,Differential Privacy Has Disparate Impact on Model Accuracy,General Fairness & Bias Mitigation,2019,77,1,1
-73,Shifting ML in Healthcare: From Development to Deployment,Health & Clinical AI,2022,389,1,2
-450,A Sociotechnical Audit: Assessing Police Use of Facial Recognition,General Fairness & Bias Mitigation,2023,20,1,4
-449,Simplicity Bias Leads to Amplified Performance Disparities,General Fairness & Bias Mitigation,2023,3,1,8
-422,Intersectional Stereotypes in Large Language Models: Dataset and Analysis,LLMs & NLP,2023,4,1,0
-75,A Survey on Fairness in Large Language Models,LLMs & NLP,2023,21,1,0
+28,MAAT: A Novel Ensemble Approach to Addressing Fairness and Performance Bugs for Machine Learning Software,General Fairness & Bias Mitigation,2023,59,2,7
+649,WorldBench: Quantifying Geographic Disparities in LLM Factual Recall,LLMs & NLP,2024,22,2,0
+618,Contrastive Language-Vision AI Models Pretrained on Web-Scraped Multimodal Data Exhibit Sexual Objectification Bias,LLMs & NLP,2023,33,2,1
+615,Detecting Disparities in Police Deployments Using Dashcam Data,General Fairness & Bias Mitigation,2023,13,2,1
+604,Improving Fairness in AI Models on Electronic Health Records: The Case for Federated Learning Methods,Health & Clinical AI,2023,63,2,1
+387,Auditing Work: Exploring the New York City algorithmic bias audit regime,General Fairness & Bias Mitigation,2024,36,1,5
 63,Slice Tuner: A Selective Data Acquisition Framework for Fair ML Models,General Fairness & Bias Mitigation,2021,31,1,1
-3,Artificial Intelligence in Clinical Decision Support: Challenges for Evaluating AI and Practical Implications,Health & Clinical AI,2019,335,1,0
-81,Bias and Unfairness in Information Retrieval Systems: New Challenges in the LLM Era,LLMs & NLP,2024,98,1,4
-478,Understanding Disparities in Post Hoc Machine Learning Explanation,General Fairness & Bias Mitigation,2024,9,1,3
-447,Enhancing AI fairness through impact assessment in the European Union: a legal and computer science perspective,General Fairness & Bias Mitigation,2023,23,1,2
-519,Fairness Without Demographics in Repeated Loss Minimization,General Fairness & Bias Mitigation,2018,108,1,0
-406,Fairness and bias correction in machine learning for depression prediction across four study populations,Health & Clinical AI,2024,31,1,6
-405,"Evidence of What, for Whom? The Socially Contested Role of Algorithmic Bias in a Predictive Policing Tool",General Fairness & Bias Mitigation,2024,11,1,5
-344,Personalized Prompt Learning for Explainable Recommendation,Recommender Systems,2023,150,1,1
-648,Lazy Data Practices Harm Fairness Research,General Fairness & Bias Mitigation,2024,10,1,7
-444,"Humans, AI, and Context: Understanding End-Users’ Trust in a Real-World Computer Vision Application",General Fairness & Bias Mitigation,2023,35,1,1
-88,Risk Taxonomy Mitigation and Assessment Benchmarks of Large Language Model Systems,LLMs & NLP,2023,13,1,0
-361,A survey on datasets for fairness-aware machine learning,General Fairness & Bias Mitigation,2021,40,1,9
-298,Algorithmic individual fairness and healthcare: a scoping review,Health & Clinical AI,2024,19,1,5
-615,In the Name of Fairness: Assessing the Bias in Clinical Record De-Identification,Health & Clinical AI,2023,16,1,2
-631,The Dataset Multiplicity Problem: How Unreliable Data Impacts Predictions,General Fairness & Bias Mitigation,2023,10,1,1
-184,Indian-BhED: A Dataset for Measuring India-Centric Biases in Large Language Models,LLMs & NLP,2024,11,1,0
-630,On The Impact of Machine Learning Randomness on Group Fairness,General Fairness & Bias Mitigation,2023,17,1,3
-629,The Privacy-Bias Tradeoff: Data Minimization and Racial Disparity Assessments in U.S. Government,General Fairness & Bias Mitigation,2023,16,1,1
-383,A scoping review of fair machine learning techniques when using real-world data,General Fairness & Bias Mitigation,2024,40,1,6
-586,Measuring Representational Harms in Image Captioning,LLMs & NLP,2022,35,1,1
-587,"Net Benefit, Calibration, Threshold Selection, and Training Objectives for Algorithmic Fairness in Healthcare",Health & Clinical AI,2022,29,1,6
-589,Gender and Racial Bias in Visual Question Answering Datasets,LLMs & NLP,2022,34,1,2
-622,Fairer Together: Mitigating Disparate Exposure in Kemeny Rank Aggregation,General Fairness & Bias Mitigation,2023,9,1,1
-620,Diverse Perspectives Can Mitigate Political Bias in Crowdsourced Content Moderation,General Fairness & Bias Mitigation,2023,6,1,3
-593,Multi-Disciplinary Fairness Considerations in Machine Learning for Clinical Trials,Health & Clinical AI,2022,26,1,7
-438,Towards Fair Graph Neural Networks via Graph Counterfactual,Graph-Based Fairness & Bias Mitigation,2023,20,1,4
-614,Group-Fair Classification with Strategic Agents,General Fairness & Bias Mitigation,2023,2,1,1
-50,Review of Mathematical Frameworks for Fairness in Machine Learning,General Fairness & Bias Mitigation,2020,20,1,6
-597,Algorithmic Fairness and Vertical Equity: Income Fairness with IRS Tax Audit Models,General Fairness & Bias Mitigation,2022,21,1,2
-598,"Female, White, 27? Bias Evaluation on Data and Algorithms for Affect Recognition in Faces",General Fairness & Bias Mitigation,2022,19,1,1
-599,Adaptive Sampling Strategies to Construct Equitable Training Datasets,General Fairness & Bias Mitigation,2022,18,1,6
-164,Dynamic Fairness-aware Recommendation Through Multi-agent Social Choice,Recommender Systems,2024,9,1,3
-163,CFaiRLLM: Consumer Fairness Evaluation in Large-Language Model Recommender System,Recommender Systems,2025,23,1,1
-600,Fairness Indicators for Systematic Assessments of Visual Feature Extractors,General Fairness & Bias Mitigation,2022,17,1,1
-601,A Data-Driven Analysis of the Interplay between Criminological Theory and Predictive Policing Algorithms,General Fairness & Bias Mitigation,2022,17,1,0
-602,Surfacing Racial Stereotypes through Identity Portrayal,LLMs & NLP,2022,14,1,1
-613,Discrimination through Image Selection by Job Advertisers on Facebook,General Fairness & Bias Mitigation,2023,8,1,0
-11,Semantic Web technologies and bias in artificial intelligence: A systematic literature review,Graph-Based Fairness & Bias Mitigation,2023,24,1,6
-605,Subverting Fair Image Search with Generative Adversarial Perturbations,General Fairness & Bias Mitigation,2022,10,1,3
-607,Selection in the Presence of Implicit Bias: The Advantage of Intersectional Constraints,General Fairness & Bias Mitigation,2022,8,1,0
-581,Language Variation and Algorithmic Bias: Understanding Algorithmic Bias in British English Automatic Speech Recognition,LLMs & NLP,2022,50,1,3
-436,The Neutrality Fallacy: When Algorithmic Fairness Interventions are (Not) Positive Action,General Fairness & Bias Mitigation,2024,6,1,3
-501,Domain Adaptive Decision Trees: Implications for Accuracy and Fairness,General Fairness & Bias Mitigation,2023,5,1,0
-21,A Survey on Datasets for Fairness-Aware ML,General Fairness & Bias Mitigation,2021,12,1,0
-19,Meritocratic Fairness for Infinite and Contextual Bandits,General Fairness & Bias Mitigation,2018,21,1,1
-460,"Explainable AI is Dead, Long Live Explainable AI!",General Fairness & Bias Mitigation,2023,136,1,0
-644,Tackling Language Modelling Bias in Support of Linguistic Diversity,LLMs & NLP,2024,13,1,0
-564,Removing Spurious Features can Hurt Accuracy and Affect Groups Disproportionately,General Fairness & Bias Mitigation,2021,36,1,2
-641,Adversarial Nibbler: An Open Red-Teaming Method for Identifying Diverse Harms in Text-to-Image Generation,LLMs & NLP,2024,11,1,1
-120,"Underrepresented Tones: Addressing Skin Bias in Medical Imaging for Eczema, Psoriasis, and Melanoma Detection Using CNNs",Health & Clinical AI,2023,4,1,0
-188,The Root Shapes the Fruit: On the Persistence of Gender-Exclusive Harms in Aligned Language Models,LLMs & NLP,2025,4,1,5
-463,How Redundant are Redundant Encodings? Blindness in the Wild and Racial Disparity when Race is Unobserved,General Fairness & Bias Mitigation,2023,9,1,6
-637,Misgendered During Moderation: How Transgender Bodies Make Visible Cisnormative Content Moderation Policies and Enforcement,General Fairness & Bias Mitigation,2024,17,1,1
-487,Evaluating the Fairness of Discriminative Foundation Models in Computer Vision,General Fairness & Bias Mitigation,2023,5,1,5
-5,Inherent Bias in Artificial Intelligence-Based Decision Support Systems for Healthcare,Health & Clinical AI,2020,46,1,1
-434,The Conflict Between Algorithmic Fairness and Non-Discrimination: An Analysis of Fair Automated Hiring,General Fairness & Bias Mitigation,2024,3,1,7
-193,The Butterfly Effect in artificial intelligence systems: Implications for AI bias and fairness,General Fairness & Bias Mitigation,2024,93,1,8
-385,ACROCPoLis: A Descriptive Framework for Making Sense of Fairness,General Fairness & Bias Mitigation,2023,8,1,6
-557,Towards Fair Deep Anomaly Detection,General Fairness & Bias Mitigation,2021,28,1,1
+75,A Survey on Fairness in Large Language Models,LLMs & NLP,2023,21,1,0
+442,A Sociotechnical Audit: Assessing Police Use of Facial Recognition,General Fairness & Bias Mitigation,2023,20,1,4
+466,Algorithmic Misjudgement in Google Search Results: Evidence from Auditing the US Online Electoral Information Environment,General Fairness & Bias Mitigation,2024,8,1,0
+73,Shifting ML in Healthcare: From Development to Deployment,Health & Clinical AI,2022,389,1,2
+426,The Conflict Between Algorithmic Fairness and Non-Discrimination: An Analysis of Fair Automated Hiring,General Fairness & Bias Mitigation,2024,3,1,7
+439,Enhancing AI fairness through impact assessment in the European Union: a legal and computer science perspective,General Fairness & Bias Mitigation,2023,23,1,2
+50,Review of Mathematical Frameworks for Fairness in Machine Learning,General Fairness & Bias Mitigation,2020,20,1,5
+71,Data Drift in Medical ML: Implications and Remedies,Health & Clinical AI,2023,189,1,3
 51,Did You Do Your Homework? Raising Awareness on Software Fairness and Discrimination,General Fairness & Bias Mitigation,2021,16,1,7
-378,“How Biased are Your Features?”: Computing Fairness Influence Functions with Global Sensitivity Analysis,General Fairness & Bias Mitigation,2023,8,1,4
+337,Personalized Prompt Learning for Explainable Recommendation,Recommender Systems,2023,150,1,1
+441,Simplicity Bias Leads to Amplified Performance Disparities,General Fairness & Bias Mitigation,2023,3,1,8
+237,A scoping review and evidence gap analysis of clinical AI fairness,Health & Clinical AI,2025,29,1,18
+291,Algorithmic individual fairness and healthcare: a scoping review,Health & Clinical AI,2024,19,1,5
+228,Fairness-aware Cross-Domain Recommendation,Recommender Systems,2025,2,1,1
+463,Machine learning data practices through a data curation lens: An evaluation framework,General Fairness & Bias Mitigation,2024,8,1,6
+68,Approval of AI/ML-Based Medical Devices in USA & Europe,Health & Clinical AI,2021,623,1,0
+395,Ethnic disparity in diagnosing asymptomatic bacterial vaginosis using machine learning,Health & Clinical AI,2023,27,1,2
+391,Causal Fairness Analysis: A Causal Toolkit for Fair Machine Learning,General Fairness & Bias Mitigation,2024,23,1,0
+386,Auditing for Racial Discrimination in the Delivery of Education Ads,General Fairness & Bias Mitigation,2024,9,1,1
+390,Bias in machine learning models can be significantly mitigated by careful training: Evidence from neuroimaging studies,General Fairness & Bias Mitigation,2023,73,1,3
+48,Constructing Knowledge Graphs and Their Biomedical Applications,Health & Clinical AI,2020,267,1,0
+354,A survey on datasets for fairness-aware machine learning,General Fairness & Bias Mitigation,2021,40,1,9
+44,A Comprehensive Survey on Trustworthy Recommender Systems,Recommender Systems,2022,15,1,0
+21,A Survey on Datasets for Fairness-Aware ML,General Fairness & Bias Mitigation,2021,12,1,0
+276,Data augmentation for fairness-aware machine learning,General Fairness & Bias Mitigation,2022,30,1,3
 13,Are AI systems biased against the poor? A machine learning analysis using Word2Vec and GloVe embeddings,LLMs & NLP,2022,52,1,2
+413,Incorporating Attribution Importance for Improving Faithfulness Metrics,General Fairness & Bias Mitigation,2023,4,1,0
+493,Domain Adaptive Decision Trees: Implications for Accuracy and Fairness,General Fairness & Bias Mitigation,2023,5,1,0
+494,Bias on Demand: A Modelling Framework That Generates Synthetic Data With Bias,General Fairness & Bias Mitigation,2023,15,1,5
+455,How Redundant are Redundant Encodings? Blindness in the Wild and Racial Disparity when Race is Unobserved,General Fairness & Bias Mitigation,2023,9,1,6
+19,Meritocratic Fairness for Infinite and Contextual Bandits,General Fairness & Bias Mitigation,2018,21,1,1
+8,Bias Mitigation for Machine Learning Classifiers: A Comprehensive Survey,General Fairness & Bias Mitigation,2022,23,1,0
+452,"Explainable AI is Dead, Long Live Explainable AI!",General Fairness & Bias Mitigation,2023,136,1,0
+484,Perceived Algorithmic Fairness using Organizational Justice Theory: An Empirical Case Study on Algorithmic Hiring,General Fairness & Bias Mitigation,2023,7,1,1
+5,Inherent Bias in Artificial Intelligence-Based Decision Support Systems for Healthcare,Health & Clinical AI,2020,46,1,1
+686,"In the Picture: Medical Imaging Datasets, Artifacts, and their Living Review",Health & Clinical AI,2025,12,1,3
+397,"Evidence of What, for Whom? The Socially Contested Role of Algorithmic Bias in a Predictive Policing Tool",General Fairness & Bias Mitigation,2024,11,1,5
+321,Dialectal Toxicity Detection: Evaluating LLM-as-a-Judge Consistency Across Language Varieties,LLMs & NLP,2024,1,1,0
+26,Mitigating Unwanted Biases with Adversarial Learning,General Fairness & Bias Mitigation,2018,98,1,2
+324,Fairness and Diversity in Recommender Systems: A Survey,Recommender Systems,2024,73,1,5
+325,Differential Privacy Has Disparate Impact on Model Accuracy,General Fairness & Bias Mitigation,2019,77,1,1
+461,Black-Box Access is Insufficient for Rigorous AI Audits,General Fairness & Bias Mitigation,2024,52,1,6
+445,Examining risks of racial biases in NLP tools for child protective services,LLMs & NLP,2023,15,1,1
+479,Evaluating the Fairness of Discriminative Foundation Models in Computer Vision,General Fairness & Bias Mitigation,2023,5,1,5
+511,Fairness Without Demographics in Repeated Loss Minimization,General Fairness & Bias Mitigation,2018,108,1,0
+3,Artificial Intelligence in Clinical Decision Support: Challenges for Evaluating AI and Practical Implications,Health & Clinical AI,2019,335,1,0
+398,Fairness and bias correction in machine learning for depression prediction across four study populations,Health & Clinical AI,2024,31,1,6
+246,Mitigating Nonlinear Algorithmic Bias in Binary Classification,General Fairness & Bias Mitigation,2024,2,1,2
+341,Survey on Machine Learning Biases and Mitigation Techniques,General Fairness & Bias Mitigation,2023,62,1,4
+430,Towards Fair Graph Neural Networks via Graph Counterfactual,Graph-Based Fairness & Bias Mitigation,2023,20,1,4
+428,The Neutrality Fallacy: When Algorithmic Fairness Interventions are (Not) Positive Action,General Fairness & Bias Mitigation,2024,6,1,3
+612,Diverse Perspectives Can Mitigate Political Bias in Crowdsourced Content Moderation,General Fairness & Bias Mitigation,2023,6,1,3
+81,Bias and Unfairness in Information Retrieval Systems: New Challenges in the LLM Era,LLMs & NLP,2024,98,1,4
+632,Adversarial Nibbler: An Open Red-Teaming Method for Identifying Diverse Harms in Text-to-Image Generation,LLMs & NLP,2024,11,1,1
+573,Language Variation and Algorithmic Bias: Understanding Algorithmic Bias in British English Automatic Speech Recognition,LLMs & NLP,2022,50,1,3
+120,"Underrepresented Tones: Addressing Skin Bias in Medical Imaging for Eczema, Psoriasis, and Melanoma Detection Using CNNs",Health & Clinical AI,2023,4,1,0
+578,Measuring Representational Harms in Image Captioning,LLMs & NLP,2022,35,1,1
+579,"Net Benefit, Calibration, Threshold Selection, and Training Objectives for Algorithmic Fairness in Healthcare",Health & Clinical AI,2022,29,1,6
+623,The Dataset Multiplicity Problem: How Unreliable Data Impacts Predictions,General Fairness & Bias Mitigation,2023,10,1,1
+581,Gender and Racial Bias in Visual Question Answering Datasets,LLMs & NLP,2022,34,1,2
+622,On The Impact of Machine Learning Randomness on Group Fairness,General Fairness & Bias Mitigation,2023,17,1,3
+621,The Privacy-Bias Tradeoff: Data Minimization and Racial Disparity Assessments in U.S. Government,General Fairness & Bias Mitigation,2023,16,1,1
+585,Multi-Disciplinary Fairness Considerations in Machine Learning for Clinical Trials,Health & Clinical AI,2022,26,1,7
+614,Fairer Together: Mitigating Disparate Exposure in Kemeny Rank Aggregation,General Fairness & Bias Mitigation,2023,9,1,1
+164,Dynamic Fairness-aware Recommendation Through Multi-agent Social Choice,Recommender Systems,2024,9,1,2
+639,Lazy Data Practices Harm Fairness Research,General Fairness & Bias Mitigation,2024,10,1,7
+163,CFaiRLLM: Consumer Fairness Evaluation in Large-Language Model Recommender System,Recommender Systems,2025,23,1,1
+607,In the Name of Fairness: Assessing the Bias in Clinical Record De-Identification,Health & Clinical AI,2023,16,1,2
+589,Algorithmic Fairness and Vertical Equity: Income Fairness with IRS Tax Audit Models,General Fairness & Bias Mitigation,2022,21,1,2
+590,"Female, White, 27? Bias Evaluation on Data and Algorithms for Affect Recognition in Faces",General Fairness & Bias Mitigation,2022,19,1,1
+591,Adaptive Sampling Strategies to Construct Equitable Training Datasets,General Fairness & Bias Mitigation,2022,18,1,6
+592,Fairness Indicators for Systematic Assessments of Visual Feature Extractors,General Fairness & Bias Mitigation,2022,17,1,1
+593,A Data-Driven Analysis of the Interplay between Criminological Theory and Predictive Policing Algorithms,General Fairness & Bias Mitigation,2022,17,1,0
+594,Surfacing Racial Stereotypes through Identity Portrayal,LLMs & NLP,2022,14,1,1
+606,Group-Fair Classification with Strategic Agents,General Fairness & Bias Mitigation,2023,2,1,1
+605,Discrimination through Image Selection by Job Advertisers on Facebook,General Fairness & Bias Mitigation,2023,8,1,0
+597,Subverting Fair Image Search with Generative Adversarial Perturbations,General Fairness & Bias Mitigation,2022,10,1,3
+599,Selection in the Presence of Implicit Bias: The Advantage of Intersectional Constraints,General Fairness & Bias Mitigation,2022,8,1,0
+184,Indian-BhED: A Dataset for Measuring India-Centric Biases in Large Language Models,LLMs & NLP,2024,11,1,0
+635,Tackling Language Modelling Bias in Support of Linguistic Diversity,LLMs & NLP,2024,13,1,0
+640,Auditing GPT's Content Moderation Guardrails: Can ChatGPT Write Your Favorite TV Show?,LLMs & NLP,2024,16,1,3
+375,A scoping review of fair machine learning techniques when using real-world data,General Fairness & Bias Mitigation,2024,40,1,6
+11,Semantic Web technologies and bias in artificial intelligence: A systematic literature review,Graph-Based Fairness & Bias Mitigation,2023,24,1,6
+377,ACROCPoLis: A Descriptive Framework for Making Sense of Fairness,General Fairness & Bias Mitigation,2023,8,1,6
+549,Towards Fair Deep Anomaly Detection,General Fairness & Bias Mitigation,2021,28,1,1
+656,Equalised Odds is not Equal Individual Odds: Post-processing for Group and Individual Fairness,General Fairness & Bias Mitigation,2024,7,1,3
+87,Creating Trustworthy LLMs: Dealing with Hallucinations in Healthcare AI,LLMs & NLP,2023,17,1,0
+436,"Humans, AI, and Context: Understanding End-Users’ Trust in a Real-World Computer Vision Application",General Fairness & Bias Mitigation,2023,35,1,1
+468,Misgendered During Moderation: How Transgender Bodies Make Visible Cisnormative Content Moderation Policies and Enforcement in a Meta Oversight Board Case,General Fairness & Bias Mitigation,2024,15,1,1
+88,Risk Taxonomy Mitigation and Assessment Benchmarks of Large Language Model Systems,LLMs & NLP,2023,13,1,0
+432,Certification Labels for Trustworthy AI: Insights From an Empirical Mixed-Method Study,General Fairness & Bias Mitigation,2023,40,1,1
+104,Fairness and Bias in E-commerce Recommendation Systems: A Literature Review,Recommender Systems,2024,1,1,5
+202,Multidisciplinary considerations of fairness in medical AI: A scoping review,Health & Clinical AI,2023,22,1,6
+556,Removing Spurious Features can Hurt Accuracy and Affect Groups Disproportionately,General Fairness & Bias Mitigation,2021,36,1,2
+414,Intersectional Stereotypes in Large Language Models: Dataset and Analysis,LLMs & NLP,2023,4,1,0
 189,Addressing algorithmic bias and the perpetuation of health inequities: An AI bias aware framework,Health & Clinical AI,2022,148,1,3
-698,"In the Picture: Medical Imaging Datasets, Artifacts, and their Living Review",Health & Clinical AI,2025,12,1,3
-458,Diagnosing AI Explanation Methods with Folk Concepts of Behavior,General Fairness & Bias Mitigation,2023,0,0,0
-459,How to Explain and Justify Almost Any Decision: Potential Pitfalls for Accountability in AI Decision-Making,General Fairness & Bias Mitigation,2023,8,0,0
-470,A Framework for Exploring the Consequences of AI-Mediated Enterprise Knowledge Access and Identifying Risks to Workers,General Fairness & Bias Mitigation,2024,8,0,3
-466,"Attitudes Toward Facial Analysis AI: A Cross-National Study Comparing Argentina, Kenya, Japan, and the USA",General Fairness & Bias Mitigation,2024,9,0,3
-467,Learning Fairness from Demonstrations via Inverse Reinforcement Learning,General Fairness & Bias Mitigation,2024,1,0,0
-468,Meaningful Transparency for Clinicians: Operationalising HCXAI Research with Gynaecologists,Health & Clinical AI,2024,6,0,0
-461,"Explainability in AI Policies: A Critical Review of Communications, Reports, Regulations, and Standards in the EU, US, and UK",General Fairness & Bias Mitigation,2023,58,0,1
-679,System-2 Recommenders: Disentangling Utility and Engagement in Recommendation Systems via Temporal Point-Processes,Recommender Systems,2024,3,0,0
-456,A Systematic Review of Ethics Disclosures in Predictive Mental Health Research,Health & Clinical AI,2023,15,0,1
-454,Interrogating the T in FAccT,General Fairness & Bias Mitigation,2023,15,0,3
-419,GumbelSoft: Diversified Language Model Watermarking via the GumbelMax-trick,LLMs & NLP,2024,6,0,0
-420,Impact on bias mitigation algorithms to variations in inferred sensitive attribute uncertainty,General Fairness & Bias Mitigation,2025,1,0,8
-423,Language or rating scales based classifications of emotions: computational analysis of language and alexithymia,LLMs & NLP,2024,4,0,0
-424,Large Language Models are not Fair Evaluators,LLMs & NLP,2024,67,0,0
-425,LLatrieval: LLM-Verified Retrieval for Verifiable Generation,LLMs & NLP,2024,15,0,0
-426,Patient-centricity in digital measure development: co-evolution of best practice and regulatory guidance,Health & Clinical AI,2024,9,0,0
-427,PEEB: Part-based Image Classifiers with an Explainable and Editable Language Bottleneck,General Fairness & Bias Mitigation,2024,2,0,0
-428,Retrieving Relevant Context to Align Representations for Cross-lingual Event Detection,LLMs & NLP,2023,6,0,0
-429,SAF: Stakeholders’ Agreement on Fairness in the Practice of Machine Learning Development,General Fairness & Bias Mitigation,2023,3,0,4
-431,SKD-NER: Continual Named Entity Recognition via Span-based Knowledge Distillation with Reinforcement Learning,LLMs & NLP,2023,10,0,0
-432,Sociodemographic bias in clinical machine learning models: a scoping review of algorithmic bias instances and mechanisms,Health & Clinical AI,2024,21,0,7
-433,Systematic literature review on bias mitigation in generative AI,LLMs & NLP,2025,22,0,3
-703,Un-Straightening Generative AI: How Queer Artists Surface and Challenge Model Normativity,LLMs & NLP,2025,10,0,2
-472,Structural Interventions and the Dynamics of Inequality,General Fairness & Bias Mitigation,2024,5,0,6
-701,Towards Effective Discrimination Testing for Generative AI,LLMs & NLP,2025,0,0,6
-700,Component-Based Fairness in Face Attribute Classification with Bayesian Network-informed Meta Learning,General Fairness & Bias Mitigation,2025,0,0,3
-699,Dangerous Criminals and Beautiful Prostitutes? Investigating Harmful Representations in Dutch Language Models,LLMs & NLP,2025,0,0,4
-697,Measuring Machine Learning Harms from Stereotypes Requires Understanding Who Is Harmed by Which Errors in What Ways,General Fairness & Bias Mitigation,2025,1,0,5
-696,"Not Like Us, Hunty: Measuring Perceptions and Behavioral Effects of Minoritized Anthropomorphic Cues in LLMs",LLMs & NLP,2025,5,0,9
-695,Identities are not Interchangeable: The Problem of Overgeneralization in Fair Machine Learning,General Fairness & Bias Mitigation,2025,2,0,12
-439,Using the electronic health record to provide audit and feedback in medical student clerkships,Health & Clinical AI,2024,0,0,0
-441,On the Impact of Explanations on Understanding of Algorithmic Decision-Making,General Fairness & Bias Mitigation,2023,11,0,1
-443,Machine Explanations and Human Understanding,General Fairness & Bias Mitigation,2023,14,0,0
-446,Maximal fairness,General Fairness & Bias Mitigation,2023,3,0,3
-448,Help or Hinder? Evaluating the Impact of Fairness Metrics and Algorithms in Visualizations for Consensus Ranking,General Fairness & Bias Mitigation,2023,4,0,2
-702,Who Gets Heard? Calling Out the Hard-to-Reach Myth for Non-WEIRD Populations' Recruitment and Involvement in Research,General Fairness & Bias Mitigation,2025,4,0,1
-690,Position is Power: System Prompts as a Mechanism of Bias in Large Language Models,LLMs & NLP,2025,9,0,16
-473,Should Users Trust Advanced AI Assistants? Justified Trust As a Function of Competence and Alignment,General Fairness & Bias Mitigation,2024,21,0,6
-642,Benchmarking the Fairness of Image Upsampling Methods,General Fairness & Bias Mitigation,2024,2,0,2
-636,"Failing Our Youngest: On the Biases, Pitfalls, and Risks in a Decision Support Algorithm Used for Child Protection",General Fairness & Bias Mitigation,2024,4,0,0
-635,Algorithmic Reproductive Justice,General Fairness & Bias Mitigation,2024,5,0,11
-633,Representation Online Matters: Practical End-to-End Diversification in Search and Recommender Systems,Recommender Systems,2023,6,0,0
-632,Runtime Monitoring of Dynamic Fairness Properties,General Fairness & Bias Mitigation,2023,17,0,3
-628,Disparities in Text-to-Image Model Concept Possession Across Languages,LLMs & NLP,2023,0,0,0
-624,"Cross-Institutional Transfer Learning for Educational Models: Implications for Model Performance, Fairness, and Equity",General Fairness & Bias Mitigation,2023,17,0,5
-621,Preventing Discriminatory Decision-Making in Evolving Data Streams,General Fairness & Bias Mitigation,2023,21,0,2
-619,Does AI-Assisted Fact-Checking Disproportionately Benefit Majority Groups Online?,General Fairness & Bias Mitigation,2023,6,0,0
-682,"Designing Speech Technologies for Australian Aboriginal English: Opportunities, Risks and Participation",LLMs & NLP,2025,3,0,1
-611,Fair Representation Clustering with Several Protected Classes,General Fairness & Bias Mitigation,2022,2,0,2
-610,Minimax Demographic Group Fairness in Federated Learning,General Fairness & Bias Mitigation,2022,3,0,0
-609,Trade-offs between Group Fairness Metrics in Societal Resource Allocation,General Fairness & Bias Mitigation,2022,7,0,2
-606,FADE: FAir Double Ensemble Learning for Observable and Counterfactual Outcomes,Health & Clinical AI,2022,9,0,4
-604,Is Calibration a Fairness Requirement?,General Fairness & Bias Mitigation,2022,11,0,2
-683,FairTranslate: an English-French Dataset for Gender Bias Evaluation in Machine Translation by Overcoming Gender Binarity,LLMs & NLP,2025,1,0,0
-580,The Spotlight: A General Method for Discovering Systematic Errors in Deep Learning Models,General Fairness & Bias Mitigation,2022,54,0,2
-684,Formalising Anti-Discrimination Law in Automated Decision Systems,General Fairness & Bias Mitigation,2025,3,0,8
-685,Classifying Hate: Legal and Ethical Evaluations of ML-Assisted Hate Crime Classification and Estimation in Sweden,General Fairness & Bias Mitigation,2025,0,0,2
-570,Leveraging Administrative Data for Bias Audits: A Case Study in Child Welfare Decision Making,General Fairness & Bias Mitigation,2021,2,0,4
-568,The Effect of the Rooney Rule on Implicit Bias in the Long Term,General Fairness & Bias Mitigation,2021,2,0,0
-417,Global Health Informatics: the state of research and lessons learned,Health & Clinical AI,2023,6,0,0
-562,When the Umpire is also a Player: Bias in Private Label Product Recommendations on E-commerce Marketplaces,Recommender Systems,2021,4,0,1
-561,Censorship of Online Encyclopedias: Implications for NLP Models,LLMs & NLP,2021,10,0,6
-638,A Structured Regression Approach for Evaluating Model Performance Across Intersectional Subgroups,General Fairness & Bias Mitigation,2024,5,0,2
-643,Analyzing the Relationship Between Difference and Ratio-Based Fairness Metrics,General Fairness & Bias Mitigation,2024,2,0,8
-559,Re-imagining Algorithmic Fairness in India and Beyond,General Fairness & Bias Mitigation,2021,8,0,10
-645,Diversity of What? On the Different Conceptualizations of Diversity in Recommender Systems,Recommender Systems,2024,13,0,0
-678,Algorithmic Arbitrariness in Content Moderation,General Fairness & Bias Mitigation,2024,18,0,0
-677,Learning Fair Ranking Policies via Differentiable Optimization of Ordered Weighted Averages,General Fairness & Bias Mitigation,2024,2,0,0
-676,Transforming Dutch: Debiasing Dutch Coreference Resolution Systems for Non-binary Pronouns,LLMs & NLP,2024,0,0,2
-680,"Emotion AI in Job Interviews: Injustice, Emotional Labor, Identity, and Privacy",General Fairness & Bias Mitigation,2025,3,0,4
-674,"The Impact of iBuying is About More Than Just Racial Disparities: Evidence from Mecklenburg County, NC",General Fairness & Bias Mitigation,2024,0,0,1
-673,From the Fair Distribution of Predictions to the Fair Distribution of Social Goods: Evaluating the Impact of Fair Machine Learning on Long-Term Unemployment,General Fairness & Bias Mitigation,2024,8,0,6
-672,Balancing Act: Evaluating People's Perceptions of Fair Ranking Metrics,General Fairness & Bias Mitigation,2024,8,0,10
-670,BaBE: Enhancing Fairness via Estimation of Explaining Variables,General Fairness & Bias Mitigation,2024,0,0,2
-669,Fairness without Sensitive Attributes via Knowledge Sharing,General Fairness & Bias Mitigation,2024,3,0,1
-668,"Real Risks of Fake Data: Synthetic Data, Diversity-Washing and Consent Circumvention",General Fairness & Bias Mitigation,2024,35,0,4
-667,Unlawful Proxy Discrimination: A Framework for Challenging Inherently Discriminatory Algorithms,General Fairness & Bias Mitigation,2024,0,0,0
-666,Careless Whisper: Speech-to-Text Hallucination Harms,LLMs & NLP,2024,76,0,0
-664,NLP for Maternal Healthcare: Perspectives and Guiding Principles in the Age of LLMs,Health & Clinical AI,2024,10,0,8
-663,The Impact of Differential Feature Under-reporting on Algorithmic Fairness,General Fairness & Bias Mitigation,2024,2,0,1
-681,Auditing the Audits: Lessons for Algorithmic Accountability from Local Law's Bias Audits,General Fairness & Bias Mitigation,2025,3,0,6
-661,One Model Many Scores: Using Multiverse Analysis to Prevent Fairness Hacking and Evaluate the Influence of Model Design Decisions,General Fairness & Bias Mitigation,2024,9,0,3
-657,Impact Charts: A Tool for Identifying Systematic Bias in Social Systems and Data,General Fairness & Bias Mitigation,2024,2,0,1
-656,Mitigating Group Bias in Federated Learning for Heterogeneous Devices,General Fairness & Bias Mitigation,2024,3,0,1
-655,Gender Representation Across Online Retail Products,General Fairness & Bias Mitigation,2024,2,0,4
-653,Generalized People Diversity: Learning a Human Perception-Aligned Diversity Representation for People Images,General Fairness & Bias Mitigation,2024,1,0,0
-651,Gender Bias Detection in Court Decisions: A Brazilian Case Study,General Fairness & Bias Mitigation,2024,8,0,1
-647,Algorithmic Fairness in Performative Policy Learning: Escaping the Impossibility of Group Fairness,General Fairness & Bias Mitigation,2024,4,0,2
-646,Towards Geographic Inclusion in the Evaluation of Text-to-Image Models,LLMs & NLP,2024,7,0,1
-560,"""This Whole Thing Smacks of Gender"": Algorithmic Exclusion in Bioimpedance-based Body Composition Analysis",Health & Clinical AI,2021,2,0,0
-686,"""It's not a representation of me"": Examining Accent Bias and Digital Exclusion in Synthetic AI Voice Services",LLMs & NLP,2025,11,0,2
-475,Racial/Ethnic Categories in AI and Algorithmic Fairness: Why They Matter and What They Represent,General Fairness & Bias Mitigation,2024,3,0,4
-512,"Recourse, Repair, Reparation, &amp; Prevention: A Stakeholder Analysis of AI Supply Chains",General Fairness & Bias Mitigation,2025,2,0,2
-510,Envisioning Stakeholder-Action Pairs to Mitigate Negative Impacts of AI: A Participatory Approach to Inform Policy Making,General Fairness & Bias Mitigation,2025,4,0,1
-509,Gender Bias in Explainability: Investigating Performance Disparity in Post-hoc Methods,General Fairness & Bias Mitigation,2025,0,0,3
-508,Crediting Humans: A Systematic Assessment of Influencing Factors for Human-in-the-Loop Figurations in Consumer Credit Lending Decisions,General Fairness & Bias Mitigation,2025,0,0,0
-507,Constructing Capabilities: The Politics of Testing Infrastructures for Generative AI,General Fairness & Bias Mitigation,2024,9,0,4
-506,Fairness in Online Ad Delivery,General Fairness & Bias Mitigation,2024,5,0,3
-505,A Causal Perspective on Label Bias,General Fairness & Bias Mitigation,2024,0,0,3
-504,Using Supervised Learning to Estimate Inequality in the Size and Persistence of Income Shocks,General Fairness & Bias Mitigation,2023,4,0,1
-503,Co-Design Perspectives on Algorithm Transparency Reporting: Guidelines and Prototypes,General Fairness & Bias Mitigation,2023,10,0,2
-500,Rethinking Transparency as a Communicative Constellation,General Fairness & Bias Mitigation,2023,14,0,3
-497,The ethical ambiguity of AI data enrichment: Measuring gaps in research ethics norms and practices,General Fairness & Bias Mitigation,2023,14,0,0
-495,Navigating the Audit Landscape: A Framework for Developing Transparent and Auditable XR,General Fairness & Bias Mitigation,2023,7,0,8
-493,Policy advice and best practices on bias and fairness in AI,General Fairness & Bias Mitigation,2024,76,0,25
-489,Unmasking Nationality Bias: A Study of Human Perception of Nationalities in AI-Generated Articles,General Fairness & Bias Mitigation,2023,13,0,2
-488,Stress-Testing Bias Mitigation Algorithms to Understand Fairness Vulnerabilities,General Fairness & Bias Mitigation,2023,3,0,1
-485,Expressing stigma and inappropriate responses prevents LLMs from safely replacing mental health providers.,General Fairness & Bias Mitigation,2025,105,0,1
-484,It's only fair when I think it's fair: How Gender Bias Alignment Undermines Distributive Fairness in Human-AI Collaboration,LLMs & NLP,2025,4,0,2
-483,Epistemic Injustice in Algorithmic Systems and the Limits of Civil Rights Law,General Fairness & Bias Mitigation,2025,0,0,9
-482,"WEIRD Audits? Research Trends, Linguistic and Geographical Disparities in the Algorithm Audits of Online Platforms - A Systematic Literature Review",General Fairness & Bias Mitigation,2025,2,0,6
-481,Auditing the Audits: Lessons for Algorithmic Accountability from Local Law 144's Bias Audits,General Fairness & Bias Mitigation,2025,2,0,6
-480,Discrimination Induced by Algorithmic Recourse Objectives,General Fairness & Bias Mitigation,2025,0,0,1
-479,Fairness Beyond the Algorithmic Frame: Actionable Recommendations for an Intersectional Approach,General Fairness & Bias Mitigation,2025,6,0,19
-477,A preprocessing Shapley value-based approach to detect relevant and disparity prone features in machine learning,General Fairness & Bias Mitigation,2024,2,0,3
-476,Misgendered During Moderation: How Transgender Bodies Make Visible Cisnormative Content Moderation Policies and Enforcement in a Meta Oversight Board Case,General Fairness & Bias Mitigation,2024,15,0,1
-511,"Frameworks, Methods and Shared Tasks: Connecting Participatory AI to Trustworthy AI Through a Systematic Review of Global Projects",General Fairness & Bias Mitigation,2025,6,0,1
-513,"“You Cannot Sound Like GPT"": Signs of language discrimination and resistance in computer science publishing",LLMs & NLP,2025,10,0,1
-555,Algorithmic Fairness in Predicting Opioid Use Disorder using Machine Learning,Health & Clinical AI,2021,9,0,0
-514,Guardian: A Runtime Framework for LLM-Based UI Exploration,LLMs & NLP,2024,13,0,0
-687,The World Wide Recipe: A Community-Centred Framework for Fine-Grained Data Collection and Regional Bias Operationalisation,General Fairness & Bias Mitigation,2025,7,0,3
-550,Biases in Generative Art: A Causal Look from the Lens of Art History,LLMs & NLP,2021,9,0,1
-548,Auditing Radicalization Pathways on YouTube,General Fairness & Bias Mitigation,2020,48,0,0
-545,On the Apparent Conflict Between Individual and Group Fairness,General Fairness & Bias Mitigation,2020,21,0,2
-688,"WEIRD Audits? Research Trends, Linguistic and Geographical Disparities in the Algorithm Audits of Online Platforms: A Systematic Literature Review",General Fairness & Bias Mitigation,2025,2,0,6
-542,"Counterfactual Risk Assessments, Evaluation, and Fairness",General Fairness & Bias Mitigation,2020,9,0,4
-541,Interventions for Ranking in the Presence of Implicit Bias,General Fairness & Bias Mitigation,2020,5,0,0
-540,Towards Fairer Datasets: Filtering and Balancing the Distribution of the People Subtree in the ImageNet Hierarchy,General Fairness & Bias Mitigation,2020,24,0,6
-689,African Data Ethics: A Discursive Framework for Black Decolonial AI,General Fairness & Bias Mitigation,2025,8,0,1
-530,Analyzing Biases in Perception of Truth in News Stories and Their Implications for Fact Checking,General Fairness & Bias Mitigation,2019,30,0,0
-529,Equality of Voice: Towards Fair Representation in Crowdsourced Top-K Recommendations,Recommender Systems,2019,0,0,0
-528,An Empirical Study of Rich Subgroup Fairness for Machine Learning,General Fairness & Bias Mitigation,2019,11,0,1
-527,Fairness Under Unawareness: Assessing Disparity When Protected Class Is Unobserved,General Fairness & Bias Mitigation,2019,17,0,3
-526,A comparative study of fairness-enhancing interventions in machine learning,General Fairness & Bias Mitigation,2019,54,0,3
-525,Classification with Fairness Constraints: A Meta-Algorithm with Provable Guarantees,General Fairness & Bias Mitigation,2019,32,0,3
-691,Expressing Stigma and Inappropriate Responses Prevents LLMs from Safely Replacing Mental Health Providers,Health & Clinical AI,2025,122,0,1
-692,Pragmatic Fairness: Evaluating ML Fairness within the Constraints of Industry,General Fairness & Bias Mitigation,2025,3,0,2
-693,Social Perception of Faces in a Vision-Language Model,General Fairness & Bias Mitigation,2025,2,0,7
-694,Group Fair Rated Preference Aggregation: Ties Are (Mostly) All You Need,General Fairness & Bias Mitigation,2025,1,0,4
-518,Socially Fair k-Means Clustering,General Fairness & Bias Mitigation,2021,1,0,2
-517,ResidualTransformer: Residual Low-Rank Learning with Weight-Sharing for Transformer Layers,General Fairness & Bias Mitigation,2023,0,0,0
-516,Complete Neural Networks for Complete Euclidean Graphs,Graph-Based Fairness & Bias Mitigation,2024,3,0,0
-515,Graph-Aware Contrasting for Multivariate Time-Series Classification,Graph-Based Fairness & Bias Mitigation,2024,24,0,0
-418,Group Fairness via Group Consensus,General Fairness & Bias Mitigation,2024,6,0,2
+651,Speaking of Accent: A Content Analysis of Accent Misconceptions in ASR Research,LLMs & NLP,2024,6,1,0
+650,The Dark Side of Dataset Scaling: Evaluating Racial Classification in Multimodal Models,General Fairness & Bias Mitigation,2024,21,1,3
+373,A Framework for Assurance Audits of Algorithmic Systems,General Fairness & Bias Mitigation,2024,25,1,4
+98,Visual Affect Around the World,Graph-Based Fairness & Bias Mitigation,2015,96,1,0
+188,The Root Shapes the Fruit: On the Persistence of Gender-Exclusive Harms in Aligned Language Models,LLMs & NLP,2025,4,1,5
+434,Towards a Science of Human-AI Decision Making: An Overview of Design Space in Empirical Human-Subject Studies,General Fairness & Bias Mitigation,2023,152,1,1
+470,Understanding Disparities in Post Hoc Machine Learning Explanation,General Fairness & Bias Mitigation,2024,9,1,3
+193,The Butterfly Effect in artificial intelligence systems: Implications for AI bias and fairness,General Fairness & Bias Mitigation,2024,93,1,8
+370,“How Biased are Your Features?”: Computing Fairness Influence Functions with Global Sensitivity Analysis,General Fairness & Bias Mitigation,2023,8,1,4
+467,Racial/Ethnic Categories in AI and Algorithmic Fairness: Why They Matter and What They Represent,General Fairness & Bias Mitigation,2024,3,0,4
+462,A Framework for Exploring the Consequences of AI-Mediated Enterprise Knowledge Access and Identifying Risks to Workers,General Fairness & Bias Mitigation,2024,8,0,3
+460,Meaningful Transparency for Clinicians: Operationalising HCXAI Research with Gynaecologists,Health & Clinical AI,2024,6,0,0
+458,"Attitudes Toward Facial Analysis AI: A Cross-National Study Comparing Argentina, Kenya, Japan, and the USA",General Fairness & Bias Mitigation,2024,9,0,2
+464,Structural Interventions and the Dynamics of Inequality,General Fairness & Bias Mitigation,2024,5,0,6
+459,Learning Fairness from Demonstrations via Inverse Reinforcement Learning,General Fairness & Bias Mitigation,2024,1,0,0
+465,Should Users Trust Advanced AI Assistants? Justified Trust As a Function of Competence and Alignment,General Fairness & Bias Mitigation,2024,21,0,6
+425,Systematic literature review on bias mitigation in generative AI,LLMs & NLP,2025,22,0,3
+415,Language or rating scales based classifications of emotions: computational analysis of language and alexithymia,LLMs & NLP,2024,4,0,0
+421,SAF: Stakeholders’ Agreement on Fairness in the Practice of Machine Learning Development,General Fairness & Bias Mitigation,2023,3,0,4
+433,On the Impact of Explanations on Understanding of Algorithmic Decision-Making,General Fairness & Bias Mitigation,2023,11,0,1
+435,Machine Explanations and Human Understanding,General Fairness & Bias Mitigation,2023,14,0,0
+431,Using the electronic health record to provide audit and feedback in medical student clerkships,Health & Clinical AI,2024,0,0,0
+438,Maximal fairness,General Fairness & Bias Mitigation,2023,3,0,3
+469,A preprocessing Shapley value-based approach to detect relevant and disparity prone features in machine learning,General Fairness & Bias Mitigation,2024,2,0,3
+440,Help or Hinder? Evaluating the Impact of Fairness Metrics and Algorithms in Visualizations for Consensus Ranking,General Fairness & Bias Mitigation,2023,4,0,2
+424,Sociodemographic bias in clinical machine learning models: a scoping review of algorithmic bias instances and mechanisms,Health & Clinical AI,2024,21,0,7
+423,SKD-NER: Continual Named Entity Recognition via Span-based Knowledge Distillation with Reinforcement Learning,LLMs & NLP,2023,10,0,0
+420,Retrieving Relevant Context to Align Representations for Cross-lingual Event Detection,LLMs & NLP,2023,6,0,0
+416,Large Language Models are not Fair Evaluators,LLMs & NLP,2024,67,0,0
+419,PEEB: Part-based Image Classifiers with an Explainable and Editable Language Bottleneck,General Fairness & Bias Mitigation,2024,2,0,0
+446,Interrogating the T in FAccT,General Fairness & Bias Mitigation,2023,15,0,3
+418,Patient-centricity in digital measure development: co-evolution of best practice and regulatory guidance,Health & Clinical AI,2024,9,0,0
+448,A Systematic Review of Ethics Disclosures in Predictive Mental Health Research,Health & Clinical AI,2023,15,0,1
+417,LLatrieval: LLM-Verified Retrieval for Verifiable Generation,LLMs & NLP,2024,15,0,0
+450,Diagnosing AI Explanation Methods with Folk Concepts of Behavior,General Fairness & Bias Mitigation,2023,0,0,0
+451,How to Explain and Justify Almost Any Decision: Potential Pitfalls for Accountability in AI Decision-Making,General Fairness & Bias Mitigation,2023,8,0,0
+453,"Explainability in AI Policies: A Critical Review of Communications, Reports, Regulations, and Standards in the EU, US, and UK",General Fairness & Bias Mitigation,2023,58,0,1
 1,Diagnosing bias in data-driven algorithms for healthcare,Health & Clinical AI,2020,62,0,1
-416,General then Personal: Decoupling and Pre-training for Personalized Headline Generation,LLMs & NLP,2023,4,0,0
-415,GATE X-E : A Challenge Set for Gender-Fair Translations from Weakly-Gendered Languages,LLMs & NLP,2024,1,0,0
+554,When the Umpire is also a Player: Bias in Private Label Product Recommendations on E-commerce Marketplaces,Recommender Systems,2021,4,0,1
+471,Fairness Beyond the Algorithmic Frame: Actionable Recommendations for an Intersectional Approach,General Fairness & Bias Mitigation,2025,6,0,19
+644,Generalized People Diversity: Learning a Human Perception-Aligned Diversity Representation for People Images,General Fairness & Bias Mitigation,2024,1,0,0
+661,BaBE: Enhancing Fairness via Estimation of Explaining Variables,General Fairness & Bias Mitigation,2024,0,0,2
+660,Fairness without Sensitive Attributes via Knowledge Sharing,General Fairness & Bias Mitigation,2024,3,0,1
+659,"Real Risks of Fake Data: Synthetic Data, Diversity-Washing and Consent Circumvention",General Fairness & Bias Mitigation,2024,35,0,4
+658,Unlawful Proxy Discrimination: A Framework for Challenging Inherently Discriminatory Algorithms,General Fairness & Bias Mitigation,2024,0,0,0
+657,Careless Whisper: Speech-to-Text Hallucination Harms,LLMs & NLP,2024,76,0,0
+655,NLP for Maternal Healthcare: Perspectives and Guiding Principles in the Age of LLMs,Health & Clinical AI,2024,10,0,8
+654,The Impact of Differential Feature Under-reporting on Algorithmic Fairness,General Fairness & Bias Mitigation,2024,2,0,1
+652,One Model Many Scores: Using Multiverse Analysis to Prevent Fairness Hacking and Evaluate the Influence of Model Design Decisions,General Fairness & Bias Mitigation,2024,9,0,3
+648,Impact Charts: A Tool for Identifying Systematic Bias in Social Systems and Data,General Fairness & Bias Mitigation,2024,2,0,1
+647,Mitigating Group Bias in Federated Learning for Heterogeneous Devices,General Fairness & Bias Mitigation,2024,3,0,1
+646,Gender Representation Across Online Retail Products,General Fairness & Bias Mitigation,2024,2,0,4
+642,Gender Bias Detection in Court Decisions: A Brazilian Case Study,General Fairness & Bias Mitigation,2024,8,0,1
+613,Preventing Discriminatory Decision-Making in Evolving Data Streams,General Fairness & Bias Mitigation,2023,21,0,2
+638,Algorithmic Fairness in Performative Policy Learning: Escaping the Impossibility of Group Fairness,General Fairness & Bias Mitigation,2024,4,0,2
+637,Towards Geographic Inclusion in the Evaluation of Text-to-Image Models,LLMs & NLP,2024,7,0,1
+636,Diversity of What? On the Different Conceptualizations of Diversity in Recommender Systems,Recommender Systems,2024,13,0,0
+634,Analyzing the Relationship Between Difference and Ratio-Based Fairness Metrics,General Fairness & Bias Mitigation,2024,2,0,8
+633,Benchmarking the Fairness of Image Upsampling Methods,General Fairness & Bias Mitigation,2024,2,0,2
+629,A Structured Regression Approach for Evaluating Model Performance Across Intersectional Subgroups,General Fairness & Bias Mitigation,2024,5,0,2
+628,"Failing Our Youngest: On the Biases, Pitfalls, and Risks in a Decision Support Algorithm Used for Child Protection",General Fairness & Bias Mitigation,2024,4,0,0
+627,Algorithmic Reproductive Justice,General Fairness & Bias Mitigation,2024,5,0,11
+625,Representation Online Matters: Practical End-to-End Diversification in Search and Recommender Systems,Recommender Systems,2023,6,0,0
+624,Runtime Monitoring of Dynamic Fairness Properties,General Fairness & Bias Mitigation,2023,17,0,3
+620,Disparities in Text-to-Image Model Concept Possession Across Languages,LLMs & NLP,2023,0,0,0
+663,Balancing Act: Evaluating People's Perceptions of Fair Ranking Metrics,General Fairness & Bias Mitigation,2024,8,0,10
+664,From the Fair Distribution of Predictions to the Fair Distribution of Social Goods: Evaluating the Impact of Fair Machine Learning on Long-Term Unemployment,General Fairness & Bias Mitigation,2024,8,0,6
+665,"The Impact of iBuying is About More Than Just Racial Disparities: Evidence from Mecklenburg County, NC",General Fairness & Bias Mitigation,2024,0,0,1
+667,Transforming Dutch: Debiasing Dutch Coreference Resolution Systems for Non-binary Pronouns,LLMs & NLP,2024,0,0,2
+691,Un-Straightening Generative AI: How Queer Artists Surface and Challenge Model Normativity,LLMs & NLP,2025,10,0,2
+690,Who Gets Heard? Calling Out the Hard-to-Reach Myth for Non-WEIRD Populations' Recruitment and Involvement in Research,General Fairness & Bias Mitigation,2025,4,0,1
+689,Towards Effective Discrimination Testing for Generative AI,LLMs & NLP,2025,0,0,6
+688,Component-Based Fairness in Face Attribute Classification with Bayesian Network-informed Meta Learning,General Fairness & Bias Mitigation,2025,0,0,3
+687,Dangerous Criminals and Beautiful Prostitutes? Investigating Harmful Representations in Dutch Language Models,LLMs & NLP,2025,0,0,4
+685,Measuring Machine Learning Harms from Stereotypes Requires Understanding Who Is Harmed by Which Errors in What Ways,General Fairness & Bias Mitigation,2025,1,0,5
+684,"Not Like Us, Hunty: Measuring Perceptions and Behavioral Effects of Minoritized Anthropomorphic Cues in LLMs",LLMs & NLP,2025,5,0,9
+683,Identities are not Interchangeable: The Problem of Overgeneralization in Fair Machine Learning,General Fairness & Bias Mitigation,2025,2,0,12
+682,Group Fair Rated Preference Aggregation: Ties Are (Mostly) All You Need,General Fairness & Bias Mitigation,2025,1,0,4
+681,Social Perception of Faces in a Vision-Language Model,General Fairness & Bias Mitigation,2025,2,0,7
+680,Pragmatic Fairness: Evaluating ML Fairness within the Constraints of Industry,General Fairness & Bias Mitigation,2025,3,0,2
+679,Position is Power: System Prompts as a Mechanism of Bias in Large Language Models,LLMs & NLP,2025,9,0,16
+678,African Data Ethics: A Discursive Framework for Black Decolonial AI,General Fairness & Bias Mitigation,2025,8,0,1
+677,The World Wide Recipe: A Community-Centred Framework for Fine-Grained Data Collection and Regional Bias Operationalisation,General Fairness & Bias Mitigation,2025,7,0,3
+676,"""It's not a representation of me"": Examining Accent Bias and Digital Exclusion in Synthetic AI Voice Services",LLMs & NLP,2025,11,0,2
+675,Classifying Hate: Legal and Ethical Evaluations of ML-Assisted Hate Crime Classification and Estimation in Sweden,General Fairness & Bias Mitigation,2025,0,0,2
+674,Formalising Anti-Discrimination Law in Automated Decision Systems,General Fairness & Bias Mitigation,2025,3,0,8
+673,FairTranslate: an English-French Dataset for Gender Bias Evaluation in Machine Translation by Overcoming Gender Binarity,LLMs & NLP,2025,1,0,0
+672,"Designing Speech Technologies for Australian Aboriginal English: Opportunities, Risks and Participation",LLMs & NLP,2025,3,0,1
+671,"Emotion AI in Job Interviews: Injustice, Emotional Labor, Identity, and Privacy",General Fairness & Bias Mitigation,2025,3,0,4
+670,System-2 Recommenders: Disentangling Utility and Engagement in Recommendation Systems via Temporal Point-Processes,Recommender Systems,2024,3,0,0
+669,Algorithmic Arbitrariness in Content Moderation,General Fairness & Bias Mitigation,2024,18,0,0
+668,Learning Fair Ranking Policies via Differentiable Optimization of Ordered Weighted Averages,General Fairness & Bias Mitigation,2024,2,0,0
+616,"Cross-Institutional Transfer Learning for Educational Models: Implications for Model Performance, Fairness, and Equity",General Fairness & Bias Mitigation,2023,17,0,5
+611,Does AI-Assisted Fact-Checking Disproportionately Benefit Majority Groups Online?,General Fairness & Bias Mitigation,2023,6,0,0
+472,Discrimination Induced by Algorithmic Recourse Objectives,General Fairness & Bias Mitigation,2025,0,0,1
+496,Using Supervised Learning to Estimate Inequality in the Size and Persistence of Income Shocks,General Fairness & Bias Mitigation,2023,4,0,1
+507,Graph-Aware Contrasting for Multivariate Time-Series Classification,Graph-Based Fairness & Bias Mitigation,2024,24,0,0
+506,Guardian: A Runtime Framework for LLM-Based UI Exploration,LLMs & NLP,2024,13,0,0
+505,"“You Cannot Sound Like GPT"": Signs of language discrimination and resistance in computer science publishing",LLMs & NLP,2025,10,0,1
+504,"Recourse, Repair, Reparation, &amp; Prevention: A Stakeholder Analysis of AI Supply Chains",General Fairness & Bias Mitigation,2025,2,0,2
+503,"Frameworks, Methods and Shared Tasks: Connecting Participatory AI to Trustworthy AI Through a Systematic Review of Global Projects",General Fairness & Bias Mitigation,2025,6,0,1
+502,Envisioning Stakeholder-Action Pairs to Mitigate Negative Impacts of AI: A Participatory Approach to Inform Policy Making,General Fairness & Bias Mitigation,2025,4,0,1
+501,Gender Bias in Explainability: Investigating Performance Disparity in Post-hoc Methods,General Fairness & Bias Mitigation,2025,0,0,3
+500,Crediting Humans: A Systematic Assessment of Influencing Factors for Human-in-the-Loop Figurations in Consumer Credit Lending Decisions,General Fairness & Bias Mitigation,2025,0,0,0
+499,Constructing Capabilities: The Politics of Testing Infrastructures for Generative AI,General Fairness & Bias Mitigation,2024,9,0,4
+498,Fairness in Online Ad Delivery,General Fairness & Bias Mitigation,2024,5,0,3
+497,A Causal Perspective on Label Bias,General Fairness & Bias Mitigation,2024,0,0,3
+495,Co-Design Perspectives on Algorithm Transparency Reporting: Guidelines and Prototypes,General Fairness & Bias Mitigation,2023,10,0,2
+603,Fair Representation Clustering with Several Protected Classes,General Fairness & Bias Mitigation,2022,2,0,2
+492,Rethinking Transparency as a Communicative Constellation,General Fairness & Bias Mitigation,2023,14,0,3
+489,The ethical ambiguity of AI data enrichment: Measuring gaps in research ethics norms and practices,General Fairness & Bias Mitigation,2023,14,0,1
+487,Navigating the Audit Landscape: A Framework for Developing Transparent and Auditable XR,General Fairness & Bias Mitigation,2023,7,0,8
+485,Policy advice and best practices on bias and fairness in AI,General Fairness & Bias Mitigation,2024,76,0,25
+481,Unmasking Nationality Bias: A Study of Human Perception of Nationalities in AI-Generated Articles,General Fairness & Bias Mitigation,2023,13,0,2
+480,Stress-Testing Bias Mitigation Algorithms to Understand Fairness Vulnerabilities,General Fairness & Bias Mitigation,2023,3,0,1
+477,Expressing stigma and inappropriate responses prevents LLMs from safely replacing mental health providers.,General Fairness & Bias Mitigation,2025,105,0,1
+476,It's only fair when I think it's fair: How Gender Bias Alignment Undermines Distributive Fairness in Human-AI Collaboration,LLMs & NLP,2025,4,0,2
+475,Epistemic Injustice in Algorithmic Systems and the Limits of Civil Rights Law,General Fairness & Bias Mitigation,2025,0,0,9
+474,"WEIRD Audits? Research Trends, Linguistic and Geographical Disparities in the Algorithm Audits of Online Platforms - A Systematic Literature Review",General Fairness & Bias Mitigation,2025,2,0,6
+473,Auditing the Audits: Lessons for Algorithmic Accountability from Local Law 144's Bias Audits,General Fairness & Bias Mitigation,2025,2,0,6
+508,Complete Neural Networks for Complete Euclidean Graphs,Graph-Based Fairness & Bias Mitigation,2024,3,0,0
+509,ResidualTransformer: Residual Low-Rank Learning with Weight-Sharing for Transformer Layers,General Fairness & Bias Mitigation,2023,0,0,0
+510,Socially Fair k-Means Clustering,General Fairness & Bias Mitigation,2021,1,0,2
+517,Classification with Fairness Constraints: A Meta-Algorithm with Provable Guarantees,General Fairness & Bias Mitigation,2019,32,0,3
+602,Minimax Demographic Group Fairness in Federated Learning,General Fairness & Bias Mitigation,2022,3,0,0
+601,Trade-offs between Group Fairness Metrics in Societal Resource Allocation,General Fairness & Bias Mitigation,2022,7,0,2
+598,FADE: FAir Double Ensemble Learning for Observable and Counterfactual Outcomes,Health & Clinical AI,2022,9,0,4
+596,Is Calibration a Fairness Requirement?,General Fairness & Bias Mitigation,2022,11,0,2
+572,The Spotlight: A General Method for Discovering Systematic Errors in Deep Learning Models,General Fairness & Bias Mitigation,2022,54,0,2
+562,Leveraging Administrative Data for Bias Audits: A Case Study in Child Welfare Decision Making,General Fairness & Bias Mitigation,2021,2,0,4
+560,The Effect of the Rooney Rule on Implicit Bias in the Long Term,General Fairness & Bias Mitigation,2021,2,0,0
+411,GumbelSoft: Diversified Language Model Watermarking via the GumbelMax-trick,LLMs & NLP,2024,6,0,0
+553,Censorship of Online Encyclopedias: Implications for NLP Models,LLMs & NLP,2021,10,0,5
+552,"""This Whole Thing Smacks of Gender"": Algorithmic Exclusion in Bioimpedance-based Body Composition Analysis",Health & Clinical AI,2021,2,0,0
+551,Re-imagining Algorithmic Fairness in India and Beyond,General Fairness & Bias Mitigation,2021,8,0,9
+547,Algorithmic Fairness in Predicting Opioid Use Disorder using Machine Learning,Health & Clinical AI,2021,9,0,0
+542,Biases in Generative Art: A Causal Look from the Lens of Art History,LLMs & NLP,2021,9,0,1
+540,Auditing Radicalization Pathways on YouTube,General Fairness & Bias Mitigation,2020,48,0,0
+537,On the Apparent Conflict Between Individual and Group Fairness,General Fairness & Bias Mitigation,2020,21,0,2
+534,"Counterfactual Risk Assessments, Evaluation, and Fairness",General Fairness & Bias Mitigation,2020,9,0,4
+533,Interventions for Ranking in the Presence of Implicit Bias,General Fairness & Bias Mitigation,2020,5,0,0
+532,Towards Fairer Datasets: Filtering and Balancing the Distribution of the People Subtree in the ImageNet Hierarchy,General Fairness & Bias Mitigation,2020,24,0,5
+522,Analyzing Biases in Perception of Truth in News Stories and Their Implications for Fact Checking,General Fairness & Bias Mitigation,2019,30,0,0
+521,Equality of Voice: Towards Fair Representation in Crowdsourced Top-K Recommendations,Recommender Systems,2019,0,0,0
+520,An Empirical Study of Rich Subgroup Fairness for Machine Learning,General Fairness & Bias Mitigation,2019,11,0,1
+519,Fairness Under Unawareness: Assessing Disparity When Protected Class Is Unobserved,General Fairness & Bias Mitigation,2019,17,0,2
+518,A comparative study of fairness-enhancing interventions in machine learning,General Fairness & Bias Mitigation,2019,54,0,3
+412,Impact on bias mitigation algorithms to variations in inferred sensitive attribute uncertainty,General Fairness & Bias Mitigation,2025,1,0,8
+347,Variational Reasoning about User Preferences for Conversational Recommendation,Recommender Systems,2022,32,0,0
+410,Group Fairness via Group Consensus,General Fairness & Bias Mitigation,2024,6,0,2
+154,FnRGNN: Distribution-aware Fairness in Graph Neural Network,Graph-Based Fairness & Bias Mitigation,2025,0,0,0
+147,Knowledge Graph-Based Diversified Recommendation,Graph-Based Fairness & Bias Mitigation,2025,0,0,0
 148,Bursting the Filter Bubble with Knowledge Graph Inversion,Graph-Based Fairness & Bias Mitigation,2025,3,0,0
 150,Towards an Ontology-Driven Approach to Document Bias,Graph-Based Fairness & Bias Mitigation,2025,1,0,0
 151,Fair-RGNN: Mitigating Relational Bias on Knowledge Graphs,Graph-Based Fairness & Bias Mitigation,2024,1,0,2
 152,Knowledge-Enhanced Language Models Are Not Bias-Proof: Situated Knowledge and Epistemic Injustice in AI,Graph-Based Fairness & Bias Mitigation,2024,21,0,2
 153,Bias-Aware Agent: Enhancing Fairness in AI-Driven Knowledge Retrieval,Graph-Based Fairness & Bias Mitigation,2025,4,0,1
-154,FnRGNN: Distribution-aware Fairness in Graph Neural Network,Graph-Based Fairness & Bias Mitigation,2025,0,0,0
 155,Fairness-Aware Graph Learning: A Benchmark,Graph-Based Fairness & Bias Mitigation,2025,0,0,3
+145,Spoken Stereoset: on Evaluating Social Bias Toward Speaker in Speech Large Language Models,LLMs & NLP,2024,5,0,1
 156,Can We Trust Recommender System Fairness Evaluation? The Role of Fairness and Relevance,Recommender Systems,2024,5,0,3
 157,Integrating Individual and Group Fairness for Recommender Systems through Social Choice,Recommender Systems,2025,0,0,8
 158,Fairness and Transparency in Music Recommender Systems: Improvements for Artists,Recommender Systems,2024,0,0,5
 159,"Understanding Biases in ChatGPT-based Recommender Systems: Provider Fairness, Temporal Stability, and Recency",Recommender Systems,2024,35,0,1
 160,Unmasking Gender Bias in Recommendation Systems and Enhancing Category-Aware Fairness,Recommender Systems,2025,5,0,7
 161,No Bias Left Behind: Fairness Testing for Deep Recommender Systems Targeting General Disadvantaged Groups,Recommender Systems,2025,0,0,1
-162,A Reproducibility Study of Product-side Fairness in Bundle Recommendation,Recommender Systems,2025,0,0,2
-165,FairCRS: Towards User-oriented Fairness in Conversational Recommendation Systems,Recommender Systems,2024,5,0,2
-147,Knowledge Graph-Based Diversified Recommendation,Graph-Based Fairness & Bias Mitigation,2025,0,0,0
 146,Position Bias Across LLM Model Families,LLMs & NLP,2025,0,0,0
-145,Spoken Stereoset: on Evaluating Social Bias Toward Speaker in Speech Large Language Models,LLMs & NLP,2024,5,0,1
-136,Emergent Biases in Large Language Models: A Critical Review of Taxonomy and Evaluations,LLMs & NLP,2025,0,0,3
-130,Fairness in AI: Evaluating and Mitigating Bias in Decision-Making Models,LLMs & NLP,2025,0,0,1
+144,Measuring and Mitigating Gender Entropy Bias in Large Language Models,LLMs & NLP,2025,0,0,1
+127,Evaluating Bias Detection and Mitigation Approaches Across Classical and Large Language Models,LLMs & NLP,2026,0,0,0
+135,Leveraging Multiple LLM Evaluators for Scalable and Fair Language Model Assessments,LLMs & NLP,2025,33,0,0
+129,ThaiSBi: A Thai Social Bias Dataset for Large Language Model,LLMs & NLP,2025,0,0,0
+130,Fairness in AI: Evaluating and Mitigating Bias in Decision-Making Models,LLMs & NLP,2025,0,0,2
 131,Quantifying and Mitigating Occupational Bias in Open-Source Large Language Models,LLMs & NLP,2025,0,0,2
 132,Exploring Bias Evaluation Techniques for Quantifying Large Language Model Biases,LLMs & NLP,2023,4,0,0
 133,Mitigating Bias in Large Language Models Through Culturally-Relevant LLMs,LLMs & NLP,2025,1,0,2
 134,Probing into the Fairness of Large Language Models: A Case Study of ChatGPT,LLMs & NLP,2024,5,0,4
-135,Leveraging Multiple LLM Evaluators for Scalable and Fair Language Model Assessments,LLMs & NLP,2025,33,0,0
+136,Emergent Biases in Large Language Models: A Critical Review of Taxonomy and Evaluations,LLMs & NLP,2025,0,0,3
+143,A Vision for Debiasing Confirmation Bias in Software Testing via LLM,LLMs & NLP,2025,0,0,0
 137,Bias Detection and Mitigation in Large Language Models for Code Generation,LLMs & NLP,2025,0,0,1
-144,Measuring and Mitigating Gender Entropy Bias in Large Language Models,LLMs & NLP,2025,0,0,1
 138,Applying Prompt-Based Mitigation of Gender-Role Bias in Large Language Models for Security,LLMs & NLP,2025,0,0,1
 139,Behind the Words: Unmasking Bias Lurking in LLMs and Data,LLMs & NLP,2025,0,0,1
 140,Deep Learning Approach for Evaluating Fairness in LLMs,LLMs & NLP,2025,2,0,4
 141,Comparative Study of Large Language Model Evaluation Frameworks with a Focus on NLP vs LLM-As-A-Judge Metrics,LLMs & NLP,2025,2,0,0
 142,Auditing Demographic Bias in Mistral: An Open-Source LLM's Diagnostic Performance on the MedQA Benchmark,LLMs & NLP,2026,0,0,4
-143,A Vision for Debiasing Confirmation Bias in Software Testing via LLM,LLMs & NLP,2025,0,0,0
+162,A Reproducibility Study of Product-side Fairness in Bundle Recommendation,Recommender Systems,2025,0,0,2
+165,FairCRS: Towards User-oriented Fairness in Conversational Recommendation Systems,Recommender Systems,2024,5,0,2
 166,Shift your Focus for the Greater Good: Improving Fairness at no cost for Accuracy and Diversity in News Recommender Systems,Recommender Systems,2026,0,0,1
-167,"Accuracy, Fairness, Diversity All at Once: An Influence-Function-Guided Data Enhancement Approach for Recommender System",Recommender Systems,2025,0,0,1
-168,Balancing Fairness and High Match Rates in Reciprocal Recommender Systems: A Nash Social Welfare Approach,Recommender Systems,2026,0,0,1
-200,Understanding AI bias in clinical practice,Health & Clinical AI,2024,4,0,1
+197,Human-Centric AI to Mitigate AI Biases,General Fairness & Bias Mitigation,2023,32,0,0
+190,Mitigating algorithmic bias in credit scoring support systems through adversarial learning,General Fairness & Bias Mitigation,2026,0,0,1
+191,Algorithmic bias and transparency in artificial intelligence tools for nursing education: A scoping review,Health & Clinical AI,2026,0,0,3
+192,Implications of algorithmic bias in AI-driven emergency response systems,General Fairness & Bias Mitigation,2025,0,0,0
 194,Algorithmic bias: Social science research integration through the 3-D Dependable AI Framework,General Fairness & Bias Mitigation,2024,15,0,5
 195,EXplainable Artificial Intelligence (XAI) for facilitating recognition of algorithmic bias: An experiment from imposed users' perspectives,General Fairness & Bias Mitigation,2024,31,0,3
 196,Towards early detection of algorithmic bias from dataset's bias symptoms: An empirical study,General Fairness & Bias Mitigation,2025,1,0,0
-197,Human-Centric AI to Mitigate AI Biases,General Fairness & Bias Mitigation,2023,32,0,0
 198,"Teaching AI awareness in middle school classrooms: Design, implementation and evaluation of two education modules on algorithmic bias and filter bubbles",General Fairness & Bias Mitigation,2025,3,0,1
+167,"Accuracy, Fairness, Diversity All at Once: An Influence-Function-Guided Data Enhancement Approach for Recommender System",Recommender Systems,2025,0,0,1
 199,Fairness in precision medicine: Evaluating algorithmic bias in length of stay and readmission for asthma in the All of Us Research Program,Health & Clinical AI,2025,0,0,0
+200,Understanding AI bias in clinical practice,Health & Clinical AI,2024,4,0,1
 201,Evaluating Algorithmic Bias in 30-Day Hospital Readmission Models: Retrospective Analysis,Health & Clinical AI,2024,6,0,4
-191,Algorithmic bias and transparency in artificial intelligence tools for nursing education: A scoping review,Health & Clinical AI,2026,0,0,3
 203,Rethinking fairness in unsupervised healthcare AI: A methodological scoping review,Health & Clinical AI,2026,0,0,2
 204,Ontology-grounded knowledge graphs for mitigating hallucinations in large language models for clinical question answering,Graph-Based Fairness & Bias Mitigation,2026,2,0,0
 205,Toward fair medical advice: Addressing and mitigating bias in large language model-based healthcare applications,Health & Clinical AI,2025,2,0,3
-206,Meta-Fair: AI-assisted fairness testing of large language models,LLMs & NLP,2026,1,0,0
-207,A resource-efficient framework for cultural alignment in large language models (LLMs): The Chinese context,LLMs & NLP,2026,0,0,0
-208,"Diagnosing the bias iceberg in large language models: A three-level framework of explicit, evaluative, and implicit gender bias",LLMs & NLP,2025,4,0,2
-192,Implications of algorithmic bias in AI-driven emergency response systems,General Fairness & Bias Mitigation,2025,0,0,0
-190,Mitigating algorithmic bias in credit scoring support systems through adversarial learning,General Fairness & Bias Mitigation,2026,0,0,1
-169,Relevance-aware Individual Item Fairness Measures for Recommender Systems: Limitations and Usage Guidelines,Recommender Systems,2025,1,0,1
-178,Inherent Bias in Electronic Health Records: A Scoping Review of Sources of Bias,Health & Clinical AI,2025,8,0,2
-171,On Inherited Popularity Bias in Cold-Start Item Recommendation,Recommender Systems,2025,0,0,1
-172,Opening the Black Box: Interpretable Remedies for Popularity Bias in Recommender Systems,Recommender Systems,2025,0,0,0
-173,Rewriting Bias: Automated Rewriting to Reduce Media Bias Polarisation in News Recommender Systems,Recommender Systems,2025,0,0,0
-174,Investigating User-Side Fairness in Outcome and Process for Multi-Type Sensitive Attributes in Recommendations,Recommender Systems,2025,1,0,2
-176,Enhancing Data Diversity and Traceability to Mitigate Bias in Healthcare AI: A Blockchain-Driven Approach,Health & Clinical AI,2024,2,0,1
-177,Addressing Bias and Ensuring Fairness in AI Systems for Healthcare,Health & Clinical AI,2025,1,0,5
-179,"An Agentic Framework for Compliant, Ethical and Trustworthy GenAI Applications in Healthcare",Health & Clinical AI,2025,3,0,2
 187,EVENS: Equality versus Equity Notion Spectrum of LLMs,LLMs & NLP,2025,0,0,3
-180,Fair Foundation Models for Medical Image Analysis: Challenges and Perspectives,Health & Clinical AI,2026,2,0,5
-181,Towards Bias-Free Teledermatology: A Mobile-Optimized Framework Fusing Causal AI and Federated Learning,Health & Clinical AI,2025,0,0,0
-182,JustEva: A Toolkit to Evaluate LLM Fairness in Legal Knowledge Inference,LLMs & NLP,2025,0,0,1
-183,Investigating Perception of Gender Stereotypes in Large Language Models: A Computational Grounded Theory Approach,LLMs & NLP,2025,1,0,7
-185,Unmasking Bias in Financial AI: A Robust Framework for Evaluating and Mitigating Hidden Biases in LLMs,LLMs & NLP,2025,1,0,2
 186,Fairness of Large Language Models in Education,LLMs & NLP,2024,6,0,0
-129,ThaiSBi: A Thai Social Bias Dataset for Large Language Model,LLMs & NLP,2025,0,0,0
+185,Unmasking Bias in Financial AI: A Robust Framework for Evaluating and Mitigating Hidden Biases in LLMs,LLMs & NLP,2025,1,0,2
+183,Investigating Perception of Gender Stereotypes in Large Language Models: A Computational Grounded Theory Approach,LLMs & NLP,2025,1,0,7
+182,JustEva: A Toolkit to Evaluate LLM Fairness in Legal Knowledge Inference,LLMs & NLP,2025,0,0,1
+181,Towards Bias-Free Teledermatology: A Mobile-Optimized Framework Fusing Causal AI and Federated Learning,Health & Clinical AI,2025,0,0,0
+180,Fair Foundation Models for Medical Image Analysis: Challenges and Perspectives,Health & Clinical AI,2026,2,0,5
+179,"An Agentic Framework for Compliant, Ethical and Trustworthy GenAI Applications in Healthcare",Health & Clinical AI,2025,3,0,2
+178,Inherent Bias in Electronic Health Records: A Scoping Review of Sources of Bias,Health & Clinical AI,2025,8,0,2
+177,Addressing Bias and Ensuring Fairness in AI Systems for Healthcare,Health & Clinical AI,2025,1,0,5
+176,Enhancing Data Diversity and Traceability to Mitigate Bias in Healthcare AI: A Blockchain-Driven Approach,Health & Clinical AI,2024,2,0,1
+174,Investigating User-Side Fairness in Outcome and Process for Multi-Type Sensitive Attributes in Recommendations,Recommender Systems,2025,1,0,2
+173,Rewriting Bias: Automated Rewriting to Reduce Media Bias Polarisation in News Recommender Systems,Recommender Systems,2025,0,0,0
+172,Opening the Black Box: Interpretable Remedies for Popularity Bias in Recommender Systems,Recommender Systems,2025,0,0,0
+171,On Inherited Popularity Bias in Cold-Start Item Recommendation,Recommender Systems,2025,0,0,1
+169,Relevance-aware Individual Item Fairness Measures for Recommender Systems: Limitations and Usage Guidelines,Recommender Systems,2025,1,0,1
+168,Balancing Fairness and High Match Rates in Reciprocal Recommender Systems: A Nash Social Welfare Approach,Recommender Systems,2026,0,0,1
 128,Leveraging Large Language Models for Bias Detection and Mitigation in Data Analytics Models,LLMs & NLP,2025,2,0,1
-127,Evaluating Bias Detection and Mitigation Approaches Across Classical and Large Language Models,LLMs & NLP,2026,0,0,0
-67,On the Applicability of Machine Learning Fairness Notions,General Fairness & Bias Mitigation,2021,9,0,9
-55,Do the Machine Learning Models on a Crowd-Sourced Platform Exhibit Bias?,General Fairness & Bias Mitigation,2020,2,0,0
-58,Fairness-Aware Machine Learning: An Extensive Overview,General Fairness & Bias Mitigation,2020,98,0,2
+126,Causal Mitigation of Pink Tax: Intersectional Bias Reduction in LLMs,LLMs & NLP,2025,0,0,2
+409,Global Health Informatics: the state of research and lessons learned,Health & Clinical AI,2023,6,0,0
+69,AI in Medicine: Structural Challenges in Improving Patient Care,Health & Clinical AI,2022,69,0,3
+58,Fairness-Aware Machine Learning: An Extensive Overview,General Fairness & Bias Mitigation,2020,0,0,0
 59,An Information Theoretic Approach to Reducing Algorithmic Bias for Machine Learning,General Fairness & Bias Mitigation,2022,25,0,6
-61,Algorithmic Fairness,General Fairness & Bias Mitigation,2020,7,0,9
+61,Algorithmic Fairness,General Fairness & Bias Mitigation,2020,7,0,8
 62,A Survey on Fairness for Machine Learning on Graphs,Graph-Based Fairness & Bias Mitigation,2024,3,0,0
 64,Optimized Score Transformation for Consistent Fair Classification,General Fairness & Bias Mitigation,2021,1,0,2
-69,AI in Medicine: Structural Challenges in Improving Patient Care,Health & Clinical AI,2022,69,0,3
-49,Algorithmic Fairness Datasets: The Story So Far,General Fairness & Bias Mitigation,2022,1,0,20
+67,On the Applicability of Machine Learning Fairness Notions,General Fairness & Bias Mitigation,2021,9,0,8
 70,FDA-Approved ML Algorithms in Neuroradiology,Health & Clinical AI,2023,17,0,1
-72,Recommendations on compiling test datasets for evaluating artificial intelligence solutions in pathology,Health & Clinical AI,2022,66,0,0
+53,Privileged and Unprivileged Groups: An Empirical Study on the Impact of the Age Attribute on Fairness,General Fairness & Bias Mitigation,2022,5,0,8
+72,Recommendations on compiling test datasets for evaluating artificial intelligence solutions in pathology,Health & Clinical AI,2022,66,0,1
 77,Investigating Bias in LLM-Based Bias Detection: Disparities between LLMs and Human Perception,LLMs & NLP,2024,22,0,0
 78,Systematic Biases in LLM Simulations of Debates,LLMs & NLP,2024,37,0,0
 79,Kelly is a Warm Person Joseph is a Role Model: Gender Biases in LLM-Generated Reference Letters,LLMs & NLP,2023,17,0,0
 80,Justice or Prejudice? Quantifying Biases in LLM-as-a-Judge,LLMs & NLP,2024,6,0,0
-53,Privileged and Unprivileged Groups: An Empirical Study on the Impact of the Age Attribute on Fairness,General Fairness & Bias Mitigation,2022,5,0,8
-47,Knowledge Graphs and Explainable AI in Healthcare,Health & Clinical AI,2022,44,0,1
-83,On the Independence of Association Bias and Empirical Fairness in Language Models,LLMs & NLP,2023,0,0,0
-22,A Comprehensive Empirical Study of Bias Mitigation Methods for Machine Learning Classifiers,General Fairness & Bias Mitigation,2023,13,0,0
+82,Probing Explicit and Implicit Gender Bias through LLM Conditional Text Generation,LLMs & NLP,2023,8,0,0
+55,Do the Machine Learning Models on a Crowd-Sourced Platform Exhibit Bias?,General Fairness & Bias Mitigation,2020,2,0,0
+49,Algorithmic Fairness Datasets: The Story So Far,General Fairness & Bias Mitigation,2022,1,0,20
+125,AGR: Age Group fairness Reward for Bias Mitigation in LLMs,LLMs & NLP,2025,2,0,0
+24,Removing Biased Data to Improve Fairness and Accuracy,General Fairness & Bias Mitigation,2021,10,0,6
 10,Enforcing Group Fairness in Algorithmic Decision Making: Utility Maximization Under Sufficiency,General Fairness & Bias Mitigation,2022,0,0,0
-12,Bias in data-driven artificial intelligence systems—An introductory survey,General Fairness & Bias Mitigation,2019,21,0,6
-14,Sources of bias in artificial intelligence that perpetuate healthcare disparities—A global review,Health & Clinical AI,2022,0,0,0
+12,Bias in data-driven artificial intelligence systems—An introductory survey,General Fairness & Bias Mitigation,2019,21,0,5
 15,Analysis of Countries in Terms of Artificial Intelligence Technologies: PROMETHEE and GAIA Method Approach,General Fairness & Bias Mitigation,2022,23,0,0
-17,Towards Debiasing Sentence Representations,LLMs & NLP,2020,7,0,2
+17,Towards Debiasing Sentence Representations,LLMs & NLP,2020,7,0,1
 20,Trustworthy AI: A Computational Perspective,General Fairness & Bias Mitigation,2022,2,0,0
-24,Removing Biased Data to Improve Fairness and Accuracy,General Fairness & Bias Mitigation,2021,10,0,7
-46,Explainable Recommender Systems with Knowledge Graphs and Language Models,Recommender Systems,2024,4,0,0
+22,A Comprehensive Empirical Study of Bias Mitigation Methods for Machine Learning Classifiers,General Fairness & Bias Mitigation,2023,13,0,0
 25,FAIR MIXUP: Fairness via Interpolation,General Fairness & Bias Mitigation,2021,11,0,2
-33,Fairness and Machine Learning: Limitations and Opportunities,General Fairness & Bias Mitigation,2023,258,0,2
+47,Knowledge Graphs and Explainable AI in Healthcare,Health & Clinical AI,2022,44,0,1
+33,Fairness and Machine Learning: Limitations and Opportunities,General Fairness & Bias Mitigation,2023,0,0,0
 34,Reconciling Modern Machine Learning Practice and the Bias-Variance Trade-Off,General Fairness & Bias Mitigation,2019,83,0,0
 35,Fairness-Driven Private Collaborative Machine Learning,General Fairness & Bias Mitigation,2021,0,0,0
 41,Integrating Behavioral Economic and Technical Insights to Address Algorithmic Bias,General Fairness & Bias Mitigation,2022,23,0,7
 43,A Survey on Trustworthy Recommender Systems,Recommender Systems,2024,63,0,6
-82,Probing Explicit and Implicit Gender Bias through LLM Conditional Text Generation,LLMs & NLP,2023,8,0,0
+46,Explainable Recommender Systems with Knowledge Graphs and Language Models,Recommender Systems,2024,4,0,0
+83,On the Independence of Association Bias and Empirical Fairness in Language Models,LLMs & NLP,2023,0,0,0
 84,Fairness in Large Language Models: A Taxonomic Survey,LLMs & NLP,2023,54,0,5
-126,Causal Mitigation of Pink Tax: Intersectional Bias Reduction in LLMs,LLMs & NLP,2025,0,0,2
-116,Fairness Metrics in AI Healthcare Applications: A Review,Health & Clinical AI,2024,10,0,0
+85,Survey on Factuality in Large Language Models: Knowledge Retrieval and Domain-Specificity,LLMs & NLP,2024,53,0,0
+115,Racial Bias in Multimodal Classification of Healthcare Data - Evidence from MIMIC-IV,Health & Clinical AI,2025,0,0,2
+109,A Bias Aware News Recommendation System,Recommender Systems,2019,1,0,0
 110,Cross-Modality Bias Auditing and Fairness Evaluation in Generalist Clinical AI Models,Health & Clinical AI,2025,0,0,2
 111,A Survey of Bias and Fairness in Healthcare AI,Health & Clinical AI,2024,8,0,4
 112,The Problem Of Data Bias In Healthcare AI,Health & Clinical AI,2024,2,0,1
 113,Gradient-Based Reconciliation of Fairness and Performance in Healthcare AI,Health & Clinical AI,2025,0,0,0
 114,"Integrated Framework for Equitable Healthcare AI: Bias Mitigation, Community Participation, and Regulatory Governance",Health & Clinical AI,2025,0,0,2
-115,Racial Bias in Multimodal Classification of Healthcare Data - Evidence from MIMIC-IV,Health & Clinical AI,2025,0,0,2
+116,Fairness Metrics in AI Healthcare Applications: A Review,Health & Clinical AI,2024,10,0,0
+86,A Survey of Large Language Models in Medicine: Progress Application and Challenge,LLMs & NLP,2023,37,0,0
 117,Enhancing Multi-Attribute Fairness in Healthcare Predictive Modeling,Health & Clinical AI,2025,0,0,2
-108,Properly Scoring Users' Mainstreamness to Evaluate Recommendation Bias,Recommender Systems,2023,0,0,1
 118,De-Biased Disentanglement Learning for Pulmonary Embolism Survival Prediction on Multimodal Data,Health & Clinical AI,2024,2,0,2
 119,Mitigating Racial Bias in Skin Lesion Classification with a Novel Deep Learning-Driven Dataset,Health & Clinical AI,2025,0,0,1
 121,Assessing Bias Within Diabetes Risk Prediction in Machine Learning Techniques,Health & Clinical AI,2025,0,0,0
 122,fair-LDP: Uncertainty-Guided Fairness and Privacy for Federated Healthcare Learning,Health & Clinical AI,2025,0,0,1
 123,Addressing Algorithmic Bias in Diabetes Care: A Multi-Modal Machine Learning Framework for Equitable Readmission Prediction,Health & Clinical AI,2025,0,0,2
-125,AGR: Age Group fairness Reward for Bias Mitigation in LLMs,LLMs & NLP,2025,2,0,0
-109,A Bias Aware News Recommendation System,Recommender Systems,2019,1,0,0
+108,Properly Scoring Users' Mainstreamness to Evaluate Recommendation Bias,Recommender Systems,2023,0,0,1
 107,"Enhancing Netflix's Recommendation System: A Hybrid AI Approach for Personalization, Bias Reduction, and Engagement Optimization",Recommender Systems,2025,0,0,0
-85,Survey on Factuality in Large Language Models: Knowledge Retrieval and Domain-Specificity,LLMs & NLP,2024,53,0,0
-96,Detecting and Mitigating Bias in LLMs through Knowledge Graph-Augmented Training,Graph-Based Fairness & Bias Mitigation,2025,0,0,0
-86,A Survey of Large Language Models in Medicine: Progress Application and Challenge,LLMs & NLP,2023,37,0,0
-89,Large Language Models in Healthcare and Medical Domain: A Review,LLMs & NLP,2024,321,0,0
-91,Evaluating Interfaced LLM Bias,LLMs & NLP,2023,427,0,1
-92,Intentional Biases in LLM Responses,LLMs & NLP,2023,9,0,0
-93,Unequal Opportunities: Examining the Bias in Geographical Recommendations by Large Language Models,LLMs & NLP,2025,7,0,3
-95,Contextual knowledge graph approach to bias-reduced decision support systems,Graph-Based Fairness & Bias Mitigation,2024,5,0,1
-97,StereoKG: Data-Driven Knowledge Graph Construction For Cultural Knowledge and Stereotypes,Graph-Based Fairness & Bias Mitigation,2022,8,0,0
 106,DF-CDR: A Unified Framework for Dual Fairness in Cross-Domain Recommendation Systems,Recommender Systems,2025,0,0,1
-99,Semantics of the Black-Box: Can knowledge graphs help make deep learning systems more interpretable and explainable?,Graph-Based Fairness & Bias Mitigation,2020,0,0,0
-100,Leveraging Structural Causal Models for Bias Detection and Feature Adjustment in Machine Learning Predictions,Graph-Based Fairness & Bias Mitigation,2024,1,0,1
-101,Gender Bias Analysis in Commonsense Knowledge Graph Embeddings,Graph-Based Fairness & Bias Mitigation,2023,1,0,1
-102,Towards Engineering Fair Ontologies: Unbiasing a Surveillance Ontology,Graph-Based Fairness & Bias Mitigation,2021,5,0,0
-103,Personalized Recommender System for Improving Gender-fairness in Teaching,Recommender Systems,2019,1,0,0
 105,De-Biasing user conformity bias and item popularity bias in Group recommendation,Recommender Systems,2023,7,0,1
+103,Personalized Recommender System for Improving Gender-fairness in Teaching,Recommender Systems,2019,1,0,0
+102,Towards Engineering Fair Ontologies: Unbiasing a Surveillance Ontology,Graph-Based Fairness & Bias Mitigation,2021,5,0,0
+101,Gender Bias Analysis in Commonsense Knowledge Graph Embeddings,Graph-Based Fairness & Bias Mitigation,2023,1,0,1
+100,Leveraging Structural Causal Models for Bias Detection and Feature Adjustment in Machine Learning Predictions,Graph-Based Fairness & Bias Mitigation,2024,1,0,1
+99,Semantics of the Black-Box: Can knowledge graphs help make deep learning systems more interpretable and explainable?,Graph-Based Fairness & Bias Mitigation,2020,0,0,0
+97,StereoKG: Data-Driven Knowledge Graph Construction For Cultural Knowledge and Stereotypes,Graph-Based Fairness & Bias Mitigation,2022,8,0,0
+96,Detecting and Mitigating Bias in LLMs through Knowledge Graph-Augmented Training,Graph-Based Fairness & Bias Mitigation,2025,0,0,0
+95,Contextual knowledge graph approach to bias-reduced decision support systems,Graph-Based Fairness & Bias Mitigation,2024,5,0,1
+93,Unequal Opportunities: Examining the Bias in Geographical Recommendations by Large Language Models,LLMs & NLP,2025,7,0,3
+92,Intentional Biases in LLM Responses,LLMs & NLP,2023,9,0,0
+91,Evaluating Interfaced LLM Bias,LLMs & NLP,2023,0,0,0
+90,Understanding Asian Stereotyping and Bias in LLMs,LLMs & NLP,2024,0,0,0
+89,Large Language Models in Healthcare and Medical Domain: A Review,LLMs & NLP,2024,321,0,0
+206,Meta-Fair: AI-assisted fairness testing of large language models,LLMs & NLP,2026,1,0,0
+207,A resource-efficient framework for cultural alignment in large language models (LLMs): The Chinese context,LLMs & NLP,2026,0,0,0
+208,"Diagnosing the bias iceberg in large language models: A three-level framework of explicit, evaluative, and implicit gender bias",LLMs & NLP,2025,4,0,2
+314,From Detection to Mitigation: Addressing Bias in Deep Learning Models for Chest X-Ray Diagnosis,Health & Clinical AI,2025,0,0,0
+308,A Non-Parametric Choice Model That Learns How Users Choose Between Recommended Options,Recommender Systems,2025,0,0,1
+309,Fairness and Bias in Multimodal AI: A Survey,General Fairness & Bias Mitigation,2024,3,0,0
+310,Towards Fair Graph Neural Networks via Counterfactual and Balance,Graph-Based Fairness & Bias Mitigation,2025,0,0,3
+311,Fairness Testing of Large Language Models in Role-Playing,LLMs & NLP,2024,5,0,0
+312,PreCoF: counterfactual explanations for fairness,General Fairness & Bias Mitigation,2023,20,0,5
+313,Generative AI and the Foundation Model Era: A Comprehensive Review,LLMs & NLP,2026,0,0,0
+315,Popularity bias reduction in multi-criteria recommender systems: the RelPref and PriRelPref approaches,Recommender Systems,2026,0,0,1
+306,Procedural Fairness in Machine Learning,General Fairness & Bias Mitigation,2026,0,0,0
+316,Fairness-in-the-Workflow: How Machine Learning Practitioners at Big Tech Companies Approach Fairness in Recommender Systems,Recommender Systems,2026,0,0,0
+317,"Bias Is a Math Problem, AI Bias Is a Technical Problem: 10-Year Literature Review of AI/LLM Bias Research Reveals Narrow [Gender-Centric] Conceptions of ‘Bias’, and Academia-Industry Gap",General Fairness & Bias Mitigation,2025,0,0,0
+318,Advancing Fairness in Generative AI Through Intrinsic and Extrinsic Bias Evaluation and Mitigation,LLMs & NLP,2025,0,0,0
+319,NLP Needs Diversity outside of ‘Diversity’,LLMs & NLP,2025,0,0,0
+320,Exploring Social Choice Mechanisms for Recommendation Fairness in SCRUF,Recommender Systems,2023,1,0,0
+322,Cross-Lingual Retrieval Augmented Prompt for Low-Resource Languages,LLMs & NLP,2022,1,0,0
+307,Beyond Black Boxes: Designing and Testing Agentic AI Systems for Strategy,General Fairness & Bias Mitigation,2026,1,0,0
+305,GNNFairViz: Visual Analysis for Graph Neural Network Fairness,Graph-Based Fairness & Bias Mitigation,2025,4,0,2
 209,Fine-tuning large language models in federated learning with fairness-aware prompt selection,LLMs & NLP,2025,1,0,0
-210,Fairness and social bias quantification in Large Language Models for sentiment analysis,LLMs & NLP,2025,9,0,0
-211,"Implicit Gender, Racial, and Ethnic Biases in Large Language Models: An Audit Study of Automated Psychiatric Diagnoses",LLMs & NLP,2026,0,0,1
-319,PreCoF: counterfactual explanations for fairness,General Fairness & Bias Mitigation,2023,20,0,5
-313,Procedural Fairness in Machine Learning,General Fairness & Bias Mitigation,2026,0,0,0
-314,Beyond Black Boxes: Designing and Testing Agentic AI Systems for Strategy,General Fairness & Bias Mitigation,2026,1,0,0
-315,A Non-Parametric Choice Model That Learns How Users Choose Between Recommended Options,Recommender Systems,2025,0,0,1
-316,Fairness and Bias in Multimodal AI: A Survey,General Fairness & Bias Mitigation,2024,3,0,0
-317,Towards Fair Graph Neural Networks via Counterfactual and Balance,Graph-Based Fairness & Bias Mitigation,2025,0,0,3
-318,Fairness Testing of Large Language Models in Role-Playing,LLMs & NLP,2024,5,0,0
-320,Generative AI and the Foundation Model Era: A Comprehensive Review,LLMs & NLP,2026,0,0,0
-311,The Quantization Trap: Breaking Linear Scaling Laws in Multi-Hop Reasoning,LLMs & NLP,2026,0,0,0
-321,From Detection to Mitigation: Addressing Bias in Deep Learning Models for Chest X-Ray Diagnosis,Health & Clinical AI,2025,0,0,0
-322,Popularity bias reduction in multi-criteria recommender systems: the RelPref and PriRelPref approaches,Recommender Systems,2026,0,0,1
-323,Fairness-in-the-Workflow: How Machine Learning Practitioners at Big Tech Companies Approach Fairness in Recommender Systems,Recommender Systems,2026,0,0,0
-324,"Bias Is a Math Problem, AI Bias Is a Technical Problem: 10-Year Literature Review of AI/LLM Bias Research Reveals Narrow [Gender-Centric] Conceptions of ‘Bias’, and Academia-Industry Gap",General Fairness & Bias Mitigation,2025,0,0,0
-325,Advancing Fairness in Generative AI Through Intrinsic and Extrinsic Bias Evaluation and Mitigation,LLMs & NLP,2025,0,0,0
-326,NLP Needs Diversity outside of ‘Diversity’,LLMs & NLP,2025,0,0,0
-312,GNNFairViz: Visual Analysis for Graph Neural Network Fairness,Graph-Based Fairness & Bias Mitigation,2025,4,0,2
-310,"Linguistic and dialectal bias in large language models: a review of evidence, mechanisms,and implications (20182025)",LLMs & NLP,2026,0,0,0
-329,Cross-Lingual Retrieval Augmented Prompt for Low-Resource Languages,LLMs & NLP,2022,1,0,0
-300,Neural Retrievers are Biased Towards LLM-Generated Content,LLMs & NLP,2024,26,0,0
-293,Fairness And Bias Mitigation in AI Models for Diabetes Diagnosis: A Comparative Evaluation of Algorithmic Approaches,Health & Clinical AI,2025,0,0,0
-294,BIAS AUDIT FRAMEWORKS: Developing Tools for Early Detection of Algorithmic Bias in AI Development,General Fairness & Bias Mitigation,2025,1,0,2
-295,Justice in Judgment: Unveiling (Hidden) Bias in LLM-assisted Peer Reviews,LLMs & NLP,2025,0,0,0
-296,Does RAG Introduce Unfairness in LLMs? Evaluating Fairness in Retrieval-Augmented Generation Systems,LLMs & NLP,2024,2,0,0
-297,Ethical Imperatives for Retrieval-Augmented Generation in Clinical Nursing: Viewpoint on Responsible AI Use,Health & Clinical AI,2025,1,0,1
-299,The Impact of Generative Artificial Intelligence on Socioeconomic Inequalities and Policy Making,General Fairness & Bias Mitigation,2024,13,0,1
-301,Invisible Relevance Bias: Text-Image Retrieval Models Prefer AI-Generated Images,General Fairness & Bias Mitigation,2024,16,0,0
-309,Understanding the Effect of Model Compression on Social Bias in Large Language Models,LLMs & NLP,2023,0,0,0
-302,The ethics of ChatGPT in medicine and healthcare: a systematic review on Large Language Models (LLMs),Health & Clinical AI,2024,290,0,4
-303,"Dynamic feedback loops in recommender systems: Analyzing fairness, popularity bias, and user group disparities",Recommender Systems,2026,0,0,1
-304,Mind the Blind Spots: A Focus-Level Evaluation Framework for LLM Reviews,LLMs & NLP,2025,2,0,0
-305,Measuring the Fairness Gap Between Retrieval and Generation in RAG Systems using a Cognitive Complexity Framework,LLMs & NLP,2025,2,0,0
-307,Toward Human-Like Evaluation for Natural Language Generation with Error Analysis,LLMs & NLP,2023,10,0,0
-308,FairVLM: Enhancing Fairness and Prompt Sensitivity in Vision Language Models for Medical Image Segmentation,Health & Clinical AI,2026,0,0,2
-327,Exploring Social Choice Mechanisms for Recommendation Fairness in SCRUF,Recommender Systems,2023,1,0,0
-330,Beyond Demographics: Evaluating News Recommender Systems Fairness Through Behavioural Communities,Recommender Systems,2025,1,0,1
-291,Algorithmic Bias Detection: A Focus on Skin Tone and Gender Fairness in AI Models,General Fairness & Bias Mitigation,2025,1,0,1
-402,"Ethnic Classifications in Algorithmic Fairness: Concepts, Measures and Implications in Practice",General Fairness & Bias Mitigation,2024,4,0,16
-389,Algorithmic Pluralism: A Structural Approach To Equal Opportunity,General Fairness & Bias Mitigation,2024,12,0,3
-390,Annotating and Detecting Fine-grained Factual Errors for Dialogue Summarization,LLMs & NLP,2023,1,0,0
-392,Association Between Unmet Nonmedication Needs After Hospital Discharge and Readmission or Death Among Acute Respiratory Failure Survivors: A Multicenter Prospective Cohort Study*,Health & Clinical AI,2023,10,0,0
-393,Auditing Cross-Cultural Consistency of Human-Annotated Labels for Recommendation Systems,Recommender Systems,2023,5,0,5
-400,Deep Multimodal Data Fusion,General Fairness & Bias Mitigation,2024,304,0,0
-401,Disentangling Perceptions of Offensiveness: Cultural and Moral Correlates,General Fairness & Bias Mitigation,2024,7,0,0
-407,Fairness Feedback Loops: Training on Synthetic Data Amplifies Bias,Health & Clinical AI,2024,14,0,4
-387,Advances in decision support for diagnosis and early management of acute leukaemia,Health & Clinical AI,2024,3,0,0
-408,Fairness in AI-Based Mental Health: Clinician Perspectives and Bias Mitigation,General Fairness & Bias Mitigation,2024,7,0,0
-409,Fairness in Graph Machine Learning: Recent Advances and Future Prospectives,Graph-Based Fairness & Bias Mitigation,2023,4,0,1
-411,Fairness in Reinforcement Learning: A Survey,General Fairness & Bias Mitigation,2024,5,0,0
-412,FairSwiRL: fair semi-supervised classification with representation learning,General Fairness & Bias Mitigation,2023,3,0,0
-413,Find-2-Find: Multitask Learning for Anaphora Resolution and Object Localization,LLMs & NLP,2023,0,0,0
-414,Framework for bias evaluation in large language models in healthcare settings,LLMs & NLP,2025,25,0,4
-388,Algorithm Bias and Perceived Fairness: A Comprehensive Scoping Review,General Fairness & Bias Mitigation,2024,4,0,4
-386,Addressing Bias and Fairness in Machine Learning: A Practical Guide and Hands-on Tutorial,General Fairness & Bias Mitigation,2023,3,0,2
-333,Exploring gender biases in ML and AI academic research through systematic literature review,General Fairness & Bias Mitigation,2022,83,0,5
-346,"ArguGPT: evaluating, understanding and identifying argumentative essays generated by GPT models",LLMs & NLP,2023,30,0,0
-334,Artificial intelligence in nursing education: A scoping review of intelligent tutoring systems-evidence and implementation gaps,Health & Clinical AI,2026,0,0,0
-335,In Anticipation of Perfect Deepfake: Identity-anchored Artifact-agnostic Detection under Rebalanced Deepfake Detection Protocol,General Fairness & Bias Mitigation,2024,0,0,0
-336,RepMatch: Quantifying Cross-Instance Similarities in Representation Space,General Fairness & Bias Mitigation,2024,0,0,0
-341,"A Survey of Large Language Models for Healthcare: from Data, Technology, and Applications to Accountability and Ethics",Health & Clinical AI,2023,28,0,0
-343,Comparing scientific abstracts generated by ChatGPT to real abstracts with detectors and blinded human reviewers,LLMs & NLP,2023,638,0,0
-345,Contrastive Self-supervised Learning in Recommender Systems: A Survey,Recommender Systems,2023,97,0,1
-347,Generative Visual Question Answering,LLMs & NLP,2023,0,0,0
-384,A Theory of Auditability for Allocation and Social Choice Mechanisms,General Fairness & Bias Mitigation,2023,4,0,0
-349,Diversity-Promoting Ensemble for Medical Image Segmentation,Health & Clinical AI,2023,22,0,0
-351,A framework for the automatic description of healthcare processes in natural language: Application in an aortic stenosis integrated care process,Health & Clinical AI,2022,14,0,0
-352,Are Graph Representation Learning Methods Robust to Graph Sparsity and Asymmetric Node Information?,Graph-Based Fairness & Bias Mitigation,2022,0,0,0
-354,Variational Reasoning about User Preferences for Conversational Recommendation,Recommender Systems,2022,32,0,0
-380,A deep-learning method for the end-to-end prediction of intracranial aneurysm rupture risk,Health & Clinical AI,2023,20,0,0
-382,A scientometric analysis of fairness in health AI literature,Health & Clinical AI,2024,9,0,1
-292,Add-Remove-or-Relabel: Practitioner-Friendly Bias Mitigation via Influential Fairness,General Fairness & Bias Mitigation,2023,4,0,5
-290,Towards Ethical AI: Bias Detection and Mitigation in AI Models for Recruitment Systems and Criminal Justice Systems,General Fairness & Bias Mitigation,2025,1,0,0
-212,Consistent focus: Mitigating permutation bias in large language models through attention weight averaging,LLMs & NLP,2025,0,0,0
-239,Biased AI: A Case for Positive Bias in Healthcare AI,Health & Clinical AI,2025,1,0,0
+295,The ethics of ChatGPT in medicine and healthcare: a systematic review on Large Language Models (LLMs),Health & Clinical AI,2024,290,0,4
+288,Justice in Judgment: Unveiling (Hidden) Bias in LLM-assisted Peer Reviews,LLMs & NLP,2025,0,0,0
+289,Does RAG Introduce Unfairness in LLMs? Evaluating Fairness in Retrieval-Augmented Generation Systems,LLMs & NLP,2024,2,0,0
+290,Ethical Imperatives for Retrieval-Augmented Generation in Clinical Nursing: Viewpoint on Responsible AI Use,Health & Clinical AI,2025,1,0,1
+292,The Impact of Generative Artificial Intelligence on Socioeconomic Inequalities and Policy Making,General Fairness & Bias Mitigation,2024,13,0,1
+293,Neural Retrievers are Biased Towards LLM-Generated Content,LLMs & NLP,2024,26,0,0
+294,Invisible Relevance Bias: Text-Image Retrieval Models Prefer AI-Generated Images,General Fairness & Bias Mitigation,2024,16,0,0
+296,"Dynamic feedback loops in recommender systems: Analyzing fairness, popularity bias, and user group disparities",Recommender Systems,2026,0,0,1
+304,The Quantization Trap: Breaking Linear Scaling Laws in Multi-Hop Reasoning,LLMs & NLP,2026,0,0,0
+297,Mind the Blind Spots: A Focus-Level Evaluation Framework for LLM Reviews,LLMs & NLP,2025,2,0,0
+298,Measuring the Fairness Gap Between Retrieval and Generation in RAG Systems using a Cognitive Complexity Framework,LLMs & NLP,2025,2,0,0
+300,Toward Human-Like Evaluation for Natural Language Generation with Error Analysis,LLMs & NLP,2023,10,0,0
+301,FairVLM: Enhancing Fairness and Prompt Sensitivity in Vision Language Models for Medical Image Segmentation,Health & Clinical AI,2026,0,0,2
+302,Understanding the Effect of Model Compression on Social Bias in Large Language Models,LLMs & NLP,2023,0,0,0
+303,"Linguistic and dialectal bias in large language models: a review of evidence, mechanisms,and implications (20182025)",LLMs & NLP,2026,0,0,0
+323,Beyond Demographics: Evaluating News Recommender Systems Fairness Through Behavioural Communities,Recommender Systems,2025,1,0,1
+326,Exploring gender biases in ML and AI academic research through systematic literature review,General Fairness & Bias Mitigation,2022,83,0,5
+327,Artificial intelligence in nursing education: A scoping review of intelligent tutoring systems-evidence and implementation gaps,Health & Clinical AI,2026,0,0,0
+400,Fairness in AI-Based Mental Health: Clinician Perspectives and Bias Mitigation,General Fairness & Bias Mitigation,2024,7,0,0
+384,Association Between Unmet Nonmedication Needs After Hospital Discharge and Readmission or Death Among Acute Respiratory Failure Survivors: A Multicenter Prospective Cohort Study*,Health & Clinical AI,2023,10,0,0
+385,Auditing Cross-Cultural Consistency of Human-Annotated Labels for Recommendation Systems,Recommender Systems,2023,5,0,5
+392,Deep Multimodal Data Fusion,General Fairness & Bias Mitigation,2024,304,0,0
+393,Disentangling Perceptions of Offensiveness: Cultural and Moral Correlates,General Fairness & Bias Mitigation,2024,7,0,0
+394,"Ethnic Classifications in Algorithmic Fairness: Concepts, Measures and Implications in Practice",General Fairness & Bias Mitigation,2024,4,0,16
+399,Fairness Feedback Loops: Training on Synthetic Data Amplifies Bias,Health & Clinical AI,2024,14,0,4
+401,Fairness in Graph Machine Learning: Recent Advances and Future Prospectives,Graph-Based Fairness & Bias Mitigation,2023,4,0,1
+328,In Anticipation of Perfect Deepfake: Identity-anchored Artifact-agnostic Detection under Rebalanced Deepfake Detection Protocol,General Fairness & Bias Mitigation,2024,0,0,0
+403,Fairness in Reinforcement Learning: A Survey,General Fairness & Bias Mitigation,2024,5,0,0
+404,FairSwiRL: fair semi-supervised classification with representation learning,General Fairness & Bias Mitigation,2023,3,0,0
+405,Find-2-Find: Multitask Learning for Anaphora Resolution and Object Localization,LLMs & NLP,2023,0,0,0
+406,Framework for bias evaluation in large language models in healthcare settings,LLMs & NLP,2025,25,0,4
+407,GATE X-E : A Challenge Set for Gender-Fair Translations from Weakly-Gendered Languages,LLMs & NLP,2024,1,0,0
+408,General then Personal: Decoupling and Pre-training for Personalized Headline Generation,LLMs & NLP,2023,4,0,0
+382,Annotating and Detecting Fine-grained Factual Errors for Dialogue Summarization,LLMs & NLP,2023,1,0,0
+381,Algorithmic Pluralism: A Structural Approach To Equal Opportunity,General Fairness & Bias Mitigation,2024,12,0,3
+380,Algorithm Bias and Perceived Fairness: A Comprehensive Scoping Review,General Fairness & Bias Mitigation,2024,4,0,4
+379,Advances in decision support for diagnosis and early management of acute leukaemia,Health & Clinical AI,2024,3,0,0
+378,Addressing Bias and Fairness in Machine Learning: A Practical Guide and Hands-on Tutorial,General Fairness & Bias Mitigation,2023,3,0,2
+376,A Theory of Auditability for Allocation and Social Choice Mechanisms,General Fairness & Bias Mitigation,2023,4,0,0
+374,A scientometric analysis of fairness in health AI literature,Health & Clinical AI,2024,9,0,1
+372,A deep-learning method for the end-to-end prediction of intracranial aneurysm rupture risk,Health & Clinical AI,2023,20,0,0
+345,Are Graph Representation Learning Methods Robust to Graph Sparsity and Asymmetric Node Information?,Graph-Based Fairness & Bias Mitigation,2022,0,0,0
+344,A framework for the automatic description of healthcare processes in natural language: Application in an aortic stenosis integrated care process,Health & Clinical AI,2022,14,0,0
+342,Diversity-Promoting Ensemble for Medical Image Segmentation,Health & Clinical AI,2023,22,0,0
+340,Generative Visual Question Answering,LLMs & NLP,2023,0,0,0
+339,"ArguGPT: evaluating, understanding and identifying argumentative essays generated by GPT models",LLMs & NLP,2023,30,0,0
+338,Contrastive Self-supervised Learning in Recommender Systems: A Survey,Recommender Systems,2023,97,0,1
+336,Comparing scientific abstracts generated by ChatGPT to real abstracts with detectors and blinded human reviewers,LLMs & NLP,2023,638,0,0
+334,"A Survey of Large Language Models for Healthcare: from Data, Technology, and Applications to Accountability and Ethics",Health & Clinical AI,2023,28,0,0
+329,RepMatch: Quantifying Cross-Instance Similarities in Representation Space,General Fairness & Bias Mitigation,2024,0,0,0
+287,BIAS AUDIT FRAMEWORKS: Developing Tools for Early Detection of Algorithmic Bias in AI Development,General Fairness & Bias Mitigation,2025,1,0,2
+286,Fairness And Bias Mitigation in AI Models for Diabetes Diagnosis: A Comparative Evaluation of Algorithmic Approaches,Health & Clinical AI,2025,0,0,0
+285,Add-Remove-or-Relabel: Practitioner-Friendly Bias Mitigation via Influential Fairness,General Fairness & Bias Mitigation,2023,4,0,5
+234,The Impact of Popularity Bias and Perceived Fairness on Intention to Use Recommender System in Indonesian E-Commerce,Recommender Systems,2026,0,0,2
+227,From Ethical Declarations to Provable Independence: An Ontology-Driven Optimal-Transport Framework for Certifiably Fair AI Systems,Graph-Based Fairness & Bias Mitigation,2025,0,0,0
+229,Fairness Through Domain Awareness: Mitigating Popularity Bias for Music Discovery,Recommender Systems,2024,2,0,2
+230,"OKRA: An Explainable, Heterogeneous, Multi-stakeholder Job Recommender System",Recommender Systems,2025,2,0,1
+231,Item Popularity Attention for Mitigating Popularity Bias in Sequential Recommendation,Recommender Systems,2025,0,0,0
 232,Mitigating Popularity Bias for Multi-view Group Recommendation,Recommender Systems,2025,0,0,0
 233,EqStruct-GNN: toward fair recommendation via debiased graph structure learning,Recommender Systems,2025,0,0,2
-234,The Impact of Popularity Bias and Perceived Fairness on Intention to Use Recommender System in Indonesian E-Commerce,Recommender Systems,2026,0,0,2
 235,Fairness Aware Regularization on a Learning-to-Rank Recommender System for Controlling Popularity Bias in E-Commerce Domain,Recommender Systems,2018,12,0,0
+244,Ethical perspectives on deployment of large language model agents in biomedicine: a survey,LLMs & NLP,2025,0,0,1
 236,A Dual-Adversarial Learning Framework with Explicit Constraints for Two-Sided Fairness in Recommendation System,Recommender Systems,2026,0,0,2
 238,Advancing Fairness in Clinical AI Decision-Making through a Sociotechnical Threshold Bias Audit,Health & Clinical AI,2026,0,0,0
+239,Biased AI: A Case for Positive Bias in Healthcare AI,Health & Clinical AI,2025,1,0,0
 240,"Governing Healthcare AI in the Real World: How Fairness, Transparency, and Human Oversight Can Coexist",Health & Clinical AI,2026,3,0,5
-230,"OKRA: An Explainable, Heterogeneous, Multi-stakeholder Job Recommender System",Recommender Systems,2025,2,0,1
 241,Mitigating Data Bias in Healthcare AI with Self-Supervised Standardization,Health & Clinical AI,2025,1,0,0
 242,Empirical Study of Social Bias in Medical Question Answering via Large Language Models,LLMs & NLP,2025,0,0,0
-243,BiasFreeBench: a Benchmark for Mitigating Bias in Large Language Model Responses,LLMs & NLP,2025,0,0,0
-244,Ethical perspectives on deployment of large language model agents in biomedicine: a survey,LLMs & NLP,2025,0,0,1
-245,Algorithmic Bias from the Perspectives of Healthcare Professionals,Health & Clinical AI,2025,1,0,0
-247,Fairness Testing: Review of the Relevance and Methodologies of Ensuring Software Fairness,General Fairness & Bias Mitigation,2026,0,0,3
-231,Item Popularity Attention for Mitigating Popularity Bias in Sequential Recommendation,Recommender Systems,2025,0,0,0
-229,Fairness Through Domain Awareness: Mitigating Popularity Bias for Music Discovery,Recommender Systems,2024,2,0,2
-249,From AI Bias to AI by Us: A Case Study from MIT Critical Data,Health & Clinical AI,2026,0,0,0
-219,Understanding and Mitigating Bias in Artificial Intelligence Systems: An Ontological Perspective,Graph-Based Fairness & Bias Mitigation,2026,0,0,5
-213,LIBRA: Measuring Bias of Large Language Model from a Local Context,LLMs & NLP,2025,7,0,1
-214,PureBiasoMeter: Decoupling Popularity Bias from User Fairness in LLM-Based Recommender Systems,Recommender Systems,2026,0,0,4
-215,Bias Mitigation and Shifting Ideologies of LLM by Prompting,LLMs & NLP,2025,0,0,0
-216,"Detection, Classification, and Mitigation of Gender Bias in Large Language Models",LLMs & NLP,2025,2,0,1
-217,ReFaRAG: Re-ranking for Bias Mitigation in Retrieval-Augmented Generation,LLMs & NLP,2025,0,0,2
-218,Anchorlogy: An Ontology for Anchoring Bias Detection in Forecasting,Graph-Based Fairness & Bias Mitigation,2025,0,0,0
-220,Exploring Equity: Integrating Knowledge Graphs in Fairness Testing Methodologies,Graph-Based Fairness & Bias Mitigation,2025,0,0,3
-227,From Ethical Declarations to Provable Independence: An Ontology-Driven Optimal-Transport Framework for Certifiably Fair AI Systems,Graph-Based Fairness & Bias Mitigation,2025,0,0,0
-221,"Fairness and Biases in Healthcare AI: A Review of Definitions, Metrics, and Mitigation Strategies",Health & Clinical AI,2026,0,0,2
-222,Balancing Fairness and Performance in Healthcare AI: A Gradient Reconciliation Approach,Health & Clinical AI,2025,1,0,0
-223,A Practical Framework for Auditing Fairness in Medical AI,Health & Clinical AI,2025,0,0,0
-224,Health Care for All: Combating Bias in Generative AI for Fair Medical Outcomes,Health & Clinical AI,2025,0,0,3
-225,"A Comprehensive Survey on Bias and Fairness in Generative AI: Legal, Ethical, and Technical Responses",General Fairness & Bias Mitigation,2025,0,0,1
 226,FAIR-MED: Bias Detection and Fairness Evaluation in Healthcare Focused XAI,Health & Clinical AI,2025,1,0,1
-248,Aggregating Concepts of Fairness and Accuracy in Prediction Algorithms,General Fairness & Bias Mitigation,2025,0,0,4
-250,Mitigating Algorithmic Bias in Multiclass CNN Classifications Using Causal Modeling,General Fairness & Bias Mitigation,2025,1,0,1
-289,Public Perceptions of Algorithmic Bias and Fairness in Cloud-Based Decision Systems,General Fairness & Bias Mitigation,2025,1,0,5
-281,Mitigating Algorithmic Bias with Limited Annotations,General Fairness & Bias Mitigation,2022,0,0,0
-274,Addressing AI Bias in MRI-Based Dementia Classification Among Hispanic Individuals,Health & Clinical AI,2025,0,0,0
+225,"A Comprehensive Survey on Bias and Fairness in Generative AI: Legal, Ethical, and Technical Responses",General Fairness & Bias Mitigation,2025,0,0,1
+224,Health Care for All: Combating Bias in Generative AI for Fair Medical Outcomes,Health & Clinical AI,2025,0,0,3
+223,A Practical Framework for Auditing Fairness in Medical AI,Health & Clinical AI,2025,0,0,0
+222,Balancing Fairness and Performance in Healthcare AI: A Gradient Reconciliation Approach,Health & Clinical AI,2025,1,0,0
+221,"Fairness and Biases in Healthcare AI: A Review of Definitions, Metrics, and Mitigation Strategies",Health & Clinical AI,2026,0,0,2
+220,Exploring Equity: Integrating Knowledge Graphs in Fairness Testing Methodologies,Graph-Based Fairness & Bias Mitigation,2025,0,0,3
+219,Understanding and Mitigating Bias in Artificial Intelligence Systems: An Ontological Perspective,Graph-Based Fairness & Bias Mitigation,2026,0,0,5
+218,Anchorlogy: An Ontology for Anchoring Bias Detection in Forecasting,Graph-Based Fairness & Bias Mitigation,2025,0,0,0
+217,ReFaRAG: Re-ranking for Bias Mitigation in Retrieval-Augmented Generation,LLMs & NLP,2025,0,0,2
+216,"Detection, Classification, and Mitigation of Gender Bias in Large Language Models",LLMs & NLP,2025,2,0,1
+215,Bias Mitigation and Shifting Ideologies of LLM by Prompting,LLMs & NLP,2025,0,0,0
+214,PureBiasoMeter: Decoupling Popularity Bias from User Fairness in LLM-Based Recommender Systems,Recommender Systems,2026,0,0,4
+213,LIBRA: Measuring Bias of Large Language Model from a Local Context,LLMs & NLP,2025,7,0,1
+212,Consistent focus: Mitigating permutation bias in large language models through attention weight averaging,LLMs & NLP,2025,0,0,0
+211,"Implicit Gender, Racial, and Ethnic Biases in Large Language Models: An Audit Study of Automated Psychiatric Diagnoses",LLMs & NLP,2026,0,0,1
+210,Fairness and social bias quantification in Large Language Models for sentiment analysis,LLMs & NLP,2025,9,0,0
+243,BiasFreeBench: a Benchmark for Mitigating Bias in Large Language Model Responses,LLMs & NLP,2025,0,0,0
+245,Algorithmic Bias from the Perspectives of Healthcare Professionals,Health & Clinical AI,2025,1,0,0
+284,Algorithmic Fairness in Clinical Predictive Models: A Review of Bias Audits and Mitigation Strategies in Epidemiological Research,Health & Clinical AI,2025,0,0,0
 275,Mitigating Algorithmic Bias in AI-Driven Cardiovascular Imaging for Fairer Diagnostics,Health & Clinical AI,2024,23,0,6
+268,"The Connection Between Popularity Bias, Calibration, and Fairness in Recommendation",Recommender Systems,2020,10,0,1
+270,Advancing Algorithmic Justice: A Systematic Review of Fair Decision-Making Protocols in Healthcare AI,Health & Clinical AI,2024,1,0,0
+271,MACAIF: Machine Learning Auditing for Clinical AI Fairness,Health & Clinical AI,2023,1,0,0
+272,Auditing fairness in clinical AI systems using provenance-based simulation,Health & Clinical AI,2026,0,0,5
+273,A Review of Bias and Fairness in Artificial Intelligence,General Fairness & Bias Mitigation,2023,53,0,6
+274,Addressing AI Bias in MRI-Based Dementia Classification Among Hispanic Individuals,Health & Clinical AI,2025,0,0,0
 277,HIFI: Explaining and Mitigating Algorithmic Bias Through the Lens of Game-Theoretic Interactions,General Fairness & Bias Mitigation,2025,0,0,6
+247,Fairness Testing: Review of the Relevance and Methodologies of Ensuring Software Fairness,General Fairness & Bias Mitigation,2026,0,0,3
 278,Pre-processing Techniques to Mitigate Against Algorithmic Bias,General Fairness & Bias Mitigation,2023,5,0,1
 279,D-BIAS: A Causality-Based Human-in-the-Loop System for Tackling Algorithmic Bias,General Fairness & Bias Mitigation,2022,41,0,2
 280,Detection and Mitigation of Algorithmic Bias via Predictive Parity,General Fairness & Bias Mitigation,2023,7,0,2
-282,A step toward building a unified framework for managing AI bias,General Fairness & Bias Mitigation,2023,18,0,5
-272,Auditing fairness in clinical AI systems using provenance-based simulation,Health & Clinical AI,2026,0,0,5
+281,Mitigating Algorithmic Bias with Limited Annotations,General Fairness & Bias Mitigation,2022,0,0,0
+282,A step toward building a unified framework for managing AI bias,General Fairness & Bias Mitigation,2023,18,0,6
 283,"AI and Algorithmic Bias: Source, Detection, Mitigation and Implications",General Fairness & Bias Mitigation,2020,54,0,0
-284,Algorithmic Fairness in Clinical Predictive Models: A Review of Bias Audits and Mitigation Strategies in Epidemiological Research,Health & Clinical AI,2025,0,0,0
-285,Mitigating Algorithmic Bias in Multiclass CNN Classifications Using Causal Modeling,General Fairness & Bias Mitigation,2025,1,0,1
-286,Post-processing methods for mitigating algorithmic bias in healthcare classification models: An extended umbrella review,Health & Clinical AI,2025,3,0,9
-287,"Whither bias goes, I will go: An integrative, systematic review of algorithmic bias mitigation",General Fairness & Bias Mitigation,2024,16,0,11
-288,Detecting and Mitigating Algorithmic Bias in Automated Hiring Systems Using Fairness Constraints,General Fairness & Bias Mitigation,2025,0,0,1
-273,A Review of Bias and Fairness in Artificial Intelligence,General Fairness & Bias Mitigation,2023,53,0,6
-271,MACAIF: Machine Learning Auditing for Clinical AI Fairness,Health & Clinical AI,2023,1,0,0
-251,Post-processing methods for mitigating algorithmic bias in healthcare classification models: An extended umbrella review,Health & Clinical AI,2025,3,0,9
-258,Mitigating the Bias of Large Language Model Evaluation,LLMs & NLP,2024,0,0,0
-252,"Whither bias goes, I will go: An integrative, systematic review of algorithmic bias mitigation",General Fairness & Bias Mitigation,2024,16,0,11
-253,Detecting and Mitigating Algorithmic Bias in Automated Hiring Systems Using Fairness Constraints,General Fairness & Bias Mitigation,2025,0,0,1
-254,Public Perceptions of Algorithmic Bias and Fairness in Cloud-Based Decision Systems,General Fairness & Bias Mitigation,2025,1,0,5
-255,Towards Ethical AI: Bias Detection and Mitigation in AI Models for Recruitment Systems and Criminal Justice Systems,General Fairness & Bias Mitigation,2025,1,0,0
-256,Algorithmic Bias Detection: A Focus on Skin Tone and Gender Fairness in AI Models,General Fairness & Bias Mitigation,2025,1,0,1
-257,Large Language Model Bias Mitigation from the Perspective of Knowledge Editing,LLMs & NLP,2024,0,0,0
-260,Fairer Preferences Elicit Improved Human-Aligned Large Language Model Judgments,LLMs & NLP,2024,0,0,0
-270,Advancing Algorithmic Justice: A Systematic Review of Fair Decision-Making Protocols in Healthcare AI,Health & Clinical AI,2024,1,0,0
-261,RRAO: An Ontology for the Representation of Reoffending Risk Assessment Knowledge,Graph-Based Fairness & Bias Mitigation,2025,0,0,0
-262,AI Bias in Power Systems Domain—Exemplary Cases and Approaches,General Fairness & Bias Mitigation,2025,0,0,3
-265,START Foundation: Coping with Bias and Fairness when Implementing and Using an AI System,General Fairness & Bias Mitigation,2024,1,0,0
-266,Measuring Inter-Bias Effects and Fairness-Accuracy Trade-Offs in GNN-Based Recommender Systems,Graph-Based Fairness & Bias Mitigation,2025,1,0,2
 267,A framework for solving bias in graph-based recommender systems with a causal perspective,Graph-Based Fairness & Bias Mitigation,2025,0,0,4
-268,"The Connection Between Popularity Bias, Calibration, and Fairness in Recommendation",Recommender Systems,2020,10,0,1
-704,Liberatory Collections and Ethical AI: Reimagining AI Development from Black Community Archives and Datasets,General Fairness & Bias Mitigation,2025,3,0,5
+266,Measuring Inter-Bias Effects and Fairness-Accuracy Trade-Offs in GNN-Based Recommender Systems,Graph-Based Fairness & Bias Mitigation,2025,1,0,2
+265,START Foundation: Coping with Bias and Fairness when Implementing and Using an AI System,General Fairness & Bias Mitigation,2024,1,0,0
+262,AI Bias in Power Systems Domain—Exemplary Cases and Approaches,General Fairness & Bias Mitigation,2025,0,0,3
+261,RRAO: An Ontology for the Representation of Reoffending Risk Assessment Knowledge,Graph-Based Fairness & Bias Mitigation,2025,0,0,0
+260,Fairer Preferences Elicit Improved Human-Aligned Large Language Model Judgments,LLMs & NLP,2024,0,0,0
+258,Mitigating the Bias of Large Language Model Evaluation,LLMs & NLP,2024,0,0,0
+257,Large Language Model Bias Mitigation from the Perspective of Knowledge Editing,LLMs & NLP,2024,0,0,0
+256,Algorithmic Bias Detection: A Focus on Skin Tone and Gender Fairness in AI Models,General Fairness & Bias Mitigation,2025,1,0,1
+255,Towards Ethical AI: Bias Detection and Mitigation in AI Models for Recruitment Systems and Criminal Justice Systems,General Fairness & Bias Mitigation,2025,1,0,0
+254,Public Perceptions of Algorithmic Bias and Fairness in Cloud-Based Decision Systems,General Fairness & Bias Mitigation,2025,1,0,5
+253,Detecting and Mitigating Algorithmic Bias in Automated Hiring Systems Using Fairness Constraints,General Fairness & Bias Mitigation,2025,0,0,1
+252,"Whither bias goes, I will go: An integrative, systematic review of algorithmic bias mitigation",General Fairness & Bias Mitigation,2024,16,0,11
+251,Post-processing methods for mitigating algorithmic bias in healthcare classification models: An extended umbrella review,Health & Clinical AI,2025,3,0,9
+250,Mitigating Algorithmic Bias in Multiclass CNN Classifications Using Causal Modeling,General Fairness & Bias Mitigation,2025,1,0,1
+249,From AI Bias to AI by Us: A Case Study from MIT Critical Data,Health & Clinical AI,2026,0,0,0
+248,Aggregating Concepts of Fairness and Accuracy in Prediction Algorithms,General Fairness & Bias Mitigation,2025,0,0,4
+692,Liberatory Collections and Ethical AI: Reimagining AI Development from Black Community Archives and Datasets,General Fairness & Bias Mitigation,2025,3,0,5

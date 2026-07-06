@@ -1,0 +1,2503 @@
+Author,Papers,Countries,repeat
+Alexandra Chouldechova,10,USA,True
+Solon Barocas,7,USA,True
+Yongfeng Zhang,7,USA,True
+Marzyeh Ghassemi,6,Canada; USA,True
+Kai-Wei Chang,6,USA,True
+Aylin Caliskan,6,USA,True
+Federica Sarro,6,UK,True
+Jie M. Zhang,6,UK,True
+Robin Burke,6,USA,True
+Mark Harman,5,UK,True
+Ben Hutchinson,5,Australia; USA,True
+James Zou,5,USA,True
+Shuyuan Xu,5,USA,True
+Jatinder Singh,5,UK,True
+Yingqiang Ge,5,USA,True
+Wenbin Zhang,4,USA,True
+Max Hort,4,Norway; UK,True
+Sorelle A. Friedler,4,USA,True
+Leo Anthony Celi,4,Germany; USA,True
+Dana Pessach,4,Israel; USA,True
+Suresh Venkatasubramanian,4,USA,True
+Elke A. Rundensteiner,4,USA,True
+Rumi Chunara,4,USA,True
+Margaret Mitchell,4,USA,True
+Yushun Dong,4,USA,True
+Kathleen Cachel,4,USA,True
+Zhenpeng Chen,4,China; UK,True
+Jundong Li,4,USA,True
+Daniel E. Ho,4,USA,True
+Vishwali Mhasawade,4,USA,True
+Angelina Wang,4,USA,True
+Yunqi Li,4,USA,True
+Olga Russakovsky,3,USA,True
+Richard S. Zemel,3,Canada; USA,True
+Krishna P. Gummadi,3,Germany,True
+Allison Koenecke,3,USA,True
+Xu Chen,3,China,True
+Kinjal Basu,3,USA,True
+Shalmali Joshi,3,Canada,True
+Nicholas Mattei,3,USA,True
+Amanda Aird,3,USA,True
+Liang Pang,3,China,True
+Amanda Coston,3,USA,True
+Orestis Papakyriakopoulos,3,Germany; USA,True
+Yikun Xian,3,USA,True
+Moritz Hardt,3,Germany; USA,True
+Vasileios Iosifidis,3,Germany,True
+Jieyu Zhao,3,USA,True
+Edward H. Kennedy,3,USA,True
+Jun Xu,3,China,True
+Judy Wawira Gichoya,3,Netherlands; USA,True
+Anikó Hannák,3,Switzerland,True
+Arjun Roy,3,Germany,True
+Cyrus DiCiccio,3,USA,True
+Christoph Heitz,3,Switzerland,True
+Eirini Ntoutsi,3,Germany,True
+Irene Y. Chen,3,USA,True
+Anay Mehrotra,3,India; USA,True
+Preetam Nandy,3,USA,True
+L. Elisa Celis,3,USA,True
+Elena Štefancová,3,Slovakia,True
+Mengnan Du,3,USA,True
+Iason Gabriel,3,UK,True
+Emily Black,3,USA,True
+Timnit Gebru,3,USA,True
+Erez Shmueli,3,Israel,True
+Nisheeth K. Vishnoi,3,USA,True
+Haoran Zhang,3,USA,True
+Hanna Wallach,3,UK; USA,True
+Emily Denton,3,USA,True
+Abhijnan Chakraborty,3,Germany; India,True
+Abeba Birhane,3,Ireland,True
+Casey Fiesler,3,USA,True
+Alan Mishler,3,USA,True
+Cassidy All,3,USA,True
+Nil-Jana Akpinar,3,USA,True
+Masoud Mansoury,3,Netherlands,True
+Dennis Wei,3,USA,True
+Joachim Baumann,3,Switzerland,True
+Zuohui Fu,3,USA,True
+Lama Moukheiber,2,USA,True
+Munmun De Choudhury,2,USA,True
+Suvodeep Majumder,2,USA,True
+Sunhao Dai,2,China,True
+Pablo Mosteiro,2,Netherlands,True
+Christo Wilson,2,USA,True
+Will Hawkins,2,UK,True
+Jiakai Tang,2,China,True
+Yang Liu,2,Singapore; USA,True
+Myra Cheng,2,USA,True
+Måns Magnusson,2,Sweden,True
+Yang Zhang,2,China; USA,True
+William Agnew,2,UK; USA,True
+Yashar Deldjoo,2,Italy,True
+Na Zou,2,USA,True
+Fei Wang,2,USA,True
+Lane Harrison,2,USA,True
+Jennifer Cobbe,2,UK,True
+Ninghao Liu,2,USA,True
+Aram Galstyan,2,USA,True
+Karan Bhanot,2,USA,True
+Weijie Chen,2,USA,True
+Catuscia Palamidessi,2,France,True
+Flávio P. Calmon,2,USA,True
+Flávio Comim,2,Spain,True
+Emma Pierson,2,USA,True
+Lei Li,2,China; Hong Kong,True
+Aparna Garimella,2,USA,True
+Karima Makhlouf,2,Canada; France,True
+Jiayin Lin,2,China,True
+Fernando Díaz,2,Canada; USA,True
+Karthikeyan Natesan Ramamurthy,2,USA,True
+Wendy Hui,2,Singapore,True
+Floortje Scheepers,2,Netherlands,True
+Christopher C. Yang,2,USA,True
+Jessie J. Smith,2,USA,True
+Carlos Scheidegger,2,USA,True
+Muhammad Bilal Zafar,2,Germany,True
+Wenqi Fan,2,Hong Kong,True
+Robin Brewer,2,USA,True
+Jamila Smith-Loud,2,USA,True
+Talia B. Gillis,2,USA,True
+Robert E. Wolfe,2,USA,True
+Elizabeth Edenberg,2,USA,True
+Konstantinos Kotis,2,Greece,True
+Nicolas Usunier,2,USA,True
+Paresha Farastu,2,USA,True
+Bettina Berendt,2,Belgium; Germany,True
+Elizabeth Anne Watkins,2,USA,True
+Kevin Klyman,2,USA,True
+Chirag Shah,2,USA,True
+Jwala Dhamala,2,USA,True
+Kit T. Rodolfa,2,USA,True
+Emilio Ferrara,2,USA,True
+Jiang Bian,2,USA,True
+Nathan Kallus,2,USA,True
+Stephen Pfohl,2,USA,True
+Xiaojie Mao,2,USA,True
+Tai Le Quy,2,Germany,True
+Kevin R. McKee,2,UK,True
+Reuben Binns,2,UK,True
+Xiaoyan Wang,2,USA,True
+Nripsuta Ani Saxena,2,USA,True
+Stevie Chancellor,2,USA,True
+K. Mei,2,USA,True
+Rahul Gupta,2,USA,True
+Berkman Sahiner,2,USA,True
+Chen Chen,2,USA,True
+Avijit Ghosh,2,USA,True
+Natali Helberger,2,Netherlands,True
+Jennifer Chien,2,USA,True
+Jan Simson,2,Germany,True
+Christina Lioma,2,Denmark,True
+Nanyun Peng,2,USA,True
+Song Wang,2,USA,True
+William S. Agnew,2,USA,True
+Katsiaryna Bahamazava,2,Italy,True
+Niklas Kühl,2,Germany,True
+Juntao Tan,2,USA,True
+Christian Haas,2,Austria,True
+Rayid Ghani,2,USA,True
+Sumon Biswas,2,USA,True
+Xueqi Cheng,2,China; USA,True
+Jiao Sun,2,USA,True
+Kristian Lum,2,USA,True
+Ke Wang,2,China,True
+Wai Kwong Lau,2,Australia,True
+Xia Hu,2,USA,True
+Kristen M. Scott,2,Belgium,True
+Chris Russell,2,Germany; UK,True
+Kendra Albert,2,USA,True
+Xiangnan He,2,China,True
+Jacob Goldin,2,USA,True
+A. S. Bergman,2,UK,True
+Chacha Chen,2,USA,True
+Gourab K Patro,2,India,True
+Michael Kearns,2,USA,True
+José M. Álvarez,2,Italy,True
+Ibomoiye Domor Mienye,2,South Africa,True
+Levent Sagun,2,France; USA,True
+Qiaoying Huang,2,USA,True
+S. Divakara Shetty,2,United Arab Emirates,True
+Michael W. Sjoding,2,USA,True
+Goya van Boven,2,Netherlands,True
+Maarten de Rijke,2,Netherlands,True
+Maarten Sap,2,USA,True
+Adrian Weller,2,UK,True
+Sami Zhioua,2,France; United Arab Emirates,True
+Harith Alani,2,UK,True
+Gjergji Kasneci,2,Germany,True
+Shicheng Xu,2,China,True
+Joymallya Chakraborty,2,USA,True
+Michelle Seng Ah Lee,2,UK,True
+Shijie Geng,2,USA,True
+Danaë Metaxa,2,USA,True
+Ziad Obermeyer,2,USA,True
+Ludovico Boratto,2,Italy,True
+Inioluwa Deborah Raji,2,Canada; USA,True
+Mayra Russo,2,Germany,True
+Theresia Veronika Rampisela,2,Denmark,True
+Ruoyuan Gao,2,USA,True
+Hui Wang,2,USA,True
+Maribeth Rauh,2,UK,True
+Hannah Rose Kirk,2,UK,True
+Maria Maistro,2,Denmark,True
+David Danks,2,USA,True
+Maria De-Arteaga,2,USA,True
+Salvatore Ruggieri,2,Italy,True
+Seth Neel,2,USA,True
+Sendhil Mullainathan,2,USA,True
+Aleksandra Korolova,2,USA,True
+Haiyi Zhu,2,USA,True
+Derek Ouyang,2,USA,True
+Mallak Alkhathlan,2,USA,True
+Hansa Srinivasan,2,USA,True
+Hanxiong Chen,2,USA,True
+Percy Liang,2,USA,True
+Sahil Verma,2,India; USA,True
+Alex John London,2,USA,True
+Alexander D'Amour,2,UK; USA,True
+Mark Díaz,2,USA,True
+Michael Carl Tschantz,2,USA,True
+Hridesh Rajan,2,USA,True
+Zhiwei Steven Wu,2,USA,True
+Samuel Yeom,2,USA,True
+Zichong Wang,2,USA,True
+Dan Jurafsky,2,USA,True
+Tuukka Ruotsalo,2,Denmark,True
+Andrew Smart,2,USA,True
+Paula Reyero Lobo,2,UK,True
+Jing Ma,2,USA,True
+Holli Sargeant,2,UK,True
+Satyapriya Krishna,2,USA,True
+Gabriel Grill,2,USA,True
+Sanjana Gautam,2,USA,True
+Fuli Feng,2,China,True
+Ujwal Gadiraju,2,India; Netherlands,True
+Hilson Shrestha,2,USA,True
+Teanna Barrett,2,USA,True
+Yixin Wan,2,USA,True
+Aaron Roth,2,USA,True
+Hilde Weerts,2,Netherlands,True
+Yiqi Wang,2,USA,True
+Liang Chen,2,China,True
+Franck Dernoncourt,2,USA,True
+Tatsunori Hashimoto,2,USA,True
+Parker Barnes,2,USA,True
+Sanmay Das,2,USA,True
+Li Chen,2,Hong Kong,True
+Lisa Anne Hendricks,2,UK,True
+Shuchang Liu,2,USA,True
+Miriam Fernández,2,Chile; UK,True
+George Obaido,2,South Africa; USA,True
+Luca Deck,2,Germany,True
+Amy X. Zhang,2,USA,True
+Lu Wang,2,China; USA,True
+Runxiong Liu,2,China,True
+Anaelia Ovalle,2,USA,True
+Gerard de Melo,2,USA,True
+Abigail Z. Jacobs,2,USA,True
+Georgina Curto,2,Spain; USA,True
+George Pu,2,USA,True
+Juan E. Gilbert,2,USA,True
+Hannah Devinney,2,Sweden,True
+Londa Schiebinger,2,USA,True
+Andrew D. Selbst,2,USA,True
+Tim Menzies,2,USA,True
+Ruizhe Chen,2,China; USA,True
+Yuan Luo,2,USA,True
+Jonathan Bernabe Dabu,2,USA,True
+Ramanjot Kaur,1,India,False
+Poom Konghuayrob,1,Thailand,False
+Pratyusha Kalluri,1,USA,False
+Ram Rimal,1,USA,False
+Pranay Lohia,1,India,False
+Pratik Chaudhari,1,USA,False
+Prasanna Sattigeri,1,USA,False
+Portia Botchway,1,USA,False
+Pranjali Attarde,1,India,False
+Pranav Narayanan Venkit,1,USA,False
+Prakhar Ganesh,1,Singapore,False
+Prasanna Padmanabham,1,USA,False
+Pratyush Seshadri,1,USA,False
+Ramazan Aygün,1,USA,False
+Quan Nguyen,1,Canada,False
+Rajeev Kumar,1,USA,False
+Qingyu Lu,1,Macau,False
+Rada Mihalcea,1,USA,False
+Qin Ruan,1,Ireland,False
+Rachel Hicklen,1,USA,False
+Qing Li,1,Hong Kong,False
+Qinghe Zheng,1,China,False
+Qingjing Chen,1,Italy,False
+Qinglin Zhang,1,China,False
+Quirine T. S. Smit,1,Netherlands,False
+Qika Lin,1,Singapore,False
+Qinyi Sun,1,UK,False
+Qiuyue Zhang,1,Germany,False
+Ramona O. Hopkins,1,USA,False
+Quazi Mamun,1,Australia,False
+Qiyang Hu,1,Switzerland,False
+Quan Bai,1,Australia,False
+Quan Ze Chen,1,USA,False
+Qin Ni,1,China,False
+Qihui Zhang,1,USA,False
+Preben Hansen,1,Sweden,False
+Q. L. Liu,1,China,False
+Rahmatollah Beheshti,1,USA,False
+Priya Goyal,1,USA,False
+Raghavan Vijay,1,USA,False
+Priyanka Joshi,1,Thailand,False
+Priyanka Patel,1,India,False
+Przemyslaw A. Grabowicz,1,Ireland,False
+Puspita Majumdar,1,India,False
+Q. Vera Liao,1,USA,False
+Radu Tudor Ionescu,1,Romania,False
+Qi Li,1,China,False
+Qi Liu,1,Hong Kong,False
+Raghava Rao Mukkamala,1,Denmark,False
+Rafael Mosquera,1,USA,False
+Qichang Geng,1,China,False
+Qidong Liu,1,Hong Kong,False
+Raesetje Sefala,1,UK,False
+Qi Zhang,1,USA,False
+Ro Encarnación,1,USA,False
+Ramya Srinivasan,1,USA,False
+Ruogu Fang,1,USA,False
+S.C. Li,1,USA,False
+S. Patil,1,India,False
+S. Messina,1,Italy,False
+S. Anand,1,India,False
+Rūta Binkytė,1,Germany,False
+Róisín Loughran,1,Ireland,False
+Ryan Steed,1,USA,False
+Ryan A. Rossi,1,USA,False
+Ruth Fong,1,USA,False
+Rutger Fick,1,Sweden,False
+Ruslan Salakhutdinov,1,USA,False
+Ruoyu Sun,1,USA,False
+Ruohan Zong,1,USA,False
+Runshan Fu,1,USA,False
+Roy George,1,USA,False
+Ruizhong Qiu,1,USA,False
+Ruiyi Zhang,1,USA,False
+Ruixiang Tang,1,USA,False
+Ruihan Yang,1,China,False
+Ruihai Dong,1,Ireland,False
+Ruichen Yao,1,USA,False
+Rui Song,1,China,False
+Rui Mao,1,Singapore,False
+Rui Carlos Sá,1,USA,False
+Ruggero G. Pensa,1,Italy,False
+Ruchi Panchanadikar,1,USA,False
+Rubén González-Sendino,1,Spain,False
+Rubeena Vohra,1,India,False
+Saadia Afzal Rana,1,Malaysia,False
+Sabrina Karboua,1,Algeria,False
+Sachin R. Pendse,1,USA,False
+Sachintha Ransara Brandigampala,1,USA,False
+Sanne Vrijenhoek,1,Netherlands,False
+Sanjeeth Chittyala,1,Germany,False
+Sanjana Srivastava,1,USA,False
+Sandra Avila,1,Brazil,False
+Sander van der Linden,1,UK,False
+Sandeep Avula,1,USA,False
+Sanchari Das,1,USA,False
+Samuel Mayworm,1,USA,False
+Samuel J. Bell,1,France,False
+Samira Samadi,1,Germany,False
+Samir Passi,1,USA,False
+Samantha Dalal,1,UK,False
+Sama Aleshaiker,1,UK,False
+Sam Zaza,1,USA,False
+Sam Corbett‐Davies,1,USA,False
+Sam Chen,1,USA,False
+Salvatore Vella,1,Canada,False
+Salman Saeed Saad Alzamaa,1,Peru,False
+Salman Rahman,1,USA,False
+Salah Sharieh,1,Canada,False
+Sai Suresh Macharla Vasu,1,Germany,False
+Sahin Geyik,1,USA,False
+Safiya Husain,1,India,False
+Saeka Rahman,1,USA,False
+Saeid Kazemi,1,Italy,False
+Saeed Oudah Hammad Alshahrani,1,Vietnam,False
+Sadia Zaman,1,UK,False
+Ruairi O'Reilly,1,Ireland,False
+Ross Maciejewski,1,USA,False
+Ranjita Naik,1,USA,False
+Renzhe Yu,1,USA,False
+Richard Rogers,1,Netherlands,False
+Richard O. Oveh,1,USA,False
+Richard J. Chen,1,USA,False
+Richard E. Turner,1,UK,False
+Richard Cloete,1,UK,False
+Riccardo Fogliato,1,USA,False
+Ricardo Silva,1,UK,False
+Ricardo Baeza-Yates,1,USA,False
+Reza Shokri,1,Singapore,False
+Resmi Ramachandranpillai,1,USA,False
+René Just,1,USA,False
+René F. Kizilcec,1,USA,False
+René Eber,1,France,False
+Renata Guizzardi,1,Netherlands,False
+Rose Caleno,1,Kenya,False
+Remle Newton-Dame,1,USA,False
+Rediet Abebe,1,USA,False
+Redha Jaffar Albaqshi,1,Saudi Arabia,False
+Rebecca Salganik,1,Canada,False
+Rebecca N. White,1,USA,False
+Razan Zatarah,1,Jordan,False
+Raysa M. Benatti,1,Brazil,False
+Ravi K. Samala,1,USA,False
+Rashi Sahay,1,India,False
+Rasanjana Dhanushkha De Alwis,1,Finland,False
+Raphaële Xenidis,1,France,False
+Raphael Poulain,1,USA,False
+Raphael Ottoni,1,Brazil,False
+Rifat Atun,1,USA,False
+Rina Singh,1,USA,False
+Rintaro Ito,1,Japan,False
+Rishabh Mehrotra,1,UK,False
+Rosa H. Mulder,1,Netherlands,False
+Ropafadzo Shava,1,USA,False
+Rongxin Zhu,1,Australia,False
+Rongxin Cheng,1,China,False
+Rongting Zhang,1,USA,False
+Rongguang Wang,1,USA,False
+Rong Gao,1,China,False
+Roman D. Bülow,1,Germany,False
+Roi Reichart,1,Israel,False
+Rohan Charudatt Salvi,1,USA,False
+Roger Cheng,1,China,False
+Rodrigo Gameiro,1,USA,False
+Rock Yuren Pang,1,USA,False
+Roberto Esposito,1,Italy,False
+Roberta Sinatra,1,Italy,False
+Robert Wolfe,1,USA,False
+Robert West,1,Switzerland,False
+Robert Ranisch,1,Germany,False
+Robert P. Dickson,1,USA,False
+Robert Lee Poe,1,Italy,False
+Roan Schellingerhout,1,Netherlands,False
+Po-Sen Huang,1,UK,False
+Ritu Agarwal,1,USA,False
+Ritik Gaire,1,USA,False
+Rita Rismala,1,Indonesia,False
+Rita Carvalho,1,Germany,False
+Rishav Hada,1,India,False
+Pooja Agarwal,1,India,False
+Pablo Brañas‐Garza,1,Spain,False
+Piyush Mathur,1,USA,False
+Mohamad Faizal Ab Jabal,1,Malaysia,False
+Miriam Nicolai,1,Sweden,False
+Miriam Redi,1,UK,False
+Mirko Marras,1,Italy,False
+Mirza Farhan Bin Tarek,1,USA,False
+Mjaye Mazwi,1,Canada,False
+Mochen Yang,1,USA,False
+Mohamad Habes,1,USA,False
+Miri Zilka,1,UK,False
+Mohamed Ali,1,Egypt,False
+Mohamed Ghalwash,1,USA,False
+Mohamed Mabrouk Morsey,1,Egypt,False
+Mohamed Reda Bouadjenek,1,Australia,False
+Mohammad Aliannejadi,1,Netherlands,False
+Mohammad Ishtiaque Rahman,1,USA,False
+Miriam Fahimi,1,Austria,False
+Mirac Süzgün,1,USA,False
+Mohammad Modarres,1,Iran,False
+Min Zhang,1,China,False
+Mihhail Matskin,1,Sweden,False
+Mike Laszkiewicz,1,Germany,False
+Mikhail Belkin,1,USA,False
+Min Kwang Byun,1,Singapore,False
+Min Peng,1,China,False
+Min Wu,1,Singapore,False
+Min-Hsuan Yeh,1,USA,False
+Mira Moukheiber,1,USA,False
+Mina Arzaghi,1,Canada,False
+Ming Y. Lu,1,USA,False
+Ming-Syan Chen⋆,1,Taiwan,False
+Ming-Wei Lin,1,China,False
+Mini Jain,1,USA,False
+Minsuk Kahng,1,USA,False
+Mohammad Jabed Morshed Chowdhury,1,Australia,False
+Mohammad Mosad M. Alshaarari,1,Botswana,False
+Naina Dhingra,1,India,False
+My H. Dinh,1,USA,False
+Muhammad Ali,1,USA,False
+Muhammad Aurangzeb Ahmad,1,USA,False
+Muhammad Hamad,1,Sweden,False
+Muhammad K.A. Hamdan,1,Malaysia,False
+Muhammad Waseem,1,Finland,False
+Mustafa Mir-Kasimov,1,USA,False
+Mykola Makhortykh,1,Switzerland,False
+Muhammad Abdul Rahim,1,USA,False
+Mykola Pechenizkiy,1,Netherlands,False
+N. F. de Keizer,1,Netherlands,False
+Nadav Dym,1,Israel,False
+Nadav Rappoport,1,Israel,False
+Nadia Fawaz,1,USA,False
+Nafiseh Ghaffar Nia,1,USA,False
+Muhammad Abid,1,USA,False
+Muddesar Iqbal,1,Saudi Arabia,False
+Mohammad Tahaei,1,UK,False
+Mona Sloane,1,USA,False
+Mohammad Taher Pilehvar,1,UK,False
+Mohammed Saleh Najdi,1,Peru,False
+Mohcine Kodad,1,Morocco,False
+Mohd Ariful Haque,1,USA,False
+Mohsen Abbasi,1,USA,False
+Molly Griffin,1,USA,False
+Moontae Lee,1,South Korea,False
+Mrinalini Bhagawati,1,India,False
+Mostafa Azizi,1,Morocco,False
+Mostafa Fatemi,1,USA,False
+Mostafa M. Fouda,1,USA,False
+Mounia Lalmas,1,UK,False
+Mowafa Househ,1,Qatar,False
+Mozziyar Etemadi,1,USA,False
+Miguel Tréfaut Rodrigues,1,UK,False
+Miguel Romero-Arjona,1,Spain,False
+Miguel Couceiro,1,Portugal,False
+Md Motiur Rahman,1,USA,False
+Mazda Moayeri,1,USA,False
+McKane Andrus,1,USA,False
+Md Abu Sufian,1,UK,False
+Md Jobair Hossain Faruk,1,USA,False
+Md Mehedi Hasan,1,Australia,False
+Md Mehrab Tanjim,1,USA,False
+Md Mujibur Rahman,1,Australia,False
+Maximilian Nickel,1,USA,False
+Md. Mushfiqur Rahman,1,USA,False
+Meeyoung Cha,1,Germany,False
+Megan McNichol,1,USA,False
+Megha Srivastava,1,USA,False
+Mehrdad Ghadiri,1,USA,False
+Mehtab Iqbal et al.,1,USA,False
+Maya Varma,1,Canada,False
+Maximilian Förster,1,Germany,False
+Michelle Dugas,1,USA,False
+Matthew Joseph,1,USA,False
+Matt Fredrikson,1,USA,False
+Matt J. Kusner,1,UK,False
+Matthew B. A. McDermott,1,USA,False
+Matthew Dees,1,USA,False
+Matthew Gombolay,1,USA,False
+Matthew Jagielski,1,USA,False
+Matthew Silver,1,USA,False
+Max Westphal,1,Germany,False
+Matthias C. Kettemann,1,Germany,False
+Matthias Kraft,1,Switzerland,False
+Matthäus Kleindeßner,1,Germany,False
+Mattia Cerrato,1,Germany,False
+Mauricio Reyes,1,Denmark,False
+Max Bartolo,1,UK,False
+Meike Zehlike,1,USA,False
+Melanie Ganz,1,USA,False
+Melih Kandemir,1,Denmark,False
+Michael Veale,1,UK,False
+Michael Kamp,1,Germany,False
+Michael Leuschel,1,Germany,False
+Michael Losavio,1,USA,False
+Michael Madaio,1,USA,False
+Michael Rigby,1,UK,False
+Michael Saxon,1,USA,False
+Michael Zimmer,1,USA,False
+Melissa D. McCradden,1,Canada,False
+Michaela Benk,1,Switzerland,False
+Michaela Hardt,1,USA,False
+Michaela Kargl,1,Austria,False
+Michal Luria,1,USA,False
+Michel Sala,1,USA,False
+Michele Loi,1,Italy,False
+Michael K. Atalay,1,USA,False
+Michael Howell,1,USA,False
+Michael Gerovitch,1,USA,False
+Michael Feldman,1,USA,False
+Michael D. Ernst,1,USA,False
+Michael Colacci,1,Canada,False
+Miao Hu et al.,1,China,False
+Miad Faezipour,1,USA,False
+Messi Ho Jun Lee,1,USA,False
+Merlin Engelke,1,Pakistan,False
+Mercan Topkara,1,USA,False
+Mengyuan Jing,1,China,False
+Mengling Feng,1,Singapore,False
+Menglan Shen,1,China,False
+Meng Wang,1,China,False
+Meng Fang,1,UK,False
+Melissa Hall,1,Canada,False
+Nahema Marchal,1,UK,False
+Naira Paola Arnez-Jordan,1,Germany,False
+Pirkko Nykänen,1,Finland,False
+Pasinee Rukpromrach,1,Thailand,False
+Paola Lopez,1,Austria,False
+Paolo Bailo,1,Italy,False
+Param Vir Singh,1,USA,False
+Parina K. Parekh,1,United Arab Emirates,False
+Parviz Ahmadov,1,Netherlands,False
+Pascal Denis,1,France,False
+Patrick Gratz,1,Luxembourg,False
+Pamela Ugwudike,1,UK,False
+Patrick J. Fowler,1,USA,False
+Patrick Loiseau,1,France,False
+Patrick Stone,1,USA,False
+Patrick Then,1,Malaysia,False
+Patrick Wu,1,USA,False
+Patrick van der Smagt,1,Germany,False
+Paola Daniore,1,Switzerland,False
+Pallavi Baljekar,1,USA,False
+Paul Pu Liang,1,USA,False
+Om Roy,1,India,False
+Nuno Moniz,1,Hong Kong,False
+Nupoor Gandhi,1,USA,False
+Oana Inel,1,Switzerland,False
+Oliver L. Haimson,1,USA,False
+Olumuyiwa Matthew,1,UK,False
+Oluwasanmi Koyejo,1,USA,False
+Omer Reingold,1,USA,False
+Palash Goyal,1,USA,False
+Oriel Perets,1,Israel,False
+Orna Fennelly,1,Canada,False
+Oshani Seneviratne,1,USA,False
+P Raghavendra,1,India,False
+P. Kanmani,1,India,False
+Saptarshi Ghosh,1,India,False
+Paul A. M. Van Lange,1,Austria,False
+Paula Gordaliza,1,France,False
+Nam Soo Kim,1,South Korea,False
+Philip S. Yu,1,USA,False
+Peter Hufnagl,1,Germany,False
+Peter Steinbach,1,Germany,False
+Peter Taiwo,1,USA,False
+Peter Y. T. Sun,1,UK,False
+Petter Ericson,1,Sweden,False
+Philip J Grylls,1,UK,False
+Philip Scott,1,UK,False
+Peter Bednár,1,UK,False
+Philipp Mahlow,1,Germany,False
+Pierpaolo Dini,1,Italy,False
+Pierre Sevestre,1,France,False
+Pietro Perona,1,USA,False
+Pin-Yu Chen,1,USA,False
+Piotr Sapieżyński,1,USA,False
+Peter Boor,1,Germany,False
+Pete Lunn,1,Ireland,False
+Paula Helm,1,Netherlands,False
+Peijie Chen,1,USA,False
+Paulo Nováis,1,Portugal,False
+Pavel Zhelnov,1,Canada,False
+Pavlos Fafalios,1,Greece,False
+Payton Croskey,1,USA,False
+Pedro Saleiro,1,Portugal,False
+Pedro Silva,1,USA,False
+Peilin Qian,1,China,False
+Pepita Barnard,1,UK,False
+Peilin Zhou,1,China,False
+Peiyang Li,1,China,False
+Peiyi Wang,1,China,False
+Peiying Li,1,China,False
+Pengchen Chen,1,China,False
+Pengjie Ren,1,China,False
+Noureddine El Karoui,1,USA,False
+Norman Zerbe,1,Germany,False
+Noriyuki Fujima,1,Japan,False
+Nevena Dicheva,1,UK,False
+Neal Patwari,1,USA,False
+Neel Guha,1,USA,False
+Neha Kumar,1,USA,False
+Neha Suri,1,USA,False
+Neil Selwyn,1,Australia,False
+Nesreen K. Ahmed,1,USA,False
+Ngoc-Huynh Ho,1,USA,False
+Nazanin Andalibi,1,USA,False
+Nicholas Diakopoulos,1,USA,False
+Nicholas P. Gruszauskas,1,USA,False
+Nicholas Perello,1,USA,False
+Nicholas Petrick,1,USA,False
+Nicholas Weber,1,USA,False
+Nicholas Wolczynski,1,USA,False
+Nazarii Drushchak,1,Ukraine,False
+Nayoung Kim,1,South Korea,False
+Noam Kolt,1,Canada,False
+Nassim Bouteldja,1,Germany,False
+Namrata Gurung,1,Germany,False
+Nankai Lin,1,China,False
+Naomi Mine,1,USA,False
+Napas Jenpromrash,1,Thailand,False
+Narendra N. Khanna,1,India,False
+Narjes Akhlaghi,1,USA,False
+Natalia Criado,1,Spain,False
+Nava Tintarev,1,Netherlands,False
+Natalia J. Martinez,1,USA,False
+Natalia Norori,1,Switzerland,False
+Natalia-Rozalia Avlona,1,Netherlands,False
+Natalie Dullerud,1,Canada,False
+Nathan Clement,1,UK,False
+Nathan Srebro,1,USA,False
+Nicklaus Badyal,1,Canada,False
+Nicolas Honnorat,1,USA,False
+Nicolas Papernot,1,Canada,False
+Ninareh Mehrabi,1,USA,False
+Nils Feldhus,1,Germany,False
+Nilüfer Ballı,1,Turkey,False
+Nima Shahbazi,1,USA,False
+Nina Deliu,1,UK,False
+Nina M. van Liebergen,1,Netherlands,False
+Nina Markl,1,UK,False
+Nitesh V. Chawla,1,USA,False
+Nicolas Scharowski,1,Switzerland,False
+Nithya Sambasivan,1,USA,False
+Niveditha N. Reddy,1,India,False
+Niya Stoimenova,1,Netherlands,False
+Nkiruka Mokolo,1,USA,False
+Nnennaya Ngwanma Halliday,1,Pakistan,False
+Noa García,1,Japan,False
+Niloy Ganguly,1,India,False
+Nilo Legowo,1,Indonesia,False
+"Nilforoshan, Hamed",1,USA,False
+Nikzad Chizari,1,Spain,False
+Nikolay S. Markov,1,USA,False
+Nikolaos Pappas,1,Switzerland,False
+Nikolaos Ignatiadis,1,USA,False
+Nikolaos Dimitriou,1,Greece,False
+Nikita Rajaneesh,1,USA,False
+Niki Kilbertus,1,Germany,False
+Nikhil Garg,1,USA,False
+Nigel Collier,1,UK,False
+Nigel Bosch,1,USA,False
+Nigam H. Shah,1,USA,False
+Nidhi Kulkarni,1,India,False
+Nicole Rose I. Alberto,1,Canada,False
+Nicole Forsgren,1,USA,False
+Santosh Vempala,1,USA,False
+Shikui Tu,1,China,False
+Sara Hooker,1,USA,False
+Xinyue Li,1,China,False
+Xiuling Wang,1,USA,False
+Xiyang Liu,1,China,False
+Xu Han,1,USA,False
+Xuan Feng,1,China,False
+Xuan Zhao,1,Italy,False
+Xuandong Zhao,1,USA,False
+Xuanzhe Liu,1,China,False
+Xuechunzi Bai,1,USA,False
+Xuemin Wang,1,China,False
+Xueyan Wu,1,USA,False
+Xueyang Feng,1,China,False
+Xuming Hu,1,China,False
+Xuyu Wang,1,USA,False
+Y Chevalier,1,France,False
+Y. Hara,1,Japan,False
+Xipeng Qiu,1,China,False
+Xinyuan Cheng,1,China,False
+Yibo Wang,1,USA,False
+Xinyu Zou,1,Canada,False
+Xiaoqing Cheng,1,China,False
+Xiaorui Liu,1,USA,False
+Xiaoxue Han,1,China,False
+Xiaoyang Wang,1,USA,False
+Xiaoze Liu,1,USA,False
+Xin Wang,1,China,False
+Xin Xin,1,China,False
+Xin Xu,1,USA,False
+Xinbo Gao,1,China,False
+Xing Xie,1,China,False
+Xingchen Wan,1,UK,False
+Xinhao Deng,1,China,False
+Xinwu Ye,1,China,False
+Xinyi Tu,1,China,False
+Xinyu Kong,1,China,False
+Yaaseen Mahomed,1,USA,False
+Yada Pruksachatkun,1,USA,False
+Yadu Gautam,1,USA,False
+Yago Fontenla-Seco,1,Spain,False
+Yaorui Gan,1,China,False
+Yaping Zhu,1,USA,False
+Yasra Chandio,1,USA,False
+Yasutaka Fushimi,1,Japan,False
+Yaxin Li,1,USA,False
+Yaxin Song,1,China,False
+Yaxuan Huang,1,China,False
+Ya’acov Ritov,1,USA,False
+Ye Lin,1,Australia,False
+Yefeng Zheng,1,USA,False
+Yevgeniy Vorobeychik,1,USA,False
+Yi Chen,1,China,False
+Yi Fang,1,USA,False
+Yi Yang,1,Hong Kong,False
+Yi-Cheng Lin,1,Taiwan,False
+Yaokun Liu,1,USA,False
+Yao Ma,1,USA,False
+Yao Chong Lim,1,USA,False
+Yanbo Wang,1,USA,False
+Yair Zick,1,USA,False
+Yalan Jiang,1,China,False
+Yan Huang,1,USA,False
+Yan Jiang,1,China,False
+Yan Liu et al.,1,China,False
+Yan Luo et al.,1,USA,False
+Yanchen Wang,1,USA,False
+Yanning Shen,1,USA,False
+Yangfan Zhou,1,China,False
+Yanghua Xiao,1,China,False
+Yaniv Dover,1,USA,False
+Yanling Wang,1,China,False
+Yanmin Zhu,1,China,False
+Yannick Naudet,1,Luxembourg,False
+Xiaoqiao He,1,USA,False
+Xiaoning Du,1,Australia,False
+Xiaonan Li,1,China,False
+Weihua Li,1,New Zealand,False
+Vladimir Mandić,1,Serbia,False
+Volkan Cevher,1,Germany,False
+Víctor M. Campello,1,Argentina,False
+W. Nicholson Price,1,USA,False
+Wagner Meira,1,Brazil,False
+Wahiba Hamzi,1,Algeria,False
+Wan-Hsiu Sunny Tsai,1,USA,False
+Wantong Du,1,China,False
+Wanyang Zhang,1,China,False
+Waranrach Viriyavit,1,Thailand,False
+Wei Peng,1,USA,False
+Wei Yang,1,USA,False
+Wei-Chih Chen,1,Taiwan,False
+Wei-Han Wang,1,Taiwan,False
+Weicheng Ma,1,UK,False
+Vivian Lai,1,USA,False
+Vivekanand Aelgani,1,India,False
+Vivek Singh,1,USA,False
+Vinitha Gadiraju,1,USA,False
+Vien Ngoc Dang,1,Spain,False
+Vinay Uday Prabhu,1,USA,False
+Vincent J. Major,1,USA,False
+Vincent Koc,1,Malaysia,False
+Vinith M. Suriyakumar,1,Canada,False
+Vinith Suriyakumar,1,USA,False
+Vinodkumar Prabhakaran,1,USA,False
+Vivek Kumar Singh,1,USA,False
+Violeta González‐Salvado,1,Spain,False
+Virginia Dignum,1,Sweden,False
+Virgílio Almeida,1,Brazil,False
+Vishal Chowdhary,1,USA,False
+Vitaly Meursault,1,USA,False
+Vitaly Shmatikov,1,USA,False
+Weihao Liu,1,China,False
+Weisong Sun,1,Singapore,False
+Xiaolin Hu,1,China,False
+Weixin Chen,1,Hong Kong,False
+Xavier Gitiaux,1,USA,False
+Xian Wu,1,China,False
+Xiang Wang,1,China,False
+Xiangjue Dong,1,USA,False
+Xiangru Tang,1,China,False
+Xiangyu Zhao,1,Hong Kong,False
+Xiao Chen,1,Hong Kong,False
+Xiao Xiao,1,UK,False
+Xiao Zhang,1,China,False
+Xiaodong Li,1,China,False
+Xiaodong Wang,1,China,False
+Xiaojian Lin,1,Hong Kong,False
+Xiaojing Zhao,1,China,False
+Xiaoli Li,1,Singapore,False
+Xiaoli Liu,1,China,False
+Won Ik Cho,1,South Korea,False
+Wolfgang Schulz,1,Germany,False
+Wolfgang Nejdl,1,Germany,False
+Wesley Hanwen Deng,1,USA,False
+Wei‐Han Chen,1,USA,False
+Wei‐Qi Wei,1,USA,False
+Wen-Yang Gao,1,China,False
+Wendy Ju,1,USA,False
+Wenjie Wang,1,Singapore,False
+Werner Geyer,1,Hong Kong,False
+Wiebke Hutiri,1,Germany,False
+William Yang Wang,1,USA,False
+Wiebke Toussaint Hutiri,1,Netherlands,False
+William Cai,1,USA,False
+William Isaac,1,UK,False
+William Mitchell,1,USA,False
+William Ngu,1,USA,False
+William W. Binotti,1,USA,False
+Yi-Syuan Chen,1,Taiwan,False
+Yichen Li,1,China,False
+Sara Kingsley,1,USA,False
+Zefan Cai,1,China,False
+Zelin Li,1,USA,False
+Zelong Li,1,USA,False
+Zengfeng Huang,1,China,False
+Zesheng Shi,1,China,False
+Zhangyue Yin,1,China,False
+Zhaochun Ren,1,China,False
+Zhaohui Wang,1,China,False
+Zhe Yu,1,USA,False
+Zhen Dai,1,USA,False
+Zheng Li,1,USA,False
+Zheng Zhang,1,China,False
+Zhenghua Chen,1,Singapore,False
+Zhenhua Dong,1,China,False
+Zhenyu Lei,1,USA,False
+Zhewei Ding,1,China,False
+Zehan Qi,1,China,False
+Zayed Haque,1,India,False
+Yidong Wang,1,China,False
+Zati Hakim Azizul,1,Malaysia,False
+Yuxin Xiao,1,USA,False
+Yuying Zhao,1,USA,False
+Yuzhe Yang,1,USA,False
+Yvonne Coady,1,Canada,False
+Yüksel Altınel,1,USA,False
+Zabir Al Nazi,1,USA,False
+Zac Kenton,1,UK,False
+Zachary C. Lipton,1,USA,False
+Zachary Jaggers,1,USA,False
+Zaid Khan,1,USA,False
+Zain Ul Abideen Tariq,1,Qatar,False
+Zaineb Chelly Dagdia,1,France,False
+Zaiyi Zheng,1,USA,False
+Zaki Taha,1,Egypt,False
+Zan Wang,1,China,False
+Zhi Gang Tian,1,China,False
+Zhi Gong,1,China,False
+Zhibo Chu,1,USA,False
+Zhicheng Jiao,1,USA,False
+Zikai Xiao,1,China,False
+Zilin Lin,1,Netherlands,False
+Ziming Wang,1,China,False
+Ziyi Qiu,1,China,False
+Ziyin Zhang,1,China,False
+Ziyu Li,1,New Zealand,False
+Zoie Shui-Yee Wong,1,Japan,False
+Zongyue Xue,1,China,False
+Zoé Haskell-Craig,1,USA,False
+Zujie Wen,1,China,False
+Zuozhu Liu,1,China,False
+danah boyd,1,USA,False
+Ádám Hulmán,1,Denmark,False
+Öykü Deniz Köse,1,USA,False
+Özlem Özgöbek,1,Norway,False
+Zihe Song,1,USA,False
+Zi Zhang,1,USA,False
+Zhusi Zhong,1,China,False
+Zhiqiang Tao,1,USA,False
+Zhidong Li,1,Australia,False
+Zhifang Sui,1,China,False
+Zhiguo Xiao,1,China,False
+Zhimeng Guo,1,USA,False
+Zhining Liu,1,USA,False
+Zhipeng Wang,1,China,False
+Zhiqiang Wang,1,China,False
+Zhuo Wu,1,China,False
+Zhixing Tan,1,China,False
+Zhixue Zhao,1,UK,False
+Zhiyu Pan,1,Germany,False
+Zhongliang Li,1,China,False
+Zhumin Chen,1,China,False
+Zhuo Ma,1,China,False
+Yuta Nakashima,1,Japan,False
+Yusuke Matsui,1,Japan,False
+Yusuke Hirota,1,Japan,False
+Yu-Neng Chuang,1,USA,False
+Yoji Tomita,1,Japan,False
+Yong Ge,1,USA,False
+Yong Liu,1,China,False
+Yong Xiao,1,China,False
+Yong Zhu,1,China,False
+Yongchang Liu,1,China,False
+Yoni Halpern,1,USA,False
+Yoonjoo Lee,1,South Korea,False
+Youjin Kong,1,USA,False
+Youssef Mroueh,1,USA,False
+Yu Gao,1,Australia,False
+Yu Huang,1,USA,False
+Yu Qing Huang,1,Canada,False
+Yu Wang,1,USA,False
+Yu Zeng,1,China,False
+Yogesh K. Dwivedi,1,UK,False
+Yizhe Xu,1,USA,False
+Yiwen Zhang,1,USA,False
+YinYin Yu,1,USA,False
+Yifan Liu,1,USA,False
+Yikang Liu,1,China,False
+Yildiz Zoralioglu,1,Turkey,False
+Yilin Ning et al.,1,Singapore,False
+Yiling Lou,1,USA,False
+Yiming Wang,1,USA,False
+Ying Wang,1,China,False
+Yiwei Yang,1,USA,False
+Ying Zhang,1,China,False
+Yingji Li,1,China,False
+Yingqi Zhao,1,Finland,False
+Yinhong Liu,1,UK,False
+Yining Hua,1,USA,False
+Yiru Li,1,Canada,False
+Yu-Chia Lan,1,Germany,False
+Yuan Cao,1,China,False
+Yusuf Mohammed,1,USA,False
+Yuan Zhao,1,USA,False
+Yun Sing Koh,1,New Zealand,False
+Yun-Zhu Song,1,Taiwan,False
+Yunbo Cao,1,China,False
+Yunchao Liu,1,USA,False
+Yunfei Long,1,UK,False
+Yunfeng Zhang,1,USA,False
+Yunhao Liu,1,China,False
+Yunjun Yang,1,China,False
+Yunpeng Liu,1,China,False
+Yunyu Xiao,1,USA,False
+Yunzhi Yao,1,China,False
+Yupei Du,1,Netherlands,False
+Yuqi Zhou,1,China,False
+Yuri Quintana,1,USA,False
+Yury Makarychev,1,USA,False
+Yun Fu,1,USA,False
+Yulia Tsvetkov,1,USA,False
+Yuko Ikkatai,1,Japan,False
+Yue Ning,1,USA,False
+Yuanhao Yue,1,China,False
+Yuanna Liu,1,Netherlands,False
+Yuansen Zhang,1,China,False
+Yucheng Ruan,1,Singapore,False
+Yucheng Wang,1,Singapore,False
+Yue Huang,1,China,False
+Yue Wang,1,China,False
+Yuji Ueda,1,Japan,False
+Yue Zhang,1,China,False
+Yuecong Xu,1,Singapore,False
+Yuekai Sun,1,USA,False
+Yueling Zhang,1,China,False
+Yuhan Zhao,1,Hong Kong,False
+Yuheng Zhang,1,USA,False
+Vidushi Marda,1,India,False
+Victoria Cheng,1,Canada,False
+Victor Wu,1,USA,False
+Simon Taisbak,1,USA,False
+Simone Natale,1,Italy,False
+Simone Wu,1,USA,False
+Sitthaa Phaholphinyo,1,Thailand,False
+Siyi Wu,1,Canada,False
+Siyuan Ma,1,USA,False
+Siyuan Zheng et al.,1,China,False
+Siân Lindley,1,UK,False
+Smriti Bhatt,1,USA,False
+Sneha Karki,1,USA,False
+Snir Hordan,1,Israel,False
+Sofia Jaime,1,Germany,False
+Sofie Goethals,1,Belgium,False
+Sofía S. Villar,1,UK,False
+Sokratis Charisis,1,USA,False
+Somayeh Kafaie,1,Canada,False
+Simone Fabbrizzi,1,Germany,False
+Simon Ostermann,1,Germany,False
+Victor D. Dinglas,1,USA,False
+Simon Johnson,1,USA,False
+Shuyi Yang,1,Italy,False
+Shuzlina Abdul-Rahman,1,Malaysia,False
+Shyam Visweswaran,1,USA,False
+Si Chen,1,China,False
+Siamak Ghodsi,1,Germany,False
+Siaw-Teng Liaw,1,Australia,False
+Siddharth Suri,1,USA,False
+Siddhi Ramesh,1,USA,False
+Sierra Wyllie,1,Canada,False
+Siham Essahraui,1,Morocco,False
+Sijia Li,1,China,False
+Silas Alberti,1,USA,False
+Siming Chen,1,China,False
+Simon Caton,1,Ireland,False
+Simon Hegelich,1,Germany,False
+Somnath Bose,1,USA,False
+Sonal Prabhune,1,USA,False
+Sonali Ghorpade,1,India,False
+Sonam Choudhary,1,USA,False
+Steven E. Gay,1,USA,False
+Steven Euijong Whang,1,South Korea,False
+Steven J. Gortler,1,USA,False
+Steven Vethman,1,France,False
+Su Lin Blodgett,1,Canada,False
+Subbaram Naidu,1,USA,False
+Suchi Saria,1,USA,False
+Suchit Patel,1,India,False
+Sudha Seshadri,1,USA,False
+Sudip Paul,1,India,False
+Sufi Kaur,1,USA,False
+Suhang Wang,1,USA,False
+Sukrit Venkatagiri,1,USA,False
+Sukriti Bhattacharya,1,Luxembourg,False
+Sumeer Basha Peta,1,USA,False
+Stergios Aidinlis,1,UK,False
+Stephen Casper,1,USA,False
+Steffen Staab,1,Germany,False
+Soumia Zohra El Mestari,1,Luxembourg,False
+Sonia Fereidooni,1,USA,False
+Sophia Fort,1,USA,False
+Sophie Ostmeier,1,Canada,False
+Soram Patel,1,India,False
+Soroush Vosoughi,1,USA,False
+Sotiris Angelis,1,Greece,False
+Soumik Mandal,1,USA,False
+Steff Groefsema,1,Denmark,False
+Sourojit Ghosh,1,USA,False
+Soyoung Park,1,South Korea,False
+Spencer Rarrick,1,USA,False
+Srinivas Kasulla et al.,1,Pakistan,False
+Stamatis Chatzistamatis,1,Greece,False
+Stamatis Spirou,1,Greece,False
+Shuojia Guo,1,USA,False
+Shulammite Lim,1,USA,False
+Shuirong Cao,1,China,False
+Shahriar Sajib,1,Australia,False
+Sebastian Zezulka,1,Germany,False
+Seema Nagar,1,India,False
+Sekou L. Remy,1,South Africa,False
+Seliem El-Sayed,1,UK,False
+Selin Akgün,1,USA,False
+Sepehr Dehdashtian,1,USA,False
+Sergio Saponara,1,Italy,False
+Sergio Segura,1,Spain,False
+Seth Yao,1,USA,False
+Seunghyun Yoon,1,USA,False
+Severin Engelmann,1,USA,False
+Severin Kacianka,1,Germany,False
+Shahadat Uddin,1,Australia,False
+Shaheen Kanthawala,1,USA,False
+Shahid Hussain,1,USA,False
+Sebastian Tschiatschek,1,Austria,False
+Sebastian Gehrmann,1,Israel,False
+Sebastian Benthall,1,USA,False
+Sarawoot Kongyoung,1,Thailand,False
+Sarah Blacker,1,USA,False
+Sarah Elizabeth Gillespie,1,USA,False
+Sarah Fox,1,USA,False
+Sarah J. Beesley,1,USA,False
+Sarah Villeneuve,1,USA,False
+Sarah de Boer,1,Denmark,False
+Sasha Brown,1,UK,False
+Sean Legassick,1,UK,False
+Savvina Daniil,1,Netherlands,False
+Sayan Maity,1,USA,False
+Scott A. Hale,1,UK,False
+Scott Collins,1,USA,False
+Scotty Singh,1,USA,False
+Seamus Somerstep,1,USA,False
+Shahriar Akter,1,Australia,False
+Shai Waldrip,1,USA,False
+Shuichiro Higuma,1,Germany,False
+Shaili Jain,1,USA,False
+Shira Mitchell,1,USA,False
+Shiran Dudy,1,USA,False
+Shirin Tahmasebi,1,Sweden,False
+Shisen Yue,1,China,False
+Shiyun Tian,1,USA,False
+Shloka Desai,1,USA,False
+Shohei Fujita,1,Japan,False
+Shomik Jain,1,USA,False
+Shomir Wilson,1,USA,False
+Shreshth Mehrotra,1,India,False
+Shreyas Kulkarni,1,USA,False
+"Shroff, Ravi",1,USA,False
+Shu Ishida,1,UK,False
+Shu-Kai Hsieh,1,Taiwan,False
+Shuai Xiao,1,China,False
+Shiqing Wu,1,Macau,False
+Shiqi Shen,1,China,False
+Matilda Dorotić,1,Norway,False
+Shaun K. Kane,1,USA,False
+Shaina Mackin,1,USA,False
+Shakir Mohamed,1,UK,False
+Shan Zhou,1,USA,False
+Shari Watkins,1,USA,False
+Sharifa Sahai,1,USA,False
+Sharon E. Straus,1,Canada,False
+Shawn Ismail,1,USA,False
+Shih-Fu Chang,1,USA,False
+Shazia Sadiq,1,Australia,False
+Shenbao Yu,1,China,False
+Sheng Liang,1,Germany,False
+Sherri Rose,1,USA,False
+Shi Chen,1,China,False
+Shi Feng,1,USA,False
+Sun Ho Ahn,1,USA,False
+Sundar Poudel,1,USA,False
+Suneet Kumar Gupta,1,India,False
+Tong Yu,1,USA,False
+Ting-Hao Huang,1,USA,False
+Tingrui Qiao,1,New Zealand,False
+Titapon Keawbua,1,Thailand,False
+Tobias Lang,1,Germany,False
+Toby Jia-Jun Li,1,USA,False
+Tolga Bolukbasi,1,USA,False
+Tom Greene,1,USA,False
+Tom Lenaerts,1,Belgium,False
+Tom Pollard,1,USA,False
+Tom Stepleton,1,UK,False
+Tomasz Sołtysiński,1,Poland,False
+Tommaso Di Noia,1,Italy,False
+Tomohiro Yokoyama,1,Japan,False
+Tomoyuki Fujioka,1,Japan,False
+Tong Chen,1,Australia,False
+Tina Kruegel,1,Germany,False
+Tin Nguyen,1,USA,False
+Timothée Schmude,1,Austria,False
+Tijl De Bie,1,Belgium,False
+Tianyu Cui,1,China,False
+Tianyu Liu,1,China,False
+Tianyue Shang,1,China,False
+Tianzi Zang,1,China,False
+Tiffany Chen,1,USA,False
+Tiffany Chua,1,USA,False
+Tilman Hartwig,1,Japan,False
+Timothy R. Smith,1,USA,False
+Tim Miller,1,Australia,False
+Tim Rädsch,1,France,False
+Tim Räz,1,Switzerland,False
+Timotheus Kampik,1,Sweden,False
+Timothy J. Hohman,1,USA,False
+Timothy M. Hughes,1,USA,False
+Tong Wu,1,UK,False
+Tongjia Yu,1,USA,False
+Tianxin Wei,1,USA,False
+Toniann Pitassi,1,Canada,False
+Valliappan Raman,1,India,False
+Vanessa Murdock,1,USA,False
+Vaniecia C. Dewi,1,Indonesia,False
+Varadraj P. Gurupur,1,USA,False
+Varun Gumma,1,USA,False
+Varun Kumar,1,USA,False
+Varun Nagaraj Rao,1,USA,False
+Vasilis Efthymiou,1,Greece,False
+Vedran Sekara,1,Denmark,False
+Veena Priscilla Menezes,1,Australia,False
+Venkatesh Potluri,1,USA,False
+Venkatesh Saligrama,1,USA,False
+Verena Rieser,1,UK,False
+Vicente Ordóñez,1,USA,False
+Vicky Zeng,1,USA,False
+Valerio Capraro,1,Italy,False
+Valerie Banner‐Goodspeed,1,USA,False
+V. Ramaswamy,1,USA,False
+Trung Bui,1,USA,False
+Tony Sun,1,USA,False
+Toon Calders,1,Belgium,False
+Torsten Möller,1,Austria,False
+Tosin Adewumi,1,Sweden,False
+Travis Zack,1,USA,False
+Trishan Panch,1,USA,False
+Tulsee Doshi,1,USA,False
+Ute Schmid,1,Germany,False
+Tuulikki Vehko,1,Finland,False
+Tuğba Türkoğlu Kaya,1,Turkey,False
+Tyler Derr,1,USA,False
+Tyler Zetty,1,USA,False
+Uchenna Emmanuel Agwunobi,1,USA,False
+Urs J. Muehlematter,1,Switzerland,False
+Tianyang Xie,1,USA,False
+Tianxiang Sun,1,China,False
+Sung-Bae Cho,1,South Korea,False
+Taylor Lynn Curtis,1,USA,False
+Tahsin Alamgir Kheya,1,Australia,False
+Taichi Kakinuma,1,Japan,False
+Taiki Nozaki,1,Japan,False
+Takahiro Tsuboyama,1,Japan,False
+Takeshi Nakaura,1,Japan,False
+Tal Amir,1,Israel,False
+Tamara Babaian,1,USA,False
+Tamim Sookoor,1,USA,False
+Tamir Tassa,1,Israel,False
+Tao Chen,1,USA,False
+Tao Long,1,USA,False
+Tao Xie,1,China,False
+Taposh Dutta Roy,1,USA,False
+Tara Templin,1,USA,False
+Tasfia Mashiat,1,USA,False
+Symeon Papadopoulos,1,Greece,False
+Sylvain Castagnos,1,France,False
+Swen J. Kühne,1,Switzerland,False
+Sunny Shrestha,1,USA,False
+Sungchul Kim,1,USA,False
+Sungsu Lim,1,South Korea,False
+Sunil Aryal,1,Australia,False
+Sunipa Dev,1,USA,False
+Sunkanmi Oluwadare,1,Pakistan,False
+Sunnie S. Y. Kim,1,USA,False
+Sunzida Siddique,1,Bangladesh,False
+Swathi Sadagopan,1,USA,False
+Susan Leavy,1,Ireland,False
+Susan R. Heckbert,1,USA,False
+Susanna Ricco,1,USA,False
+Suvekshya Aryal,1,France,False
+Suvi Nevanlinna,1,Sweden,False
+Sverker Sikström,1,Sweden,False
+Tawanna R. Dillahunt,1,USA,False
+Teeradaj Racharak,1,Japan,False
+Tianpeng Gao,1,USA,False
+Tegan Maharaj,1,Canada,False
+Thomas A. Henzinger,1,Austria,False
+Thomas Elmar Kolb,1,Austria,False
+Thomas Hartvigsen,1,USA,False
+Thomas Marquenie,1,Belgium,False
+Thomas P. Zollo,1,USA,False
+Thomas S. Valley,1,USA,False
+Thomas T. H. Wan,1,USA,False
+Thomas Wittenberg,1,Germany,False
+Thorsten Joachims,1,USA,False
+Thorsten Krause,1,Netherlands,False
+Thulasi Tholeti,1,USA,False
+Tianhang Zhang,1,China,False
+Tianlin Li,1,Singapore,False
+Tianlong Gu,1,China,False
+Tianlu Wang,1,USA,False
+Thijs Kooi,1,Netherlands,False
+Thien Huu Nguyen,1,USA,False
+Therese Moreau,1,Denmark,False
+Tetiana Zakharchenko,1,Ukraine,False
+Tejas Kambli,1,United Arab Emirates,False
+Tejumade Afonja,1,Germany,False
+Teng Xiao,1,USA,False
+Terrence S. Neumann,1,USA,False
+Terry R. Payne,1,UK,False
+Tesfaye B. Mersha,1,USA,False
+Thanadol Saelem,1,Thailand,False
+Theresa Züger,1,Germany,False
+Thanassis Tiropanis,1,UK,False
+Thang M. Pham,1,USA,False
+Theo G. Swart,1,South Africa,False
+Theodore Evans,1,Germany,False
+Theodore J. Iwashyna,1,USA,False
+Theresa Cullen,1,USA,False
+Matt Franchi,1,USA,False
+Maarten Buyl,1,Belgium,False
+Mathias Klier,1,Germany,False
+De-Nian Yang,1,Taiwan,False
+David Gammack,1,UK,False
+David Haber,1,Switzerland,False
+David Kinney,1,USA,False
+David Kojo N. Naawu,1,Philippines,False
+David M Martinez,1,USA,False
+David M. Pennock,1,USA,False
+David Madras,1,USA,False
+David Martens,1,Belgium,False
+David N. Nicholson,1,USA,False
+David Novillo-Ortiz,1,Denmark,False
+David S. Jones,1,USA,False
+David Steier,1,USA,False
+David W. Eyre,1,UK,False
+Davide Di Ruscio,1,Italy,False
+Davide Paolini,1,Italy,False
+David Clifton,1,UK,False
+David Bruns-Smith,1,USA,False
+David A. Clifton,1,UK,False
+Daniel Theron,1,USA,False
+Daniel Hsu,1,USA,False
+Daniel Kochin,1,Algeria,False
+Daniel Krüger,1,Germany,False
+Daniel Manning,1,Australia,False
+Daniel Pothmann,1,Germany,False
+Daniel Scott Smith,1,USA,False
+Daniele Gorla,1,France,False
+Dasha Pruss,1,USA,False
+Daniele Quercia,1,UK,False
+Danielle Groat,1,USA,False
+Danyang Hou,1,China,False
+Daron Acemoğlu,1,USA,False
+Darren Erik Vengroff,1,USA,False
+Darshali A. Vyas,1,USA,False
+Dawei Zhu,1,China,False
+Debabrota Basu,1,France,False
+Changtai Zhu,1,China,False
+Debashis Gupta,1,USA,False
+Diandra P. Ojo,1,USA,False
+Dietrich Klakow,1,Germany,False
+Dilermando Queiroz,1,Brazil,False
+Dimitar Markov,1,Bulgaria,False
+Dimitri Coelho Mollo,1,Sweden,False
+Dimitrios Tzovaras,1,Greece,False
+Dimitris Kotzinos,1,France,False
+Dina Katabi,1,USA,False
+Ding Wang,1,USA,False
+Dino Ienco,1,France,False
+Dion Ming,1,USA,False
+Diptikalyan Saha,1,India,False
+Divya Venugopalan,1,USA,False
+Diyi Yang,1,USA,False
+Djalel Benbouzid,1,Germany,False
+Dian Chen,1,USA,False
+Di Wang,1,USA,False
+Dhruv Shingala,1,India,False
+Deepshikha Singh,1,Germany,False
+Debora Nozza,1,Italy,False
+Deborah L. McGuinness,1,USA,False
+Declan Grabb,1,USA,False
+Dede Kiswanto,1,Indonesia,False
+Deepak S. Khobragade,1,India,False
+Deepika Dubey,1,USA,False
+Demilade Adedinsewo,1,USA,False
+Dezhi Ran,1,China,False
+Derek B. Archer,1,USA,False
+Derek F. Wong,1,Australia,False
+Derek Jacoby,1,Canada,False
+Derek Roth,1,USA,False
+Desmond C. Ong,1,USA,False
+Devin Ma,1,USA,False
+Daniel Chechelnitsky,1,USA,False
+Daniel A. Hashimoto,1,USA,False
+Dana Ruiter,1,Germany,False
+Dana Moukheiber,1,USA,False
+Chin-Yuan Yeh,1,Taiwan,False
+Chinasa T. Okolo,1,USA,False
+Ching-Hua Chuan,1,USA,False
+Ching-Yao Chuang,1,USA,False
+Chitro Majumdar,1,United Arab Emirates,False
+Chloe Japic,1,USA,False
+Chris Cunningham,1,New Zealand,False
+Chris Norval,1,UK,False
+Chris Sweeney,1,USA,False
+Christian Borgs,1,UK,False
+Christian Geißler,1,Germany,False
+Christian Heinze,1,Germany,False
+Christina Cociancig,1,Germany,False
+Christina Harrington,1,USA,False
+Christine Greenhow,1,USA,False
+Chijioke Eze,1,Germany,False
+Chidansh Bhatt,1,USA,False
+Chiara Ullstein,1,Germany,False
+Charvi Rastogi,1,USA,False
+Chao Le,1,USA,False
+Charles Senteio,1,USA,False
+Charlie M. Crawford,1,USA,False
+Charlotte A. M. Cecil,1,Netherlands,False
+Charlotte Laclau,1,France,False
+Charlotte Siegmann,1,USA,False
+Charų C. Aggarwal,1,USA,False
+Chiara Schwenke,1,Germany,False
+Chengcui Zhang,1,USA,False
+Chengfeng Mao,1,USA,False
+Chenhao Tan,1,USA,False
+Chenyu You,1,USA,False
+Chia-Yuan Chang,1,USA,False
+Chiara Longoni,1,Italy,False
+Christine Herlihy,1,USA,False
+Christine Largeron,1,France,False
+Christine Vogeli,1,USA,False
+Cynthia X. Shi,1,China,False
+Courtney Biles,1,UK,False
+Courtney Heldreth,1,USA,False
+Cristina Frattone,1,Italy,False
+Cunxiang Wang,1,China,False
+Curtis P. Langlotz,1,Canada,False
+Cynthia Dwork,1,USA,False
+Cyrus Cousins,1,USA,False
+Conor Griffin,1,UK,False
+Cécile Favre,1,France,False
+Célina Treuillier,1,Switzerland,False
+D. Sculley,1,USA,False
+Da-Chen Lian,1,Taiwan,False
+Dade Nurjanah,1,Indonesia,False
+Daiju Ueda,1,Japan,False
+Cor J. Veenman,1,Netherlands,False
+Colin F. Camerer,1,USA,False
+Christoph Becker,1,Canada,False
+Chuangying Zhu,1,China,False
+Christopher Brooks,1,USA,False
+Christopher G. Harris,1,Russia,False
+Christopher Huynh,1,USA,False
+Christos Davatzikos,1,USA,False
+Chrysoula Zerva,1,Portugal,False
+Chuan Luo,1,China,False
+Chuanpu Fu,1,China,False
+Cole Tanigawa-Lau,1,USA,False
+Churan Zhi,1,China,False
+Ciara Zogheib,1,Canada,False
+Claes H. de Vreese,1,Netherlands,False
+Claudia Wagner,1,Germany,False
+Claudio Di Sipio,1,Italy,False
+Clemence Mottez,1,Canada,False
+Djillali Annane,1,France,False
+Domenique Zipperling,1,Germany,False
+Dong Nguyen,1,Netherlands,False
+Evangelos Paparidis,1,Greece,False
+Fausto Giunchiglia,1,Italy,False
+Fayez H. Fayad,1,USA,False
+Federico Bianchi,1,USA,False
+Fei Han,1,China,False
+Fei Zhao,1,USA,False
+Feng Chen,1,USA,False
+Fenglin Liu,1,UK,False
+Ferdinanda Ponci,1,Germany,False
+Ferdinando Fioretto,1,USA,False
+Fereshte Khani,1,USA,False
+Fernanda Baião,1,Brazil,False
+Fernando Spadea,1,USA,False
+Fidelis Fidelis Alu,1,Pakistan,False
+Filippo Carnovalini,1,Belgium,False
+Flora D. Salim,1,Australia,False
+Fatima M. Anwar,1,USA,False
+Farid Meziane,1,UK,False
+Fariba Karimi,1,Austria,False
+Fabienne Marco,1,Germany,False
+Eyal Ben Yehuda,1,Israel,False
+Fabian Burmeister,1,Germany,False
+Fabian Fischer,1,Austria,False
+Fabian Offert,1,USA,False
+Fabiana Cristina Severi,1,Brazil,False
+Fabien Tarissan,1,France,False
+Faegheh Hasibi,1,Netherlands,False
+Farah Magrabi,1,Australia,False
+Fahim Faisal,1,USA,False
+Faisal Ladhak,1,USA,False
+Faisal Mahmood,1,USA,False
+Falk Scholer,1,North Macedonia,False
+Falk Zakrzewski,1,Germany,False
+Fanny Jourdan,1,France,False
+Flora Huang,1,USA,False
+Florence M. Aellen,1,Switzerland,False
+Florian Brühlmann,1,Switzerland,False
+Gauri Kambhatla,1,USA,False
+G. R. Meehan,1,UK,False
+Gabriela Trogrlic,1,Netherlands,False
+Gabriella Waters,1,USA,False
+"Gaebler, Johann D.",1,USA,False
+Galal Galal,1,USA,False
+Gang Wang,1,China,False
+Gbolahan O. Olanubi,1,USA,False
+Fuchen Li,1,USA,False
+Gediminas Adomavičius,1,USA,False
+Gemma Postill,1,Canada,False
+Geoff Keeling,1,UK,False
+Geoffrey Irving,1,UK,False
+George E. Tsekouras,1,Greece,False
+Geraínt A. Wiggins,1,Belgium,False
+Fuminari Tatsugami,1,Japan,False
+Friederike Wall,1,USA,False
+Florian Cech,1,Austria,False
+Francesca Maridina Malloci,1,Italy,False
+Florian Eyert,1,Germany,False
+Florian Wenzel,1,Germany,False
+Foutse Yuehgoh,1,Canada,False
+Fouzi Harrag,1,Algeria,False
+Francesca Bugiotti,1,France,False
+Francesca Dalia Faraci,1,Switzerland,False
+Francesco Barile,1,Netherlands,False
+Fredrick Kayusi,1,Kenya,False
+Franchesca Spektor,1,USA,False
+Franco Turini,1,Italy,False
+Frank Rudzicz,1,Canada,False
+Franklyn J. Graham,1,USA,False
+Fred Morstatter,1,USA,False
+Frederick M. Howard,1,USA,False
+Evani Radiya-Dixit,1,UK,False
+Evan P. Hamilton,1,USA,False
+Dong Wang,1,USA,False
+Evan Dufraisse,1,France,False
+Elias Bareinboim,1,USA,False
+Elisabeth Kirsten,1,Germany,False
+Elissa M. Redmiles,1,South Korea,False
+Elizabeth Ango Fomuso Ekellem,1,Germany,False
+Elizabeth Black,1,UK,False
+Elizabeth Shenkman,1,USA,False
+Elske Ammenwerth,1,Austria,False
+Elton Sampaio,1,USA,False
+Eman Sherif,1,USA,False
+Emanuela Stagno,1,UK,False
+Emilio Serrano,1,Spain,False
+Emily M. Bender,1,USA,False
+Emily Putnam‐Hornstein,1,USA,False
+Emily Zheng,1,USA,False
+Emma Drobina,1,USA,False
+Elena Spitzer,1,USA,False
+Elena Beretta,1,Italy,False
+Eirini Ntoutsi et al.,1,Germany,False
+Dovile Juodelyte,1,Switzerland,False
+Dong Zhou,1,China,False
+Dong-Gil Ko,1,USA,False
+Dongdong Li,1,China,False
+Donghyun Jeong,1,USA,False
+Dongni Li,1,China,False
+Dongping Chen,1,USA,False
+Drago Plečko,1,Switzerland,False
+Ege Erdoğan,1,Germany,False
+Drew F. K. Williamson,1,USA,False
+Dukka B. KC,1,USA,False
+E. Soulier,1,Germany,False
+Eddie Yang,1,USA,False
+Edward Christopher Dee,1,USA,False
+Edward Small,1,Australia,False
+Emma Dyer,1,USA,False
+Emma Harvey,1,USA,False
+Emma J. Gerritse,1,Netherlands,False
+Esmorie Miller,1,UK,False
+Erika Salomon,1,USA,False
+Erin Arnesen,1,USA,False
+Erin van Liemt,1,USA,False
+Ernest Funue,1,USA,False
+Eshta Bhardwaj,1,Canada,False
+Esin Durmus,1,USA,False
+Esteban Correa-Agudelo,1,USA,False
+Eric Yanfei Zhao,1,Ghana,False
+Esther Luna Colombini,1,Brazil,False
+Ethan Shen,1,USA,False
+Eugene Bagdasaryan,1,USA,False
+Eunice Chan,1,USA,False
+Eustasio del Barrio,1,France,False
+Eva Maxfield Brown,1,USA,False
+Erik Cambria,1,Singapore,False
+Eric Price,1,USA,False
+Emma Kallina,1,UK,False
+Ennio Bilancini,1,Italy,False
+Emma Strubell,1,USA,False
+Emmanouil Krasanakis,1,Greece,False
+Emmanuel Vincent,1,France,False
+Emre Yalcin,1,Turkey,False
+Enayat Rajabi,1,Canada,False
+Eni Mustafaraj,1,USA,False
+Enrico Daga,1,UK,False
+Eric Potash,1,USA,False
+Enzo Ferrante,1,USA,False
+Eran Tal,1,Canada,False
+Erasmo Purificato,1,China,False
+Ercong Nie,1,Germany,False
+Eric Corbett,1,USA,False
+Eric Lehman,1,USA,False
+Chao Huang,1,USA,False
+Chanet Ruangrit,1,Thailand,False
+Mateus Peixoto,1,Brazil,False
+Anas Buhayh,1,USA,False
+Amer M. Johri,1,USA,False
+Amin Amiri,1,USA,False
+Amin T. Turki,1,Germany,False
+Amina A. Abdu,1,USA,False
+Amir H. Payberah,1,Sweden,False
+Amir Taubenfeld,1,Israel,False
+Amirhossein Hajigholam Saryazdi,1,Canada,False
+Amit Dhurandhar,1,USA,False
+Amit Sharma,1,USA,False
+Amit Sheth,1,India,False
+Amol A. Verma,1,Canada,False
+Amy Bruckman,1,USA,False
+Amy Voida,1,USA,False
+Ana B. Sánchez,1,Spain,False
+Ana Bedoya Gutiérrez,1,USA,False
+Amelia Morencia Irena,1,Indonesia,False
+Amelia Jiménez-Sánchez,1,Denmark,False
+Amelia Glaese,1,UK,False
+Alina Leidinger,1,Netherlands,False
+Ali Afzal Awan,1,Malaysia,False
+Ali Akbar Septiandri,1,UK,False
+Ali Essa Dallak,1,UK,False
+Ali Vakilian,1,USA,False
+Alicia DeVrio,1,USA,False
+Alicia Parrish,1,USA,False
+Alireza Vafaei Sadr,1,Germany,False
+Amelia Fiske,1,USA,False
+Alison E. Turnbull,1,USA,False
+Alison Smith,1,Canada,False
+Alon Jacovi,1,Israel,False
+Alvin Rajkomar,1,USA,False
+Amal A. Alhosban,1,USA,False
+Amanda Bower,1,USA,False
+Ana Valdivia,1,UK,False
+Anders Søgaard,1,Denmark,False
+Chaehong Lee,1,USA,False
+Anderson Carlos,1,Brazil,False
+Angela E. Kilby,1,USA,False
+Angela Zhang,1,USA,False
+Angela Zhou,1,USA,False
+Angelie Kraft,1,Germany,False
+Anh Chien Nguyen,1,Vietnam,False
+Anh‐Tu Nguyen,1,USA,False
+Anil K. Jain,1,USA,False
+Animesh Mukherjee,1,India,False
+Animesh Raj,1,India,False
+Anish Anil Patankar,1,India,False
+Aniya Aggarwal,1,India,False
+Anjalie Field,1,USA,False
+Anka Reuel,1,USA,False
+Ankit Raj,1,USA,False
+Ankolika De,1,USA,False
+Anette Hosoi,1,USA,False
+Andrés Monroy‐Hernández,1,USA,False
+André Homeyer,1,Germany,False
+Andrew A. S. Soltan,1,UK,False
+Andrea Aler Tubella,1,Sweden,False
+Andrea C. Tricco,1,Canada,False
+Andreas Arens-Volland,1,Luxembourg,False
+Andreas Haupt,1,USA,False
+Andreea Iuliana Miron,1,Romania,False
+Andreea M. Oprescu et al.,1,Spain,False
+Andrew Bell,1,USA,False
+André G. C. Pacheco,1,Denmark,False
+Andrew Estornell,1,USA,False
+Andrew Georgiou,1,Australia,False
+Andrew Hundt,1,USA,False
+Andrew M. Bean,1,UK,False
+Andrew Zaldivar,1,USA,False
+André Anjos,1,Switzerland,False
+Alfonso Gambardella,1,Italy,False
+Alexis Shore Ingber,1,USA,False
+Alexey Romanov,1,USA,False
+Alexandre Baudet,1,Luxembourg,False
+Adam P. Tashman,1,USA,False
+Adam Tauman Kalai,1,UK,False
+Adetola Louis‐Jacques,1,USA,False
+Aditya Bhaskara,1,USA,False
+Aditya Yadavalli,1,Netherlands,False
+Adriana Romero,1,USA,False
+Adriane Chapman,1,UK,False
+Adrienne Kline,1,USA,False
+Adrià Romero-López,1,Switzerland,False
+Afnan Alabdulwahab,1,USA,False
+Afroditi Papadaki,1,UK,False
+Agata Foryciarz,1,USA,False
+Agata Gurzawska,1,UK,False
+Agathe Balayn,1,Netherlands,False
+Agrima Seth,1,USA,False
+Adam Dahlgren Lindström,1,Sweden,False
+Abraham Ezema,1,Germany,False
+Abolfazl Asudeh,1,USA,False
+Abdelaziz Benkhalifa,1,Morocco,False
+Aakanksha Naik,1,USA,False
+Aakanksha Rana,1,USA,False
+Aardra Patil,1,India,False
+Aaron Yi Ding,1,Netherlands,False
+Aasa Feragen,1,Denmark,False
+"Abbasi, Sina",1,Iran,False
+Abdelkader Bouazza,1,Morocco,False
+Abhisek Dash,1,India,False
+Abdul Hamid Sadka,1,UK,False
+Abdulaziz A. Almuzaini,1,USA,False
+Abdullah Saleh Essa Aldurayhim,1,USA,False
+Abdun Naser Mahmood,1,Australia,False
+Abdussalam Elhanashi,1,Italy,False
+Abhinav Pandey,1,Italy,False
+Ahmad Ali Ahmad Sahli,1,Saudi Arabia,False
+Ahmad Mohammad AlGhazal,1,Italy,False
+Ahmed Abbasi,1,USA,False
+Alex Taylor,1,UK,False
+Alessandra Calvi,1,France,False
+Alessandro Fabris,1,Italy,False
+Alessandro Lazaric,1,USA,False
+Alex Beutel,1,USA,False
+Alex Hanna,1,USA,False
+Alex Jiahong Lu,1,USA,False
+Alexander D’Amour,1,USA,False
+Aleksandra Urman,1,Switzerland,False
+Alexander Ferworn,1,Canada,False
+Alexander G. Yearley,1,USA,False
+Alexander Gegov,1,UK,False
+Alexander I. Iliev,1,Bulgaria,False
+Alexander T. Pearson,1,USA,False
+Alexandra Wood,1,USA,False
+Alessa Hering,1,Denmark,False
+Alejandra Bringas Colmenarejo,1,UK,False
+Aidong Zhang,1,USA,False
+Akira Yamada,1,Japan,False
+Aimin Yang,1,China,False
+Aisel Akhmedova,1,USA,False
+Aisha Alaagib,1,UK,False
+Aishwarya Satwani,1,USA,False
+Aislinn Kelly-Lyth,1,UK,False
+Aitor Arrieta,1,Spain,False
+Alaa Elobaid,1,Greece,False
+Alberto Bugarín,1,Spain,False
+Alan Chan,1,USA,False
+Alan F. Blackwell,1,UK,False
+Alan Hanjalić,1,Netherlands,False
+Alayna Kennedy,1,USA,False
+Albert Ali Salah,1,Netherlands,False
+Albert Bifet,1,New Zealand,False
+Anling Xiang,1,China,False
+Anna Cascarano,1,Spain,False
+Anna Gausen,1,UK,False
+Benjamin Lange,1,USA,False
+Borja Balle,1,UK,False
+Boumediene Hamzi,1,USA,False
+Boxi Wú,1,USA,False
+Boyang Gu,1,UK,False
+Bradley Butcher,1,UK,False
+Bran Knowles,1,UK,False
+Brandon Blackwell,1,USA,False
+Brandon M. Booth,1,USA,False
+Brendan Jou,1,USA,False
+Brent Mittelstadt,1,UK,False
+Brian Chiang,1,USA,False
+Brian Hsu,1,USA,False
+Brian Hu Zhang,1,USA,False
+Brian Jalaian,1,USA,False
+Brian Mac Namee,1,Ireland,False
+Borhane Blili-Hamelin,1,USA,False
+Blossom Metevier,1,USA,False
+Blake Lemoine,1,USA,False
+Bhawna Juneja,1,USA,False
+Bernard Quinio,1,France,False
+Bernhard Steindl,1,Austria,False
+Bhadra Trivedi,1,USA,False
+Bhaskar Mitra,1,Canada,False
+Bhavesh Kumar,1,USA,False
+Bhavya Ghai,1,USA,False
+Bianca G. S. Schor,1,UK,False
+Bishwamittra Ghosh,1,Singapore,False
+Bijal Mehta,1,USA,False
+Bill Howe,1,USA,False
+Bin Song,1,China,False
+Bing Zhao,1,China,False
+Binghuai Lin,1,China,False
+Bingying Hu,1,China,False
+Brian Mboya,1,Japan,False
+Brian W. Powers,1,USA,False
+Brianna Richardson,1,USA,False
+Carson Ezell,1,USA,False
+Carla S. Alvarado,1,USA,False
+Carlos Mougan,1,UK,False
+Carlos Peña,1,Spain,False
+Caroline M.W. Goedmakers,1,Netherlands,False
+Caroline Walker,1,New Zealand,False
+Carolyn Ashurst,1,UK,False
+Casey S. Greene,1,USA,False
+Carl Orge Retzlaff,1,Germany,False
+Caslon Chua,1,Malaysia,False
+Catherine A. Gao,1,USA,False
+Catherine Bielick,1,USA,False
+Cedric Deslandes Whitney,1,USA,False
+Celeste Rodríguez Louro,1,Australia,False
+Cennet Oğuz,1,Germany,False
+Carla M. Sevin,1,USA,False
+Carina Ines Hausladen,1,USA,False
+Bridgette Kuehn,1,USA,False
+C. P. Hays,1,USA,False
+Brilly Andro Makalew,1,Indonesia,False
+Brooke Perreault,1,USA,False
+Bruce D. Haynes,1,USA,False
+Bruce Glymour,1,USA,False
+Bruno Lepri,1,Italy,False
+C. Davatzikos,1,USA,False
+Caio C. Vieira Machado,1,USA,False
+Caner Hazırbas,1,USA,False
+Calvin K. Lai,1,USA,False
+Cameron Celeste,1,USA,False
+Cameron Moy,1,USA,False
+Camila González,1,Denmark,False
+Camille Harris,1,USA,False
+Candice Schumann,1,USA,False
+Bern Igoche Igoche,1,UK,False
+Ben Kosa,1,USA,False
+Anna Jönsson,1,Sweden,False
+Ben Green,1,USA,False
+Aram Grigoryan,1,USA,False
+Aray Karjauv,1,Germany,False
+Aretha Natalova Wahyudi,1,Indonesia,False
+Ari Ball-Burack,1,UK,False
+Arianna Manzini,1,UK,False
+Ariel Goldstein,1,Israel,False
+Arjen P. de Vries,1,Netherlands,False
+Arkady Zaslavsky,1,Australia,False
+Armelle Brun,1,France,False
+Armita Zarnegar,1,Australia,False
+Armon Panahi,1,USA,False
+Arnaldo Camuffo,1,Italy,False
+Arpit Agarwal,1,USA,False
+Arushi Gupta,1,USA,False
+Arvind Narayanan,1,USA,False
+Aradhana Sinha,1,USA,False
+Aparna Balagopalan,1,USA,False
+Aonghus Lawlor,1,Ireland,False
+Anqi Liu,1,USA,False
+Anna Jørgensen,1,Denmark,False
+Anna Korhonen,1,UK,False
+Anna Möller,1,Germany,False
+Anna Neumann,1,Germany,False
+Anna P. Meyer,1,USA,False
+Anna Seo Gyeong Choi,1,USA,False
+Antinisca Di Marco,1,Italy,False
+Antonios Anastasopoulos,1,USA,False
+Antoine Harfouche,1,France,False
+Anton Petushkov,1,Turkey,False
+Antonello Monti,1,Germany,False
+Antonio Ferrara,1,Germany,False
+Antonio Rodà,1,Italy,False
+Antonio Vetrò,1,Italy,False
+Ashish Joshi,1,USA,False
+Ashish K. Khanna,1,USA,False
+Ashish Kumar,1,India,False
+Balraj Prajesh,1,India,False
+Ayoub Oulhayane,1,Morocco,False
+Ayşe Demirhan,1,Turkey,False
+Azyan Yusra Kapi,1,Malaysia,False
+B. Biira,1,USA,False
+B. Padmanabhan,1,UK,False
+B. Y. Pang,1,New Zealand,False
+Bamshad Mobasher,1,USA,False
+Ayanna Howard,1,USA,False
+Baocheng Geng,1,USA,False
+Bary Pradelski,1,France,False
+Basileal Imana,1,USA,False
+Beatrice Marchegiani,1,UK,False
+Begonya García-Zapirain,1,Spain,False
+Ben Bucknall,1,USA,False
+Ayesha Faruki,1,UK,False
+Aya Salama,1,UK,False
+Ashudeep Singh,1,USA,False
+Athina Tzovara,1,Switzerland,False
+Ashutosh S Vajpayee,1,India,False
+Ashwathy Ashokan,1,USA,False
+Asja Fischer,1,Germany,False
+Aspen Hopkins,1,USA,False
+Aswathy K Cherian,1,India,False
+Athanasia Sykiotou,1,Greece,False
+Atoosa Kasirzadeh,1,Canada,False
+Aws Albarghouthi,1,USA,False
+Audun Jøsang,1,Norway,False
+Aurora Schmidt,1,USA,False
+Aurora Zhang,1,USA,False
+Austin Lentsch,1,USA,False
+Avi Feller,1,USA,False
+Awantee Deshpande,1,Germany,False
+Gerd Gigerenzer,1,Germany,False
+Gertraud Koch,1,Germany,False
+Giacomo Balloccu,1,Italy,False
+Kimia Hamidieh,1,Canada,False
+Kerri Prinos,1,USA,False
+Kerstin Noëlle Vokinger,1,Switzerland,False
+Kevin Leyton-Brown,1,Canada,False
+Kevin Mc Daid,1,Ireland,False
+Kevin Wei,1,USA,False
+Keyur Faldu,1,India,False
+Keywan Tajfar,1,Iran,False
+Kezia Oketch,1,USA,False
+Khaled ELKarazle,1,Malaysia,False
+Khaled Ibrahim Sohail,1,El Salvador,False
+Khine Myat Thwe,1,Japan,False
+Khoa T. Lam,1,USA,False
+Khotso Selialia,1,USA,False
+Khyati Khandelwal,1,UK,False
+Ki Hyun Tae,1,South Korea,False
+Keqin Bao,1,China,False
+Kenneth Holstein,1,USA,False
+Kenji Hirata,1,Japan,False
+Katie Shilton,1,USA,False
+Kate Glazko,1,USA,False
+Katharina Kinder-Kurlanda,1,Austria,False
+Katharina Mosene,1,Germany,False
+Katharina Reinecke,1,USA,False
+Katherine Quezada Tavárez,1,Belgium,False
+Kathy Ning Shen,1,United Arab Emirates,False
+Katie Stone Perez,1,USA,False
+Kehinde Aruleba,1,South Africa,False
+Katina Michael,1,USA,False
+Kaushik Dutta,1,USA,False
+Kaushik Mallik,1,Austria,False
+Kavitha Ranganathan,1,USA,False
+Ke Xu,1,China,False
+Ke Yang,1,China,False
+Kimberly A. Truong,1,USA,False
+Kimon Kieslich,1,Netherlands,False
+Gian Antonio Susto,1,Italy,False
+Kishor Datta Gupta,1,USA,False
+Kunxi Li,1,China,False
+Kurt Luther,1,USA,False
+Kush R. Varshney,1,USA,False
+Kwei-Herng Lai,1,USA,False
+Kyle J. Myers,1,USA,False
+Kyra Wilson,1,USA,False
+L. E. Roth,1,Germany,False
+L. Wang,1,China,False
+Laden Husamaldin,1,UK,False
+Laleh Seyyed-Kalantari,1,Canada,False
+Lama Alkhaled,1,Sweden,False
+Lama Nazer,1,Jordan,False
+"Lan, Xiang",1,Singapore,False
+Lance Kaplan,1,USA,False
+Lanier Watkins,1,USA,False
+Kuntal Dey,1,India,False
+Kumari Shalini,1,USA,False
+Kuldip Singh,1,USA,False
+Konstantin Kueffner,1,Austria,False
+Klaus Broelemann,1,Germany,False
+Klaus Mueller,1,USA,False
+Klaus Strohmenger,1,Germany,False
+Klint Qinami,1,USA,False
+Koji Kamagata,1,Japan,False
+Konstantin Genin,1,Germany,False
+Kostas Stefanidis,1,Finland,False
+Kuldeep S. Meel,1,Singapore,False
+Krishnaram Kenthapadi,1,USA,False
+Kristen Laird,1,USA,False
+Kristin Hassmiller Lich,1,USA,False
+Kristin P. Bennett,1,USA,False
+Kristina Lerman,1,USA,False
+Krunoslav Lehman Pavasovic,1,USA,False
+Karlijn Dinnissen,1,Netherlands,False
+Karim Lekadir,1,Spain,False
+Karen M. Douglas,1,UK,False
+Karen Levy,1,USA,False
+Judy J. Wang,1,USA,False
+Juhi Kulshrestha,1,Germany,False
+Julia Barnett,1,USA,False
+Julia Brasse,1,Germany,False
+Julia Dressel,1,USA,False
+Julia E. Vogt,1,Switzerland,False
+Julia Haas,1,UK,False
+Julia Lanzl,1,Germany,False
+Julia Neidhardt,1,Austria,False
+Julia Rubin,1,Canada,False
+Julia Situ,1,USA,False
+Julia Stoyanovich,1,USA,False
+Julian Mendez,1,Sweden,False
+Julian Schirmer,1,France,False
+Julian Z. Genkins,1,USA,False
+Judy Gichoya Wawira,1,USA,False
+Judith Masthoff,1,Netherlands,False
+Juan Zhao,1,USA,False
+Joyce Zhou,1,USA,False
+Joshua Tint,1,USA,False
+Joshua W. Sun,1,USA,False
+José A. Parejo,1,Spain,False
+José M. Such,1,UK,False
+Jou-An Chi,1,Taiwan,False
+Joy Bose,1,India,False
+Joydeep Chandra,1,India,False
+Juan Felipe Gomez,1,USA,False
+Ju-ho Kim,1,South Korea,False
+Juan C. Alonso,1,Spain,False
+Juan Carlos De Martin,1,Italy,False
+Juan Carlos Medina Serrano,1,Germany,False
+Juan Carlos Nieves,1,Sweden,False
+Juan Ciro,1,USA,False
+Julianne Holt‐Lunstad,1,USA,False
+Junaid Ali,1,Germany,False
+Jung Kim,1,USA,False
+Kaitlyn Zhou,1,USA,False
+Kacper Sokol,1,Switzerland,False
+Kadija Ferryman,1,USA,False
+Kai He,1,Singapore,False
+Kai M. Thaler,1,USA,False
+Kai-Ching Yeh,1,Taiwan,False
+Kailash Budhathoki,1,Germany,False
+Kaiyu Yang,1,USA,False
+K. Crowley,1,USA,False
+Kalinda Ukanwa,1,USA,False
+Kam-Fai Wong,1,UK,False
+Kanji Uchino,1,USA,False
+Kanjian Zhang,1,Bangladesh,False
+Karan Alang,1,UK,False
+Karen Drukker,1,USA,False
+K. Stein,1,USA,False
+K Shantha Kumari,1,India,False
+Junheng He,1,China,False
+Junye Lin,1,China,False
+Junier B. Oliva,1,USA,False
+Junjie Chen,1,China,False
+Junjie Jia,1,China,False
+Junling Liu,1,China,False
+Junwu Xiong,1,China,False
+Junxiong Wang,1,USA,False
+Justin Broce,1,USA,False
+Jérémy Scheurer,1,USA,False
+Justin Clark,1,USA,False
+Justin P. White,1,USA,False
+Justin Quion,1,USA,False
+Juveria Afreen,1,New Zealand,False
+Jyrki Nummenmaa,1,Finland,False
+Jytte Brender McNair,1,Denmark,False
+Lanjing Zhang,1,USA,False
+Lara Groves,1,USA,False
+Lars Ole Schwen,1,Germany,False
+Léane Wettstein,1,Switzerland,False
+Manideep Marripudugala,1,USA,False
+Manik Gupta,1,India,False
+Manish Nagireddy,1,USA,False
+Manish Raghavan,1,USA,False
+Manoel Horta Ribeiro,1,Switzerland,False
+Manudeep Kalra,1,Canada,False
+Manuel Gomez-Rodriguez,1,Germany,False
+Manuel Knott,1,USA,False
+Manuel Lama,1,Spain,False
+Manuel Tonneau,1,UK,False
+Manvi Choudhary,1,France,False
+Marco Agus,1,Qatar,False
+Marco Spruit,1,Netherlands,False
+Margaret E. Roberts,1,USA,False
+Margrét V. Bjarnadóttir,1,USA,False
+Manas Gaur,1,USA,False
+Man Lung Yiu,1,Hong Kong,False
+Malur Narayan,1,China,False
+Mahdi Dhaini,1,Germany,False
+M.S. Wu,1,China,False
+MA Rana,1,Australia,False
+A. S. M. Sharifuzzaman Sagar,1,South Korea,False
+Mackenzie Jorgensen,1,UK,False
+Maddy Whisenant,1,USA,False
+Maggie Delano,1,USA,False
+Mahesh Vaidyanathan,1,USA,False
+Maliheh Heidarpour Shahrezaei,1,Ireland,False
+Mahmoudreza Babaei,1,Germany,False
+Mahsa Mohaghegh,1,New Zealand,False
+Mahyar Karimi,1,Austria,False
+Mahzarin R. Banaji,1,USA,False
+Majdi I. Radaideh et al.,1,USA,False
+Malek Adouani,1,France,False
+Maria Antoniak,1,USA,False
+Maria De‐Arteaga,1,USA,False
+Mariana-Iuliana Georgescu,1,Romania,False
+María A. Zuluaga,1,France,False
+Martín Bertrán,1,USA,False
+Marvin Von Hagen,1,USA,False
+Maryam Doborjeh,1,New Zealand,False
+Maryam Najafian,1,USA,False
+Marybeth Defrance,1,Belgium,False
+Maryellen L. Giger,1,USA,False
+María Isabel Magaña,1,Colombia,False
+Martin Strobel,1,Singapore,False
+María N. Moreno García,1,Spain,False
+María-Esther Vidal,1,Germany,False
+Masahiro Sato,1,Japan,False
+Masahiro Yanagawa,1,Japan,False
+Matan Halevy,1,USA,False
+Mateo Rojas-Carulla,1,Switzerland,False
+Martina Tazzioli,1,UK,False
+Martin Homola,1,Slovakia,False
+Marie Gallais,1,Luxembourg,False
+Marius Hobbhahn,1,USA,False
+Marie-Laure Charpignon,1,USA,False
+Mariko Kawamura,1,Japan,False
+Marine Neyret,1,France,False
+Mario Jojoa,1,Spain,False
+Marios Constantinides,1,UK,False
+Marissa Gerchick,1,USA,False
+Marius Mosbach,1,Germany,False
+Marta Ziosi,1,UK,False
+Mark S. Ackerman,1,USA,False
+Mark Yatskar,1,USA,False
+Markus Kunesch,1,USA,False
+Markus Möller,1,Germany,False
+Markus Plass,1,Austria,False
+Marshall H. Chin,1,USA,False
+M. Liu,1,Singapore,False
+Luyang Lin,1,China,False
+Laura Cabello,1,Denmark,False
+Lutz Köhler,1,Germany,False
+Leilani Battle,1,USA,False
+Lena Armstrong,1,USA,False
+Leo Celi,1,USA,False
+Leo G. Eisenstein,1,USA,False
+Leo Joskowicz,1,Germany,False
+Leonardo Tomazeli Duarte,1,Brazil,False
+Li Fei-Fei,1,USA,False
+Li Yang,1,China,False
+LiFang Li,1,China,False
+Liang Chang,1,China,False
+Liang Ding,1,Macau,False
+Lihua Xie,1,Singapore,False
+Lili Wang,1,USA,False
+Lilian Berton,1,Brazil,False
+Lin Wang,1,Hong Kong,False
+Lei Xu,1,China,False
+Lei Xing,1,USA,False
+Lei Han,1,Australia,False
+Laura Weidinger,1,UK,False
+Laura E. Mitchell,1,UK,False
+Laura Hollink,1,Netherlands,False
+Laura Koesten,1,Austria,False
+Laura Lucaj,1,Germany,False
+Laura Rimell,1,UK,False
+Laura State,1,Italy,False
+Lauren A. Rhue,1,USA,False
+Lei Clifton,1,UK,False
+Lauren Haynes,1,USA,False
+Laxmi Kumari,1,India,False
+Le-Minh Nguyen,1,Japan,False
+Leah Ajmani,1,USA,False
+Lee Sharkey,1,Canada,False
+Lei Chen,1,Hong Kong,False
+Lin Yin,1,USA,False
+Lindsay Mazotti,1,USA,False
+Lingfeng Zhang,1,China,False
+Lucas Monteiro Paes,1,USA,False
+Louis Tay,1,USA,False
+Louis-Philippe Morency,1,USA,False
+Louisa Fay,1,Germany,False
+Lu Xiong,1,USA,False
+Luca Nannini,1,Spain,False
+Luca Saba,1,Italy,False
+Lucas Rosenblatt,1,USA,False
+Louis Deladiennée,1,Luxembourg,False
+Lucius Bynum,1,USA,False
+Lucy Lu Wang,1,USA,False
+Lucy Vasserman,1,USA,False
+Luigi Butera,1,Denmark,False
+Lujain Alsadder,1,UK,False
+Lulu Kong,1,China,False
+Louis Hickman,1,USA,False
+Lotta Stille,1,Sweden,False
+Lingpeng Kong,1,Hong Kong,False
+Liping Xie,1,Bangladesh,False
+Lingwei Cheng,1,USA,False
+Lingxiao Huang,1,USA,False
+Lingzhi Wang,1,China,False
+Linh Ngo,1,Vietnam,False
+Linyang Li,1,China,False
+Linyi Yang,1,China,False
+Liping Yang,1,China,False
+Loris D’Antoni,1,USA,False
+Lisa Lu,1,USA,False
+Lisa Singh,1,USA,False
+Liu Yang,1,China,False
+Livie Yumeng Li,1,Denmark,False
+Lizhu Wang,1,China,False
+Lorenzo Porcaro,1,Spain,False
+Joshua Sun,1,USA,False
+Joshua R. Loftus,1,UK,False
+Joshua Krook,1,UK,False
+Hinrich Schütze,1,Germany,False
+Hui Huang,1,China,False
+Huilin Tang,1,USA,False
+Hung-yi Lee,1,Taiwan,False
+Hurmat Ali Shah,1,Qatar,False
+Huy-Son Nguyen,1,Netherlands,False
+Huzefa Rangwala,1,USA,False
+Hwajung Hong,1,South Korea,False
+Hyungyu Shin,1,South Korea,False
+Hyunseung Lim,1,South Korea,False
+Héctor D. Menéndez,1,UK,False
+Ian A. Kash,1,USA,False
+Ian Davidson,1,USA,False
+Ian Stewart,1,USA,False
+Ian Stockwell,1,USA,False
+Ibtihal Abdullah Alotibi,1,Saudi Arabia,False
+Hugues Bouchard,1,Canada,False
+Huaxing Wu,1,USA,False
+Huawei Shen,1,China,False
+Hongseok Namkoong,1,USA,False
+Hong Gao,1,China,False
+Hong-Han Shuai,1,Taiwan,False
+Hongjian Zhou,1,UK,False
+Hongjing Zhang,1,USA,False
+Hongli Zhou,1,China,False
+Hongliang Ni,1,Australia,False
+Hongyan Chang,1,Singapore,False
+Huasheng Liang,1,China,False
+Hongying Zan,1,China,False
+Hosameldin O. A. Ahmed,1,UK,False
+Hrishikesh Kambale,1,India,False
+Hsi-Wen Chen,1,Taiwan,False
+Hsin-Yueh Lin,1,USA,False
+Hua Xu,1,USA,False
+Iflaah Salman,1,Finland,False
+Ikiomoye Douglas Emmanuel,1,UK,False
+Ikram Ur Rehman,1,UK,False
+Ivana Parker,1,USA,False
+Isabella Duan,1,UK,False
+Isabella Struckman,1,USA,False
+Isabelle Rose I. Alberto,1,Turkey,False
+Isidre Munné-Bertran,1,Spain,False
+Israat Haque,1,Canada,False
+Ivan Vulić,1,UK,False
+Iván Higuera Mendieta,1,USA,False
+Isabel O. Gallegos,1,USA,False
+Iyad Rahwan,1,Germany,False
+J Norman,1,USA,False
+J. Lee,1,USA,False
+J. M. Gleason,1,USA,False
+J. W. Anderson,1,USA,False
+J.D. Zamfirescu-Pereira,1,USA,False
+Isabel Valera,1,Germany,False
+Isabel Gallegos,1,USA,False
+Ilia Shumailov,1,UK,False
+Ioanna Papageorgiou,1,Germany,False
+Ilker Yaramis,1,USA,False
+Ilmaan Zia,1,USA,False
+Imane Hamzaoui,1,USA,False
+Imant Daunhawer,1,Switzerland,False
+Ines Rieger,1,Germany,False
+Ioana Baldini,1,USA,False
+Ioannis Kompatsiaris,1,Greece,False
+Isabel Chien,1,UK,False
+Ioannis Pastaltzidis,1,Greece,False
+Irene Mengze Li,1,USA,False
+Irene Pagliai,1,Germany,False
+Irene V. Pasquetto,1,USA,False
+Irma Kartika Wairooy,1,Indonesia,False
+Isaac Slaughter,1,USA,False
+Hirohiko Suwa,1,Japan,False
+Himan Abdollahpouri,1,USA,False
+Jack Blandin,1,USA,False
+Hilke Schellmann,1,USA,False
+Guipeng Lan,1,China,False
+Guodong Gao,1,USA,False
+Guogang Li,1,China,False
+Gustavo Gonçalves,1,USA,False
+Guusje Juijn,1,Netherlands,False
+Gábor Bella,1,France,False
+Gökhan Özkaya,1,Turkey,False
+Gülce Karaca,1,USA,False
+H. Echo Wang,1,USA,False
+H. V. Jagadish,1,USA,False
+H. Yokoyama,1,Germany,False
+Hadi Elzayn,1,USA,False
+Hadi Kharrazi,1,USA,False
+Hai Hu,1,China,False
+Haley Lepp,1,USA,False
+Guillermo Sapiro,1,USA,False
+Guilherme Dean Pelegrina,1,Brazil,False
+Guang-Li Huang,1,Australia,False
+Giulio Nittari et al.,1,Italy,False
+Giancarlo Guizzardi,1,Netherlands,False
+Gianluca Demartini,1,Australia,False
+Gianmaria Silvello,1,Italy,False
+Gianni Fenu,1,Italy,False
+Gina Neff,1,UK,False
+Giordano d'Aloisio,1,Italy,False
+Gizem Soğancıoğlu,1,Netherlands,False
+Guanchu Wang,1,USA,False
+Glenys Collard,1,Australia,False
+"Goel, Sharad",1,USA,False
+Golnoosh Farnadi,1,Canada,False
+Grace McCarthy,1,Australia,False
+Greg S. Corrado,1,USA,False
+Greg d'Eon,1,Canada,False
+Han Zhou,1,UK,False
+Hande Dong,1,China,False
+Hanghang Tong,1,USA,False
+Helen Zhang,1,USA,False
+Hassan Ali Al-Ababneh,1,Jordan,False
+He Liang,1,China,False
+Heather M. Whitney,1,USA,False
+Heather Mattie,1,USA,False
+Heimo Müller,1,Austria,False
+Helen Webley-Brown,1,USA,False
+Helmut Schmid,1,Germany,False
+Harvineet Singh,1,USA,False
+Heloise Logan,1,USA,False
+Henrik Björklund,1,Sweden,False
+Henrik Palmer Olsen,1,Denmark,False
+Henry H. Ong,1,USA,False
+Henry Han,1,USA,False
+Heysem Kaya,1,Netherlands,False
+Hassan Ali Ahmad Najaei,1,Vietnam,False
+Harshita Diddee,1,USA,False
+Hani Ghazi Abdulmalik,1,Saudi Arabia,False
+Haochen Liu,1,USA,False
+Hannah Richert,1,Germany,False
+Hannele Hyppönen,1,Finland,False
+Hannes Waldetoft,1,Sweden,False
+Hany Farid,1,USA,False
+Hao Wang,1,China,False
+Haobo Ma,1,USA,False
+Haohui Lu,1,Australia,False
+Harshit Khanna,1,India,False
+Happy Iguare,1,USA,False
+Harish S,1,India,False
+Harishankar Kumar,1,USA,False
+Harrie Oosterhuis,1,Netherlands,False
+Harrison X. Bai,1,USA,False
+Harshit Gujral,1,Canada,False
+Jabez Magomere,1,UK,False
+Jack Cenatempo,1,USA,False
+Joshua Gardner,1,USA,False
+Jianzhong Qi,1,Australia,False
+Jingchuan Guo,1,USA,False
+Jinge Wu,1,UK,False
+Jinglong Duan,1,New Zealand,False
+Jingran Su,1,Hong Kong,False
+Jingrui He,1,USA,False
+Jingsen Zhang,1,China,False
+Jingtong Gao,1,Hong Kong,False
+Jingyu Tang,1,China,False
+Jingyu Wu,1,China,False
+Jinsong Guo,1,China,False
+Jinwang Song,1,China,False
+Jinyoung Kim,1,South Korea,False
+Jinyu Li,1,USA,False
+Jiri Hron,1,UK,False
+Jiwon Kim,1,South Korea,False
+Jingcheng Deng,1,China,False
+Jingang Ma,1,China,False
+Jing Nathan Yan,1,USA,False
+Jiebo Luo,1,USA,False
+Jiawei Chen,1,China,False
+Jiaxu Zhao,1,Netherlands,False
+Jiayi Fu,1,China,False
+Jiayi Ye,1,USA,False
+Jie Li,1,China,False
+Jie Xu,1,USA,False
+Jielin Feng,1,China,False
+Jinfa Huang,1,USA,False
+Jieqing Wan,1,China,False
+Jiliang Tang,1,USA,False
+Jilin Chen,1,USA,False
+Jim A. C. Everett,1,UK,False
+Jin-Hee Cho,1,USA,False
+Jindong Wang,1,China,False
+Jizhi Zhang,1,China,False
+Joana Pinho,1,USA,False
+Joanne Doucette,1,USA,False
+Jorge A. Rodriguez,1,USA,False
+Jonathan Huang,1,USA,False
+Jonathan P. Weiner,1,USA,False
+Jonathan Patscheider,1,USA,False
+Jonathan Uesato,1,UK,False
+Jordan Taylor,1,USA,False
+Jorden Sandel,1,Netherlands,False
+Jorge del Pozo Lérida,1,UK,False
+Jon Kleinberg,1,USA,False
+Joschka Haltaufderheide,1,Germany,False
+Josef van Genabith,1,Germany,False
+Joseph Alexander Paguio,1,USA,False
+Joseph C. Wu,1,USA,False
+Josephine Ahrendt,1,Sweden,False
+Josh F. Peterson,1,USA,False
+Jonathan Herington,1,USA,False
+Jolanda Jetten,1,Australia,False
+Joe Barrow,1,USA,False
+John H. Holmes,1,USA,False
+Joe Tomlinson,1,USA,False
+Joel Mire,1,USA,False
+Joel Park,1,USA,False
+Johan Pauwels,1,UK,False
+Johannes Lederer,1,Germany,False
+John D'Ambra,1,Australia,False
+John Heidemann,1,USA,False
+John Robert Bautista,1,USA,False
+John Hope,1,USA,False
+John Mellor,1,UK,False
+John Moeller,1,USA,False
+John P. Lalor,1,USA,False
+John Pasmore,1,USA,False
+John R. Laird,1,USA,False
+Jiao Wu,1,Japan,False
+Jianrong Xie,1,China,False
+Jacob Metcalf,1,USA,False
+Jianhua Jiang,1,China,False
+Jan Horstmann,1,Germany,False
+Jana Lipková,1,USA,False
+Janet Vertesi,1,USA,False
+Jannik Dunkelau,1,Germany,False
+Janny Xue Chen Ke,1,Canada,False
+Jared Moore,1,USA,False
+Jasjit S. Suri,1,USA,False
+Jasmijn Bastings,1,USA,False
+Jasmine Fledderjohann,1,UK,False
+Jason Kuruzovich,1,USA,False
+Jason d'Eon,1,Canada,False
+Jaspar Pahl,1,Germany,False
+Javier Bajo,1,Spain,False
+Jay J. Cheng,1,USA,False
+Jay Joseph Van Bavel,1,India,False
+Jamshaid Iqbal Janjua,1,Pakistan,False
+Jamie P. McCusker,1,USA,False
+Jamie Morgenstern,1,USA,False
+Jaeyeong Yang,1,South Korea,False
+Jacob Montgomery,1,USA,False
+Jacob Thebault-Spieker,1,USA,False
+Jacqueline Cellini,1,USA,False
+Jacqueline Xu,1,USA,False
+Jacqui Ayling,1,UK,False
+Jade S. Franklin,1,USA,False
+Jakob Schoeffer,1,USA,False
+Jamie Larson,1,USA,False
+James A. Anderson,1,Canada,False
+James Atwood,1,USA,False
+James Caverlee,1,USA,False
+James Kotary,1,USA,False
+James O. McInerney,1,UK,False
+James R. Wright,1,Canada,False
+Jayashree Kalpathy–Cramer,1,USA,False
+Jaylen Pittman,1,USA,False
+Jayshree Ghorpade-Aher,1,India,False
+Jia Deng,1,USA,False
+Jesse Kuiper,1,Netherlands,False
+Jessica Gass,1,USA,False
+Jessica Maddox,1,USA,False
+Jessica Quaye,1,USA,False
+Jey Han Lau,1,Australia,False
+Ji Yong Cho,1,South Korea,False
+Jiachen Yang,1,China,False
+Jerónimo Hernández-González,1,Spain,False
+Jiafeng Zhou,1,China,False
+Jiahao Chen,1,USA,False
+Jialiang Li,1,USA,False
+Jianfei Yang,1,Singapore,False
+Jiangjie Chen,1,China,False
+Jiangtao Wang,1,China,False
+Jess Tsang,1,USA,False
+Jeremias Adams-Prassl,1,UK,False
+Jean-Michel Loubes,1,Spain,False
+Jennifer Chayes,1,UK,False
+Jean‐François Bonnefon,1,France,False
+Jeffrey Basoah,1,USA,False
+Jeffrey Chan,1,Australia,False
+Jeffrey D. Morenoff,1,USA,False
+Jeffrey M. Rzeszotarski,1,USA,False
+Jenna Wiens,1,USA,False
+Jennifer Jacobs,1,USA,False
+Jenny Yang,1,UK,False
+Jennifer King,1,USA,False
+Jennifer Mankoff,1,USA,False
+Jennifer Mickel,1,USA,False
+Jennifer Sutcliffe,1,USA,False
+Jennifer Xu,1,USA,False
+Jenny Björklund,1,Sweden,False
+Νικόλαος Αλέτρας,1,UK,False

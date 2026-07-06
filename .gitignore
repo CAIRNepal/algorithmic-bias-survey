@@ -47,3 +47,15 @@ next-env.d.ts
 .vscode/
 *.swp
 
+# root-level duplicate figure output (superseded by evaluation/analysis/figures_new/
+# and evaluation/analysis/images/ — these root-level copies are frozen snapshots,
+# scripts no longer write here after the OUT_DIR path-anchoring fix)
+/figures/
+/figures_new/
+
+# backup/scratch snapshots — not meant to be tracked
+*.bak
+papers_backup_*.csv
+papers_old_root.csv
+baseline_values_before_*.md
+

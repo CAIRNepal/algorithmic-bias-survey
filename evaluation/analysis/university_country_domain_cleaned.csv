@@ -4,7 +4,7 @@ Allen Institute,nan,Health & Clinical AI,1
 Althire AI,Global,Graph-Based Fairness & Bias Mitigation,1
 Amazon,nan,General Fairness & Bias Mitigation,2
 Amazon,nan,LLMs & NLP,2
-American Civil Liberties Union,nan,General Fairness & Bias Mitigation,2
+American Civil Liberties Union,nan,General Fairness & Bias Mitigation,1
 Amsterdam University of the Arts,nan,LLMs & NLP,1
 Ardahan University,nan,Recommender Systems,1
 Arizona State University,nan,LLMs & NLP,1
@@ -28,7 +28,7 @@ Berkeley College,nan,Health & Clinical AI,1
 Beth Israel Deaconess Medical Center,nan,Health & Clinical AI,1
 Binus University,nan,Recommender Systems,2
 Birla Institute of Technology and Science - Hyderabad Campus,nan,Health & Clinical AI,1
-"Birla Institute of Technology and Science, Pilani - Dubai Campus",nan,General Fairness & Bias Mitigation,2
+"Birla Institute of Technology and Science, Pilani - Dubai Campus",nan,General Fairness & Bias Mitigation,1
 "Birla Institute of Technology and Science, Pilani - Dubai Campus",nan,LLMs & NLP,1
 Bocconi University,nan,General Fairness & Bias Mitigation,1
 Brigham and Women's Hospital,USA,Health & Clinical AI,1
@@ -83,8 +83,9 @@ Duke-NUS Medical School,nan,Health & Clinical AI,1
 Dundalk Institute of Technology,nan,General Fairness & Bias Mitigation,1
 ETH Zurich,nan,General Fairness & Bias Mitigation,1
 East China Normal University,nan,General Fairness & Bias Mitigation,1
-Eindhoven University of Technology,nan,General Fairness & Bias Mitigation,1
+Eindhoven University of Technology,nan,General Fairness & Bias Mitigation,2
 Essen University Hospital,nan,Health & Clinical AI,1
+FAIR at Meta,nan,Recommender Systems,1
 "FAIR, Meta AI",nan,General Fairness & Bias Mitigation,1
 Film Independent,nan,General Fairness & Bias Mitigation,1
 Florida International University,Global,LLMs & NLP,1
@@ -105,7 +106,7 @@ Georgia Institute of Technology,nan,LLMs & NLP,1
 German Research Centre for Artificial Intelligence,nan,LLMs & NLP,1
 Ghana Institute of Languages,nan,LLMs & NLP,1
 Ghent University Hospital,nan,General Fairness & Bias Mitigation,1
-Google,nan,General Fairness & Bias Mitigation,10
+Google,nan,General Fairness & Bias Mitigation,11
 Google,nan,Health & Clinical AI,1
 Google,nan,LLMs & NLP,1
 Guangdong University of Technology,nan,LLMs & NLP,1
@@ -136,7 +137,7 @@ Indian Institute of Technology Kharagpur,nan,Recommender Systems,1
 Information Technologies Institute,nan,General Fairness & Bias Mitigation,1
 Information Technology University,nan,Health & Clinical AI,1
 Institut d'Etudes Politiques de Paris,nan,General Fairness & Bias Mitigation,1
-Institute for Infocomm Research,nan,General Fairness & Bias Mitigation,2
+Institute for Infocomm Research,nan,General Fairness & Bias Mitigation,1
 Institute for Infocomm Research,nan,Graph-Based Fairness & Bias Mitigation,1
 Institute of Computing Technology,nan,General Fairness & Bias Mitigation,1
 Institute of Science and Technology Austria,nan,General Fairness & Bias Mitigation,1
@@ -183,10 +184,11 @@ Luxembourg Institute of Science & Technology,nan,Graph-Based Fairness & Bias Mit
 Luxembourg Institute of Science and Technology,nan,Recommender Systems,1
 MIT,Global,General Fairness & Bias Mitigation,1
 MIT,Global,Health & Clinical AI,1
-MIT,nan,General Fairness & Bias Mitigation,5
+MIT,nan,General Fairness & Bias Mitigation,4
 MIT,nan,Health & Clinical AI,4
 MIT,nan,LLMs & NLP,2
 MKSSS's Cummins College of Engineering for Women,Global,LLMs & NLP,1
+MPI for Software Systems,nan,Recommender Systems,1
 Macquarie University,Global,Health & Clinical AI,1
 Mastercard,nan,LLMs & NLP,1
 Max Planck Institute for Software Systems,Global,General Fairness & Bias Mitigation,1
@@ -194,6 +196,7 @@ Max Planck Institute for Software Systems,nan,General Fairness & Bias Mitigation
 McGill University,nan,Health & Clinical AI,1
 McGill University,nan,LLMs & NLP,1
 Mentor,nan,Health & Clinical AI,1
+Meta AI Research,nan,General Fairness & Bias Mitigation,1
 Michigan State University,Global,General Fairness & Bias Mitigation,1
 Michigan State University,nan,LLMs & NLP,1
 Michigan Technological University,nan,General Fairness & Bias Mitigation,1
@@ -207,7 +210,7 @@ Middle Tennessee State University,nan,Health & Clinical AI,1
 Middle Tennessee State University,nan,LLMs & NLP,1
 Mila - Quebec Artificial Intelligence Institute,nan,LLMs & NLP,1
 Mohammed First University,nan,Health & Clinical AI,1
-Morgan State University,nan,General Fairness & Bias Mitigation,2
+Morgan State University,nan,General Fairness & Bias Mitigation,1
 Munich Center for Machine Learning,nan,General Fairness & Bias Mitigation,2
 N/A,nan,General Fairness & Bias Mitigation,1
 Nanjing University,nan,LLMs & NLP,1
@@ -217,7 +220,7 @@ National Taiwan University,nan,LLMs & NLP,1
 National University of Singapore,nan,General Fairness & Bias Mitigation,2
 National University of Singapore,nan,Health & Clinical AI,1
 National Yang Ming Chiao Tung University,nan,LLMs & NLP,1
-New York City Health and Hospitals Corporation,nan,Health & Clinical AI,2
+New York City Health and Hospitals Corporation,nan,Health & Clinical AI,1
 New York University,nan,General Fairness & Bias Mitigation,5
 New York University,nan,Health & Clinical AI,1
 Nokia (United Kingdom),nan,General Fairness & Bias Mitigation,1
@@ -235,17 +238,18 @@ Osaka City University Hospital,nan,Health & Clinical AI,1
 Osaka University,nan,LLMs & NLP,1
 PES University,nan,Health & Clinical AI,2
 Palo Alto University,nan,General Fairness & Bias Mitigation,1
-Palo Alto University,nan,Health & Clinical AI,1
 Palo Alto University,nan,LLMs & NLP,1
 Pandit Deendayal Petroleum University,nan,LLMs & NLP,1
 Partners In Health,nan,General Fairness & Bias Mitigation,1
+Partnership on AI,nan,General Fairness & Bias Mitigation,1
 Peking University,nan,LLMs & NLP,3
 Pennsylvania State University,nan,General Fairness & Bias Mitigation,2
 Pennsylvania State University,nan,Graph-Based Fairness & Bias Mitigation,1
+Pinterest Inc,nan,Recommender Systems,1
 Politecnico di Milano,nan,General Fairness & Bias Mitigation,1
 Politecnico di Torino,nan,General Fairness & Bias Mitigation,1
 Polytechnic University of Bari,nan,Recommender Systems,2
-Princeton University,nan,General Fairness & Bias Mitigation,6
+Princeton University,nan,General Fairness & Bias Mitigation,5
 Princeton University,nan,LLMs & NLP,1
 Purdue University West Lafayette,nan,Health & Clinical AI,1
 Pwani University,nan,Health & Clinical AI,1
@@ -371,6 +375,7 @@ University of California Berkeley,nan,General Fairness & Bias Mitigation,1
 University of California Davis,nan,General Fairness & Bias Mitigation,1
 University of California San Diego,nan,General Fairness & Bias Mitigation,2
 University of California San Diego,nan,LLMs & NLP,1
+University of California Santa Barbara,nan,LLMs & NLP,1
 "University of California, San Francisco",nan,Health & Clinical AI,1
 "University of California, Santa Barbara",nan,General Fairness & Bias Mitigation,1
 University of Cambridge,nan,General Fairness & Bias Mitigation,7
@@ -417,7 +422,7 @@ University of Massachusetts Amherst,nan,General Fairness & Bias Mitigation,2
 University of Massachusetts Boston,nan,General Fairness & Bias Mitigation,1
 University of Melbourne,nan,LLMs & NLP,1
 University of Michigan,USA,Health & Clinical AI,1
-University of Michigan,nan,General Fairness & Bias Mitigation,11
+University of Michigan,nan,General Fairness & Bias Mitigation,9
 University of Michigan,nan,Health & Clinical AI,1
 University of Michigan,nan,LLMs & NLP,1
 University of Milano-Bicocca,nan,General Fairness & Bias Mitigation,1
@@ -472,7 +477,7 @@ University of West London,nan,Health & Clinical AI,1
 University of Wisconsin-Madison,nan,General Fairness & Bias Mitigation,2
 University of Wollongong,Australia,General Fairness & Bias Mitigation,1
 University of Zurich,Global,General Fairness & Bias Mitigation,2
-University of Zurich,nan,General Fairness & Bias Mitigation,4
+University of Zurich,nan,General Fairness & Bias Mitigation,3
 University of the Aegean,nan,Graph-Based Fairness & Bias Mitigation,2
 Università di Camerino,nan,Health & Clinical AI,1
 Universität der Bundeswehr München,nan,General Fairness & Bias Mitigation,1
@@ -486,7 +491,7 @@ Vanderbilt University,nan,Health & Clinical AI,1
 Vanderbilt University,nan,Recommender Systems,1
 Vector Institute,nan,Health & Clinical AI,1
 VinUniversity,nan,LLMs & NLP,1
-Virginia Tech,nan,General Fairness & Bias Mitigation,2
+Virginia Tech,nan,General Fairness & Bias Mitigation,1
 Virginia Tech,nan,Health & Clinical AI,1
 Volkswagen Group,nan,General Fairness & Bias Mitigation,1
 Vrije Universiteit Brussel,nan,Recommender Systems,1

@@ -64,6 +64,7 @@ print(f'  Domain counts: {df["Domain"].value_counts().to_dict()}')
 all_embeddings = {}  # key -> np array (for domain separation stats)
 all_silhouettes = {}  # key -> silhouette score at best params
 all_grid_results = {}  # key -> full grid results list
+all_best_params = {}  # key -> (n_neighbors, min_dist) at best silhouette
 domain_labels = df['Domain'].values
 
 for model_id, key, prefix in MODELS:
@@ -96,6 +97,7 @@ for model_id, key, prefix in MODELS:
     coords = best['coords']
     all_silhouettes[key] = best['silhouette']
     all_grid_results[key] = grid_results
+    all_best_params[key] = (best['n_neighbors'], best['min_dist'])
     df[f'umap_x_{key}'] = coords[:, 0]
     df[f'umap_y_{key}'] = coords[:, 1]
 
@@ -246,7 +248,8 @@ for ax_hdb, metric, label, fmt in zip(
                             color='black' if val < 0.85 * np.nanmax(matrix) else 'white')
     fig_hdb.colorbar(im, ax=ax_hdb, shrink=0.8, label=label)
 
-fig_hdb.suptitle('HDBSCAN Grid Search — MPNet 2D Coords (n_neighbors=10, min_dist=0.0)',
+_mpnet_nn, _mpnet_md = all_best_params['mpnet']
+fig_hdb.suptitle(f'HDBSCAN Grid Search — MPNet 2D Coords (n_neighbors={_mpnet_nn}, min_dist={_mpnet_md})',
                  fontsize=14, fontweight='bold')
 fig_hdb.tight_layout()
 hdb_path = OUT_DIR / 'hdbscan_grid_search.png'
@@ -294,6 +297,7 @@ print('Saved figure: cluster_selection.png')
 from sklearn.metrics.pairwise import cosine_similarity
 
 print('\n=== Domain separation (mean intra- vs inter-domain cosine similarity) ===')
+domain_separation_rows = []
 for model_id, key, _ in MODELS:
     emb = all_embeddings[key]
     print(f'\n  [{key}]')
@@ -305,6 +309,10 @@ for model_id, key, _ in MODELS:
         intra = cosine_similarity(emb[idx_in]).mean()
         inter = cosine_similarity(emb[idx_in], emb[idx_out]).mean()
         print(f'  {domain[:40]:40s}  intra={intra:.3f}  inter={inter:.3f}  diff={intra-inter:.3f}')
+        domain_separation_rows.append({'model': key, 'domain': domain,
+                                        'intra_cosine_sim': round(intra, 4),
+                                        'inter_cosine_sim': round(inter, 4),
+                                        'diff': round(intra - inter, 4)})
 
 print('\n=== Top cited paper per domain ===')
 for domain in DOMAIN_COLORS:
@@ -312,3 +320,35 @@ for domain in DOMAIN_COLORS:
     if len(sub):
         top = sub.iloc[0]
         print(f'  {domain[:35]:35s}: {str(top["Paper Title"])[:55]} — {top["cited_by_count"]} citations')
+
+# ── Export all grid-search / silhouette / domain-separation stats to CSV ──────
+embedding_grid_rows = []
+for _, key, _ in MODELS:
+    best_nn, best_md = all_best_params[key]
+    for r in all_grid_results[key]:
+        embedding_grid_rows.append({
+            'model': key,
+            'n_neighbors': r['n_neighbors'],
+            'min_dist': r['min_dist'],
+            'embedding_silhouette': round(r['silhouette'], 4),
+            'is_best_for_model': (r['n_neighbors'] == best_nn and r['min_dist'] == best_md),
+        })
+pd.DataFrame(embedding_grid_rows).to_csv(OUT_DIR / 'embedding_grid_search_summary.csv', index=False)
+print(f"\nSaved: {OUT_DIR / 'embedding_grid_search_summary.csv'}")
+
+hdbscan_grid_rows = [{'mcs': r['mcs'], 'ms': r['ms'], 'n_clusters': r['n_clusters'],
+                       'n_noise': r['n_noise'], 'clustering_silhouette': round(r['silhouette'], 4) if not np.isnan(r['silhouette']) else None}
+                      for r in hdb_results]
+pd.DataFrame(hdbscan_grid_rows).to_csv(OUT_DIR / 'hdbscan_grid_search_summary.csv', index=False)
+print(f"Saved: {OUT_DIR / 'hdbscan_grid_search_summary.csv'}")
+
+pd.DataFrame(domain_separation_rows).to_csv(OUT_DIR / 'domain_separation_summary.csv', index=False)
+print(f"Saved: {OUT_DIR / 'domain_separation_summary.csv'}")
+
+best_summary_rows = []
+for _, key, _ in MODELS:
+    nn, md = all_best_params[key]
+    best_summary_rows.append({'model': key, 'best_n_neighbors': nn, 'best_min_dist': md,
+                               'embedding_silhouette': round(all_silhouettes[key], 4)})
+pd.DataFrame(best_summary_rows).to_csv(OUT_DIR / 'embedding_best_params_summary.csv', index=False)
+print(f"Saved: {OUT_DIR / 'embedding_best_params_summary.csv'}")

@@ -1,0 +1,68 @@
+metric,scope,value,notes
+n_papers,overall,692.0,
+median_citations,overall,9.0,
+mean_citations,overall,93.55,
+papers_with_citations_gt0,overall,558.0,
+papers_with_zero_citations,overall,134.0,
+internal_citation_edges,overall,1690.0,
+papers_cited_internally_ge1,overall,270.0,
+papers_citing_internally_ge1,overall,474.0,
+most_internally_cited_paper,overall,129.0,Fairness through awareness
+median_citations,domain: General Fairness & Bias Mitigation,13.0,n=319
+mean_citations,domain: General Fairness & Bias Mitigation,92.65,n=319
+max_citations,domain: General Fairness & Bias Mitigation,3331.0,
+median_citations,domain: Health & Clinical AI,10.0,n=115
+mean_citations,domain: Health & Clinical AI,160.0,n=115
+max_citations,domain: Health & Clinical AI,5913.0,
+median_citations,domain: LLMs & NLP,6.0,n=151
+mean_citations,domain: LLMs & NLP,86.62,n=151
+max_citations,domain: LLMs & NLP,5297.0,
+median_citations,domain: Recommender Systems,3.0,n=69
+mean_citations,domain: Recommender Systems,31.81,n=69
+max_citations,domain: Recommender Systems,603.0,
+median_citations,domain: Graph-Based Fairness & Bias Mitigation,2.5,n=38
+mean_citations,domain: Graph-Based Fairness & Bias Mitigation,39.58,n=38
+max_citations,domain: Graph-Based Fairness & Bias Mitigation,976.0,
+internal_citations_total,domain: Graph-Based Fairness & Bias Mitigation,42.0,
+global_citations_total,domain: Graph-Based Fairness & Bias Mitigation,1504.0,
+global_to_internal_ratio,domain: Graph-Based Fairness & Bias Mitigation,35.8,
+internal_citations_total,domain: Recommender Systems,95.0,
+global_citations_total,domain: Recommender Systems,2195.0,
+global_to_internal_ratio,domain: Recommender Systems,23.1,
+internal_citations_total,domain: Health & Clinical AI,240.0,
+global_citations_total,domain: Health & Clinical AI,18400.0,
+global_to_internal_ratio,domain: Health & Clinical AI,76.7,
+internal_citations_total,domain: LLMs & NLP,261.0,
+global_citations_total,domain: LLMs & NLP,13080.0,
+global_to_internal_ratio,domain: LLMs & NLP,50.1,
+internal_citations_total,domain: General Fairness & Bias Mitigation,1052.0,
+global_citations_total,domain: General Fairness & Bias Mitigation,29555.0,
+global_to_internal_ratio,domain: General Fairness & Bias Mitigation,28.1,
+median_citations,country: Canada,21.0,"n=35 (all-author, >=10 papers)"
+mean_citations,country: Canada,271.69,"n=35 (all-author, >=10 papers)"
+median_citations,country: Austria,19.0,"n=12 (all-author, >=10 papers)"
+mean_citations,country: Austria,86.33,"n=12 (all-author, >=10 papers)"
+median_citations,country: Spain,17.0,"n=14 (all-author, >=10 papers)"
+mean_citations,country: Spain,25.93,"n=14 (all-author, >=10 papers)"
+median_citations,country: United Kingdom,14.0,"n=79 (all-author, >=10 papers)"
+mean_citations,country: United Kingdom,65.14,"n=79 (all-author, >=10 papers)"
+median_citations,country: USA,13.0,"n=389 (all-author, >=10 papers)"
+mean_citations,country: USA,136.32,"n=389 (all-author, >=10 papers)"
+median_citations,country: Switzerland,12.0,"n=19 (all-author, >=10 papers)"
+mean_citations,country: Switzerland,92.84,"n=19 (all-author, >=10 papers)"
+median_citations,country: France,8.0,"n=25 (all-author, >=10 papers)"
+mean_citations,country: France,29.52,"n=25 (all-author, >=10 papers)"
+median_citations,country: Germany,8.0,"n=60 (all-author, >=10 papers)"
+mean_citations,country: Germany,41.37,"n=60 (all-author, >=10 papers)"
+median_citations,country: Netherlands,7.0,"n=31 (all-author, >=10 papers)"
+mean_citations,country: Netherlands,22.29,"n=31 (all-author, >=10 papers)"
+median_citations,country: Denmark,5.5,"n=10 (all-author, >=10 papers)"
+mean_citations,country: Denmark,38.2,"n=10 (all-author, >=10 papers)"
+median_citations,country: Italy,4.0,"n=27 (all-author, >=10 papers)"
+mean_citations,country: Italy,24.07,"n=27 (all-author, >=10 papers)"
+median_citations,country: Australia,3.0,"n=20 (all-author, >=10 papers)"
+mean_citations,country: Australia,46.8,"n=20 (all-author, >=10 papers)"
+median_citations,country: China,2.0,"n=60 (all-author, >=10 papers)"
+mean_citations,country: China,23.48,"n=60 (all-author, >=10 papers)"
+median_citations,country: India,1.0,"n=25 (all-author, >=10 papers)"
+mean_citations,country: India,56.64,"n=25 (all-author, >=10 papers)"

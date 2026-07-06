@@ -34,7 +34,7 @@ DOMAIN_COLORS = {
 print('Loading data...')
 enriched = pd.read_csv(ENRICHED)
 corpus   = pd.read_csv(CORPUS)
-df = enriched.merge(corpus[['SN', 'Paper Title', 'DOI', 'Domain', 'Year']], on='SN', how='left')
+df = enriched.merge(corpus[['SN', 'Paper Title', 'DOI', 'Domain', 'Year', 'Author Regions', 'Authors']], on='SN', how='left')
 df['cited_by_count'] = pd.to_numeric(df['cited_by_count'], errors='coerce').fillna(0).astype(int)
 df['Year'] = pd.to_numeric(df['Year'], errors='coerce')
 print(f'  {len(df)} papers loaded')
@@ -86,7 +86,7 @@ DOMAIN_SHORT = {
     'Recommender Systems':                      'Recommender\nSystems',
 }
 
-fig, ax = plt.subplots(figsize=(13, 6))
+fig, ax = plt.subplots(figsize=(16, 8))
 domains_ordered = sorted(DOMAIN_COLORS.keys(),
                          key=lambda d: df[df['Domain']==d]['cited_by_count'].median(),
                          reverse=True)
@@ -95,8 +95,8 @@ colors = [DOMAIN_COLORS[d] for d in domains_ordered]
 labels = [f"{DOMAIN_SHORT.get(d, d)}\n(n={len(df[df['Domain']==d])})" for d in domains_ordered]
 
 bp = ax.boxplot(data, patch_artist=True, showfliers=True,
-                flierprops=dict(marker='o', markersize=3, alpha=0.4),
-                medianprops=dict(color='black', linewidth=1.5))
+                flierprops=dict(marker='o', markersize=4, alpha=0.4),
+                medianprops=dict(color='black', linewidth=2))
 for i, (patch, color, d) in enumerate(zip(bp['boxes'], colors, domains_ordered)):
     patch.set_facecolor(color)
     patch.set_alpha(0.75)
@@ -104,15 +104,16 @@ for i, (patch, color, d) in enumerate(zip(bp['boxes'], colors, domains_ordered))
     med  = vals.median()
     top  = vals.max()
     # Median label above box
-    ax.text(i + 1, med * 1.3, f'median={int(med)}',
-            ha='center', va='bottom', fontsize=12, fontweight='bold', color='#222')
+    ax.text(i + 1, med * 1.3, f'median={med:.1f}' if med != int(med) else f'median={int(med)}',
+            ha='center', va='bottom', fontsize=15, fontweight='bold', color='#222')
     # Top outlier label
     ax.text(i + 1, top * 1.05, f'{int(top):,}',
-            ha='center', va='bottom', fontsize=12, fontweight='bold', color='#333',
+            ha='center', va='bottom', fontsize=14, fontweight='bold', color='#333',
             bbox=dict(boxstyle='round,pad=0.2', fc='white', alpha=0.7, ec='none'))
 
-ax.set_xticklabels(labels, fontsize=14, linespacing=1.3)
-ax.set_ylabel('Global citation count', fontsize=16)
+ax.set_xticklabels(labels, fontsize=16, linespacing=1.4)
+ax.tick_params(axis='y', labelsize=14)
+ax.set_ylabel('Global citation count', fontsize=18)
 # ax.set_title('Global Citation Distribution by Domain\n(cited_by_count from OpenAlex — all academic literature)', fontsize=14, fontweight='bold', pad=10)
 ax.set_yscale('symlog', linthresh=10)
 ax.yaxis.grid(True, alpha=0.3)
@@ -157,11 +158,21 @@ print('  Saved: citation_top15.png')
 
 # ── 4. EXTERNAL: Citation counts by region ─────────────────────────────────────
 print('\n=== Regional citation analysis ===')
+_SKIP = {'', 'nan', 'none', 'unknown', 'global', 'n/a', 'na'}
+
 rows_country = []
 for _, row in df.iterrows():
-    countries_raw = str(row.get('openalex_countries', '') or '')
-    countries = list({c.strip() for c in countries_raw.split(';') if c.strip()})
-    for c in countries:
+    regions_raw = [c.strip() for c in str(row.get('Author Regions', '') or '').split(';')]
+    authors_raw = [a.strip() for a in str(row.get('Authors', '') or '').split(';')]
+    # align lengths
+    if len(regions_raw) < len(authors_raw):
+        regions_raw += [''] * (len(authors_raw) - len(regions_raw))
+    else:
+        regions_raw = regions_raw[:len(authors_raw)]
+    # only keep pairs where author is non-empty and country is valid
+    valid_countries = {r for a, r in zip(authors_raw, regions_raw)
+                       if len(a) > 0 and r.lower() not in _SKIP}
+    for c in valid_countries:
         rows_country.append({'country': c, 'cited_by_count': row['cited_by_count'], 'SN': row['SN']})
 
 cdf = pd.DataFrame(rows_country)
@@ -171,9 +182,9 @@ country_stats = cdf.groupby('country').agg(
     median_citations=('cited_by_count', 'median'),
     mean_citations=('cited_by_count', 'mean'),
 ).reset_index()
-country_stats = country_stats[country_stats['paper_count'] >= 5].sort_values('median_citations', ascending=False)
+country_stats = country_stats[country_stats['paper_count'] >= 10].sort_values('median_citations', ascending=False)
 
-print('  Top 15 countries by median citations (min 5 papers):')
+print('  Top 15 countries by median citations (min 10 papers):')
 for _, row in country_stats.head(15).iterrows():
     print(f"  {row['country']:30s}  papers={int(row['paper_count']):3d}  median={row['median_citations']:.0f}  mean={row['mean_citations']:.0f}")
 
@@ -181,8 +192,12 @@ fig, axes = plt.subplots(1, 2, figsize=(14, 6))
 
 # Left: paper count
 top_n = country_stats.nlargest(15, 'paper_count')
-axes[0].barh(top_n['country'], top_n['paper_count'], color='#457b9d', alpha=0.8)
+bars_l = axes[0].barh(top_n['country'], top_n['paper_count'], color='#457b9d', alpha=0.8)
 axes[0].invert_yaxis()
+for bar, val in zip(bars_l, top_n['paper_count']):
+    axes[0].text(bar.get_width() + 0.5, bar.get_y() + bar.get_height()/2,
+                 str(int(val)), va='center', fontsize=12, fontweight='bold')
+axes[0].margins(x=0.12)
 axes[0].set_xlabel('Number of papers', fontsize=15)
 axes[0].set_title('Papers per Country (top 15)', fontsize=15, fontweight='bold')
 axes[0].xaxis.grid(True, alpha=0.3)
@@ -190,10 +205,14 @@ axes[0].tick_params(labelsize=14)
 
 # Right: median citations
 top_n2 = country_stats.nlargest(15, 'median_citations')
-axes[1].barh(top_n2['country'], top_n2['median_citations'], color='#e63946', alpha=0.8)
+bars_r = axes[1].barh(top_n2['country'], top_n2['median_citations'], color='#e63946', alpha=0.8)
 axes[1].invert_yaxis()
+for bar, val in zip(bars_r, top_n2['median_citations']):
+    axes[1].text(bar.get_width() + 0.5, bar.get_y() + bar.get_height()/2,
+                 str(int(val)), va='center', fontsize=12, fontweight='bold')
+axes[1].margins(x=0.12)
 axes[1].set_xlabel('Median citation count', fontsize=15)
-axes[1].set_title('Median Citations per Country (top 15, min 5 papers)', fontsize=15, fontweight='bold')
+axes[1].set_title('Median Citations per Country (top 15, min 10 papers)', fontsize=15, fontweight='bold')
 axes[1].xaxis.grid(True, alpha=0.3)
 axes[1].tick_params(labelsize=14)
 
@@ -276,7 +295,7 @@ for bar, val in zip(bars1, total_internal):
 ax1.set_yticks(y)
 ax1.set_yticklabels([d.replace(' & ', '\n& ') for d in domain_order], fontsize=14)
 ax1.set_xlabel('Total citations received\nfrom other papers in this corpus', fontsize=15)
-ax1.set_title('Internal Citations\n(within 704-paper corpus)', fontsize=15, fontweight='bold')
+ax1.set_title(f'Internal Citations\n(within {len(df)}-paper corpus)', fontsize=15, fontweight='bold')
 ax1.tick_params(axis='x', labelsize=14)
 ax1.xaxis.grid(True, alpha=0.25)
 ax1.set_axisbelow(True)
@@ -312,3 +331,37 @@ print(f'  Total internal citation edges: {len(edges_df)}')
 print(f'  Papers cited internally ≥1x:   {(dag_nodes["in_degree_corpus"] >= 1).sum()}')
 print(f'  Papers citing internally ≥1x:  {(dag_nodes["out_degree_corpus"] >= 1).sum()}')
 print(f'  Most cited internally:         {dag_nodes.iloc[0]["Paper Title"][:60]} (in={dag_nodes.iloc[0]["in_degree_corpus"]})')
+
+# ── 8. Export all summary stats to CSV (everything printed above, machine-readable) ──
+summary_rows = []
+
+summary_rows.append({'metric': 'n_papers', 'scope': 'overall', 'value': len(df), 'notes': ''})
+summary_rows.append({'metric': 'median_citations', 'scope': 'overall', 'value': df['cited_by_count'].median(), 'notes': ''})
+summary_rows.append({'metric': 'mean_citations', 'scope': 'overall', 'value': round(df['cited_by_count'].mean(), 2), 'notes': ''})
+summary_rows.append({'metric': 'papers_with_citations_gt0', 'scope': 'overall', 'value': int((df['cited_by_count'] > 0).sum()), 'notes': ''})
+summary_rows.append({'metric': 'papers_with_zero_citations', 'scope': 'overall', 'value': int((df['cited_by_count'] == 0).sum()), 'notes': ''})
+summary_rows.append({'metric': 'internal_citation_edges', 'scope': 'overall', 'value': len(edges_df), 'notes': ''})
+summary_rows.append({'metric': 'papers_cited_internally_ge1', 'scope': 'overall', 'value': int((dag_nodes['in_degree_corpus'] >= 1).sum()), 'notes': ''})
+summary_rows.append({'metric': 'papers_citing_internally_ge1', 'scope': 'overall', 'value': int((dag_nodes['out_degree_corpus'] >= 1).sum()), 'notes': ''})
+summary_rows.append({'metric': 'most_internally_cited_paper', 'scope': 'overall', 'value': int(dag_nodes.iloc[0]['in_degree_corpus']), 'notes': dag_nodes.iloc[0]['Paper Title'][:80]})
+
+for d in domains_ordered:
+    sub = df[df['Domain'] == d]
+    summary_rows.append({'metric': 'median_citations', 'scope': f'domain: {d}', 'value': sub['cited_by_count'].median(), 'notes': f'n={len(sub)}'})
+    summary_rows.append({'metric': 'mean_citations', 'scope': f'domain: {d}', 'value': round(sub['cited_by_count'].mean(), 2), 'notes': f'n={len(sub)}'})
+    summary_rows.append({'metric': 'max_citations', 'scope': f'domain: {d}', 'value': int(sub['cited_by_count'].max()), 'notes': ''})
+
+for d, ti, tg in zip(domain_order, total_internal, total_global):
+    ratio = round(tg / ti, 1) if ti else None
+    summary_rows.append({'metric': 'internal_citations_total', 'scope': f'domain: {d}', 'value': ti, 'notes': ''})
+    summary_rows.append({'metric': 'global_citations_total', 'scope': f'domain: {d}', 'value': tg, 'notes': ''})
+    summary_rows.append({'metric': 'global_to_internal_ratio', 'scope': f'domain: {d}', 'value': ratio, 'notes': ''})
+
+for _, row in country_stats.iterrows():
+    summary_rows.append({'metric': 'median_citations', 'scope': f'country: {row["country"]}', 'value': row['median_citations'], 'notes': f'n={int(row["paper_count"])} (all-author, >=10 papers)'})
+    summary_rows.append({'metric': 'mean_citations', 'scope': f'country: {row["country"]}', 'value': round(row['mean_citations'], 2), 'notes': f'n={int(row["paper_count"])} (all-author, >=10 papers)'})
+
+summary_df = pd.DataFrame(summary_rows)
+summary_csv = OUT_DIR / 'citation_summary.csv'
+summary_df.to_csv(summary_csv, index=False)
+print(f'\nSaved all summary stats to: {summary_csv}')

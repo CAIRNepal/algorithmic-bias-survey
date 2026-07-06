@@ -1,0 +1,16 @@
+model,domain,intra_cosine_sim,inter_cosine_sim,diff
+minilm,Health & Clinical AI,0.4395,0.3302,0.1094
+minilm,General Fairness & Bias Mitigation,0.3918,0.3345,0.0574
+minilm,Graph-Based Fairness & Bias Mitigation,0.4297,0.3415,0.0882
+minilm,LLMs & NLP,0.3941,0.3105,0.0836
+minilm,Recommender Systems,0.4894,0.3148,0.1746
+mpnet,Health & Clinical AI,0.5121,0.3915,0.1206
+mpnet,General Fairness & Bias Mitigation,0.4784,0.401,0.0774
+mpnet,Graph-Based Fairness & Bias Mitigation,0.4977,0.4156,0.0822
+mpnet,LLMs & NLP,0.456,0.3654,0.0906
+mpnet,Recommender Systems,0.5652,0.3776,0.1876
+specter,Health & Clinical AI,0.7614,0.701,0.0604
+specter,General Fairness & Bias Mitigation,0.7399,0.7034,0.0365
+specter,Graph-Based Fairness & Bias Mitigation,0.7308,0.6944,0.0364
+specter,LLMs & NLP,0.7505,0.6992,0.0513
+specter,Recommender Systems,0.791,0.6812,0.1098

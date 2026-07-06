@@ -216,16 +216,25 @@ const BiasResearchDashboard = () => {
   });
   const firstAuthorRegionData = Object.entries(firstAuthorRegionMap).map(([region, count]) => ({ region, count }));
 
-  const allAuthorsRegionMap: Record<string, number> = {};
+  const allAuthorsRegionUniqueMap: Record<string, Set<string>> = {};
   validPapers.forEach((paper) => {
     const authorRegions = (String(paper["Author Regions"] || "") || "").trim();
-    if (authorRegions) {
+    const authors = (String(paper["Authors"] || "") || "").trim();
+    if (authorRegions && authors) {
       const regions = authorRegions.split(";").map((r) => r.trim()).filter(Boolean);
-      regions.forEach((region) => {
-        if (region) allAuthorsRegionMap[region] = (allAuthorsRegionMap[region] || 0) + 1;
+      const authorList = authors.split(";").map((a) => a.trim()).filter(Boolean);
+      regions.forEach((region, i) => {
+        const author = authorList[i] || "";
+        if (region && author) {
+          if (!allAuthorsRegionUniqueMap[region]) allAuthorsRegionUniqueMap[region] = new Set();
+          allAuthorsRegionUniqueMap[region].add(author);
+        }
       });
     }
   });
+  const allAuthorsRegionMap: Record<string, number> = Object.fromEntries(
+    Object.entries(allAuthorsRegionUniqueMap).map(([region, authors]) => [region, authors.size])
+  );
   const allAuthorsRegionData = Object.entries(allAuthorsRegionMap).map(([region, count]) => ({ region, count }));
 
   const domainMap: Record<string, number> = {};
@@ -280,30 +289,35 @@ const BiasResearchDashboard = () => {
     firstAuthorOnly: boolean
   ): Record<string, { domain: string; count: number; papers: string[]; domainBreakdown: Record<string, number> }> => {
     const countryDomainMap: {
-      [key: string]: { domain: string; count: number; papers: string[]; domainBreakdown: { [domain: string]: number } };
+      [key: string]: { domain: string; count: number; papers: string[]; domainBreakdown: { [domain: string]: number }; uniqueAuthors: Set<string> };
     } = {};
 
     validPapers.forEach((paper) => {
       const authorRegions = (String(paper["Author Regions"] || "") || "").trim();
+      const authorNames = (String(paper["Authors"] || "") || "").trim();
       const domain = (String(paper["Domain"] || "") || "").trim();
       const title = paper["Paper Title"] || "Unknown";
 
       if (authorRegions && domain) {
         let regions: string[];
+        let authors: string[];
         if (firstAuthorOnly) {
           const firstRegion = authorRegions.split(";")[0].trim();
           regions = firstRegion ? [firstRegion] : [];
+          authors = [authorNames.split(";")[0].trim()];
         } else {
           regions = authorRegions.split(";").map((r) => r.trim()).filter(Boolean);
+          authors = authorNames.split(";").map((a) => a.trim()).filter(Boolean);
         }
 
-        regions.forEach((region: string) => {
+        regions.forEach((region: string, i: number) => {
           const countryName = authorRegionToCountryMap[region];
+          const author = authors[i] || "";
           if (countryName) {
             if (!countryDomainMap[countryName]) {
-              countryDomainMap[countryName] = { domain: "", count: 0, papers: [], domainBreakdown: {} };
+              countryDomainMap[countryName] = { domain: "", count: 0, papers: [], domainBreakdown: {}, uniqueAuthors: new Set() };
             }
-            countryDomainMap[countryName].count++;
+            if (author) countryDomainMap[countryName].uniqueAuthors.add(author);
             countryDomainMap[countryName].papers.push(title);
             if (!countryDomainMap[countryName].domainBreakdown[domain]) {
               countryDomainMap[countryName].domainBreakdown[domain] = 0;
@@ -314,6 +328,11 @@ const BiasResearchDashboard = () => {
           }
         });
       }
+    });
+
+    // Set count to unique author names per country
+    Object.keys(countryDomainMap).forEach((countryName) => {
+      countryDomainMap[countryName].count = countryDomainMap[countryName].uniqueAuthors.size;
     });
 
     Object.keys(countryDomainMap).forEach((countryName: string) => {
@@ -993,7 +1012,7 @@ const BiasResearchDashboard = () => {
                               }}
                               onMouseEnter={() => {
                                 if (countryData) {
-                                  let tooltipContent = `${countryName}\nAuthor Contributions: ${countryData.count}\n\n`;
+                                  let tooltipContent = `${countryName}\nUnique Authors: ${countryData.count}\n\n`;
 
                                   if (selectedDomains.length > 0) {
                                     const countryPapers = validPapers.filter((p) => {

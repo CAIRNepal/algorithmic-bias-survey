@@ -24,7 +24,7 @@ warnings.filterwarnings("ignore")
 BASE_DIR = Path(__file__).resolve().parent
 INPUT_CSV = BASE_DIR / "papers_new.csv"
 # INPUT_CSV = "papers.csv"
-OUT_DIR = "figures_new"; os.makedirs(OUT_DIR, exist_ok=True)
+OUT_DIR = BASE_DIR / "figures_new"; os.makedirs(OUT_DIR, exist_ok=True)
 
 TOP_COUNTRIES = 20      # set None for all
 TOP_DOMAINS   = None    # set None for all

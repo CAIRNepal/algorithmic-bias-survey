@@ -1,0 +1,19 @@
+domain,cluster,count,pct_of_domain
+Health & Clinical AI,0,1,0.9
+Health & Clinical AI,1,93,80.9
+Health & Clinical AI,2,13,11.3
+Health & Clinical AI,-1,8,7.0
+LLMs & NLP,0,1,0.7
+LLMs & NLP,1,6,4.0
+LLMs & NLP,2,136,90.1
+LLMs & NLP,-1,8,5.3
+General Fairness & Bias Mitigation,0,15,4.7
+General Fairness & Bias Mitigation,1,16,5.0
+General Fairness & Bias Mitigation,2,287,90.0
+General Fairness & Bias Mitigation,-1,1,0.3
+Recommender Systems,0,59,85.5
+Recommender Systems,1,1,1.4
+Recommender Systems,2,9,13.0
+Graph-Based Fairness & Bias Mitigation,0,18,47.4
+Graph-Based Fairness & Bias Mitigation,1,1,2.6
+Graph-Based Fairness & Bias Mitigation,2,19,50.0

@@ -29,8 +29,8 @@ UMAP_N_NEIGHBORS = 15
 UMAP_MIN_DIST    = 0.1
 
 # HDBSCAN — same params as main analysis (isolates UMAP effect only)
-HDBSCAN_MCS = 15
-HDBSCAN_MS  = 3
+HDBSCAN_MCS = 20
+HDBSCAN_MS  = 10
 
 # ── Load data ─────────────────────────────────────────────────────────────────
 print('Loading data...')
@@ -106,8 +106,10 @@ if n_clusters >= 2 and mask.sum() > n_clusters:
             continue
         domain_clusters = cluster_labels[domain_mask]
         majority_cluster = pd.Series(domain_clusters).mode()[0]
-        majority_pct = (domain_clusters == majority_cluster).mean() * 100
-        print(f'  {domain:45s} → Cluster {majority_cluster} ({majority_pct:.1f}% of domain)')
+        # denominator = ALL papers in domain (incl. noise), matching the heatmap figure's convention
+        all_domain_mask = domain_labels == domain
+        majority_pct = (domain_clusters == majority_cluster).sum() / all_domain_mask.sum() * 100
+        print(f'  {domain:45s} → Cluster {majority_cluster} ({majority_pct:.1f}% of domain, all-domain denominator)')
 
     # ── Robustness heatmap ─────────────────────────────────────────────────
     DOMAIN_ORDER = [
@@ -169,6 +171,33 @@ if n_clusters >= 2 and mask.sum() > n_clusters:
     plt.savefig(out_dir / 'robustness_heatmap.png', dpi=200, bbox_inches='tight')
     plt.savefig(out_dir / 'robustness_heatmap.pdf', dpi=200, bbox_inches='tight')
     print(f'\nSaved: robustness_heatmap.png + .pdf')
+
+    # ── Export summary + domain-cluster crosstab to CSV (all-domain denominator) ──
+    summary_rows = [
+        {'metric': 'n_clusters', 'value': n_clusters},
+        {'metric': 'n_noise', 'value': int(n_noise)},
+        {'metric': 'noise_pct', 'value': round(100 * n_noise / len(cluster_labels), 2)},
+        {'metric': 'clustering_silhouette', 'value': round(sil, 4)},
+        {'metric': 'ARI_vs_domain', 'value': round(ari, 4)},
+        {'metric': 'NMI_vs_domain', 'value': round(nmi, 4)},
+        {'metric': 'umap_n_neighbors', 'value': UMAP_N_NEIGHBORS},
+        {'metric': 'umap_min_dist', 'value': UMAP_MIN_DIST},
+        {'metric': 'hdbscan_min_cluster_size', 'value': HDBSCAN_MCS},
+        {'metric': 'hdbscan_min_samples', 'value': HDBSCAN_MS},
+    ]
+    pd.DataFrame(summary_rows).to_csv(out_dir / 'robustness_clustering_summary.csv', index=False)
+    print(f"Saved: {out_dir / 'robustness_clustering_summary.csv'}")
+
+    crosstab_rows = []
+    for r, dom in enumerate(DOMAIN_ORDER):
+        for c, cid in enumerate(cluster_ids_sorted):
+            val = matrix[r, c]
+            if val == 0:
+                continue
+            pct = 100 * val / row_totals[r] if row_totals[r] > 0 else 0
+            crosstab_rows.append({'domain': dom, 'cluster': cid, 'count': int(val), 'pct_of_domain': round(pct, 1)})
+    pd.DataFrame(crosstab_rows).to_csv(out_dir / 'robustness_domain_cluster_crosstab.csv', index=False)
+    print(f"Saved: {out_dir / 'robustness_domain_cluster_crosstab.csv'}")
 
 else:
     print(f'\n  Cannot compute metrics: only {n_clusters} cluster(s) found.')

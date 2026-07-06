@@ -1,17 +1,17 @@
 # 🧠 BiasAtlas — an interactive atlas of AI bias research
 
-**Live atlas:** [https://cairnepal.github.io/biasatlas/](https://cairnepal.github.io/biasatlas/).&nbsp; **Companion paper:** *Whose fairness? Structural concentration in the foundations of AI bias research*
+**Live atlas:** [https://biasatlas.cair-nepal.org](https://biasatlas.cair-nepal.org).&nbsp; **Companion paper:** *Whose fairness? Structural concentration in the foundations of AI bias research*
 
 BiasAtlas is an interactive, continuously updatable map of the AI bias research
 landscape. It lets anyone explore who produces research on AI bias, where, in
 collaboration with whom, and on which themes — and to track how that structure
-shifts over time. The atlas accompanies our study of 704 publications
-(2015–2026) and turns a static bibliometric snapshot into a living resource the
+shifts over time. The atlas accompanies our study of 692 publications
+(2012–2026) and turns a static bibliometric snapshot into a living resource the
 community can browse, query, and contribute to.
 
 This work is part of [_**Bridging Minds and Machines: Human Perspectives and Responsible AI for an Inclusive Future**_](https://www.cair-nepal.org/research/projects/bridging-minds-and-machines-human-perspectives-and-responsible-ai-for-an-inclusive-future/) project.
 
-**Authors**: Abhash Shrestha, Subigya Gautam, Sanju Tiwari and Tek Raj Chhetri
+**Authors**: Abhash Shrestha, Subigya Gautam, Anu Sapkota, Sanju Tiwari and Tek Raj Chhetri
 
 
 ---
@@ -32,26 +32,22 @@ This work is part of [_**Bridging Minds and Machines: Human Perspectives and Res
   influence per domain and per paper.
 - **Temporal evolution** — how volume and thematic focus have changed year on
   year.
-- **Submit new work** — a form to nominate publications for inclusion so the
-  corpus stays current.
+- **Continuously growing corpus** — new publications are added over time to
+  keep the atlas current (see [Contributing](#contributing) to nominate one).
 
 
 
 
 ## 📄 Citation
 
-If you use this work, please cite it as:
-
-```bibtex
 If you use BiasAtlas or the underlying corpus, please cite:
 
 ```bibtex
 @article{shrestha_biasatlas,
   title   = {Whose fairness? Structural concentration in the foundations of AI bias research},
-  author  = {Shrestha, Abhash and Gautam, Subigya and Tiwari, Sanju and Chhetri, Tek Raj},
+  author  = {Shrestha, Abhash and Gautam, Subigya and Sapkota, Anu and Tiwari, Sanju and Chhetri, Tek Raj},
   year    = {2026},
-  note    = {Interactive atlas: https://atlas.cair-nepal.org},
-
+  note    = {Interactive atlas: https://biasatlas.cair-nepal.org},
 }
 ```
 
@@ -59,6 +55,7 @@ If you use BiasAtlas or the underlying corpus, please cite:
 
 - **Abhash Shrestha** — Center for AI Research (CAIR) Nepal *(corresponding)*
 - **Subigya Gautam** — Center for AI Research (CAIR) Nepal
+- **Anu Sapkota** — Center for AI Research (CAIR) Nepal
 - **Sanju Tiwari** — Sharda University, Delhi-NCR; Shodhguru Innovation and Research Labs
 - **Tek Raj Chhetri** — Center for AI Research (CAIR) Nepal; McGovern Institute for Brain Research, MIT *(corresponding | Supervisor)*
 
@@ -66,7 +63,7 @@ If you use BiasAtlas or the underlying corpus, please cite:
 
 ## Contributing
 
-Contributions are welcome — to nominate a publication for the corpus, use the in-atlas submission form or open an issue. For code or data-pipeline changes, please open a pull request describing the change and its effect on any precomputed layouts.
+Contributions are welcome — to nominate a publication for the corpus, open an issue with the paper's title, DOI, and thematic domain. To add papers yourself and open a PR, or to contribute code/pipeline changes, see [CONTRIBUTING.md](CONTRIBUTING.md) for the step-by-step process and common pitfalls.
 
 ## 📜 License
 

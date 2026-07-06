@@ -61,7 +61,7 @@ plt.rcParams.update({
 # ---------------- Config ----------------
 BASE_DIR = Path(__file__).resolve().parent
 INPUT_CSV = BASE_DIR / "papers_new.csv"
-OUT_DIR   = "figures_new"; os.makedirs(OUT_DIR, exist_ok=True)
+OUT_DIR   = BASE_DIR / "figures_new"; os.makedirs(OUT_DIR, exist_ok=True)
 OUT_PNG   = os.path.join(OUT_DIR, "country_collaboration_matrix.png")
 OUT_PDF   = os.path.join(OUT_DIR, "country_collaboration_matrix.pdf")
 

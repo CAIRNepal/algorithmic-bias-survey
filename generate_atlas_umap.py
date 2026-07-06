@@ -6,6 +6,7 @@ Output: dashboard/public/atlas_data.csv
 import csv
 from collections import Counter
 import numpy as np
+import pandas as pd
 
 print("Loading data…")
 
@@ -115,7 +116,7 @@ embeddings = all_embeddings["mpnet"]
 # ── 7. HDBSCAN clustering (on 2D coords for stability)
 from sklearn.cluster import HDBSCAN
 print("HDBSCAN clustering…")
-hdb = HDBSCAN(min_cluster_size=15, min_samples=3, metric="euclidean")
+hdb = HDBSCAN(min_cluster_size=20, min_samples=10, metric="euclidean")
 cluster_ids = hdb.fit_predict(coords_2d)
 n_clusters = len(set(cluster_ids)) - (1 if -1 in cluster_ids else 0)
 n_noise = (cluster_ids == -1).sum()
@@ -191,3 +192,51 @@ print("\nCluster labels:")
 for c, lbl in sorted(cluster_labels.items()):
     count = (cluster_ids == c).sum()
     print(f"  [{c:2d}] {count:3d}  {lbl}")
+
+# ── 10. ARI/NMI/silhouette summary (main clustering result), exported to CSV ──
+from sklearn.metrics import adjusted_rand_score, normalized_mutual_info_score, silhouette_score
+
+domain_labels = np.array([m["domain"] for m in merged])
+mask = cluster_ids != -1
+ari = adjusted_rand_score(domain_labels[mask], cluster_ids[mask])
+nmi = normalized_mutual_info_score(domain_labels[mask], cluster_ids[mask])
+clustering_sil = silhouette_score(coords_2d[mask], cluster_ids[mask])
+noise_pct = 100 * n_noise / len(merged)
+
+print(f"\nMain clustering result: {n_clusters} clusters, {n_noise} noise ({noise_pct:.1f}%), "
+      f"silhouette={clustering_sil:.4f}, ARI={ari:.4f}, NMI={nmi:.4f}")
+
+summary_rows = [
+    {"metric": "n_clusters", "value": n_clusters},
+    {"metric": "n_noise", "value": int(n_noise)},
+    {"metric": "noise_pct", "value": round(noise_pct, 2)},
+    {"metric": "clustering_silhouette", "value": round(clustering_sil, 4)},
+    {"metric": "ARI_vs_domain", "value": round(ari, 4)},
+    {"metric": "NMI_vs_domain", "value": round(nmi, 4)},
+    {"metric": "umap_n_neighbors", "value": 30},
+    {"metric": "umap_min_dist", "value": 0.0},
+    {"metric": "hdbscan_min_cluster_size", "value": 20},
+    {"metric": "hdbscan_min_samples", "value": 10},
+    {"metric": "n_papers_embedded", "value": len(merged)},
+]
+import csv as _csv
+summary_path = "evaluation/analysis/figures_new/main_clustering_summary.csv"
+with open(summary_path, "w", newline="") as f:
+    w = _csv.DictWriter(f, fieldnames=["metric", "value"])
+    w.writeheader()
+    w.writerows(summary_rows)
+print(f"Saved: {summary_path}")
+
+# Per-domain majority cluster (all-domain denominator, matches figure convention)
+domain_cluster_rows = []
+for dom in sorted(set(domain_labels)):
+    dom_mask = domain_labels == dom
+    dom_total = dom_mask.sum()
+    vc = pd.Series(cluster_ids[dom_mask]).value_counts()
+    for c, cnt in vc.items():
+        domain_cluster_rows.append({
+            "domain": dom, "cluster": int(c), "count": int(cnt),
+            "pct_of_domain": round(100 * cnt / dom_total, 1),
+        })
+pd.DataFrame(domain_cluster_rows).to_csv("evaluation/analysis/figures_new/main_domain_cluster_crosstab.csv", index=False)
+print("Saved: evaluation/analysis/figures_new/main_domain_cluster_crosstab.csv")

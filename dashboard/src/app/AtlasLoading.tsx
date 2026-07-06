@@ -50,7 +50,7 @@ export default function AtlasLoading() {
           </h2>
           <p className="text-sm text-gray-500 leading-relaxed">
             Generating semantic UMAP of{' '}
-            <span className="font-semibold text-blue-600">703 papers</span>{' '}
+            <span className="font-semibold text-blue-600">692 papers</span>{' '}
             on algorithmic bias &amp; fairness…
           </p>
         </div>

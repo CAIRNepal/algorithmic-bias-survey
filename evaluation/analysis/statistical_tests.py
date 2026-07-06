@@ -13,15 +13,12 @@ OUT_DIR.mkdir(parents=True, exist_ok=True)
 # ── Load & merge ──────────────────────────────────────────────────────────────
 corpus = pd.read_csv(CORPUS)
 enriched = pd.read_csv(ENRICHED)
-df = corpus.merge(enriched[['SN', 'cited_by_count', 'openalex_countries']], on='SN', how='left')
+df = corpus.merge(enriched[['SN', 'cited_by_count']], on='SN', how='left')
 df['cited_by_count'] = pd.to_numeric(df['cited_by_count'], errors='coerce').fillna(0).astype(int)
 
-# Expand countries (first listed = first author country)
-# Fallback to manual Author Regions when openalex_countries is empty
-df['countries_list'] = df.apply(
-    lambda r: [c.strip() for c in str(r['openalex_countries']).split(';') if c.strip() and c.strip() != 'nan']
-              or [c.strip() for c in str(r['Author Regions']).split(';') if c.strip() and c.strip() != 'nan'],
-    axis=1
+# Expand countries from manually curated Author Regions (primary source)
+df['countries_list'] = df['Author Regions'].apply(
+    lambda r: [c.strip() for c in str(r).split(';') if c.strip() and c.strip() != 'nan']
 )
 # Normalize UK variants
 df['countries_list'] = df['countries_list'].apply(
@@ -79,12 +76,12 @@ country_stats = df.groupby('first_author_country').agg(
     median_citation=('cited_by_count', 'median'),
     mean_citation=('cited_by_count', 'mean')
 ).reset_index()
-# Filter countries with >= 5 papers for meaningful comparison
-country_stats_filtered = country_stats[country_stats['paper_count'] >= 5].copy()
+# Filter countries with >= 10 papers for meaningful comparison
+country_stats_filtered = country_stats[country_stats['paper_count'] >= 10].copy()
 
 rho, p_spearman = stats.spearmanr(country_stats_filtered['paper_count'],
                                    country_stats_filtered['median_citation'])
-print(f"   Countries with >= 5 papers: {len(country_stats_filtered)}")
+print(f"   Countries with >= 10 papers: {len(country_stats_filtered)}")
 print(f"   Spearman rho: {rho:.4f}")
 print(f"   p-value:      {p_spearman:.4f}")
 print(f"   Interpretation: {'Volume and impact are decoupled' if p_spearman > 0.05 else 'Significant correlation exists'}")
@@ -115,6 +112,19 @@ gini_geo = gini(country_papers)
 print(f"   Geographic Gini (first-author country):  {gini_geo:.4f}")
 print(f"   Number of countries: {len(country_papers)}")
 print(f"   Top country share: {country_papers[0] / country_papers.sum() * 100:.1f}%")
+
+# Bootstrap CI for geographic Gini (resample individual papers, recompute country counts)
+_rng_gini = np.random.default_rng(42)
+_n = len(df)
+_gini_boot = np.array([
+    gini(df['first_author_country'].iloc[
+        _rng_gini.integers(0, _n, size=_n)
+    ].value_counts().values)
+    for _ in range(10000)
+])
+gini_ci_lo = np.percentile(_gini_boot, 2.5)
+gini_ci_hi = np.percentile(_gini_boot, 97.5)
+print(f"   Geographic Gini 95% Bootstrap CI (10,000 resamples): [{gini_ci_lo:.4f}, {gini_ci_hi:.4f}]")
 
 # Institutional Gini (from Affiliations column)
 affiliations = df['Affiliations'].dropna()
@@ -168,6 +178,46 @@ n_obs = contingency.sum().sum()
 k = min(contingency.shape)
 cramers_v = np.sqrt(chi2 / (n_obs * (k - 1)))
 
+# Check expected cell counts (chi-square assumption: expected >= 5)
+n_cells = expected.size
+n_cells_below5 = (expected < 5).sum()
+pct_below5 = 100 * n_cells_below5 / n_cells
+print(f"   Expected cell counts < 5: {n_cells_below5} of {n_cells} cells ({pct_below5:.1f}%)")
+
+# Monte Carlo p-value if >20% of cells have expected count < 5
+if pct_below5 > 20:
+    from scipy.stats import chi2_contingency
+    _, p_mc, _, _ = chi2_contingency(contingency, lambda_="pearson")
+    # scipy doesn't have built-in MC; use permutation instead
+    rng_chi = np.random.default_rng(42)
+    n_perm = 10000
+    chi2_null = []
+    obs = contingency.values
+    row_sums = obs.sum(axis=1)
+    col_sums = obs.sum(axis=0)
+    total = obs.sum()
+    for _ in range(n_perm):
+        # Generate random table with same marginals
+        perm_table = np.zeros_like(obs)
+        labels = np.repeat(np.arange(obs.shape[1]), col_sums)
+        rng_chi.shuffle(labels)
+        idx = 0
+        for r, rs in enumerate(row_sums):
+            row_labels = labels[idx:idx+rs]
+            for c in range(obs.shape[1]):
+                perm_table[r, c] = (row_labels == c).sum()
+            idx += rs
+        c2, _, _, _ = stats.chi2_contingency(perm_table)
+        chi2_null.append(c2)
+    p_mc = (np.array(chi2_null) >= chi2).mean()
+    print(f"   >20% cells below 5 — Monte Carlo p-value (10,000 permutations): {p_mc:.4f}")
+    p_chi2_report = p_mc
+    p_method = "Monte Carlo"
+else:
+    p_chi2_report = p_chi2
+    p_method = "asymptotic"
+    print(f"   <20% cells below 5 — asymptotic p-value is valid")
+
 print(f"   Countries included (>= 10 papers): {top_countries}")
 print(f"   Chi-square statistic: {chi2:.4f}")
 print(f"   Degrees of freedom:   {dof}")
@@ -202,7 +252,7 @@ for d in sorted(domains):
     med, lo, hi = bootstrap_ci(vals)
     print(f"   {d:45s}  median={med:6.0f}  95% CI=[{lo:.0f}, {hi:.0f}]  n={len(vals)}")
 
-print("\n   By country (>= 5 papers, first-author):")
+print("\n   By country (>= 10 papers, first-author):")
 for _, row in country_stats_filtered.sort_values('paper_count', ascending=False).iterrows():
     c = row['first_author_country']
     vals = df.loc[df['first_author_country'] == c, 'cited_by_count'].values
@@ -284,7 +334,7 @@ for i, d1 in enumerate(dunn.index):
 csv_rows.append({'test': 'Spearman correlation', 'scope': 'volume vs median citation',
                  'statistic': 'rho', 'value': round(rho, 4), 'p_value': f'{p_spearman:.4f}',
                  'effect_size': '', 'n': len(country_stats_filtered),
-                 'notes': f'Countries with >= 5 papers'})
+                 'notes': f'Countries with >= 10 papers'})
 
 # Test 3: Gini
 csv_rows.append({'test': 'Gini coefficient', 'scope': 'geographic (first-author country)',

@@ -1,0 +1,11 @@
+metric,value
+n_clusters,3.0
+n_noise,17.0
+noise_pct,2.46
+clustering_silhouette,0.5331
+ARI_vs_domain,0.3594
+NMI_vs_domain,0.4072
+umap_n_neighbors,15.0
+umap_min_dist,0.1
+hdbscan_min_cluster_size,20.0
+hdbscan_min_samples,10.0

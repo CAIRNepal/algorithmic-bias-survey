@@ -1,0 +1,4 @@
+model,best_n_neighbors,best_min_dist,embedding_silhouette
+minilm,15,0.0,0.2137
+mpnet,30,0.0,0.2564
+specter,10,0.05,0.2052

@@ -38,12 +38,12 @@ plt.rcParams.update({
 BASE_DIR = Path(__file__).resolve().parent
 INPUT_CSV = BASE_DIR / "papers_new.csv"
 # INPUT_CSV = "papers.csv" 
-OUT_DIR   = "figures_new"
+OUT_DIR   = BASE_DIR / "figures_new"
 os.makedirs(OUT_DIR, exist_ok=True)
 
 TOP = 15                       # show top N countries; remainder bucketed as "Other"
 KEEP_GLOBAL = False            # drop "Global" bucket by default
-COUNT_UNIQUE_AUTHORS = False    # True = unique people per country, False = all author rows (ALL-AUTHORS variant)
+COUNT_UNIQUE_AUTHORS = True     # True = unique people per country, False = all author rows (ALL-AUTHORS variant)
 SHOW_RATIO_LINE = False        # overlay Authors-per-Paper on a secondary axis
 
 # Font sizes (ALL AUTHORS only gets larger fonts)
@@ -364,6 +364,24 @@ def build_all_authors(df: pd.DataFrame) -> pd.DataFrame:
     out_csv = os.path.join(OUT_DIR, f"country_authors_papers_summary_all_{mode_suffix}.csv")
     summary.to_csv(out_csv, index=True)
     print("Saved:", out_csv)
+
+    # Per-author summary: papers count, countries, is_repeat
+    author_summary = (
+        dfe.groupby("Author")
+           .agg(
+               Papers=("SN", "nunique"),
+               Countries=("Country", lambda x: "; ".join(sorted(x.dropna().unique())))
+           )
+           .reset_index()
+           .sort_values("Papers", ascending=False)
+    )
+    author_summary["repeat"] = author_summary["Papers"] > 1
+    n_unique = len(author_summary)
+    n_repeat = author_summary["repeat"].sum()
+    print(f"   Unique authors: {n_unique}  |  Appearing in >1 paper: {n_repeat} ({100*n_repeat/n_unique:.1f}%)")
+    out_author_csv = os.path.join(OUT_DIR, "author_frequency.csv")
+    author_summary.to_csv(out_author_csv, index=False)
+    print("Saved:", out_author_csv)
 
     scope = "All" if TOP is None else f"Top {TOP}"
     mode  = "Unique Authors" if COUNT_UNIQUE_AUTHORS else "All Author Rows"
