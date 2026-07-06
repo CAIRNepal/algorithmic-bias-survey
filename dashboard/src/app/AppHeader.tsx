@@ -12,7 +12,7 @@ const AppHeader: React.FC = () => {
       <div className="flex items-center gap-4">
         <Image src={`${BASE_PATH}/logo-slogan.png`} alt="CAIR-NEPAL Logo" width={48} height={48} className="object-contain" unoptimized />
         <div>
-          <div className="text-2xl font-bold text-blue-800 leading-tight tracking-wider">Bias Research Dashboard</div>
+          <div className="text-2xl font-bold text-blue-800 leading-tight tracking-wider">Bias Atlas</div>
           <div className="text-xs text-gray-500">Empowering Fairness & Transparency in AI Research</div>
         </div>
       </div>
