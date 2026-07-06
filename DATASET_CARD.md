@@ -148,6 +148,8 @@ full-text content, but you should verify this is what you want.)*
 
 ### Citation Information
 
+If citing the paper:
+
 ```bibtex
 @article{shrestha_whose_fairness,
   title   = {Whose fairness? Structural concentration in AI bias research},
@@ -157,10 +159,26 @@ full-text content, but you should verify this is what you want.)*
 }
 ```
 
+If citing the dataset itself, use the archived Zenodo record (versioned,
+citable independently of the paper):
+
+```bibtex
+@dataset{shrestha_ai_bias_research_landscape,
+  title   = {AI Bias Research Landscape},
+  author  = {Shrestha, Abhash and Gautam, Subigya and Sapkota, Anu and Tiwari, Sanju and Chhetri, Tek Raj},
+  year    = {2026},
+  publisher = {Zenodo},
+  doi     = {10.5281/zenodo.21221283},
+  url     = {https://doi.org/10.5281/zenodo.21221283}
+}
+```
+
 ### Links
 
 - Interactive atlas / dashboard: https://biasatlas.cair-nepal.org
 - Code repository: https://github.com/CAIRNepal/biasatlas
+- Hugging Face dataset: https://huggingface.co/datasets/cair-nepal/ai-bias-research-landscape
+- Archived dataset (Zenodo, versioned DOI): https://doi.org/10.5281/zenodo.21221283
 
 ### Dataset Curators
 

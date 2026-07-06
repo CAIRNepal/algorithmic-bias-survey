@@ -229,7 +229,7 @@ Custom domain `biasatlas.cair-nepal.org` requires:
 ## Repo Info
 - Renamed to `CAIRNepal/biasatlas` — update remote if needed: `git remote set-url origin https://github.com/CAIRNepal/biasatlas.git`
 - Dataset uploaded to Hugging Face: `cair-nepal/ai-bias-research-landscape` (dataset card: `DATASET_CARD.md`)
-- Pending: upload dataset to Zenodo (https://zenodo.org/communities/cair-nepal)
+- Dataset archived on Zenodo: https://doi.org/10.5281/zenodo.21221283
 
 ## Gotchas (found the hard way)
 - **Anchor script output paths to the script's own location**

@@ -40,7 +40,7 @@ This work is part of [_**Bridging Minds and Machines: Human Perspectives and Res
 
 ## 📄 Citation
 
-If you use BiasAtlas or the underlying corpus, please cite:
+If you use BiasAtlas or the underlying corpus, please cite the paper:
 
 ```bibtex
 @article{shrestha_biasatlas,
@@ -50,6 +50,11 @@ If you use BiasAtlas or the underlying corpus, please cite:
   note    = {Interactive atlas: https://biasatlas.cair-nepal.org},
 }
 ```
+
+To cite the dataset itself (versioned, citable independently of the paper),
+use the archived Zenodo record: https://doi.org/10.5281/zenodo.21221283. The
+corpus is also available on Hugging Face:
+https://huggingface.co/datasets/cair-nepal/ai-bias-research-landscape
 
 ## Authors
 
