@@ -43,11 +43,15 @@ This work is part of [_**Bridging Minds and Machines: Human Perspectives and Res
 If you use BiasAtlas or the underlying corpus, please cite the paper:
 
 ```bibtex
-@article{shrestha_biasatlas,
-  title   = {Whose fairness? Structural concentration in AI bias research},
-  author  = {Shrestha, Abhash and Gautam, Subigya and Sapkota, Anu and Tiwari, Sanju and Chhetri, Tek Raj},
-  year    = {2026},
-  note    = {Interactive atlas: https://biasatlas.cair-nepal.org},
+@misc{shrestha2026fairnessstructuralconcentrationai,
+      title={Whose fairness? Structural concentration in AI bias research}, 
+      author={Abhash Shrestha and Subigya Gautam and Anu Sapkota and Sanju Tiwari and Tek Raj Chhetri},
+      year={2026},
+      eprint={2607.05574},
+      archivePrefix={arXiv},
+      primaryClass={cs.CY},
+      url={https://arxiv.org/abs/2607.05574}, 
+}
 }
 ```
 
